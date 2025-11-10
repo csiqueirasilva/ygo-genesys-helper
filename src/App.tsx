@@ -187,9 +187,19 @@ function App() {
   const activeCardDetails = focusedCard
     ? cardDetails[focusedCard.id] ?? pointCardInfo[focusedCard.name] ?? null
     : null;
-  const cardDesc = focusedCard ? (activeCardDetails?.desc ?? focusedCard.desc) : null;
+  const cardDesc = focusedCard ? activeCardDetails?.desc ?? focusedCard.desc : null;
+  const hasYgoProLink = Boolean(
+    focusedCard && (activeCardDetails?.ygoprodeckUrl || focusedCard.linkUrl),
+  );
   const cardLink = focusedCard
-    ? activeCardDetails?.ygoprodeckUrl ?? focusedCard.linkUrl ?? buildCardDbUrl(focusedCard.name)
+    ? hasYgoProLink
+      ? (activeCardDetails?.ygoprodeckUrl ?? focusedCard.linkUrl)!
+      : buildCardDbUrl(focusedCard.name)
+    : null;
+  const cardLinkLabel = focusedCard
+    ? hasYgoProLink
+      ? 'View in YGOProDeck ↗'
+      : `No information found. Search ${focusedCard.name} in Yu-Gi-Oh! DB ↗`
     : null;
 
   useEffect(() => {
@@ -867,14 +877,14 @@ function App() {
                   {activeCardDetails?.race ?? focusedCard.type ?? '—'}
                 </p>
                 <p className="modal-desc">{formatCardText(cardDesc ?? undefined)}</p>
-                {cardLink && (
+                {cardLink && cardLinkLabel && (
                   <a
                     className="modal-db-link"
-                    href={cardLink ?? buildCardDbUrl(focusedCard.name)}
+                    href={cardLink}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    View in YGOProDeck ↗
+                    {cardLinkLabel}
                   </a>
                 )}
                 <div className="modal-stats">
