@@ -581,8 +581,17 @@ export default function App() {
     setShowPointList(true);
   };
   const handleShowBlockedList = () => setShowBlockedList(true);
-  const handleBackToImport = () => setView('import');
+  const handleBackToImport = () => {
+    setShowChatAssistant(false);
+    setView('import');
+  };
   const handleViewResults = () => setView('results');
+
+  useEffect(() => {
+    if (view !== 'results') {
+      setShowChatAssistant(false);
+    }
+  }, [view]);
 
   const assistantContext = useMemo<AssistantDeckContext>(() => {
     const sanitize = (value?: string | null) => (value ?? '').replace(/\s+/g, ' ').trim();
@@ -673,39 +682,51 @@ export default function App() {
           </div>
         )}
       </main>
-
-      <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
-        <div
-          className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${
-            showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
-          }`}
-          aria-hidden={!showChatAssistant}
+      <footer className="mx-auto flex w-full max-w-6xl items-center justify-center px-4 pb-6 text-sm text-slate-400">
+        <a
+          href="https://github.com/csiqueirasilva/ygo-genesys-helper"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-2 text-cyan-200 hover:text-cyan-100 hover:underline"
         >
-          <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
-            <div className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-200/80">Assistant</div>
+          YGO Genesys Helper on GitHub (csiqueirasilva/ygo-genesys-helper)
+        </a>
+      </footer>
+
+      {view === 'results' && (
+        <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
+          <div
+            className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${
+              showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
+            }`}
+            aria-hidden={!showChatAssistant}
+          >
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
+              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-200/80">Assistant</div>
+              <button
+                type="button"
+                onClick={() => setShowChatAssistant(false)}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-lg text-slate-300 transition hover:border-white/40 hover:text-white"
+                aria-label="Close assistant"
+              >
+                ×
+              </button>
+            </div>
+            <div className="flex-1 overflow-hidden bg-slate-950/80">
+              <ChatKitPanel key={assistantContextKey} assistantContext={assistantContext} />
+            </div>
+          </div>
+          {!showChatAssistant && (
             <button
               type="button"
-              onClick={() => setShowChatAssistant(false)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-lg text-slate-300 transition hover:border-white/40 hover:text-white"
-              aria-label="Close assistant"
+              onClick={() => setShowChatAssistant(true)}
+              className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-900 shadow-lg hover:shadow-xl"
             >
-              ×
+              Assistant
             </button>
-          </div>
-          <div className="flex-1 overflow-hidden bg-slate-950/80">
-            <ChatKitPanel key={assistantContextKey} assistantContext={assistantContext} />
-          </div>
+          )}
         </div>
-        {!showChatAssistant && (
-          <button
-            type="button"
-            onClick={() => setShowChatAssistant(true)}
-            className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-900 shadow-lg hover:shadow-xl"
-          >
-            Assistant
-          </button>
-        )}
-      </div>
+      )}
 
       <Toaster position="bottom-center" toastOptions={{ className: 'font-semibold' }} richColors closeButton />
 
