@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import genesysPayload from './data/genesys-card-list.json';
-import { formatTimestamp, normalizeCardName } from './lib/strings.ts';
+import { normalizeCardName } from './lib/strings.ts';
 import { parseYdke, encodeDeckHash, decodeDeckHash, getDeckSize } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds } from './lib/ygoprodeck.ts';
 import type { CardDetails, DeckCardGroup, DeckGroups, DeckSection, GenesysCard, GenesysPayload } from './types.ts';
-import './App.css';
+import { ImportScreen } from './components/ImportScreen.tsx';
+import { SummaryPanel } from './components/SummaryPanel.tsx';
+import { CardSections } from './components/CardSections.tsx';
+import { Toaster, toast } from 'sonner';
 
 const DEFAULT_POINT_CAP = 100;
 const genesysData = genesysPayload as GenesysPayload;
@@ -204,32 +207,6 @@ function App() {
       : `No information found. Search ${focusedCard.name} in Yu-Gi-Oh! DB ↗`
     : null;
 
-  useEffect(() => {
-    if (!focusedCard && !showBlockedList && !showPointList) {
-      return;
-    }
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') {
-        return;
-      }
-      if (focusedCard) {
-        setFocusedCard(null);
-        return;
-      }
-      if (showBlockedList) {
-        setShowBlockedList(false);
-        return;
-      }
-      if (showPointList) {
-        setShowPointList(false);
-      }
-    };
-
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [focusedCard, showBlockedList, showPointList]);
-
   const handleCardFocus = (card: DeckCardGroup) => {
     setFocusedCard(card);
   };
@@ -351,13 +328,28 @@ function App() {
     return false;
   }, [focusedCard, showBlockedList, showPointList]);
 
-  const requestCloseTopModal = () => {
+  const requestCloseTopModal = useCallback(() => {
     if (modalDepthRef.current > 0) {
       window.history.back();
     } else {
       closeTopModal();
     }
-  };
+  }, [closeTopModal]);
+
+  useEffect(() => {
+    if (!focusedCard && !showBlockedList && !showPointList) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        requestCloseTopModal();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [focusedCard, showBlockedList, showPointList, requestCloseTopModal]);
 
   useEffect(() => {
     if (!showPointList) {
@@ -414,16 +406,6 @@ function App() {
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
   }, [closeTopModal]);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && modalDepthRef.current > 0) {
-        window.history.back();
-      }
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, []);
 
   const formatCardText = (text?: string) => {
     if (!text) {
@@ -494,6 +476,14 @@ function App() {
 
   const cardsOverCap = pointCap > 0 && totalPoints > pointCap;
   const totalCards = getDeckSize(deck ?? undefined);
+  const cardBreakdown = useMemo(
+    () => ({
+      main: deck?.main.length ?? 0,
+      extra: deck?.extra.length ?? 0,
+      side: deck?.side.length ?? 0,
+    }),
+    [deck],
+  );
 
   const unknownCards = useMemo(() => {
     if (!deckGroups) {
@@ -543,312 +533,167 @@ function App() {
     try {
       await navigator.clipboard.writeText(shareUrl);
       setShareStatus('copied');
+      toast.success('Deck link copied to clipboard');
       setTimeout(() => setShareStatus('idle'), 2500);
     } catch (error) {
       console.warn('Clipboard unavailable', error);
       setShareStatus('error');
+      toast.error('Clipboard unavailable. Copy manually.');
     }
   };
 
-  const formatZoneTitle = (zone: DeckSection) => {
-    const label = zone === 'main' ? 'Main Deck' : zone === 'extra' ? 'Extra Deck' : 'Side Deck';
-    const cardCount =
-      deckGroups?.[zone].reduce((sum, card) => sum + card.count, 0) ?? 0;
-    return `${label} · ${cardCount} cards`;
+  const hasDeck = Boolean(deck);
+  const pointsRemaining = pointCap - totalPoints;
+  const handlePointCapChange = (value: number) => setPointCap(value);
+  const handleBrowsePointList = () => {
+    setFocusedCard(null);
+    setPointSearch('');
+    setShowPointList(true);
   };
-
-  const renderImportScreen = () => (
-    <div className="screen import-screen">
-      <header className="hero compact">
-        <div>
-          <p className="eyebrow">Yu-Gi-Oh! Genesys</p>
-          <h1>Genesys helper</h1>
-          <p className="subtitle">
-            Paste your YDKE link, get instant point totals, see which cards consume the most points,
-            and share your build with a single link.
-          </p>
-          <div className="hero-links">
-            <a href="https://www.yugioh-card.com/en/genesys/" target="_blank" rel="noreferrer">
-              Official Genesys list
-            </a>
-          </div>
-        </div>
-        <div className="list-meta">
-          <p>Genesys list last updated</p>
-          <strong>{formatTimestamp(genesysData.lastUpdated)}</strong>
-          <span>{genesysData.cards.length} tracked cards</span>
-        </div>
-      </header>
-
-      <section className="panel input-panel compact">
-        <div className="panel-header">
-          <h2>1. Paste your YDKE deck</h2>
-          <span>Example: ydke://AAA..!BBB..!CCC!</span>
-        </div>
-        <textarea
-          spellCheck={false}
-          placeholder="ydke://..."
-          value={deckInput}
-          onChange={(event) => setDeckInput(event.target.value)}
-        />
-        {deckError && <p className="feedback error">{deckError}</p>}
-        {!deckError && !deck && (
-          <p className="feedback muted">Your point breakdown will appear as soon as we detect a valid YDKE link.</p>
-        )}
-
-        <div className="import-actions">
-          <button className="primary" disabled={!deck || Boolean(deckError)} onClick={() => setView('results')}>
-            View point breakdown
-          </button>
-          <small>Requires a valid YDKE link.</small>
-        </div>
-      </section>
-    </div>
-  );
-
-  const renderResultsScreen = () => (
-    <div className="screen results-screen">
-      <section className="panel summary-panel compact">
-        <div className="results-header">
-          <button className="ghost" onClick={() => setView('import')}>
-            ← Back to import deck
-          </button>
-          <div className="inline-controls">
-            <div className="inline-controls-row">
-              <label className="control skinny">
-                <span>Point cap</span>
-                <input
-                  type="number"
-                  min={0}
-                  max={500}
-                  value={pointCap}
-                  onChange={(event) => setPointCap(Number(event.target.value) || 0)}
-                />
-              </label>
-              <label className="control share">
-                <span>Shareable link</span>
-                <div className="share-control slim">
-                  <input type="text" value={shareUrl} readOnly placeholder="Available after a valid deck" />
-                  <button disabled={!shareUrl} onClick={handleCopyShareLink}>
-                    {shareStatus === 'copied' ? 'Copied!' : 'Copy link'}
-                  </button>
-                </div>
-                {shareStatus === 'error' && (
-                  <small className="feedback error">Clipboard is unavailable. Copy the link manually.</small>
-                )}
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div className="summary-grid compact">
-          <div className="summary-card">
-            <span>Total points</span>
-            <strong className={cardsOverCap ? 'warn' : ''}>{totalPoints}</strong>
-          </div>
-          <div className="summary-card">
-            <span>Total cards</span>
-            <strong>{totalCards}</strong>
-          </div>
-        </div>
-        <div className="point-list-cta">
-          <button
-            className="ghost"
-            type="button"
-            onClick={() => {
-              setFocusedCard(null);
-              setPointSearch('');
-              setShowPointList(true);
-            }}
-          >
-            Browse full Genesys point list
-          </button>
-        </div>
-        {pointCap > 0 && (
-          <p className={`feedback ${cardsOverCap ? 'error' : 'success'}`}>
-            {cardsOverCap
-              ? `You are ${totalPoints - pointCap} points over your cap.`
-              : `You have ${pointCap - totalPoints} points remaining.`}
-          </p>
-        )}
-        {unknownCards > 0 && (
-          <p className="feedback warning">
-            {unknownCards} card{unknownCards > 1 ? 's are' : ' is'} not on the current Genesys list, so they cost 0
-            points by default.
-          </p>
-        )}
-        {blockedCards.length > 0 && (
-          <p className="feedback error clickable" onClick={() => setShowBlockedList(true)}>
-            {blockedCards.length} card{blockedCards.length > 1 ? 's are' : ' is'} not allowed in Genesys (Link/Pendulum). View
-            details.
-          </p>
-        )}
-        {cardError && <p className="feedback error">{cardError}</p>}
-        {isFetchingCards && <p className="feedback muted">Loading card details…</p>}
-      </section>
-
-      <section className="panel cards-panel scrollable">
-        <div className="card-scroll">
-          {deckGroups ? (
-            (['main', 'extra', 'side'] as DeckSection[]).map((zone) => (
-              <div key={zone} className="card-section">
-                <div className="section-header">
-                  <h3>{formatZoneTitle(zone)}</h3>
-                  <span>
-                    {deckGroups[zone].reduce((sum, card) => sum + card.totalPoints, 0)} pts ·{' '}
-                    {deckGroups[zone].reduce((sum, card) => sum + (card.notInList ? card.count : 0), 0)} off-list
-                  </span>
-                </div>
-                {deckGroups[zone].length === 0 ? (
-                  <p className="feedback muted">No cards in this section.</p>
-                ) : (
-                  <ul className="card-grid">
-                    {deckGroups[zone].map((card) => (
-                      <li key={`${zone}-${card.id}`} className="card">
-                        <button type="button" className="card-image" onClick={() => handleCardFocus(card)}>
-                          {card.image ? (
-                            <img src={card.image} alt={card.name} loading="lazy" />
-                          ) : (
-                            <div className="card-placeholder">No art</div>
-                          )}
-                        </button>
-                        <div className="card-body">
-                          <div className="card-title">
-                            <button type="button" className="card-name" onClick={() => handleCardFocus(card)}>
-                              <strong>{card.name}</strong>
-                            </button>
-                            <span>×{card.count}</span>
-                          </div>
-                          <div className="card-meta">
-                            <span>{card.type ?? '—'}</span>
-                            {card.notInList ? (
-                              <span className="tag neutral">0 pts (not listed)</span>
-                            ) : (
-                              <span className="tag">{card.pointsPerCopy} pts each</span>
-                            )}
-                          </div>
-                          <div className="card-points">
-                            <span>Total</span>
-                            <strong>{card.totalPoints} pts</strong>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))
-          ) : (
-            <div className="empty-list">
-              <p>Paste a deck to unlock card-by-card insights, images, and point totals.</p>
-            </div>
-          )}
-        </div>
-      </section>
-    </div>
-  );
+  const handleShowBlockedList = () => setShowBlockedList(true);
+  const handleBackToImport = () => setView('import');
+  const handleViewResults = () => setView('results');
 
   return (
-    <div className="app">
-      {view === 'import' ? renderImportScreen() : renderResultsScreen()}
-      {showPointList && (
-        <div className="modal-overlay" onClick={requestCloseTopModal}>
-          <div
-            className="modal-card list-modal"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
-          >
-            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close point list">
-              ×
-            </button>
-            <div className="list-modal-header">
-              <div>
-                <p className="eyebrow">Genesys</p>
-                <h2>Point list</h2>
-                <p className="modal-meta">{genesysData.cards.filter((card) => card.points > 0).length} cards with point values</p>
+    <div className="min-h-screen bg-canvas text-slate-50">
+      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-1 py-1 md:px-8">
+        {view === 'import' ? (
+          <ImportScreen
+            genesysData={genesysData}
+            deckInput={deckInput}
+            deckError={deckError}
+            hasDeck={hasDeck}
+            onDeckInputChange={setDeckInput}
+            onViewBreakdown={handleViewResults}
+          />
+        ) : (
+          <div className="flex h-full flex-col gap-4">
+            <div className="sticky top-2 z-30 md:top-4">
+              <SummaryPanel
+                pointCap={pointCap}
+                totalPoints={totalPoints}
+                totalCards={totalCards}
+                cardBreakdown={cardBreakdown}
+                cardsOverCap={cardsOverCap}
+                pointsRemaining={pointsRemaining}
+                shareUrl={shareUrl}
+                shareStatus={shareStatus}
+                unknownCards={unknownCards}
+                blockedCount={blockedCards.length}
+                cardError={cardError}
+                isFetchingCards={isFetchingCards}
+                onPointCapChange={handlePointCapChange}
+                onCopyShareLink={handleCopyShareLink}
+                onBrowsePointList={handleBrowsePointList}
+                onShowBlocked={handleShowBlockedList}
+                onBack={handleBackToImport}
+              />
+            </div>
+            <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
+              <div className="flex-1 overflow-y-auto pr-2">
+                <CardSections deckGroups={deckGroups} onCardSelect={handleCardFocus} />
               </div>
-                <div className="point-list-controls">
-                  <div className="point-list-search">
-                    <label>
-                      <span>Text search</span>
-                      <input
-                        type="text"
-                        placeholder="Search card name or text"
-                        value={pointSearch}
-                        onChange={(event) => setPointSearch(event.target.value)}
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter') {
-                            commitPointFilters();
-                          }
-                        }}
-                      />
-                    </label>
-                    {pointSearch && (
-                      <button type="button" onClick={() => setPointSearch('')} aria-label="Clear search">
-                        ×
-                      </button>
+            </section>
+          </div>
+        )}
+      </main>
+
+      <Toaster position="bottom-center" toastOptions={{ className: 'font-semibold' }} richColors closeButton />
+
+      {showPointList && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={requestCloseTopModal}>
+          <div
+            className="flex max-h-[90vh] w-full max-w-3xl flex-col space-y-4 overflow-hidden rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Genesys</p>
+                <h2 className="text-2xl font-semibold">Point list</h2>
+                <p className="text-sm text-slate-400">
+                  {genesysData.cards.filter((card) => card.points > 0).length} cards with point values
+                </p>
+              </div>
+              <button className="text-2xl text-slate-300 hover:text-white" onClick={requestCloseTopModal} aria-label="Close point list">
+                ×
+              </button>
+            </div>
+            <div className="flex flex-col gap-3 md:flex-row md:items-end">
+              <label className="flex-1 text-sm text-slate-200 space-y-1">
+                <span>Text search</span>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Search card name or text"
+                    value={pointSearch}
+                    onChange={(event) => setPointSearch(event.target.value)}
+                    onKeyDown={(event) => event.key === 'Enter' && commitPointFilters()}
+                    className="flex-1 rounded-2xl border border-white/15 bg-black/30 px-3 py-2 text-sm"
+                  />
+                  {pointSearch && (
+                    <button
+                      type="button"
+                      onClick={() => setPointSearch('')}
+                      aria-label="Clear search"
+                      className="rounded-full border border-white/20 px-3"
+                    >
+                      ×
+                    </button>
                   )}
                 </div>
-                <div className="point-range-controls">
-                  <label>
-                    <span>Min pts</span>
-                    <input
-                      type="number"
-                      min={1}
-                      max={100}
-                      value={pendingPointMin}
-                      onChange={(event) => {
-                        setPendingPointMin(Number(event.target.value));
-                      }}
-                      onBlur={commitPointFilters}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter') {
-                          commitPointFilters();
-                        }
-                      }}
-                    />
-                  </label>
-                  <label>
-                    <span>Max pts</span>
-                    <input
-                      type="number"
-                      min={1}
-                      max={100}
-                      value={pendingPointMax}
-                      onChange={(event) => {
-                        setPendingPointMax(Number(event.target.value));
-                      }}
-                      onBlur={commitPointFilters}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter') {
-                          commitPointFilters();
-                        }
-                      }}
-                    />
-                  </label>
-                </div>
+              </label>
+              <div className="flex flex-1 gap-3">
+                <label className="flex flex-col text-xs text-slate-300">
+                  <span>Min pts</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={100}
+                    value={pendingPointMin}
+                    onChange={(event) => setPendingPointMin(Number(event.target.value))}
+                    onBlur={commitPointFilters}
+                    onKeyDown={(event) => event.key === 'Enter' && commitPointFilters()}
+                    className="mt-1 rounded-2xl border border-white/15 bg-black/30 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="flex flex-col text-xs text-slate-300">
+                  <span>Max pts</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={100}
+                    value={pendingPointMax}
+                    onChange={(event) => setPendingPointMax(Number(event.target.value))}
+                    onBlur={commitPointFilters}
+                    onKeyDown={(event) => event.key === 'Enter' && commitPointFilters()}
+                    className="mt-1 rounded-2xl border border-white/15 bg-black/30 px-3 py-2 text-sm"
+                  />
+                </label>
               </div>
             </div>
-            <div className="point-list" ref={pointListRef}>
+            <div ref={pointListRef} className="flex-1 overflow-y-auto pr-2">
               {filteredPointCards.length === 0 ? (
-                <p className="feedback muted">No cards found.</p>
+                <p className="text-sm text-slate-400">No cards found.</p>
               ) : (
-                <ul>
+                <ul className="divide-y divide-white/5">
                   {visiblePointCards.map((card, index) => (
                     <li key={`${card.name}-${index}`}>
-                      <button type="button" onClick={() => handlePointCardClick(card)}>
-                        <div className="point-card-thumb">
+                      <button
+                        type="button"
+                        onClick={() => handlePointCardClick(card)}
+                        className="flex w-full items-center gap-3 px-2 py-3 text-left hover:bg-white/5"
+                      >
+                        <div className="h-16 w-10 overflow-hidden rounded-md border border-white/10 bg-black/30">
                           {pointCardInfo[card.name]?.image ? (
-                            <img src={pointCardInfo[card.name]?.image} alt="" />
+                            <img src={pointCardInfo[card.name]?.image} alt="" className="h-full w-full object-cover" />
                           ) : (
-                            <div className="card-placeholder small">No art</div>
+                            <div className="flex h-full w-full items-center justify-center text-[10px] text-slate-400">No art</div>
                           )}
                         </div>
-                        <div className="point-card-meta">
-                          <span>{card.name}</span>
-                          <strong>{card.points} pts</strong>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-white">{card.name}</p>
                         </div>
+                        <strong className="text-sm text-slate-200">{card.points} pts</strong>
                       </button>
                     </li>
                   ))}
@@ -858,42 +703,45 @@ function App() {
           </div>
         </div>
       )}
+
       {showBlockedList && (
-        <div className="modal-overlay" onClick={requestCloseTopModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={requestCloseTopModal}>
           <div
-            className="modal-card list-modal"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
+            className="flex max-h-[90vh] w-full max-w-2xl flex-col space-y-4 overflow-hidden rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel"
+            onClick={(event) => event.stopPropagation()}
           >
-            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close blocked list">
-              ×
-            </button>
-            <div className="list-modal-header">
+            <div className="flex items-start justify-between">
               <div>
-                <p className="eyebrow">Genesys</p>
-                <h2>Not allowed</h2>
-                <p className="modal-meta">Cards below are not allowed in Genesys and were not added to the point list.</p>
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Genesys</p>
+                <h2 className="text-2xl font-semibold">Not allowed</h2>
+                <p className="text-sm text-slate-400">Cards below are not allowed in Genesys and were not added to the point list.</p>
               </div>
+              <button className="text-2xl text-slate-300 hover:text-white" onClick={requestCloseTopModal} aria-label="Close blocked list">
+                ×
+              </button>
             </div>
-            <div className="point-list">
+            <div className="flex-1 overflow-y-auto pr-2">
               {blockedCards.length === 0 ? (
-                <p className="feedback muted">No blocked cards.</p>
+                <p className="text-sm text-slate-400">No blocked cards.</p>
               ) : (
-                <ul>
+                <ul className="divide-y divide-white/5">
                   {blockedCards.map((card, index) => (
                     <li key={`blocked-${card.name}-${index}`}>
-                      <button type="button" onClick={() => handleCardFocus(card)}>
-                        <div className="point-card-thumb">
+                      <button
+                        type="button"
+                        onClick={() => handleCardFocus(card)}
+                        className="flex w-full items-center gap-3 px-2 py-3 text-left hover:bg-white/5"
+                      >
+                        <div className="h-16 w-10 overflow-hidden rounded-md border border-white/10 bg-black/30">
                           {card.image ? (
-                            <img src={card.image} alt="" />
+                            <img src={card.image} alt="" className="h-full w-full object-cover" />
                           ) : (
-                            <div className="card-placeholder small">No art</div>
+                            <div className="flex h-full w-full items-center justify-center text-[10px] text-slate-400">No art</div>
                           )}
                         </div>
-                        <div className="point-card-meta">
-                          <span>{card.name}</span>
-                          <strong>{card.type ?? 'Unknown'}</strong>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-white">{card.name}</p>
+                          <p className="text-xs text-slate-400">{card.type ?? 'Unknown'}</p>
                         </div>
                       </button>
                     </li>
@@ -904,55 +752,53 @@ function App() {
           </div>
         </div>
       )}
+
       {focusedCard && (
-        <div className="modal-overlay" onClick={requestCloseTopModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={requestCloseTopModal}>
           <div
-            className="modal-card"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
+            className="flex max-h-[90vh] w-full max-w-2xl flex-col space-y-4 overflow-y-auto rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel touch-pan-y"
+            onClick={(event) => event.stopPropagation()}
           >
-            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close card details">
-              ×
-            </button>
-            <div className="modal-content">
-              <div className="modal-image">
+            <div className="flex justify-between text-2xl text-slate-300">
+              <span />
+              <button onClick={requestCloseTopModal} aria-label="Close card details">
+                ×
+              </button>
+            </div>
+            <div className="flex flex-col gap-4 md:flex-row">
+              <div className="mx-auto w-52 overflow-hidden rounded-2xl border border-white/10 bg-black/30">
                 {activeCardDetails?.image || focusedCard.image ? (
-                  <img src={activeCardDetails?.image ?? focusedCard.image} alt={focusedCard.name} />
+                  <img src={activeCardDetails?.image ?? focusedCard.image} alt={focusedCard.name} className="w-full object-cover" />
                 ) : (
-                  <div className="card-placeholder">No art</div>
+                  <div className="flex h-72 items-center justify-center text-sm text-slate-400">No art</div>
                 )}
               </div>
-              <div className="modal-info">
-                <p className="eyebrow">{focusedCard.zone === 'main' ? 'Main Deck' : focusedCard.zone === 'extra' ? 'Extra Deck' : 'Side Deck'}</p>
-                <h2>{focusedCard.name}</h2>
-                <p className="modal-meta">
-                  {activeCardDetails?.type ?? focusedCard.type ?? 'Unknown'} ·{' '}
-                  {activeCardDetails?.race ?? focusedCard.type ?? '—'}
+              <div className="flex-1 space-y-3">
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">
+                  {focusedCard.zone === 'main' ? 'Main Deck' : focusedCard.zone === 'extra' ? 'Extra Deck' : 'Side Deck'}
                 </p>
-                <p className="modal-desc">{formatCardText(cardDesc ?? undefined)}</p>
+                <h2 className="text-2xl font-semibold">{focusedCard.name}</h2>
+                <p className="text-sm text-slate-400">
+                  {activeCardDetails?.type ?? focusedCard.type ?? 'Unknown'} · {activeCardDetails?.race ?? focusedCard.type ?? '—'}
+                </p>
+                <p className="text-sm text-slate-200 leading-relaxed">{formatCardText(cardDesc ?? undefined)}</p>
                 {cardLink && cardLinkLabel && (
-                  <a
-                    className="modal-db-link"
-                    href={cardLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a className="text-sm font-semibold text-cyan-300 hover:underline" href={cardLink} target="_blank" rel="noreferrer">
                     {cardLinkLabel}
                   </a>
                 )}
-                <div className="modal-stats">
-                  <div>
-                    <span>Copies</span>
-                    <strong>×{focusedCard.count}</strong>
+                <div className="grid grid-cols-3 gap-3 text-sm">
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                    <p className="text-xs text-slate-400">Copies</p>
+                    <p className="text-lg font-semibold text-white">×{focusedCard.count}</p>
                   </div>
-                  <div>
-                    <span>Points per copy</span>
-                    <strong>{focusedCard.pointsPerCopy}</strong>
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                    <p className="text-xs text-slate-400">Points/copy</p>
+                    <p className="text-lg font-semibold text-white">{focusedCard.pointsPerCopy}</p>
                   </div>
-                  <div>
-                    <span>Total points</span>
-                    <strong>{focusedCard.totalPoints}</strong>
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                    <p className="text-xs text-slate-400">Total pts</p>
+                    <p className="text-lg font-semibold text-white">{focusedCard.totalPoints}</p>
                   </div>
                 </div>
               </div>
