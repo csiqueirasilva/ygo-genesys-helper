@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import genesysPayload from './data/genesys-card-list.json';
 import { normalizeCardName } from './lib/strings.ts';
-import { parseYdke, encodeDeckHash, decodeDeckHash, getDeckSize } from './lib/ydke.ts';
+import { parseYdke, encodeDeckHash, decodeDeckHash } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds } from './lib/ygoprodeck.ts';
 import type { CardDetails, DeckCardGroup, DeckGroups, DeckSection, GenesysCard, GenesysPayload } from './types.ts';
 import { ImportScreen } from './components/ImportScreen.tsx';
@@ -475,7 +475,6 @@ function App() {
   }, [deckGroups]);
 
   const cardsOverCap = pointCap > 0 && totalPoints > pointCap;
-  const totalCards = getDeckSize(deck ?? undefined);
   const cardBreakdown = useMemo(
     () => ({
       main: deck?.main.length ?? 0,
@@ -572,7 +571,6 @@ function App() {
               <SummaryPanel
                 pointCap={pointCap}
                 totalPoints={totalPoints}
-                totalCards={totalCards}
                 cardBreakdown={cardBreakdown}
                 cardsOverCap={cardsOverCap}
                 pointsRemaining={pointsRemaining}

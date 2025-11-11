@@ -38,7 +38,6 @@ interface CardBreakdown {
 interface SummaryPanelProps {
   pointCap: number;
   totalPoints: number;
-  totalCards: number;
   cardBreakdown: CardBreakdown;
   cardsOverCap: boolean;
   pointsRemaining: number;
@@ -58,7 +57,6 @@ interface SummaryPanelProps {
 export function SummaryPanel({
   pointCap,
   totalPoints,
-  totalCards,
   cardBreakdown,
   cardsOverCap,
   pointsRemaining,
