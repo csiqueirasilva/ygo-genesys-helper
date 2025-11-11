@@ -70,7 +70,7 @@ export function SummaryPanel({
   onCopyShareLink,
   onBrowsePointList,
   onShowBlocked,
-  onBack,
+  onBack
 }: SummaryPanelProps) {
   const capLabel = pointCap > 0 ? `${pointCap}` : 'No cap';
   const mobileStatusLabel = cardsOverCap ? 'Over cap' : 'Within cap';

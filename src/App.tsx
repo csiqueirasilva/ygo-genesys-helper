@@ -3,15 +3,32 @@ import genesysPayload from './data/genesys-card-list.json';
 import { normalizeCardName } from './lib/strings.ts';
 import { parseYdke, encodeDeckHash, decodeDeckHash } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds } from './lib/ygoprodeck.ts';
-import type { CardDetails, DeckCardGroup, DeckGroups, DeckSection, GenesysCard, GenesysPayload } from './types.ts';
+import type {
+  AssistantDeckContext,
+  CardDetails,
+  DeckCardGroup,
+  DeckGroups,
+  DeckSection,
+  GenesysCard,
+  GenesysPayload,
+} from './types.ts';
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
+import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { Toaster, toast } from 'sonner';
 
 const DEFAULT_POINT_CAP = 100;
 const genesysData = genesysPayload as GenesysPayload;
 type View = 'import' | 'results';
+
+const hashString = (value: string) => {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) | 0;
+  }
+  return hash.toString(36);
+};
 
 const buildCardDbUrl = (name: string) => {
   const params = new URLSearchParams({
@@ -46,7 +63,7 @@ const buildCardDbUrl = (name: string) => {
   return `https://www.db.yugioh-card.com/yugiohdb/card_search.action?${params.toString()}`;
 };
 
-function App() {
+export default function App() {
   const [deckInput, setDeckInput] = useState('');
   const [pointCap, setPointCap] = useState(DEFAULT_POINT_CAP);
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied' | 'error'>('idle');
@@ -66,12 +83,13 @@ function App() {
   const [view, setView] = useState<View>('import');
   const modalDepthRef = useRef(0);
   const prevModalDepthRef = useRef(0);
+  const [showChatAssistant, setShowChatAssistant] = useState(false);
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
-    }
+}
 
     const loadFromHash = () => {
       const hash = window.location.hash.replace(/^#/, '');
@@ -326,7 +344,7 @@ function App() {
       return true;
     }
     return false;
-  }, [focusedCard, showBlockedList, showPointList]);
+  }, [focusedCard, showChatAssistant, showBlockedList, showPointList]);
 
   const requestCloseTopModal = useCallback(() => {
     if (modalDepthRef.current > 0) {
@@ -350,6 +368,19 @@ function App() {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [focusedCard, showBlockedList, showPointList, requestCloseTopModal]);
+
+  useEffect(() => {
+    if (!showChatAssistant) {
+      return;
+    }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowChatAssistant(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [showChatAssistant]);
 
   useEffect(() => {
     if (!showPointList) {
@@ -553,6 +584,53 @@ function App() {
   const handleBackToImport = () => setView('import');
   const handleViewResults = () => setView('results');
 
+  const assistantContext = useMemo<AssistantDeckContext>(() => {
+    const sanitize = (value?: string | null) => (value ?? '').replace(/\s+/g, ' ').trim();
+
+    const deckCards = deckGroups
+      ? [...deckGroups.main, ...deckGroups.extra, ...deckGroups.side]
+      : [];
+
+    const deckCardsString = deckCards.length
+      ? deckCards
+          .map((card) => {
+            const details = [
+              `id=${card.id}`,
+              `name=${card.name}`,
+              `zone=${card.zone}`,
+              `count=${card.count}`,
+              `type=${card.type ?? 'Unknown'}`,
+              `description=${sanitize(card.desc) || 'None'}`,
+              `points_per_copy=${card.pointsPerCopy}`,
+              `total_points=${card.totalPoints}`,
+            ];
+            return details.join(' | ');
+          })
+          .join('\n')
+      : 'No cards provided.';
+
+    const cardPointListString = genesysData.cards
+      .map((card) => `${card.name}: ${card.points}`)
+      .join('\n');
+
+    return {
+      points_cap: pointCap,
+      total_points: totalPoints,
+      points_remaining: pointsRemaining,
+      deck_goal: '',
+      deck_cards: deckCardsString,
+      card_point_list: cardPointListString,
+      notes: cardError ?? '',
+    };
+  }, [deckGroups, pointCap, pointsRemaining, totalPoints, cardError]);
+
+  const assistantContextString = useMemo(() => JSON.stringify(assistantContext), [assistantContext]);
+
+  const assistantContextKey = useMemo(
+    () => `assistant-${assistantContextString.length}-${hashString(assistantContextString)}`,
+    [assistantContextString],
+  );
+
   return (
     <div className="min-h-screen bg-canvas text-slate-50">
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-1 py-1 md:px-8">
@@ -595,6 +673,39 @@ function App() {
           </div>
         )}
       </main>
+
+      <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
+        <div
+          className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${
+            showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
+          }`}
+          aria-hidden={!showChatAssistant}
+        >
+          <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
+            <div className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-200/80">Assistant</div>
+            <button
+              type="button"
+              onClick={() => setShowChatAssistant(false)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-lg text-slate-300 transition hover:border-white/40 hover:text-white"
+              aria-label="Close assistant"
+            >
+              ×
+            </button>
+          </div>
+          <div className="flex-1 overflow-hidden bg-slate-950/80">
+            <ChatKitPanel key={assistantContextKey} assistantContext={assistantContext} />
+          </div>
+        </div>
+        {!showChatAssistant && (
+          <button
+            type="button"
+            onClick={() => setShowChatAssistant(true)}
+            className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-900 shadow-lg hover:shadow-xl"
+          >
+            Assistant
+          </button>
+        )}
+      </div>
 
       <Toaster position="bottom-center" toastOptions={{ className: 'font-semibold' }} richColors closeButton />
 
@@ -807,5 +918,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

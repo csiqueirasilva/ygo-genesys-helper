@@ -41,3 +41,13 @@ export interface DeckCardGroup {
   missingInfo: boolean;
   notInList: boolean;
 }
+
+export interface AssistantDeckContext {
+  points_cap: number;
+  total_points: number;
+  points_remaining: number;
+  deck_goal: string;
+  deck_cards: string;
+  card_point_list: string;
+  notes: string;
+}

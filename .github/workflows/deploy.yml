@@ -12,6 +12,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     permissions:
       contents: read
       pages: write
@@ -22,6 +24,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Create env file
+        run: |
+          cat <<EOF > .env
+          VITE_CHATKIT_SESSION_URL=${{ secrets.VITE_CHATKIT_SESSION_URL }}
+          VITE_CHATKIT_WORKFLOW_ID=${{ secrets.VITE_CHATKIT_WORKFLOW_ID }}
+          EOF
       - run: npm ci
       - name: Refresh Genesys data
         run: npm run update-card-list
