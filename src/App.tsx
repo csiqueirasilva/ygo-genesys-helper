@@ -61,6 +61,8 @@ function App() {
   const pointInfoLoading = useRef(new Set<string>());
   const pointListRef = useRef<HTMLDivElement | null>(null);
   const [view, setView] = useState<View>('import');
+  const modalDepthRef = useRef(0);
+  const prevModalDepthRef = useRef(0);
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
@@ -331,6 +333,32 @@ function App() {
     setPointListLimit(40);
   }, [pointSearch, showPointList, pointMin, pointMax]);
 
+  const modalDepth = Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0);
+
+  const closeTopModal = useCallback(() => {
+    if (focusedCard) {
+      setFocusedCard(null);
+      return true;
+    }
+    if (showBlockedList) {
+      setShowBlockedList(false);
+      return true;
+    }
+    if (showPointList) {
+      setShowPointList(false);
+      return true;
+    }
+    return false;
+  }, [focusedCard, showBlockedList, showPointList]);
+
+  const requestCloseTopModal = () => {
+    if (modalDepthRef.current > 0) {
+      window.history.back();
+    } else {
+      closeTopModal();
+    }
+  };
+
   useEffect(() => {
     if (!showPointList) {
       return;
@@ -370,6 +398,32 @@ function App() {
       setPointListLimit((limit) => Math.min(limit + 40, filteredPointCards.length));
     }
   }, [showPointList, pointListLimit, filteredPointCards.length]);
+
+  useEffect(() => {
+    if (modalDepth > prevModalDepthRef.current) {
+      window.history.pushState({ modal: 'overlay' }, '', window.location.href);
+    }
+    modalDepthRef.current = modalDepth;
+    prevModalDepthRef.current = modalDepth;
+  }, [modalDepth]);
+
+  useEffect(() => {
+    const handlePop = () => {
+      closeTopModal();
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, [closeTopModal]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && modalDepthRef.current > 0) {
+        window.history.back();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   const formatCardText = (text?: string) => {
     if (!text) {
@@ -698,14 +752,14 @@ function App() {
     <div className="app">
       {view === 'import' ? renderImportScreen() : renderResultsScreen()}
       {showPointList && (
-        <div className="modal-overlay" onClick={() => setShowPointList(false)}>
+        <div className="modal-overlay" onClick={requestCloseTopModal}>
           <div
             className="modal-card list-modal"
             onClick={(event) => {
               event.stopPropagation();
             }}
           >
-            <button className="modal-close" onClick={() => setShowPointList(false)} aria-label="Close point list">
+            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close point list">
               ×
             </button>
             <div className="list-modal-header">
@@ -805,14 +859,14 @@ function App() {
         </div>
       )}
       {showBlockedList && (
-        <div className="modal-overlay" onClick={() => setShowBlockedList(false)}>
+        <div className="modal-overlay" onClick={requestCloseTopModal}>
           <div
             className="modal-card list-modal"
             onClick={(event) => {
               event.stopPropagation();
             }}
           >
-            <button className="modal-close" onClick={() => setShowBlockedList(false)} aria-label="Close blocked list">
+            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close blocked list">
               ×
             </button>
             <div className="list-modal-header">
@@ -851,14 +905,14 @@ function App() {
         </div>
       )}
       {focusedCard && (
-        <div className="modal-overlay" onClick={() => setFocusedCard(null)}>
+        <div className="modal-overlay" onClick={requestCloseTopModal}>
           <div
             className="modal-card"
             onClick={(event) => {
               event.stopPropagation();
             }}
           >
-            <button className="modal-close" onClick={() => setFocusedCard(null)} aria-label="Close card details">
+            <button className="modal-close" onClick={requestCloseTopModal} aria-label="Close card details">
               ×
             </button>
             <div className="modal-content">

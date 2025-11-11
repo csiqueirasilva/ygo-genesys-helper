@@ -579,6 +579,8 @@ textarea:focus {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
   position: relative;
   padding: 1.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-card.list-modal {
@@ -825,6 +827,38 @@ textarea:focus {
   margin-top: 0.2rem;
 }
 
+@media (max-width: 640px) {
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .modal-card {
+    width: 100%;
+    max-height: calc(100vh - 1.5rem);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-image {
+    width: 70%;
+    max-width: 280px;
+  }
+
+  .modal-info {
+    width: 100%;
+  }
+
+  .modal-stats {
+    flex-direction: column;
+  }
+}
+
 .modal-db-link {
   margin-top: 0.35rem;
   display: inline-flex;
@@ -867,9 +901,14 @@ textarea:focus {
     padding: 0.5rem;
   }
 
+  .screen.import-screen {
+    gap: 0.6rem;
+    padding-right: 0;
+  }
+
   .hero {
-    padding: 1rem;
-    gap: 1rem;
+    padding: 0.85rem;
+    gap: 0.5rem;
   }
 
   .hero-links {
@@ -882,19 +921,33 @@ textarea:focus {
     text-align: center;
   }
 
+  .hero-links a {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.55rem;
+  }
+
   .list-meta p {
     margin-top: .1rem;
     margin-bottom: .1rem;
   }
 
   .list-meta {
-    padding: .5rem;
+    padding: 0.45rem 0.6rem;
     width: 100%;
     text-align: left;
   }
 
   .summary-panel.compact {
-    padding: 0.75rem;
+    padding: 0.5rem 0.65rem;
   }
 
   .results-header {
@@ -904,8 +957,8 @@ textarea:focus {
 
   .results-header .ghost {
     align-self: flex-start;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.8rem;
   }
 
   .inline-controls {
@@ -916,7 +969,7 @@ textarea:focus {
 
   .inline-controls-row {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.3rem;
     width: 100%;
   }
 
@@ -924,22 +977,56 @@ textarea:focus {
     flex: 1;
   }
 
+  .control.skinny {
+    max-width: 110px;
+  }
+
   .control.skinny input {
     max-width: 100%;
   }
 
   .share-control.slim {
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 
   .summary-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.4rem;
+    gap: 0.25rem;
+  }
+
+  .summary-card {
+    padding: 0.45rem 0.6rem;
+  }
+
+  .summary-card span {
+    font-size: 0.7rem;
+  }
+
+  .summary-card strong {
+    font-size: 1.05rem;
+  }
+
+  .point-list-cta {
+    margin-top: 0.3rem;
   }
 
   .panel-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
+  }
+
+  .panel.input-panel {
+    padding: 0.5rem 0.6rem 0.75rem;
+  }
+
+  .panel.input-panel textarea {
+    min-height: 60px;
+  }
+
+  .import-actions .primary {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0.7rem;
   }
 }
