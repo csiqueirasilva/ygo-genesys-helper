@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import genesysPayload from './data/genesys-card-list.json';
-import { normalizeCardName } from './lib/strings.ts';
-import { parseYdke, encodeDeckHash, decodeDeckHash } from './lib/ydke.ts';
+import { normalizeCardName, formatCardTypeLabel } from './lib/strings.ts';
+import { parseYdke, encodeDeckHash, decodeDeckHash, parseYdk, buildYdke } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds } from './lib/ygoprodeck.ts';
 import type {
   AssistantDeckContext,
@@ -63,6 +63,12 @@ const buildCardDbUrl = (name: string) => {
   return `https://www.db.yugioh-card.com/yugiohdb/card_search.action?${params.toString()}`;
 };
 
+const simplifyCardName = (name: string) =>
+  name
+    .replace(/\s*\([^)]*\)\s*$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 export default function App() {
   const [deckInput, setDeckInput] = useState('');
   const [pointCap, setPointCap] = useState(DEFAULT_POINT_CAP);
@@ -84,12 +90,13 @@ export default function App() {
   const modalDepthRef = useRef(0);
   const prevModalDepthRef = useRef(0);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
+  const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
-}
+    }
 
     const loadFromHash = () => {
       const hash = window.location.hash.replace(/^#/, '');
@@ -124,7 +131,17 @@ export default function App() {
     }
 
     try {
-      return { deck: parseYdke(sanitized), deckError: null };
+      const parsed = parseYdke(sanitized);
+      if (parsed.hasInferredIds) {
+        toast.warning('Some alternate-art cards may not import correctly with YDKE links.');
+      }
+      // console.log('Raw YDKE input:', sanitized);
+      // console.log('Parsed deck data:', {
+      //   main: parsed.main,
+      //   extra: parsed.extra,
+      //   side: parsed.side,
+      // });
+      return { deck: parsed, deckError: null };
     } catch (error) {
       return {
         deck: null,
@@ -132,6 +149,26 @@ export default function App() {
       };
     }
   }, [deckInput]);
+
+  useEffect(() => {
+    if (!deck) {
+      return;
+    }
+    // console.log('Decoded YDKE deck:', {
+    //   main: deck.main,
+    //   extra: deck.extra,
+    //   side: deck.side,
+    // });
+  }, [deck]);
+
+  const altArtCount = useMemo(() => {
+    if (!deck) {
+      return 0;
+    }
+    const inferred = deck.inferredCardCount ?? 0;
+    const zeroCount = [...deck.main, ...deck.extra, ...deck.side].filter((id) => id === 0).length;
+    return inferred + zeroCount;
+  }, [deck]);
 
   const uniqueCardIds = useMemo(() => {
     if (!deck) {
@@ -226,6 +263,9 @@ export default function App() {
     : null;
 
   const handleCardFocus = (card: DeckCardGroup) => {
+    if (card.id <= 0) {
+      return;
+    }
     setFocusedCard(card);
   };
 
@@ -264,6 +304,10 @@ export default function App() {
       zone: 'main',
       image: info?.image,
       type: info?.type ?? info?.race,
+      race: info?.race,
+      displayType: formatCardTypeLabel(info?.type, info?.race),
+      level: info?.level,
+      linkValue: info?.linkValue,
       desc: info?.desc,
       linkUrl: info?.ygoprodeckUrl,
       pointsPerCopy: card.points,
@@ -327,6 +371,34 @@ export default function App() {
   useEffect(() => {
     setPointListLimit(40);
   }, [pointSearch, showPointList, pointMin, pointMax]);
+
+  useEffect(() => {
+    if (view === 'results' && altArtCount > 0) {
+      setShowUndetectedCardsWarning(true);
+    }
+  }, [view, altArtCount]);
+
+  const handleImportYdkFile = useCallback(
+    async (file: File) => {
+      try {
+        const content = await file.text();
+        const deck = parseYdk(content);
+        if (deck.main.length === 0 && deck.extra.length === 0 && deck.side.length === 0) {
+          throw new Error('No cards found in YDK file.');
+        }
+        const ydke = buildYdke(deck.main, deck.extra, deck.side);
+        setDeckInput(ydke);
+        setView('results');
+        toast.success('YDK deck imported.');
+      } catch (error) {
+        console.error('YDK import failed', error);
+        toast.error(
+          error instanceof Error ? error.message : 'Unable to import YDK file. Please check the file contents.',
+        );
+      }
+    },
+    [],
+  );
 
   const modalDepth = Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0);
 
@@ -450,41 +522,221 @@ export default function App() {
       return null;
     }
 
+    const monsterPriority = (typeLabel: string, zone: DeckSection) => {
+      const basePriority = (() => {
+        if (typeLabel.includes('normal') && !typeLabel.includes('pendulum')) {
+          return 0;
+        }
+        if (typeLabel.includes('effect') && !typeLabel.includes('pendulum') && !typeLabel.includes('ritual')) {
+          return 1;
+        }
+        if (typeLabel.includes('pendulum')) {
+          return 2;
+        }
+        if (typeLabel.includes('ritual')) {
+          return 3;
+        }
+        return 4;
+      })();
+      if (zone === 'extra') {
+        if (typeLabel.includes('fusion')) {
+          return 5;
+        }
+        if (typeLabel.includes('synchro')) {
+          return 6;
+        }
+        if (typeLabel.includes('xyz')) {
+          return 7;
+        }
+        if (typeLabel.includes('link')) {
+          return 8;
+        }
+        return 9;
+      }
+      return basePriority;
+    };
+
+    const spellPriority = (raceLabel: string) => {
+      if (raceLabel.includes('normal')) {
+        return 0;
+      }
+      if (raceLabel.includes('equip')) {
+        return 1;
+      }
+      if (raceLabel.includes('quick')) {
+        return 2;
+      }
+      if (raceLabel.includes('field')) {
+        return 3;
+      }
+      if (raceLabel.includes('ritual')) {
+        return 4;
+      }
+      if (raceLabel.includes('continuous')) {
+        return 5;
+      }
+      return 6;
+    };
+
+    const trapPriority = (raceLabel: string) => {
+      if (raceLabel.includes('normal')) {
+        return 0;
+      }
+      if (raceLabel.includes('counter')) {
+        return 1;
+      }
+      if (raceLabel.includes('continuous')) {
+        return 2;
+      }
+      return 3;
+    };
+
+    const getSortMeta = (card: DeckCardGroup, zone: DeckSection) => {
+      const info = cardDetails[card.id];
+      const typeLabel = (info?.type ?? card.type ?? '').toLowerCase();
+      const raceLabel = (info?.race ?? card.race ?? '').toLowerCase();
+      const levelValue = info?.level ?? card.level ?? info?.linkValue ?? card.linkValue ?? 0;
+      const name = card.name.toLowerCase();
+      const order = card.orderIndex ?? Number.MAX_SAFE_INTEGER;
+
+      if (card.id <= 0) {
+        return { priority: 0, sub: 0, level: 0, sortByLevel: false, name, order };
+      }
+
+      const isSpell = typeLabel.includes('spell');
+      const isTrap = typeLabel.includes('trap');
+      const isMonster = !isSpell && !isTrap;
+
+      if (isMonster) {
+        return {
+          priority: 1,
+          sub: monsterPriority(typeLabel, zone),
+          level: levelValue,
+          sortByLevel: true,
+          name,
+          order,
+        };
+      }
+      if (isSpell) {
+        return {
+          priority: 2,
+          sub: spellPriority(raceLabel),
+          level: 0,
+          sortByLevel: false,
+          name,
+          order,
+        };
+      }
+      if (isTrap) {
+        return {
+          priority: 3,
+          sub: trapPriority(raceLabel),
+          level: 0,
+          sortByLevel: false,
+          name,
+          order,
+        };
+      }
+      return { priority: 4, sub: 0, level: levelValue, sortByLevel: false, name, order };
+    };
+
+    const compareCards = (zone: DeckSection) => (a: DeckCardGroup, b: DeckCardGroup) => {
+      const metaA = getSortMeta(a, zone);
+      const metaB = getSortMeta(b, zone);
+
+      if (metaA.priority !== metaB.priority) {
+        return metaA.priority - metaB.priority;
+      }
+
+      if (metaA.sub !== metaB.sub) {
+        return metaA.sub - metaB.sub;
+      }
+
+      const nameCompare = metaA.name.localeCompare(metaB.name);
+      if (nameCompare !== 0) {
+        return nameCompare;
+      }
+      return metaA.order - metaB.order;
+    };
+
     const toGroup = (ids: number[], zone: DeckSection): DeckCardGroup[] => {
-      const counts = new Map<number, number>();
-      ids.forEach((id) => counts.set(id, (counts.get(id) ?? 0) + 1));
+      const counts = new Map<number, { count: number; firstIndex: number }>();
+      ids.forEach((id, index) => {
+        const entry = counts.get(id);
+        if (entry) {
+          entry.count += 1;
+        } else {
+          counts.set(id, { count: 1, firstIndex: index });
+        }
+      });
 
-      return Array.from(counts.entries())
-        .map(([id, count]) => {
-          const info = cardDetails[id];
-          const name = info?.name ?? `Card #${id}`;
-          const normalized = normalizeCardName(name);
-          const points = genesysPointMap.get(normalized);
+      const rawGroups = Array.from(counts.entries()).map(([id, meta]) => {
+        const info = cardDetails[id];
+        const fallbackName = id === 0 ? 'Missing ID' : `Card #${id}`;
+        const originalName = info?.name ?? fallbackName;
+        const displayName =
+          id === 0 && !info?.name ? fallbackName : simplifyCardName(originalName);
+        const normalized = normalizeCardName(displayName);
+        const points = genesysPointMap.get(normalized);
 
-          return {
-            id,
-            count,
-            zone,
-            name,
-            image: info?.image,
-            type: info?.type ?? info?.race,
-            desc: info?.desc,
-            linkUrl: info?.ygoprodeckUrl,
-            pointsPerCopy: points ?? 0,
-            totalPoints: (points ?? 0) * count,
-            missingInfo: !info,
-            notInList: !genesysPointMap.has(normalized),
-          };
-        })
-        .sort((a, b) => {
-          if (b.totalPoints !== a.totalPoints) {
-            return b.totalPoints - a.totalPoints;
+        const rawType = info?.type;
+        const rawRace = info?.race;
+        return {
+          id,
+          count: meta.count,
+          zone,
+          name: displayName,
+          image: info?.image,
+          type: rawType ?? info?.race,
+          race: rawRace,
+          displayType: formatCardTypeLabel(rawType ?? info?.race, rawRace),
+          desc: info?.desc,
+          level: info?.level,
+          linkValue: info?.linkValue,
+          orderIndex: meta.firstIndex,
+          linkUrl: info?.ygoprodeckUrl,
+          pointsPerCopy: points ?? 0,
+          totalPoints: (points ?? 0) * meta.count,
+          missingInfo: !info,
+          notInList: !genesysPointMap.has(normalized),
+        };
+      });
+
+      const merged = new Map<string, DeckCardGroup>();
+      rawGroups.forEach((card) => {
+        const key = `${normalizeCardName(card.name)}::${card.zone}`;
+        const existing = merged.get(key);
+        if (existing) {
+          existing.count += card.count;
+          existing.totalPoints += card.totalPoints;
+          existing.orderIndex = Math.min(existing.orderIndex ?? Number.MAX_SAFE_INTEGER, card.orderIndex ?? Number.MAX_SAFE_INTEGER);
+          if (!existing.image && card.image) {
+            existing.image = card.image;
           }
-          if (b.count !== a.count) {
-            return b.count - a.count;
+          if (!existing.type && card.type) {
+            existing.type = card.type;
           }
-          return a.name.localeCompare(b.name);
-        });
+          if (!existing.race && card.race) {
+            existing.race = card.race;
+          }
+          if (!existing.displayType && card.displayType) {
+            existing.displayType = card.displayType;
+          }
+          if (!existing.desc && card.desc) {
+            existing.desc = card.desc;
+          }
+          if (!existing.level && card.level) {
+            existing.level = card.level;
+          }
+          if (!existing.linkValue && card.linkValue) {
+            existing.linkValue = card.linkValue;
+          }
+        } else {
+          merged.set(key, { ...card });
+        }
+      });
+
+      return Array.from(merged.values()).sort(compareCards(zone));
     };
 
     return {
@@ -546,7 +798,9 @@ export default function App() {
         } else {
           unique.set(card.name, {
             ...card,
-            type: details?.type,
+            type: details?.type ?? card.type,
+            race: details?.race ?? card.race,
+            displayType: formatCardTypeLabel(details?.type ?? card.type, details?.race ?? card.race),
           });
         }
       });
@@ -583,9 +837,15 @@ export default function App() {
   const handleShowBlockedList = () => setShowBlockedList(true);
   const handleBackToImport = () => {
     setShowChatAssistant(false);
+    setShowUndetectedCardsWarning(false);
     setView('import');
   };
-  const handleViewResults = () => setView('results');
+  const handleViewResults = () => {
+    setView('results');
+    if (altArtCount > 0) {
+      setShowUndetectedCardsWarning(true);
+    }
+  };
 
   useEffect(() => {
     if (view !== 'results') {
@@ -602,25 +862,35 @@ export default function App() {
 
     const deckCardsString = deckCards.length
       ? deckCards
-          .map((card) => {
-            const details = [
-              `id=${card.id}`,
-              `name=${card.name}`,
-              `zone=${card.zone}`,
-              `count=${card.count}`,
-              `type=${card.type ?? 'Unknown'}`,
-              `description=${sanitize(card.desc) || 'None'}`,
-              `points_per_copy=${card.pointsPerCopy}`,
-              `total_points=${card.totalPoints}`,
-            ];
-            return details.join(' | ');
-          })
-          .join('\n')
+        .map((card) => {
+          const details = [
+            `id=${card.id}`,
+            `name=${card.name}`,
+            `zone=${card.zone}`,
+            `count=${card.count}`,
+            `type=${card.type ?? 'Unknown'}`,
+            `description=${sanitize(card.desc) || 'None'}`,
+            `points_per_copy=${card.pointsPerCopy}`,
+            `total_points=${card.totalPoints}`,
+          ];
+          return details.join(' | ');
+        })
+        .join('\n')
       : 'No cards provided.';
 
     const cardPointListString = genesysData.cards
       .map((card) => `${card.name}: ${card.points}`)
       .join('\n');
+
+    const notes: string[] = [];
+    if (cardError) {
+      notes.push(cardError);
+    }
+    if (altArtCount > 0) {
+      notes.push(
+        `${altArtCount} alternate-art variant${altArtCount === 1 ? '' : 's'} fell back to the base card name.`
+      );
+    }
 
     return {
       points_cap: pointCap,
@@ -629,9 +899,9 @@ export default function App() {
       deck_goal: '',
       deck_cards: deckCardsString,
       card_point_list: cardPointListString,
-      notes: cardError ?? '',
+      notes: notes.join(' ') || '',
     };
-  }, [deckGroups, pointCap, pointsRemaining, totalPoints, cardError]);
+  }, [deckGroups, pointCap, pointsRemaining, totalPoints, cardError, altArtCount]);
 
   const assistantContextString = useMemo(() => JSON.stringify(assistantContext), [assistantContext]);
 
@@ -651,6 +921,7 @@ export default function App() {
             hasDeck={hasDeck}
             onDeckInputChange={setDeckInput}
             onViewBreakdown={handleViewResults}
+            onImportYdkFile={handleImportYdkFile}
           />
         ) : (
           <div className="flex h-full flex-col gap-4">
@@ -696,9 +967,8 @@ export default function App() {
       {view === 'results' && (
         <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
           <div
-            className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${
-              showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
-            }`}
+            className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
+              }`}
             aria-hidden={!showChatAssistant}
           >
             <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
@@ -834,6 +1104,40 @@ export default function App() {
         </div>
       )}
 
+      {showUndetectedCardsWarning && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={() => setShowUndetectedCardsWarning(false)}>
+          <div
+            className="w-full max-w-md rounded-[28px] border border-white/10 bg-panel/95 p-6 text-slate-50 shadow-panel"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-amber-200/80">Import issues</p>
+                <h2 className="text-2xl font-semibold">Undetected cards</h2>
+              </div>
+              <button
+                className="text-2xl text-slate-300 hover:text-white"
+                onClick={() => setShowUndetectedCardsWarning(false)}
+                aria-label="Close undetected cards warning"
+              >
+                ×
+              </button>
+            </div>
+            <p className="mt-4 text-sm text-slate-300">
+              {altArtCount} card{altArtCount === 1 ? '' : 's'} could not be imported exactly from the YDKE link. Alternate-art
+              versions often omit their passcodes, so we substitute the original printing instead.
+            </p>
+            <button
+              type="button"
+              className="mt-6 inline-flex w-full justify-center rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-slate-900"
+              onClick={() => setShowUndetectedCardsWarning(false)}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
+
       {showBlockedList && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={requestCloseTopModal}>
           <div
@@ -871,7 +1175,9 @@ export default function App() {
                         </div>
                         <div className="flex-1">
                           <p className="text-sm font-medium text-white">{card.name}</p>
-                          <p className="text-xs text-slate-400">{card.type ?? 'Unknown'}</p>
+                          <p className="text-xs text-slate-400">
+                            {card.displayType ?? formatCardTypeLabel(card.type, card.race)}
+                          </p>
                         </div>
                       </button>
                     </li>
@@ -909,7 +1215,10 @@ export default function App() {
                 </p>
                 <h2 className="text-2xl font-semibold">{focusedCard.name}</h2>
                 <p className="text-sm text-slate-400">
-                  {activeCardDetails?.type ?? focusedCard.type ?? 'Unknown'} · {activeCardDetails?.race ?? focusedCard.type ?? '—'}
+                  {formatCardTypeLabel(
+                    activeCardDetails?.type ?? focusedCard.type,
+                    activeCardDetails?.race ?? focusedCard.race,
+                  )}
                 </p>
                 <p className="text-sm text-slate-200 leading-relaxed">{formatCardText(cardDesc ?? undefined)}</p>
                 {cardLink && cardLinkLabel && (

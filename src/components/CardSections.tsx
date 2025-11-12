@@ -1,4 +1,5 @@
 import type { DeckCardGroup, DeckGroups, DeckSection } from '../types';
+import { formatCardTypeLabel } from '../lib/strings';
 
 interface CardSectionsProps {
   deckGroups: DeckGroups | null;
@@ -54,7 +55,9 @@ export function CardSections({ deckGroups, onCardSelect }: CardSectionsProps) {
                       <button type="button" className="text-left" onClick={() => onCardSelect(card)}>
                         <p className="font-semibold text-base text-white">{card.name}</p>
                       </button>
-                      <p className="text-xs text-slate-400">{card.type ?? '—'}</p>
+                      <p className="text-xs text-slate-400">
+                        {card.displayType ?? formatCardTypeLabel(card.type, card.race)}
+                      </p>
                       <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-slate-300">
                         {card.notInList ? (
                           <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>

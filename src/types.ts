@@ -16,6 +16,8 @@ export interface CardDetails {
   name: string;
   type?: string;
   race?: string;
+  level?: number;
+  linkValue?: number;
   desc?: string;
   image?: string;
   ygoprodeckUrl?: string;
@@ -34,7 +36,12 @@ export interface DeckCardGroup {
   zone: DeckSection;
   image?: string;
   type?: string;
+  race?: string;
+  displayType?: string;
   desc?: string;
+  level?: number;
+  linkValue?: number;
+  orderIndex?: number;
   linkUrl?: string;
   pointsPerCopy: number;
   totalPoints: number;

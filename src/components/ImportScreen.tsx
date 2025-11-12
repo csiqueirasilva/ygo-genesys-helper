@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import type { GenesysPayload } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
 
@@ -8,6 +9,7 @@ interface ImportScreenProps {
   hasDeck: boolean;
   onDeckInputChange: (value: string) => void;
   onViewBreakdown: () => void;
+  onImportYdkFile: (file: File) => void;
 }
 
 export function ImportScreen({
@@ -17,7 +19,16 @@ export function ImportScreen({
   hasDeck,
   onDeckInputChange,
   onViewBreakdown,
+  onImportYdkFile,
 }: ImportScreenProps) {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      onImportYdkFile(file);
+      event.target.value = '';
+    }
+  };
+
   return (
     <div className="space-y-4">
       <header className="rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/40 p-6 shadow-panel flex flex-col gap-4 md:flex-row md:justify-between md:items-end">
@@ -75,6 +86,13 @@ export function ImportScreen({
             View point breakdown
           </button>
           <small className="text-xs text-slate-400">Requires a valid YDKE link.</small>
+        </div>
+        <div className="flex flex-col gap-1">
+          <label className="inline-flex cursor-pointer items-center justify-center rounded-full border border-dashed border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:border-white/40">
+            <span>Import deck from .ydk file</span>
+            <input type="file" accept=".ydk,text/plain" className="sr-only" onChange={handleFileChange} />
+          </label>
+          <small className="text-xs text-slate-400">We’ll convert YDK files into YDKE automatically.</small>
         </div>
       </section>
     </div>

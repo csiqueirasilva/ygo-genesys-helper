@@ -18,6 +18,8 @@ interface ApiCard {
   name: string;
   type?: string;
   race?: string;
+  level?: number;
+  linkval?: number;
   desc?: string;
   ygoprodeck_url?: string;
   card_images?: ApiCardImage[];
@@ -44,6 +46,8 @@ export async function fetchCardsByIds(ids: number[]): Promise<Record<number, Car
         name: card.name,
         type: card.type,
         race: card.race,
+        level: card.level,
+        linkValue: card.linkval,
         image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
         desc: card.desc,
         ygoprodeckUrl: card.ygoprodeck_url,
@@ -91,6 +95,8 @@ export async function fetchCardByName(name: string): Promise<CardDetails | null>
     name: card.name,
     type: card.type,
     race: card.race,
+    level: card.level,
+    linkValue: card.linkval,
     image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
     desc: card.desc,
     ygoprodeckUrl: card.ygoprodeck_url,

@@ -5,9 +5,17 @@ export interface ParsedDeck {
   main: number[];
   extra: number[];
   side: number[];
+  hasInferredIds?: boolean;
+  inferredCardCount?: number;
 }
 
 const SECTION_NAMES: DeckSection[] = ['main', 'extra', 'side'];
+
+export interface SimpleDeck {
+  main: number[];
+  extra: number[];
+  side: number[];
+}
 
 export function parseYdke(rawInput: string): ParsedDeck {
   const sanitized = rawInput.trim();
@@ -25,16 +33,31 @@ export function parseYdke(rawInput: string): ParsedDeck {
 
   const [main, extra, side] = sections;
 
+  const mainDecoded = decodeSection(main);
+  const extraDecoded = decodeSection(extra);
+  const sideDecoded = decodeSection(side);
+
+  const inferredCount =
+    mainDecoded.inferredCount + extraDecoded.inferredCount + sideDecoded.inferredCount;
+
   return {
-    main: decodeSection(main),
-    extra: decodeSection(extra),
-    side: decodeSection(side),
+    main: mainDecoded.cards,
+    extra: extraDecoded.cards,
+    side: sideDecoded.cards,
+    hasInferredIds: inferredCount > 0 || undefined,
+    inferredCardCount: inferredCount || undefined,
   };
 }
 
-function decodeSection(section: string): number[] {
+interface DecodedSection {
+  cards: number[];
+  hasInferredIds: boolean;
+  inferredCount: number;
+}
+
+function decodeSection(section: string): DecodedSection {
   if (!section) {
-    return [];
+    return { cards: [], hasInferredIds: false };
   }
 
   const bytes = base64ToBytes(section);
@@ -45,11 +68,24 @@ function decodeSection(section: string): number[] {
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
   const cards: number[] = [];
 
+  let lastId = 0;
+  let hadInferred = false;
+  let inferredCount = 0;
   for (let offset = 0; offset < view.byteLength; offset += 4) {
-    cards.push(view.getUint32(offset, true));
+    let cardId = view.getUint32(offset, true);
+    if (cardId === 0 && lastId !== 0) {
+      // Some deck editors encode alternate-art duplicates as 0; reuse the last known id.
+      cardId = lastId;
+      hadInferred = true;
+      inferredCount += 1;
+    }
+    cards.push(cardId);
+    if (cardId !== 0) {
+      lastId = cardId;
+    }
   }
 
-  return cards;
+  return { cards, hasInferredIds: hadInferred, inferredCount };
 }
 
 export function encodeDeckHash(ydke: string): string {
@@ -102,4 +138,57 @@ export function getDeckSize(deck?: ParsedDeck): number {
   }
 
   return SECTION_NAMES.reduce((total, section) => total + deck[section].length, 0);
+}
+
+function encodeSection(ids: number[]): string {
+  if (ids.length === 0) {
+    return '';
+  }
+  const bytes = new Uint8Array(ids.length * 4);
+  const view = new DataView(bytes.buffer);
+  ids.forEach((id, index) => view.setUint32(index * 4, id, true));
+  return bytesToBase64(bytes);
+}
+
+export function buildYdke(main: number[], extra: number[], side: number[]): string {
+  const sections = [encodeSection(main), encodeSection(extra), encodeSection(side)].join('!');
+  return `ydke://${sections}`;
+}
+
+export function parseYdk(text: string): SimpleDeck {
+  const deck: SimpleDeck = { main: [], extra: [], side: [] };
+  let current: DeckSection = 'main';
+
+  text
+    .split(/\r?\n/u)
+    .map((line) => line.trim())
+    .forEach((line) => {
+      if (!line || line.startsWith('#created')) {
+        return;
+      }
+
+      const lower = line.toLowerCase();
+      if (lower === '#main') {
+        current = 'main';
+        return;
+      }
+      if (lower === '#extra') {
+        current = 'extra';
+        return;
+      }
+      if (lower === '#side' || lower === '!side') {
+        current = 'side';
+        return;
+      }
+      if (line.startsWith('#') || line.startsWith('!')) {
+        return;
+      }
+
+      const id = Number(line);
+      if (Number.isFinite(id) && id > 0) {
+        deck[current].push(id);
+      }
+    });
+
+  return deck;
 }
