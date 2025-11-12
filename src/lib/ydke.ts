@@ -57,7 +57,7 @@ interface DecodedSection {
 
 function decodeSection(section: string): DecodedSection {
   if (!section) {
-    return { cards: [], hasInferredIds: false };
+    return { cards: [], hasInferredIds: false, inferredCount: 0 };
   }
 
   const bytes = base64ToBytes(section);
