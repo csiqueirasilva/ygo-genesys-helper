@@ -4,11 +4,12 @@ import { formatCardTypeLabel } from '../lib/strings';
 interface CardSectionsProps {
   deckGroups: DeckGroups | null;
   onCardSelect: (card: DeckCardGroup) => void;
+  onMissingCardSelect?: (card: DeckCardGroup) => void;
 }
 
 const sections: DeckSection[] = ['main', 'extra', 'side'];
 
-export function CardSections({ deckGroups, onCardSelect }: CardSectionsProps) {
+export function CardSections({ deckGroups, onCardSelect, onMissingCardSelect }: CardSectionsProps) {
   if (!deckGroups) {
     return <p className="text-sm text-slate-400">Paste a deck to unlock card insights.</p>;
   }
@@ -34,42 +35,57 @@ export function CardSections({ deckGroups, onCardSelect }: CardSectionsProps) {
             <p className="text-sm text-slate-500">No cards in this section.</p>
           ) : (
             <ul className="grid gap-3 md:grid-cols-2">
-              {deckGroups[zone].map((card) => (
-                <li
-                  key={`${zone}-${card.id}`}
-                  className="flex gap-3 rounded-2xl border border-white/8 bg-black/20 p-3 transition hover:border-white/20"
-                >
-                  <button
-                    type="button"
-                    className="flex h-28 w-20 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30"
-                    onClick={() => onCardSelect(card)}
+              {deckGroups[zone].map((card) => {
+                const handleSelect = () => {
+                  if (card.id <= 0) {
+                    onMissingCardSelect?.(card);
+                    return;
+                  }
+                  onCardSelect(card);
+                };
+
+                return (
+                  <li
+                    key={`${zone}-${card.id}-${card.name}`}
+                    className="flex gap-3 rounded-2xl border border-white/8 bg-black/20 p-3 transition hover:border-white/20"
                   >
-                    {card.image ? (
-                      <img src={card.image} alt={card.name} className="h-full w-full object-cover" />
-                    ) : (
-                      <span className="text-xs text-slate-400">No art</span>
-                    )}
-                  </button>
-                  <div className="flex flex-1 flex-col justify-between">
-                    <div>
-                      <button type="button" className="text-left" onClick={() => onCardSelect(card)}>
-                        <p className="font-semibold text-base text-white">{card.name}</p>
-                      </button>
-                      <p className="text-xs text-slate-400">
-                        {card.displayType ?? formatCardTypeLabel(card.type, card.race)}
-                      </p>
-                      <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-slate-300">
-                        {card.notInList ? (
-                          <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>
-                        ) : (
-                          <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
-                        )}
+                    <button
+                      type="button"
+                      className="flex h-28 w-20 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30"
+                      onClick={handleSelect}
+                    >
+                      {card.image ? (
+                        <img src={card.image} alt={card.name} className="h-full w-full object-cover" />
+                      ) : (
+                        <span className="text-xs text-slate-400">No art</span>
+                      )}
+                    </button>
+                    <div className="flex flex-1 flex-col justify-between">
+                      <div>
+                        <button type="button" className="text-left" onClick={handleSelect}>
+                          <p className="font-semibold text-base text-white">{card.name}</p>
+                        </button>
+                        <p className="text-xs text-slate-400">
+                          {card.displayType ?? formatCardTypeLabel(card.type, card.race)}
+                        </p>
+                        <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                          {card.id <= 0 && (
+                            <span className="rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-amber-200">
+                              Missing ID · Click to replace
+                            </span>
+                          )}
+                          {card.notInList ? (
+                            <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>
+                          ) : (
+                            <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
+                          )}
+                        </div>
                       </div>
+                      <div className="text-sm font-semibold text-white">Total {card.totalPoints} pts · ×{card.count}</div>
                     </div>
-                    <div className="text-sm font-semibold text-white">Total {card.totalPoints} pts · ×{card.count}</div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>

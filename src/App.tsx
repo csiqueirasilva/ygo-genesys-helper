@@ -16,6 +16,8 @@ import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
 import { ChatKitPanel } from './components/ChatKitPanel.tsx';
+import { MissingIdResolver } from './components/MissingIdResolver.tsx';
+import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
 import { Toaster, toast } from 'sonner';
 
 const DEFAULT_POINT_CAP = 100;
@@ -91,6 +93,7 @@ export default function App() {
   const prevModalDepthRef = useRef(0);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
+  const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
@@ -175,6 +178,29 @@ export default function App() {
       return [];
     }
     return Array.from(new Set([...deck.main, ...deck.extra, ...deck.side].filter((id) => id > 0)));
+  }, [deck]);
+
+  const missingSlots = useMemo<Record<DeckSection, number[]>>(() => {
+    const empty: Record<DeckSection, number[]> = { main: [], extra: [], side: [] };
+    if (!deck) {
+      return empty;
+    }
+
+    const findSlots = (section: number[]) => {
+      const slots: number[] = [];
+      section.forEach((id, index) => {
+        if (id <= 0) {
+          slots.push(index);
+        }
+      });
+      return slots;
+    };
+
+    return {
+      main: findSlots(deck.main),
+      extra: findSlots(deck.extra),
+      side: findSlots(deck.side),
+    };
   }, [deck]);
 
   useEffect(() => {
@@ -269,6 +295,16 @@ export default function App() {
     setFocusedCard(card);
   };
 
+  const handleMissingCardSelect = (card: DeckCardGroup) => {
+    const slots = missingSlots[card.zone];
+    if (slots.length === 0) {
+      toast.info('All missing cards in this section have been resolved.');
+      return;
+    }
+    setFocusedCard(null);
+    setMissingCardContext({ zone: card.zone, cardName: card.name });
+  };
+
   const clampPoints = (value: number) => Math.min(Math.max(Math.round(value) || 1, 1), 100);
 
   const [pendingPointMin, setPendingPointMin] = useState(pointMin);
@@ -317,6 +353,7 @@ export default function App() {
     };
     setFocusedCard(deckCard);
   };
+
 
   const filteredPointCards = useMemo(() => {
     const query = pointSearch.trim().toLowerCase();
@@ -400,9 +437,14 @@ export default function App() {
     [],
   );
 
-  const modalDepth = Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0);
+  const modalDepth =
+    Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0) + (missingCardContext ? 1 : 0);
 
   const closeTopModal = useCallback(() => {
+    if (missingCardContext) {
+      setMissingCardContext(null);
+      return true;
+    }
     if (focusedCard) {
       setFocusedCard(null);
       return true;
@@ -416,7 +458,7 @@ export default function App() {
       return true;
     }
     return false;
-  }, [focusedCard, showChatAssistant, showBlockedList, showPointList]);
+  }, [focusedCard, missingCardContext, showChatAssistant, showBlockedList, showPointList]);
 
   const requestCloseTopModal = useCallback(() => {
     if (modalDepthRef.current > 0) {
@@ -427,7 +469,55 @@ export default function App() {
   }, [closeTopModal]);
 
   useEffect(() => {
-    if (!focusedCard && !showBlockedList && !showPointList) {
+    if (!missingCardContext) {
+      return;
+    }
+    if (missingSlots[missingCardContext.zone].length === 0) {
+      closeTopModal();
+    }
+  }, [missingCardContext, missingSlots, closeTopModal]);
+
+  const handleMissingIdResolve = (selection: MissingReplacementPick[]) => {
+    if (!deck || !missingCardContext) {
+      return;
+    }
+    const slots = missingSlots[missingCardContext.zone];
+    if (slots.length === 0) {
+      requestCloseTopModal();
+      return;
+    }
+
+    const replacements: number[] = [];
+    selection.forEach((entry) => {
+      for (let i = 0; i < entry.count; i += 1) {
+        replacements.push(entry.card.id);
+      }
+    });
+
+    if (replacements.length === 0) {
+      return;
+    }
+
+    const limit = Math.min(replacements.length, slots.length);
+    const updated = {
+      main: deck.main.slice(),
+      extra: deck.extra.slice(),
+      side: deck.side.slice(),
+    };
+
+    for (let index = 0; index < limit; index += 1) {
+      const targetIndex = slots[index];
+      updated[missingCardContext.zone][targetIndex] = replacements[index];
+    }
+
+    const nextYdke = buildYdke(updated.main, updated.extra, updated.side);
+    setDeckInput(nextYdke);
+    closeTopModal();
+    toast.success(limit === 1 ? 'Replaced 1 missing card.' : `Replaced ${limit} missing cards.`);
+  };
+
+  useEffect(() => {
+    if (!focusedCard && !showBlockedList && !showPointList && !missingCardContext) {
       return;
     }
 
@@ -439,7 +529,7 @@ export default function App() {
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [focusedCard, showBlockedList, showPointList, requestCloseTopModal]);
+  }, [focusedCard, missingCardContext, showBlockedList, showPointList, requestCloseTopModal]);
 
   useEffect(() => {
     if (!showChatAssistant) {
@@ -947,7 +1037,11 @@ export default function App() {
             </div>
             <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
               <div className="flex-1 overflow-y-auto pr-2">
-                <CardSections deckGroups={deckGroups} onCardSelect={handleCardFocus} />
+                <CardSections
+                  deckGroups={deckGroups}
+                  onCardSelect={handleCardFocus}
+                  onMissingCardSelect={handleMissingCardSelect}
+                />
               </div>
             </section>
           </div>
@@ -1136,6 +1230,16 @@ export default function App() {
             </button>
           </div>
         </div>
+      )}
+
+      {missingCardContext && missingSlots[missingCardContext.zone].length > 0 && (
+        <MissingIdResolver
+          zone={missingCardContext.zone}
+          cardName={missingCardContext.cardName}
+          missingCount={missingSlots[missingCardContext.zone].length}
+          onClose={requestCloseTopModal}
+          onResolve={handleMissingIdResolve}
+        />
       )}
 
       {showBlockedList && (

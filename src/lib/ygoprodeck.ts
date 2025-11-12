@@ -8,9 +8,18 @@ interface ApiCardImage {
   image_url_small?: string;
 }
 
+interface ApiMeta {
+  total_rows?: number;
+  rows_remaining?: number;
+  total_pages?: number;
+  pages_remaining?: number;
+  next_page_offset?: number;
+}
+
 interface ApiResponse {
   data?: ApiCard[];
   error?: string;
+  meta?: ApiMeta;
 }
 
 interface ApiCard {
@@ -24,6 +33,18 @@ interface ApiCard {
   ygoprodeck_url?: string;
   card_images?: ApiCardImage[];
 }
+
+const adaptApiCard = (card: ApiCard): CardDetails => ({
+  id: card.id,
+  name: card.name,
+  type: card.type,
+  race: card.race,
+  level: card.level,
+  linkValue: card.linkval,
+  image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
+  desc: card.desc,
+  ygoprodeckUrl: card.ygoprodeck_url,
+});
 
 export async function fetchCardsByIds(ids: number[]): Promise<Record<number, CardDetails>> {
   const unique = Array.from(new Set(ids.filter((id) => id > 0)));
@@ -42,15 +63,7 @@ export async function fetchCardsByIds(ids: number[]): Promise<Record<number, Car
     const cards = await fetchChunk(chunk);
     cards.forEach((card) => {
       resolved[card.id] = {
-        id: card.id,
-        name: card.name,
-        type: card.type,
-        race: card.race,
-        level: card.level,
-        linkValue: card.linkval,
-        image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
-        desc: card.desc,
-        ygoprodeckUrl: card.ygoprodeck_url,
+        ...adaptApiCard(card),
       };
     });
   }
@@ -90,18 +103,6 @@ async function fetchChunk(chunk: number[]): Promise<ApiCard[]> {
 }
 
 export async function fetchCardByName(name: string): Promise<CardDetails | null> {
-  const buildCard = (card: ApiCard): CardDetails => ({
-    id: card.id,
-    name: card.name,
-    type: card.type,
-    race: card.race,
-    level: card.level,
-    linkValue: card.linkval,
-    image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
-    desc: card.desc,
-    ygoprodeckUrl: card.ygoprodeck_url,
-  });
-
   const search = async (query: string, mode: 'name' | 'fname'): Promise<CardDetails | null> => {
     const url = `${API_ENDPOINT}?${mode}=${encodeURIComponent(query)}`;
     try {
@@ -111,11 +112,78 @@ export async function fetchCardByName(name: string): Promise<CardDetails | null>
       }
       const payload = (await response.json()) as ApiResponse;
       const card = payload.data?.[0];
-      return card ? buildCard(card) : null;
+      return card ? adaptApiCard(card) : null;
     } catch {
       return null;
     }
   };
 
   return (await search(name, 'name')) ?? (await search(name, 'fname'));
+}
+
+export interface CardSearchOptions {
+  query: string;
+  page?: number;
+  pageSize?: number;
+}
+
+export interface CardSearchResult {
+  cards: CardDetails[];
+  total: number;
+  hasMore: boolean;
+}
+
+export async function searchCards(options: CardSearchOptions): Promise<CardSearchResult> {
+  const { query, page = 0, pageSize = 5 } = options;
+  const trimmed = query.trim();
+  if (!trimmed) {
+    return { cards: [], total: 0, hasMore: false };
+  }
+
+  const offset = page * pageSize;
+  const wildcardQuery = trimmed.replace(/\s+/g, '%');
+  const params = new URLSearchParams({
+    fname: wildcardQuery,
+    num: String(pageSize),
+    offset: String(offset),
+  });
+  const url = `${API_ENDPOINT}?${params.toString()}`;
+
+  try {
+    const response = await fetch(url);
+    let payload: ApiResponse | null = null;
+    try {
+      payload = (await response.json()) as ApiResponse;
+    } catch {
+      payload = null;
+    }
+
+    const errorMessage =
+      payload?.error ?? (response.ok ? null : `Search failed with status ${response.status}`);
+    if (errorMessage) {
+      const normalized = errorMessage.toLowerCase();
+      if (normalized.includes('no card matching')) {
+        return { cards: [], total: 0, hasMore: false };
+      }
+      throw new Error(errorMessage);
+    }
+
+    const safePayload: ApiResponse = payload ?? {};
+    const cards = safePayload.data?.map((card) => adaptApiCard(card)) ?? [];
+    const total = safePayload.meta?.total_rows ?? cards.length;
+    const hasMore =
+      Boolean(safePayload.meta?.rows_remaining && safePayload.meta.rows_remaining > 0) ||
+      Boolean(safePayload.meta?.pages_remaining && safePayload.meta.pages_remaining > 0) ||
+      Boolean(safePayload.meta?.next_page_offset);
+
+    return {
+      cards,
+      total,
+      hasMore,
+    };
+  } catch (error) {
+    throw new Error(
+      `Unable to search YGOProDeck: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
 }
