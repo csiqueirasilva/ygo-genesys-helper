@@ -74,15 +74,14 @@ function decodeSection(section: string): DecodedSection {
   for (let offset = 0; offset < view.byteLength; offset += 4) {
     let cardId = view.getUint32(offset, true);
     if (cardId === 0 && lastId !== 0) {
-      // Some deck editors encode alternate-art duplicates as 0; reuse the last known id.
-      cardId = lastId;
+      // Some deck editors encode alternate-art duplicates as 0. Keep them as 0 so users
+      // can manually resolve the missing IDs, but still track that an inferred slot existed.
       hadInferred = true;
       inferredCount += 1;
-    }
-    cards.push(cardId);
-    if (cardId !== 0) {
+    } else if (cardId !== 0) {
       lastId = cardId;
     }
+    cards.push(cardId);
   }
 
   return { cards, hasInferredIds: hadInferred, inferredCount };

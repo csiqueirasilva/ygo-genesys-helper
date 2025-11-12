@@ -10,6 +10,24 @@ const zoneLabels: Record<DeckSection, string> = {
   side: 'Side Deck',
 };
 
+const EXTRA_TYPE_KEYWORDS = ['fusion', 'synchro', 'xyz', 'x-y-z', 'link'];
+
+const isExtraDeckType = (type?: string) => {
+  if (!type) {
+    return false;
+  }
+  const normalized = type.toLowerCase();
+  return EXTRA_TYPE_KEYWORDS.some((keyword) => normalized.includes(keyword));
+};
+
+const canUseCardInZone = (card: CardDetails, zone: DeckSection) => {
+  if (zone === 'side') {
+    return true;
+  }
+  const extraType = isExtraDeckType(card.type);
+  return zone === 'extra' ? extraType : !extraType;
+};
+
 export interface MissingReplacementPick {
   card: CardDetails;
   count: number;
@@ -131,6 +149,9 @@ export function MissingIdResolver({
   const remainingSlots = Math.max(missingCount - selectedCards.length, 0);
 
   const handleAddCard = (card: CardDetails) => {
+    if (!canUseCardInZone(card, zone)) {
+      return;
+    }
     setSelectedCards((prev) => {
       if (prev.length >= missingCount) {
         return prev;
@@ -223,36 +244,50 @@ export function MissingIdResolver({
                 <p className="text-sm text-slate-500">No cards found. Try a different keyword.</p>
               ) : (
                 <ul className="flex-1 space-y-2 overflow-y-auto pr-1">
-                  {results.map((card) => (
-                    <li
-                      key={card.id}
-                      className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-2"
-                    >
-                      <div className="h-16 w-12 overflow-hidden rounded-lg border border-white/10 bg-black/40">
-                        {card.image ? (
-                          <img src={card.image} alt="" className="h-full w-full object-cover" />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center text-[10px] text-slate-400">
-                            No art
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-white">{card.name}</p>
-                        <p className="text-xs text-slate-400">
-                          {formatCardTypeLabel(card.type, card.race)}
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white disabled:opacity-40"
-                        disabled={disableAddButtons}
-                        onClick={() => handleAddCard(card)}
+                  {results.map((card) => {
+                    const allowedInZone = canUseCardInZone(card, zone);
+                    const disabled = disableAddButtons || !allowedInZone;
+                    return (
+                      <li
+                        key={card.id}
+                        className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-2"
                       >
-                        Add
-                      </button>
-                    </li>
-                  ))}
+                        <div className="h-16 w-12 overflow-hidden rounded-lg border border-white/10 bg-black/40">
+                          {card.image ? (
+                            <img src={card.image} alt="" className="h-full w-full object-cover" />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center text-[10px] text-slate-400">
+                              No art
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-white">{card.name}</p>
+                          <p className="text-xs text-slate-400">
+                            {formatCardTypeLabel(card.type, card.race)}
+                          </p>
+                          {!allowedInZone && (
+                            <p className="text-[10px] text-amber-200">
+                              Not legal for the {zoneLabels[zone].toLowerCase()}.
+                            </p>
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white disabled:opacity-40"
+                          disabled={disabled}
+                          onClick={() => allowedInZone && handleAddCard(card)}
+                          title={
+                            allowedInZone
+                              ? 'Add card to replacements'
+                              : `Cannot add to the ${zoneLabels[zone].toLowerCase()}`
+                          }
+                        >
+                          Add
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>

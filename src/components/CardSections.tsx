@@ -74,11 +74,12 @@ export function CardSections({ deckGroups, onCardSelect, onMissingCardSelect }: 
                               Missing ID · Click to replace
                             </span>
                           )}
-                          {card.notInList ? (
-                            <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>
-                          ) : (
-                            <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
-                          )}
+                          {card.id > 0 &&
+                            (card.notInList ? (
+                              <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>
+                            ) : (
+                              <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
+                            ))}
                         </div>
                       </div>
                       <div className="text-sm font-semibold text-white">Total {card.totalPoints} pts · ×{card.count}</div>

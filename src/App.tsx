@@ -135,9 +135,6 @@ export default function App() {
 
     try {
       const parsed = parseYdke(sanitized);
-      if (parsed.hasInferredIds) {
-        toast.warning('Some alternate-art cards may not import correctly with YDKE links.');
-      }
       // console.log('Raw YDKE input:', sanitized);
       // console.log('Parsed deck data:', {
       //   main: parsed.main,
@@ -168,9 +165,8 @@ export default function App() {
     if (!deck) {
       return 0;
     }
-    const inferred = deck.inferredCardCount ?? 0;
     const zeroCount = [...deck.main, ...deck.extra, ...deck.side].filter((id) => id === 0).length;
-    return inferred + zeroCount;
+    return zeroCount;
   }, [deck]);
 
   const uniqueCardIds = useMemo(() => {
@@ -978,7 +974,7 @@ export default function App() {
     }
     if (altArtCount > 0) {
       notes.push(
-        `${altArtCount} alternate-art variant${altArtCount === 1 ? '' : 's'} fell back to the base card name.`
+        `${altArtCount} card${altArtCount === 1 ? '' : 's'} still have missing IDs from the provided YDKE link.`
       );
     }
 
@@ -1218,8 +1214,8 @@ export default function App() {
               </button>
             </div>
             <p className="mt-4 text-sm text-slate-300">
-              {altArtCount} card{altArtCount === 1 ? '' : 's'} could not be imported exactly from the YDKE link. Alternate-art
-              versions often omit their passcodes, so we substitute the original printing instead.
+              {altArtCount} card{altArtCount === 1 ? '' : 's'} could not be imported with an official passcode in this YDKE link.
+              They appear as <strong className="font-semibold text-white">Missing ID</strong> entries so you can pick the correct cards manually.
             </p>
             <button
               type="button"
