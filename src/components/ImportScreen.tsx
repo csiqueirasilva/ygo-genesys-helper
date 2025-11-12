@@ -34,8 +34,30 @@ export function ImportScreen({
       <header className="rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/40 p-6 shadow-panel flex flex-col gap-4 md:flex-row md:justify-between md:items-end">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Yu-Gi-Oh! Genesys</p>
-          <div>
-            <h1 className="text-3xl font-semibold">Genesys helper</h1>
+          <div className="space-y-2">
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-semibold">Genesys helper</h1>
+              <a
+                href="/"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-slate-200 transition hover:border-white/60 hover:text-white"
+                aria-label="Open Genesys helper home"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M10 14 21 3" />
+                  <path d="M21 10V3h-7" />
+                  <path d="M21 21H3V3" />
+                </svg>
+              </a>
+            </div>
             <p className="text-sm text-slate-300 mt-2 max-w-2xl">
               Paste your YDKE link, get instant point totals, see which cards consume the most points, and share your build
               with a single link.
