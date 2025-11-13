@@ -94,6 +94,11 @@ export default function App() {
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
+  const [cardSortMode, setCardSortMode] = useState<Record<DeckSection, 'points' | 'default'>>({
+    main: 'points',
+    extra: 'points',
+    side: 'points',
+  });
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
@@ -727,6 +732,16 @@ export default function App() {
     };
 
     const compareCards = (zone: DeckSection) => (a: DeckCardGroup, b: DeckCardGroup) => {
+      if (cardSortMode[zone] === 'points') {
+        const pointDiff = (b.pointsPerCopy ?? 0) - (a.pointsPerCopy ?? 0);
+        if (pointDiff !== 0) {
+          return pointDiff;
+        }
+        const totalDiff = (b.totalPoints ?? 0) - (a.totalPoints ?? 0);
+        if (totalDiff !== 0) {
+          return totalDiff;
+        }
+      }
       const metaA = getSortMeta(a, zone);
       const metaB = getSortMeta(b, zone);
 
@@ -830,7 +845,7 @@ export default function App() {
       extra: toGroup(deck.extra, 'extra'),
       side: toGroup(deck.side, 'side'),
     };
-  }, [deck, cardDetails, genesysPointMap]);
+  }, [deck, cardDetails, genesysPointMap, cardSortMode.main, cardSortMode.extra, cardSortMode.side]);
 
   const totalPoints = useMemo(() => {
     if (!deckGroups) {
@@ -1037,6 +1052,10 @@ export default function App() {
                   deckGroups={deckGroups}
                   onCardSelect={handleCardFocus}
                   onMissingCardSelect={handleMissingCardSelect}
+                  sortMode={cardSortMode}
+                  onSortModeChange={(zone, mode) =>
+                    setCardSortMode((prev) => (prev[zone] === mode ? prev : { ...prev, [zone]: mode }))
+                  }
                 />
               </div>
             </section>
@@ -1292,24 +1311,29 @@ export default function App() {
       {focusedCard && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={requestCloseTopModal}>
           <div
-            className="flex max-h-[90vh] w-full max-w-2xl flex-col space-y-4 overflow-y-auto rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel touch-pan-y"
+            className="relative flex max-h-[90vh] w-full max-w-3xl flex-col gap-4 overflow-y-auto rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel touch-pan-y"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex justify-between text-2xl text-slate-300">
-              <span />
-              <button onClick={requestCloseTopModal} aria-label="Close card details">
-                ×
-              </button>
-            </div>
+            <button
+              onClick={requestCloseTopModal}
+              aria-label="Close card details"
+              className="absolute right-4 top-4 text-2xl text-slate-300 transition hover:text-white"
+            >
+              ×
+            </button>
             <div className="flex flex-col gap-4 md:flex-row">
-              <div className="mx-auto w-52 overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+              <div className="mx-auto w-52 overflow-hidden rounded-2xl border border-white/10 bg-black/30 md:mx-0 md:h-auto md:self-center">
                 {activeCardDetails?.image || focusedCard.image ? (
-                  <img src={activeCardDetails?.image ?? focusedCard.image} alt={focusedCard.name} className="w-full object-cover" />
+                  <img
+                    src={activeCardDetails?.image ?? focusedCard.image}
+                    alt={focusedCard.name}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
                   <div className="flex h-72 items-center justify-center text-sm text-slate-400">No art</div>
                 )}
               </div>
-              <div className="flex-1 space-y-3">
+              <div className="flex-1 space-y-3 pt-8 md:pt-0">
                 <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">
                   {focusedCard.zone === 'main' ? 'Main Deck' : focusedCard.zone === 'extra' ? 'Extra Deck' : 'Side Deck'}
                 </p>

@@ -5,11 +5,19 @@ interface CardSectionsProps {
   deckGroups: DeckGroups | null;
   onCardSelect: (card: DeckCardGroup) => void;
   onMissingCardSelect?: (card: DeckCardGroup) => void;
+  sortMode: Record<DeckSection, 'points' | 'default'>;
+  onSortModeChange: (zone: DeckSection, mode: 'points' | 'default') => void;
 }
 
 const sections: DeckSection[] = ['main', 'extra', 'side'];
 
-export function CardSections({ deckGroups, onCardSelect, onMissingCardSelect }: CardSectionsProps) {
+export function CardSections({
+  deckGroups,
+  onCardSelect,
+  onMissingCardSelect,
+  sortMode,
+  onSortModeChange,
+}: CardSectionsProps) {
   if (!deckGroups) {
     return <p className="text-sm text-slate-400">Paste a deck to unlock card insights.</p>;
   }
@@ -21,15 +29,28 @@ export function CardSections({ deckGroups, onCardSelect, onMissingCardSelect }: 
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {sections.map((zone) => (
         <div key={zone} className="space-y-4">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="text-lg font-semibold">{formatZoneTitle(zone)}</h3>
-            <span className="text-sm text-slate-400">
-              {deckGroups[zone].reduce((sum, card) => sum + card.totalPoints, 0)} pts ·{' '}
-              {deckGroups[zone].reduce((sum, card) => sum + (card.notInList ? card.count : 0), 0)} off-list
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-slate-400">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="text-lg font-semibold text-white">{formatZoneTitle(zone)}</h3>
+              <span>
+                {deckGroups[zone].reduce((sum, card) => sum + card.totalPoints, 0)} pts ·{' '}
+                {deckGroups[zone].reduce((sum, card) => sum + (card.notInList ? card.count : 0), 0)} off-list
+              </span>
+            </div>
+            <label className="flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-slate-400">
+              Sort
+              <select
+                className="rounded-full border border-white/10 bg-slate-900/80 px-1 py-0.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-100 outline-none focus:border-accent"
+                value={sortMode[zone]}
+                onChange={(event) => onSortModeChange(zone, event.target.value as 'points' | 'default')}
+              >
+                <option value="points">Points ↓</option>
+                <option value="default">Default</option>
+              </select>
+            </label>
           </div>
           {deckGroups[zone].length === 0 ? (
             <p className="text-sm text-slate-500">No cards in this section.</p>
