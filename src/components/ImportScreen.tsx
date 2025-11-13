@@ -38,7 +38,7 @@ export function ImportScreen({
             <div className="flex items-center gap-3">
               <h1 className="text-3xl font-semibold">Genesys helper</h1>
               <a
-                href="/"
+                href="/ygo-genesys-helper/"
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-slate-200 transition hover:border-white/60 hover:text-white"
                 aria-label="Open Genesys helper home"
               >
