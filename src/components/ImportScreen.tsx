@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState, type ChangeEvent, type DragEvent } from 'react';
-import type { GenesysPayload } from '../types';
+import type { GenesysPayload, SavedDeckEntry } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
 
 interface ImportScreenProps {
@@ -11,6 +11,12 @@ interface ImportScreenProps {
   onViewBreakdown: () => void;
   onImportYdkFile: (file: File) => void;
   onImportJsonDeck: (file: File) => void;
+  savedDecks: SavedDeckEntry[];
+  onSaveDeck: (name: string) => void;
+  onLoadSavedDeck: (id: string) => void;
+  onDeleteSavedDeck: (id: string) => void;
+  onExportSavedDecks: () => void;
+  onImportSavedDecks: (file: File) => void;
 }
 
 export function ImportScreen({
@@ -25,6 +31,7 @@ export function ImportScreen({
 }: ImportScreenProps) {
   const [isDragActive, setIsDragActive] = useState(false);
   const dragCounter = useRef(0);
+  const [savedName, setSavedName] = useState('');
 
   const processFile = useCallback(
     (file: File) => {
@@ -42,6 +49,14 @@ export function ImportScreen({
     const file = event.target.files?.[0];
     if (file) {
       processFile(file);
+      event.target.value = '';
+    }
+  };
+
+  const handleSavedLibraryChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      onImportSavedDecks(file);
       event.target.value = '';
     }
   };
@@ -181,6 +196,87 @@ export function ImportScreen({
             <input type="file" accept=".ydk,.json,text/plain,application/json" className="sr-only" onChange={handleFileChange} />
           </label>
           <small className="text-xs text-slate-400">We’ll convert YDK or Tag Force JSON decks into YDKE automatically.</small>
+        </div>
+      </section>
+
+      <section className="rounded-[28px] border border-white/10 bg-panel/90 p-5 shadow-panel space-y-4">
+        <div className="flex flex-col gap-1">
+          <h2 className="text-xl font-semibold">2. Saved decks</h2>
+          <span className="text-sm text-slate-400">
+            Store decks in this browser and export/import them as JSON backups.
+          </span>
+        </div>
+        <div className="flex flex-col gap-3 md:flex-row">
+          <input
+            type="text"
+            value={savedName}
+            onChange={(event) => setSavedName(event.target.value)}
+            placeholder="Deck name"
+            className="flex-1 rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300/60"
+          />
+          <button
+            type="button"
+            className="rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-6 py-3 text-sm font-semibold text-slate-900 disabled:opacity-40"
+            disabled={!hasDeck || Boolean(deckError)}
+            onClick={() => {
+              onSaveDeck(savedName);
+              setSavedName('');
+            }}
+          >
+            Save current deck
+          </button>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-white/40"
+            onClick={onExportSavedDecks}
+          >
+            Export saved decks
+          </button>
+          <label className="inline-flex cursor-pointer items-center rounded-full border border-dashed border-white/20 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-white/40">
+            Import saved decks
+            <input type="file" accept="application/json,.json" className="sr-only" onChange={handleSavedLibraryChange} />
+          </label>
+        </div>
+        <div className="space-y-3 rounded-2xl border border-white/10 bg-black/30 p-4">
+          {savedDecks.length === 0 ? (
+            <p className="text-sm text-slate-400">
+              No saved decks yet. Save a deck above to keep it available between sessions.
+            </p>
+          ) : (
+            <ul className="space-y-3">
+              {savedDecks.map((deck) => (
+                <li
+                  key={deck.id}
+                  className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-black/40 p-3 text-sm text-slate-200 md:flex-row md:items-center md:justify-between"
+                >
+                  <div>
+                    <p className="font-semibold text-white">{deck.name}</p>
+                    <p className="text-xs text-slate-400">
+                      Saved {new Date(deck.savedAt).toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white hover:border-white"
+                      onClick={() => onLoadSavedDeck(deck.id)}
+                    >
+                      Load
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-full border border-rose-400/50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-200 hover:border-rose-300"
+                      onClick={() => onDeleteSavedDeck(deck.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     </div>

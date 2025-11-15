@@ -11,6 +11,7 @@ import type {
   DeckSection,
   GenesysCard,
   GenesysPayload,
+  SavedDeckEntry,
 } from './types.ts';
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
@@ -23,6 +24,7 @@ import { Toaster, toast } from 'sonner';
 const DEFAULT_POINT_CAP = 100;
 const genesysData = genesysPayload as GenesysPayload;
 type View = 'import' | 'results';
+const SAVED_DECKS_STORAGE_KEY = 'ygo-genesys-saved-decks-v1';
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -99,6 +101,7 @@ export default function App() {
     extra: 'points',
     side: 'points',
   });
+  const [savedDecks, setSavedDecks] = useState<SavedDeckEntry[]>([]);
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
@@ -130,6 +133,28 @@ export default function App() {
   const genesysPointMap = useMemo(() => {
     const entries = genesysData.cards.map((card) => [normalizeCardName(card.name), card.points] as const);
     return new Map(entries);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    try {
+      const stored = window.localStorage.getItem(SAVED_DECKS_STORAGE_KEY);
+      if (!stored) {
+        return;
+      }
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        setSavedDecks(parsed);
+        return;
+      }
+      if (Array.isArray(parsed?.decks)) {
+        setSavedDecks(parsed.decks);
+      }
+    } catch (error) {
+      console.warn('Failed to load saved decks from storage', error);
+    }
   }, []);
 
   const { deck, deckError } = useMemo(() => {
@@ -529,6 +554,124 @@ export default function App() {
     },
     [],
   );
+
+  const handleSaveDeck = useCallback(
+    (name: string) => {
+      const deckString = deckInput.trim();
+      if (!deckString) {
+        toast.error('Load or paste a deck before saving.');
+        return;
+      }
+      const trimmedName = name.trim() || `Deck ${new Date().toLocaleString()}`;
+      const entry: SavedDeckEntry = {
+        id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+        name: trimmedName,
+        deck: deckString,
+        savedAt: new Date().toISOString(),
+      };
+      updateSavedDecks((prev) => [entry, ...prev].slice(0, 200));
+      toast.success('Deck saved locally.');
+    },
+    [deckInput, updateSavedDecks],
+  );
+
+  const handleLoadSavedDeck = useCallback(
+    (id: string) => {
+      const entry = savedDecks.find((deck) => deck.id === id);
+      if (!entry) {
+        toast.error('Saved deck not found.');
+        return;
+      }
+      setDeckInput(entry.deck);
+      setView('results');
+      toast.success(`Loaded ${entry.name}`);
+    },
+    [savedDecks],
+  );
+
+  const handleDeleteSavedDeck = useCallback(
+    (id: string) => {
+      updateSavedDecks((prev) => prev.filter((deck) => deck.id !== id));
+      toast.success('Deck deleted.');
+    },
+    [updateSavedDecks],
+  );
+
+  const handleExportSavedDecks = useCallback(() => {
+    if (savedDecks.length === 0) {
+      toast.info('No saved decks to export.');
+      return;
+    }
+    const payload = {
+      version: 1,
+      decks: savedDecks,
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `ygo-genesys-decks-${Date.now()}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }, [savedDecks]);
+
+  const handleImportSavedDecks = useCallback(async (file: File) => {
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      const rawDecks = Array.isArray(parsed)
+        ? parsed
+        : Array.isArray(parsed?.decks)
+          ? parsed.decks
+          : null;
+      if (!rawDecks) {
+        throw new Error('Invalid deck library file.');
+      }
+      const normalized: SavedDeckEntry[] = rawDecks
+        .map((entry: any): SavedDeckEntry | null => {
+          const deck = typeof entry.deck === 'string' ? entry.deck.trim() : '';
+          if (!deck) {
+            return null;
+          }
+          const id =
+            typeof entry.id === 'string' && entry.id.trim()
+              ? entry.id.trim()
+              : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+          const name =
+            typeof entry.name === 'string' && entry.name.trim()
+              ? entry.name.trim()
+              : 'Untitled deck';
+          const savedAt =
+            typeof entry.savedAt === 'string' && entry.savedAt.trim()
+              ? entry.savedAt
+              : new Date().toISOString();
+          return { id, name, deck, savedAt };
+        })
+        .filter((entry): entry is SavedDeckEntry => Boolean(entry));
+      if (normalized.length === 0) {
+        throw new Error('No valid decks found in file.');
+      }
+      updateSavedDecks((prev) => {
+        const existingIds = new Set(prev.map((deck) => deck.id));
+        const merged = [...normalized.filter((deck) => !existingIds.has(deck.id)), ...prev];
+        return merged.slice(0, 200);
+      });
+      toast.success(`Imported ${normalized.length} deck${normalized.length === 1 ? '' : 's'}.`);
+    } catch (error) {
+      console.error('Import saved decks failed', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to import saved decks.');
+    }
+  }, [updateSavedDecks]);
+
+  const updateSavedDecks = useCallback((updater: (prev: SavedDeckEntry[]) => SavedDeckEntry[]) => {
+    setSavedDecks((prev) => {
+      const next = updater(prev);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(SAVED_DECKS_STORAGE_KEY, JSON.stringify(next));
+      }
+      return next;
+    });
+  }, []);
 
   const modalDepth =
     Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0) + (missingCardContext ? 1 : 0);
@@ -1116,6 +1259,12 @@ export default function App() {
             onViewBreakdown={handleViewResults}
             onImportYdkFile={handleImportYdkFile}
             onImportJsonDeck={handleImportJsonDeck}
+            savedDecks={savedDecks}
+            onSaveDeck={handleSaveDeck}
+            onLoadSavedDeck={handleLoadSavedDeck}
+            onDeleteSavedDeck={handleDeleteSavedDeck}
+            onExportSavedDecks={handleExportSavedDecks}
+            onImportSavedDecks={handleImportSavedDecks}
           />
         ) : (
           <div className="flex h-full flex-col gap-4">

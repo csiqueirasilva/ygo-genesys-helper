@@ -58,3 +58,10 @@ export interface AssistantDeckContext {
   card_point_list: string;
   notes: string;
 }
+
+export interface SavedDeckEntry {
+  id: string;
+  name: string;
+  deck: string;
+  savedAt: string;
+}
