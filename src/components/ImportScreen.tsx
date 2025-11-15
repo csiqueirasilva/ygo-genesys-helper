@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+import { useCallback, useRef, useState, type ChangeEvent, type DragEvent } from 'react';
 import type { GenesysPayload } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
 
@@ -23,21 +23,80 @@ export function ImportScreen({
   onImportYdkFile,
   onImportJsonDeck,
 }: ImportScreenProps) {
+  const [isDragActive, setIsDragActive] = useState(false);
+  const dragCounter = useRef(0);
+
+  const processFile = useCallback(
+    (file: File) => {
+      const extension = file.name.split('.').pop()?.toLowerCase();
+      if (extension === 'json' || file.type === 'application/json') {
+        onImportJsonDeck(file);
+        return;
+      }
+      onImportYdkFile(file);
+    },
+    [onImportJsonDeck, onImportYdkFile],
+  );
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const extension = file.name.split('.').pop()?.toLowerCase();
-      if ((extension === 'json' || file.type === 'application/json') && onImportJsonDeck) {
-        onImportJsonDeck(file);
-      } else {
-        onImportYdkFile(file);
-      }
+      processFile(file);
       event.target.value = '';
     }
   };
 
+  const handleDragEnter = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.dataTransfer?.types?.includes('Files')) {
+      dragCounter.current += 1;
+      setIsDragActive(true);
+    }
+  };
+
+  const handleDragLeave = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dragCounter.current = Math.max(0, dragCounter.current - 1);
+    if (dragCounter.current === 0) {
+      setIsDragActive(false);
+    }
+  };
+
+  const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    event.dataTransfer.dropEffect = 'copy';
+  };
+
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsDragActive(false);
+    dragCounter.current = 0;
+    const file = event.dataTransfer?.files?.[0];
+    if (file) {
+      processFile(file);
+    }
+  };
+
   return (
-    <div className="space-y-4">
+    <div
+      className="relative space-y-4"
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+    >
+      {isDragActive && (
+        <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/80">
+          <div className="rounded-[32px] border border-cyan-400/60 bg-black/70 px-8 py-10 text-center text-cyan-100 shadow-lg">
+            <p className="text-xl font-semibold uppercase tracking-[0.3em]">Drop deck file</p>
+            <p className="mt-2 text-sm text-cyan-200">Drag a .ydk or .json file anywhere on the screen to import.</p>
+          </div>
+        </div>
+      )}
       <header className="rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/40 p-6 shadow-panel flex flex-col gap-4 md:flex-row md:justify-between md:items-end">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Yu-Gi-Oh! Genesys</p>
