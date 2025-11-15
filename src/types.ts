@@ -65,3 +65,9 @@ export interface SavedDeckEntry {
   deck: string;
   savedAt: string;
 }
+
+export interface SavedDeckFolder {
+  id: string;
+  name: string;
+  decks: SavedDeckEntry[];
+}

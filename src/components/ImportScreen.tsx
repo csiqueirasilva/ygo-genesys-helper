@@ -1,5 +1,5 @@
-import { useCallback, useRef, useState, type ChangeEvent, type DragEvent } from 'react';
-import type { GenesysPayload, SavedDeckEntry } from '../types';
+import { useCallback, useEffect, useRef, useState, type ChangeEvent, type DragEvent } from 'react';
+import type { GenesysPayload, SavedDeckFolder } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
 
 interface ImportScreenProps {
@@ -11,10 +11,12 @@ interface ImportScreenProps {
   onViewBreakdown: () => void;
   onImportYdkFile: (file: File) => void;
   onImportJsonDeck: (file: File) => void;
-  savedDecks: SavedDeckEntry[];
-  onSaveDeck: (name: string) => void;
-  onLoadSavedDeck: (id: string) => void;
-  onDeleteSavedDeck: (id: string) => void;
+  savedFolders: SavedDeckFolder[];
+  onSaveDeck: (name: string, folderId?: string) => void;
+  onLoadSavedDeck: (folderId: string, deckId: string) => void;
+  onDeleteSavedDeck: (folderId: string, deckId: string) => void;
+  onCreateFolder: (name: string) => void;
+  onDeleteFolder: (folderId: string) => void;
   onExportSavedDecks: () => void;
   onImportSavedDecks: (file: File) => void;
 }
@@ -28,10 +30,20 @@ export function ImportScreen({
   onViewBreakdown,
   onImportYdkFile,
   onImportJsonDeck,
+  savedFolders,
+  onSaveDeck,
+  onLoadSavedDeck,
+  onDeleteSavedDeck,
+  onCreateFolder,
+  onDeleteFolder,
+  onExportSavedDecks,
+  onImportSavedDecks,
 }: ImportScreenProps) {
   const [isDragActive, setIsDragActive] = useState(false);
   const dragCounter = useRef(0);
   const [savedName, setSavedName] = useState('');
+  const [selectedFolderId, setSelectedFolderId] = useState('');
+  const [newFolderName, setNewFolderName] = useState('');
 
   const processFile = useCallback(
     (file: File) => {
@@ -60,6 +72,16 @@ export function ImportScreen({
       event.target.value = '';
     }
   };
+
+  useEffect(() => {
+    if (savedFolders.length === 0) {
+      setSelectedFolderId('');
+      return;
+    }
+    if (!savedFolders.some((folder) => folder.id === selectedFolderId)) {
+      setSelectedFolderId(savedFolders[0].id);
+    }
+  }, [savedFolders, selectedFolderId]);
 
   const handleDragEnter = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -206,24 +228,73 @@ export function ImportScreen({
             Store decks in this browser and export/import them as JSON backups.
           </span>
         </div>
-        <div className="flex flex-col gap-3 md:flex-row">
-          <input
-            type="text"
-            value={savedName}
-            onChange={(event) => setSavedName(event.target.value)}
-            placeholder="Deck name"
-            className="flex-1 rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300/60"
-          />
+        <div className="flex flex-col gap-3 md:flex-row md:items-end">
+          <div className="flex-1 space-y-1">
+            <label className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+              Deck name
+            </label>
+            <input
+              type="text"
+              value={savedName}
+              onChange={(event) => setSavedName(event.target.value)}
+              placeholder="Deck name"
+              className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300/60"
+            />
+          </div>
+          <div className="w-full space-y-1 md:w-56">
+            <label className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+              Folder
+            </label>
+            <select
+              value={selectedFolderId}
+              onChange={(event) => setSelectedFolderId(event.target.value)}
+              className="w-full rounded-2xl border border-white/10 bg-black/40 px-3 py-2 text-sm font-semibold uppercase tracking-[0.15em] text-white focus:outline-none focus:ring-2 focus:ring-cyan-300/60"
+            >
+              {savedFolders.map((folder) => (
+                <option key={folder.id} value={folder.id}>
+                  {folder.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <button
             type="button"
             className="rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-6 py-3 text-sm font-semibold text-slate-900 disabled:opacity-40"
-            disabled={!hasDeck || Boolean(deckError)}
+            disabled={!hasDeck || Boolean(deckError) || !selectedFolderId}
             onClick={() => {
-              onSaveDeck(savedName);
+              onSaveDeck(savedName, selectedFolderId);
               setSavedName('');
             }}
           >
             Save current deck
+          </button>
+        </div>
+        <div className="flex flex-col gap-3 md:flex-row md:items-end">
+          <div className="flex-1 space-y-1">
+            <label className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+              New folder
+            </label>
+            <input
+              type="text"
+              value={newFolderName}
+              onChange={(event) => setNewFolderName(event.target.value)}
+              placeholder="Folder name"
+              className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-300/60"
+            />
+          </div>
+          <button
+            type="button"
+            className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-white/40"
+            onClick={() => {
+              const trimmed = newFolderName.trim();
+              if (!trimmed) {
+                return;
+              }
+              onCreateFolder(trimmed);
+              setNewFolderName('');
+            }}
+          >
+            Create folder
           </button>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -239,43 +310,64 @@ export function ImportScreen({
             <input type="file" accept="application/json,.json" className="sr-only" onChange={handleSavedLibraryChange} />
           </label>
         </div>
-        <div className="space-y-3 rounded-2xl border border-white/10 bg-black/30 p-4">
-          {savedDecks.length === 0 ? (
+        <div className="space-y-4 rounded-2xl border border-white/10 bg-black/30 p-4">
+          {savedFolders.every((folder) => folder.decks.length === 0) ? (
             <p className="text-sm text-slate-400">
               No saved decks yet. Save a deck above to keep it available between sessions.
             </p>
           ) : (
-            <ul className="space-y-3">
-              {savedDecks.map((deck) => (
-                <li
-                  key={deck.id}
-                  className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-black/40 p-3 text-sm text-slate-200 md:flex-row md:items-center md:justify-between"
-                >
-                  <div>
-                    <p className="font-semibold text-white">{deck.name}</p>
-                    <p className="text-xs text-slate-400">
-                      Saved {new Date(deck.savedAt).toLocaleString()}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white hover:border-white"
-                      onClick={() => onLoadSavedDeck(deck.id)}
-                    >
-                      Load
-                    </button>
-                    <button
-                      type="button"
-                      className="rounded-full border border-rose-400/50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-200 hover:border-rose-300"
-                      onClick={() => onDeleteSavedDeck(deck.id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            savedFolders.map((folder) => (
+              <div key={folder.id} className="space-y-2 rounded-2xl border border-white/5 bg-black/30 p-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-sm font-semibold text-white">
+                    {folder.name} · {folder.decks.length} deck{folder.decks.length === 1 ? '' : 's'}
+                  </h3>
+                  <button
+                    type="button"
+                    className="text-xs text-rose-200 hover:text-rose-100 disabled:opacity-40"
+                    onClick={() => onDeleteFolder(folder.id)}
+                    disabled={folder.decks.length > 0 || savedFolders.length <= 1}
+                  >
+                    Delete folder
+                  </button>
+                </div>
+                {folder.decks.length === 0 ? (
+                  <p className="text-xs text-slate-500">Empty folder.</p>
+                ) : (
+                  <ul className="space-y-2">
+                    {folder.decks.map((deck) => (
+                      <li
+                        key={deck.id}
+                        className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-black/40 p-3 text-sm text-slate-200 md:flex-row md:items-center md:justify-between"
+                      >
+                        <div>
+                          <p className="font-semibold text-white">{deck.name}</p>
+                          <p className="text-xs text-slate-400">
+                            Saved {new Date(deck.savedAt).toLocaleString()}
+                          </p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          <button
+                            type="button"
+                            className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white hover:border-white"
+                            onClick={() => onLoadSavedDeck(folder.id, deck.id)}
+                          >
+                            Load
+                          </button>
+                          <button
+                            type="button"
+                            className="rounded-full border border-rose-400/50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-200 hover:border-rose-300"
+                            onClick={() => onDeleteSavedDeck(folder.id, deck.id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))
           )}
         </div>
       </section>

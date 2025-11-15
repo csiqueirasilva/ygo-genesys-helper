@@ -12,6 +12,7 @@ import type {
   GenesysCard,
   GenesysPayload,
   SavedDeckEntry,
+  SavedDeckFolder,
 } from './types.ts';
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
@@ -25,6 +26,77 @@ const DEFAULT_POINT_CAP = 100;
 const genesysData = genesysPayload as GenesysPayload;
 type View = 'import' | 'results';
 const SAVED_DECKS_STORAGE_KEY = 'ygo-genesys-saved-decks-v1';
+const DEFAULT_FOLDER_ID = 'folder-default';
+const DEFAULT_FOLDER_NAME = 'Unsorted';
+
+const generateFolderId = () => `folder-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+const createFolder = (name: string, id?: string, decks: SavedDeckEntry[] = []): SavedDeckFolder => ({
+  id: id ?? generateFolderId(),
+  name,
+  decks,
+});
+const ensureFolders = (folders: SavedDeckFolder[]) =>
+  folders.length > 0 ? folders : [createFolder(DEFAULT_FOLDER_NAME, DEFAULT_FOLDER_ID)];
+
+const normalizeDeckEntry = (raw: any): SavedDeckEntry | null => {
+  const deck = typeof raw?.deck === 'string' ? raw.deck.trim() : '';
+  if (!deck) {
+    return null;
+  }
+  const id =
+    typeof raw?.id === 'string' && raw.id.trim()
+      ? raw.id.trim()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  const name =
+    typeof raw?.name === 'string' && raw.name.trim() ? raw.name.trim() : 'Untitled deck';
+  const savedAt =
+    typeof raw?.savedAt === 'string' && raw.savedAt.trim()
+      ? raw.savedAt
+      : new Date().toISOString();
+  return { id, name, deck, savedAt };
+};
+
+const normalizeFolders = (raw: any, ensureDefault = true): SavedDeckFolder[] => {
+  let folders: SavedDeckFolder[] = [];
+  if (Array.isArray(raw?.folders)) {
+    folders = raw.folders
+      .map((folder: any): SavedDeckFolder | null => {
+        const decks = Array.isArray(folder?.decks)
+          ? folder.decks.map((entry: any) => normalizeDeckEntry(entry)).filter(Boolean)
+          : [];
+        const name =
+          typeof folder?.name === 'string' && folder.name.trim()
+            ? folder.name.trim()
+            : DEFAULT_FOLDER_NAME;
+        const id =
+          typeof folder?.id === 'string' && folder.id.trim()
+            ? folder.id.trim()
+            : generateFolderId();
+        return createFolder(name, id, decks as SavedDeckEntry[]);
+      })
+      .filter(Boolean) as SavedDeckFolder[];
+  } else if (Array.isArray(raw?.decks)) {
+    const decks = raw.decks
+      .map((entry: any) => normalizeDeckEntry(entry))
+      .filter(Boolean) as SavedDeckEntry[];
+    folders = [createFolder(DEFAULT_FOLDER_NAME, DEFAULT_FOLDER_ID, decks)];
+  } else if (Array.isArray(raw)) {
+    const decks = raw
+      .map((entry: any) => normalizeDeckEntry(entry))
+      .filter(Boolean) as SavedDeckEntry[];
+    folders = [createFolder(DEFAULT_FOLDER_NAME, DEFAULT_FOLDER_ID, decks)];
+  }
+
+  return ensureDefault ? ensureFolders(folders) : folders;
+};
+
+const persistFolders = (folders: SavedDeckFolder[]) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  const payload = { version: 2, folders };
+  window.localStorage.setItem(SAVED_DECKS_STORAGE_KEY, JSON.stringify(payload));
+};
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -101,7 +173,7 @@ export default function App() {
     extra: 'points',
     side: 'points',
   });
-  const [savedDecks, setSavedDecks] = useState<SavedDeckEntry[]>([]);
+  const [savedFolders, setSavedFolders] = useState<SavedDeckFolder[]>(() => ensureFolders([]));
 
   // Load deck info from hash on first paint & respond to manual hash changes.
   useEffect(() => {
@@ -142,18 +214,14 @@ export default function App() {
     try {
       const stored = window.localStorage.getItem(SAVED_DECKS_STORAGE_KEY);
       if (!stored) {
+        setSavedFolders(ensureFolders([]));
         return;
       }
       const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed)) {
-        setSavedDecks(parsed);
-        return;
-      }
-      if (Array.isArray(parsed?.decks)) {
-        setSavedDecks(parsed.decks);
-      }
+      setSavedFolders(normalizeFolders(parsed));
     } catch (error) {
       console.warn('Failed to load saved decks from storage', error);
+      setSavedFolders(ensureFolders([]));
     }
   }, []);
 
@@ -463,6 +531,18 @@ export default function App() {
     [],
   );
 
+  const setSavedFoldersAndPersist = useCallback(
+    (producer: (prev: SavedDeckFolder[]) => SavedDeckFolder[]) => {
+      setSavedFolders((prev) => {
+        const prevEnsured = ensureFolders(prev);
+        const next = ensureFolders(producer(prevEnsured.map((folder) => ({ ...folder, decks: [...folder.decks] }))));
+        persistFolders(next);
+        return next;
+      });
+    },
+    [],
+  );
+
   const handleImportJsonDeck = useCallback(
     async (file: File) => {
       try {
@@ -556,7 +636,7 @@ export default function App() {
   );
 
   const handleSaveDeck = useCallback(
-    (name: string) => {
+    (name: string, folderId?: string) => {
       const deckString = deckInput.trim();
       if (!deckString) {
         toast.error('Load or paste a deck before saving.');
@@ -569,42 +649,123 @@ export default function App() {
         deck: deckString,
         savedAt: new Date().toISOString(),
       };
-      updateSavedDecks((prev) => [entry, ...prev].slice(0, 200));
-      toast.success('Deck saved locally.');
+      setSavedFoldersAndPersist((prev) => {
+        const next = [...prev];
+        let targetIndex = folderId ? next.findIndex((folder) => folder.id === folderId) : -1;
+        if (targetIndex < 0) {
+          if (next.length === 0) {
+            next.push(createFolder(DEFAULT_FOLDER_NAME, DEFAULT_FOLDER_ID));
+          }
+          targetIndex = 0;
+        }
+        const folder = { ...next[targetIndex], decks: [entry, ...next[targetIndex].decks].slice(0, 200) };
+        next[targetIndex] = folder;
+        toast.success('Deck saved locally.');
+        return next;
+      });
     },
-    [deckInput, updateSavedDecks],
+    [deckInput, setSavedFoldersAndPersist],
   );
 
   const handleLoadSavedDeck = useCallback(
-    (id: string) => {
-      const entry = savedDecks.find((deck) => deck.id === id);
-      if (!entry) {
+    (folderId: string, deckId: string) => {
+      const folder = savedFolders.find((entry) => entry.id === folderId);
+      const deck = folder?.decks.find((entry) => entry.id === deckId);
+      if (!deck) {
         toast.error('Saved deck not found.');
         return;
       }
-      setDeckInput(entry.deck);
+      setDeckInput(deck.deck);
       setView('results');
-      toast.success(`Loaded ${entry.name}`);
+      toast.success(`Loaded ${deck.name}`);
     },
-    [savedDecks],
+    [savedFolders],
   );
 
   const handleDeleteSavedDeck = useCallback(
-    (id: string) => {
-      updateSavedDecks((prev) => prev.filter((deck) => deck.id !== id));
-      toast.success('Deck deleted.');
+    (folderId: string, deckId: string) => {
+      let deleted = false;
+      setSavedFoldersAndPersist((prev) => {
+        const next = prev.map((folder) => {
+          if (folder.id !== folderId) {
+            return folder;
+          }
+          const decks = folder.decks.filter((deck) => deck.id !== deckId);
+          if (decks.length !== folder.decks.length) {
+            deleted = true;
+          }
+          return { ...folder, decks };
+        });
+        return next;
+      });
+      if (deleted) {
+        toast.success('Deck deleted.');
+      } else {
+        toast.error('Unable to delete deck.');
+      }
     },
-    [updateSavedDecks],
+    [setSavedFoldersAndPersist],
+  );
+
+  const handleCreateFolder = useCallback(
+    (name: string) => {
+      const trimmed = name.trim();
+      if (!trimmed) {
+        toast.error('Enter a folder name.');
+        return;
+      }
+      let created = false;
+      setSavedFoldersAndPersist((prev) => {
+        if (prev.some((folder) => folder.name.toLowerCase() === trimmed.toLowerCase())) {
+          toast.error('Folder with that name already exists.');
+          return prev;
+        }
+        created = true;
+        return [...prev, createFolder(trimmed)];
+      });
+      if (created) {
+        toast.success('Folder created.');
+      }
+    },
+    [setSavedFoldersAndPersist],
+  );
+
+  const handleDeleteFolder = useCallback(
+    (folderId: string) => {
+      let removed = false;
+      setSavedFoldersAndPersist((prev) => {
+        if (prev.length <= 1) {
+          toast.error('Cannot delete the last folder.');
+          return prev;
+        }
+        const folder = prev.find((entry) => entry.id === folderId);
+        if (!folder) {
+          toast.error('Folder not found.');
+          return prev;
+        }
+        if (folder.decks.length > 0) {
+          toast.error('Remove decks from this folder first.');
+          return prev;
+        }
+        removed = true;
+        return prev.filter((entry) => entry.id !== folderId);
+      });
+      if (removed) {
+        toast.success('Folder deleted.');
+      }
+    },
+    [setSavedFoldersAndPersist],
   );
 
   const handleExportSavedDecks = useCallback(() => {
-    if (savedDecks.length === 0) {
+    const deckCount = savedFolders.reduce((sum, folder) => sum + folder.decks.length, 0);
+    if (deckCount === 0) {
       toast.info('No saved decks to export.');
       return;
     }
     const payload = {
-      version: 1,
-      decks: savedDecks,
+      version: 2,
+      folders: savedFolders,
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -613,65 +774,39 @@ export default function App() {
     anchor.download = `ygo-genesys-decks-${Date.now()}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
-  }, [savedDecks]);
+  }, [savedFolders]);
 
-  const handleImportSavedDecks = useCallback(async (file: File) => {
-    try {
-      const text = await file.text();
-      const parsed = JSON.parse(text);
-      const rawDecks = Array.isArray(parsed)
-        ? parsed
-        : Array.isArray(parsed?.decks)
-          ? parsed.decks
-          : null;
-      if (!rawDecks) {
-        throw new Error('Invalid deck library file.');
+  const handleImportSavedDecks = useCallback(
+    async (file: File) => {
+      try {
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        const importedFolders = normalizeFolders(parsed, false);
+        const totalDecks = importedFolders.reduce((sum, folder) => sum + folder.decks.length, 0);
+        if (totalDecks === 0) {
+          throw new Error('No valid decks found in file.');
+        }
+        setSavedFoldersAndPersist((prev) => {
+          const existingIds = new Set(prev.map((folder) => folder.id));
+          const merged = [...prev];
+          importedFolders.forEach((folder) => {
+            let newId = folder.id;
+            while (existingIds.has(newId)) {
+              newId = generateFolderId();
+            }
+            existingIds.add(newId);
+            merged.push({ ...folder, id: newId });
+          });
+          return merged;
+        });
+        toast.success(`Imported ${totalDecks} deck${totalDecks === 1 ? '' : 's'}.`);
+      } catch (error) {
+        console.error('Import saved decks failed', error);
+        toast.error(error instanceof Error ? error.message : 'Failed to import saved decks.');
       }
-      const normalized: SavedDeckEntry[] = rawDecks
-        .map((entry: any): SavedDeckEntry | null => {
-          const deck = typeof entry.deck === 'string' ? entry.deck.trim() : '';
-          if (!deck) {
-            return null;
-          }
-          const id =
-            typeof entry.id === 'string' && entry.id.trim()
-              ? entry.id.trim()
-              : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-          const name =
-            typeof entry.name === 'string' && entry.name.trim()
-              ? entry.name.trim()
-              : 'Untitled deck';
-          const savedAt =
-            typeof entry.savedAt === 'string' && entry.savedAt.trim()
-              ? entry.savedAt
-              : new Date().toISOString();
-          return { id, name, deck, savedAt };
-        })
-        .filter((entry): entry is SavedDeckEntry => Boolean(entry));
-      if (normalized.length === 0) {
-        throw new Error('No valid decks found in file.');
-      }
-      updateSavedDecks((prev) => {
-        const existingIds = new Set(prev.map((deck) => deck.id));
-        const merged = [...normalized.filter((deck) => !existingIds.has(deck.id)), ...prev];
-        return merged.slice(0, 200);
-      });
-      toast.success(`Imported ${normalized.length} deck${normalized.length === 1 ? '' : 's'}.`);
-    } catch (error) {
-      console.error('Import saved decks failed', error);
-      toast.error(error instanceof Error ? error.message : 'Failed to import saved decks.');
-    }
-  }, [updateSavedDecks]);
-
-  const updateSavedDecks = useCallback((updater: (prev: SavedDeckEntry[]) => SavedDeckEntry[]) => {
-    setSavedDecks((prev) => {
-      const next = updater(prev);
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem(SAVED_DECKS_STORAGE_KEY, JSON.stringify(next));
-      }
-      return next;
-    });
-  }, []);
+    },
+    [setSavedFoldersAndPersist],
+  );
 
   const modalDepth =
     Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0) + (missingCardContext ? 1 : 0);
@@ -1259,10 +1394,12 @@ export default function App() {
             onViewBreakdown={handleViewResults}
             onImportYdkFile={handleImportYdkFile}
             onImportJsonDeck={handleImportJsonDeck}
-            savedDecks={savedDecks}
+            savedFolders={savedFolders}
             onSaveDeck={handleSaveDeck}
             onLoadSavedDeck={handleLoadSavedDeck}
             onDeleteSavedDeck={handleDeleteSavedDeck}
+            onCreateFolder={handleCreateFolder}
+            onDeleteFolder={handleDeleteFolder}
             onExportSavedDecks={handleExportSavedDecks}
             onImportSavedDecks={handleImportSavedDecks}
           />
