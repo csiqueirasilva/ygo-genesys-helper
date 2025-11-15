@@ -32,6 +32,9 @@ interface ApiCard {
   desc?: string;
   ygoprodeck_url?: string;
   card_images?: ApiCardImage[];
+  misc_info?: Array<{
+    konami_id?: number;
+  }>;
 }
 
 const adaptApiCard = (card: ApiCard): CardDetails => ({
@@ -119,6 +122,44 @@ export async function fetchCardByName(name: string): Promise<CardDetails | null>
   };
 
   return (await search(name, 'name')) ?? (await search(name, 'fname'));
+}
+
+export async function fetchCardsByKonamiIds(ids: number[]): Promise<Record<number, CardDetails>> {
+  const unique = Array.from(new Set(ids.filter((id) => id > 0)));
+  if (unique.length === 0) {
+    return {};
+  }
+
+  const resolved: Record<number, CardDetails> = {};
+  const chunks: number[][] = [];
+  for (let i = 0; i < unique.length; i += CHUNK_SIZE) {
+    chunks.push(unique.slice(i, i + CHUNK_SIZE));
+  }
+
+  for (const chunk of chunks) {
+    const joined = chunk.join(',');
+    const url = `${API_ENDPOINT}?konami_id=${joined}&misc=yes`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`status ${response.status}`);
+      }
+      const payload = (await response.json()) as ApiResponse;
+      payload.data?.forEach((card) => {
+        const konamiId = card.misc_info?.[0]?.konami_id;
+        if (!konamiId) {
+          return;
+        }
+        resolved[konamiId] = adaptApiCard(card);
+      });
+    } catch (error) {
+      throw new Error(
+        `Failed to load Konami IDs: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+
+  return resolved;
 }
 
 export interface CardSearchOptions {

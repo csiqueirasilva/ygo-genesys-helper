@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import genesysPayload from './data/genesys-card-list.json';
 import { normalizeCardName, formatCardTypeLabel } from './lib/strings.ts';
 import { parseYdke, encodeDeckHash, decodeDeckHash, parseYdk, buildYdke } from './lib/ydke.ts';
-import { fetchCardByName, fetchCardsByIds } from './lib/ygoprodeck.ts';
+import { fetchCardByName, fetchCardsByIds, fetchCardsByKonamiIds } from './lib/ygoprodeck.ts';
 import type {
   AssistantDeckContext,
   CardDetails,
@@ -480,18 +480,46 @@ export default function App() {
           return cards;
         };
 
-        const main = expandSection(payload.m);
-        const extra = expandSection(payload.e);
-        const side = expandSection(payload.s);
+        const mainKonami = expandSection(payload.m);
+        const extraKonami = expandSection(payload.e);
+        const sideKonami = expandSection(payload.s);
 
-        if (main.length === 0 && extra.length === 0 && side.length === 0) {
+        if (mainKonami.length === 0 && extraKonami.length === 0 && sideKonami.length === 0) {
           throw new Error('No cards found in JSON deck.');
         }
+
+        const uniqueKonamiIds = Array.from(
+          new Set([...mainKonami, ...extraKonami, ...sideKonami].filter((id) => id > 0)),
+        );
+        const konamiMap = uniqueKonamiIds.length
+          ? await fetchCardsByKonamiIds(uniqueKonamiIds)
+          : {};
+
+        let missingKonamiCount = 0;
+        const convertSection = (ids: number[]) =>
+          ids.map((konamiId) => {
+            const match = konamiMap[konamiId];
+            if (!match) {
+              missingKonamiCount += 1;
+              return 0;
+            }
+            return match.id;
+          });
+
+        const main = convertSection(mainKonami);
+        const extra = convertSection(extraKonami);
+        const side = convertSection(sideKonami);
 
         const ydke = buildYdke(main, extra, side);
         setDeckInput(ydke);
         setView('results');
-        toast.success('JSON deck imported.');
+        if (missingKonamiCount > 0) {
+          toast.warning(
+            `${missingKonamiCount} card${missingKonamiCount === 1 ? '' : 's'} were not found in the YGOProDeck database and were added as Missing ID.`,
+          );
+        } else {
+          toast.success('JSON deck imported.');
+        }
       } catch (error) {
         console.error('JSON import failed', error);
         toast.error(
