@@ -10,6 +10,7 @@ interface ImportScreenProps {
   onDeckInputChange: (value: string) => void;
   onViewBreakdown: () => void;
   onImportYdkFile: (file: File) => void;
+  onImportJsonDeck: (file: File) => void;
 }
 
 export function ImportScreen({
@@ -20,11 +21,17 @@ export function ImportScreen({
   onDeckInputChange,
   onViewBreakdown,
   onImportYdkFile,
+  onImportJsonDeck,
 }: ImportScreenProps) {
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      onImportYdkFile(file);
+      const extension = file.name.split('.').pop()?.toLowerCase();
+      if ((extension === 'json' || file.type === 'application/json') && onImportJsonDeck) {
+        onImportJsonDeck(file);
+      } else {
+        onImportYdkFile(file);
+      }
       event.target.value = '';
     }
   };
@@ -111,10 +118,10 @@ export function ImportScreen({
         </div>
         <div className="flex flex-col gap-1">
           <label className="inline-flex cursor-pointer items-center justify-center rounded-full border border-dashed border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:border-white/40">
-            <span>Import deck from .ydk file</span>
-            <input type="file" accept=".ydk,text/plain" className="sr-only" onChange={handleFileChange} />
+            <span>Import deck from .ydk or .json file</span>
+            <input type="file" accept=".ydk,.json,text/plain,application/json" className="sr-only" onChange={handleFileChange} />
           </label>
-          <small className="text-xs text-slate-400">We’ll convert YDK files into YDKE automatically.</small>
+          <small className="text-xs text-slate-400">We’ll convert YDK or Tag Force JSON decks into YDKE automatically.</small>
         </div>
       </section>
     </div>

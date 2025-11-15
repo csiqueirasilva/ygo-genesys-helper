@@ -438,6 +438,70 @@ export default function App() {
     [],
   );
 
+  const handleImportJsonDeck = useCallback(
+    async (file: File) => {
+      try {
+        const content = await file.text();
+        let jsonText = content.trim();
+        if (!jsonText) {
+          throw new Error('JSON deck file is empty.');
+        }
+        try {
+          JSON.parse(jsonText);
+        } catch {
+          const lastBrace = jsonText.lastIndexOf('}');
+          if (lastBrace >= 0) {
+            jsonText = jsonText.slice(0, lastBrace + 1);
+          }
+        }
+        const payload = JSON.parse(jsonText) as {
+          m?: { ids?: number[]; r?: number[] };
+          e?: { ids?: number[]; r?: number[] };
+          s?: { ids?: number[]; r?: number[] };
+        };
+
+        const expandSection = (section?: { ids?: number[]; r?: number[] }) => {
+          if (!section?.ids || !Array.isArray(section.ids)) {
+            return [];
+          }
+          const counts = section.r ?? [];
+          const cards: number[] = [];
+          section.ids.forEach((idValue, index) => {
+            const id = Number(idValue);
+            if (!Number.isFinite(id) || id <= 0) {
+              return;
+            }
+            const copies = Number(counts[index] ?? 1);
+            const repeat = Math.max(0, Math.floor(copies));
+            for (let copy = 0; copy < repeat; copy += 1) {
+              cards.push(id);
+            }
+          });
+          return cards;
+        };
+
+        const main = expandSection(payload.m);
+        const extra = expandSection(payload.e);
+        const side = expandSection(payload.s);
+
+        if (main.length === 0 && extra.length === 0 && side.length === 0) {
+          throw new Error('No cards found in JSON deck.');
+        }
+
+        const ydke = buildYdke(main, extra, side);
+        setDeckInput(ydke);
+        setView('results');
+        toast.success('JSON deck imported.');
+      } catch (error) {
+        console.error('JSON import failed', error);
+        toast.error(
+          error instanceof Error ? error.message : 'Unable to import JSON deck. Please check the file contents.',
+        );
+      }
+    },
+    [],
+  );
+
   const modalDepth =
     Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0) + (missingCardContext ? 1 : 0);
 
@@ -1023,6 +1087,7 @@ export default function App() {
             onDeckInputChange={setDeckInput}
             onViewBreakdown={handleViewResults}
             onImportYdkFile={handleImportYdkFile}
+            onImportJsonDeck={handleImportJsonDeck}
           />
         ) : (
           <div className="flex h-full flex-col gap-4">
