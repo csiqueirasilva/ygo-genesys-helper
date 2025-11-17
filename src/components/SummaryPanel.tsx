@@ -52,6 +52,7 @@ interface SummaryPanelProps {
   onBrowsePointList: () => void;
   onShowBlocked: () => void;
   onBack: () => void;
+  onShowSavedDecks: () => void;
 }
 
 export function SummaryPanel({
@@ -70,7 +71,8 @@ export function SummaryPanel({
   onCopyShareLink,
   onBrowsePointList,
   onShowBlocked,
-  onBack
+  onBack,
+  onShowSavedDecks
 }: SummaryPanelProps) {
   const capLabel = pointCap > 0 ? `${pointCap}` : 'No cap';
   const mobileStatusLabel = cardsOverCap ? 'Over cap' : 'Within cap';
@@ -98,6 +100,14 @@ export function SummaryPanel({
             <span className="h-2 w-2 rounded-full bg-white/70" aria-hidden="true" />
             <span className="sm:hidden">Genesys</span>
             <span className="hidden sm:inline">Genesys list</span>
+          </button>
+          <button
+            type="button"
+            onClick={onShowSavedDecks}
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition hover:border-white/40 md:text-sm"
+          >
+            <span className="sm:hidden">Saved</span>
+            <span className="hidden sm:inline">Saved decks</span>
           </button>
           <button
             type="button"

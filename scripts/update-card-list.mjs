@@ -45,4 +45,4 @@ const payload = {
 await mkdir(dirname(outputPath), { recursive: true });
 await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
 
-console.log(`Saved ${cards.length} cards to ${outputPath}`);
+console.debug(`Saved ${cards.length} cards to ${outputPath}`);

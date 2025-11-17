@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { arrayMove } from '@dnd-kit/sortable';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import genesysPayload from './data/genesys-card-list.json';
 import { normalizeCardName, formatCardTypeLabel } from './lib/strings.ts';
-import { parseYdke, encodeDeckHash, decodeDeckHash, parseYdk, buildYdke } from './lib/ydke.ts';
+import { parseYdke, encodeDeckHash, decodeDeckHash, parseYdk, buildYdke, type ParsedDeck } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds, fetchCardsByKonamiIds } from './lib/ygoprodeck.ts';
 import type {
   AssistantDeckContext,
@@ -20,11 +22,11 @@ import { CardSections } from './components/CardSections.tsx';
 import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { MissingIdResolver } from './components/MissingIdResolver.tsx';
 import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
+import { SavedDeckModal } from './components/SavedDeckModal.tsx';
 import { Toaster, toast } from 'sonner';
 
 const DEFAULT_POINT_CAP = 100;
 const genesysData = genesysPayload as GenesysPayload;
-type View = 'import' | 'results';
 const SAVED_DECKS_STORAGE_KEY = 'ygo-genesys-saved-decks-v1';
 const DEFAULT_FOLDER_ID = 'folder-default';
 const DEFAULT_FOLDER_NAME = 'Unsorted';
@@ -53,7 +55,21 @@ const normalizeDeckEntry = (raw: any): SavedDeckEntry | null => {
     typeof raw?.savedAt === 'string' && raw.savedAt.trim()
       ? raw.savedAt
       : new Date().toISOString();
-  return { id, name, deck, savedAt };
+  const summary =
+    raw?.summary && typeof raw.summary === 'object'
+      ? {
+          main: Number(raw.summary.main) || 0,
+          extra: Number(raw.summary.extra) || 0,
+          side: Number(raw.summary.side) || 0,
+          points:
+            raw.summary.points === null || raw.summary.points === undefined
+              ? undefined
+              : Number.isFinite(Number(raw.summary.points))
+                ? Number(raw.summary.points)
+                : undefined,
+        }
+      : undefined;
+  return { id, name, deck, savedAt, summary };
 };
 
 const normalizeFolders = (raw: any, ensureDefault = true): SavedDeckFolder[] => {
@@ -162,9 +178,11 @@ export default function App() {
   const [pointCardInfo, setPointCardInfo] = useState<Record<string, CardDetails>>({});
   const pointInfoLoading = useRef(new Set<string>());
   const pointListRef = useRef<HTMLDivElement | null>(null);
-  const [view, setView] = useState<View>('import');
   const modalDepthRef = useRef(0);
   const prevModalDepthRef = useRef(0);
+  const deckInputSourceRef = useRef<'manual' | 'file' | 'json' | 'saved' | 'url' | 'system'>('system');
+  const [shouldAutoSaveDeck, setShouldAutoSaveDeck] = useState(false);
+  const lastSavedDeckRef = useRef('');
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
@@ -174,33 +192,38 @@ export default function App() {
     side: 'points',
   });
   const [savedFolders, setSavedFolders] = useState<SavedDeckFolder[]>(() => ensureFolders([]));
+  const [showSavedDeckModal, setShowSavedDeckModal] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [, setSearchParams] = useSearchParams();
+  const isResultsView = location.pathname === '/results';
+  const deckQueryParam = useMemo(() => {
+    if (!location.search) {
+      return null;
+    }
+    return new URLSearchParams(location.search).get('deck');
+  }, [location.search]);
 
-  // Load deck info from hash on first paint & respond to manual hash changes.
+
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
     }
-
-    const loadFromHash = () => {
-      const hash = window.location.hash.replace(/^#/, '');
-      const params = new URLSearchParams(hash);
-      const compressedDeck = params.get('deck');
-
-      if (compressedDeck) {
-        try {
-          const decoded = decodeDeckHash(decodeURIComponent(compressedDeck));
-          setDeckInput(decoded);
-          setView('results');
-        } catch (error) {
-          console.warn('Unable to decode deck from hash:', error);
-        }
+    const hash = window.location.hash;
+    if (hash && !hash.startsWith('#/')) {
+      const params = new URLSearchParams(hash.replace(/^#/, ''));
+      const legacyDeck = params.get('deck');
+      if (legacyDeck) {
+        window.location.hash = `#/results?deck=${legacyDeck}`;
       }
-    };
-
-    loadFromHash();
-    window.addEventListener('hashchange', loadFromHash);
-    return () => window.removeEventListener('hashchange', loadFromHash);
+    }
   }, []);
+
+  useEffect(() => {
+    if (location.pathname !== '/' && location.pathname !== '/results') {
+      navigate('/', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   const genesysPointMap = useMemo(() => {
     const entries = genesysData.cards.map((card) => [normalizeCardName(card.name), card.points] as const);
@@ -233,8 +256,8 @@ export default function App() {
 
     try {
       const parsed = parseYdke(sanitized);
-      // console.log('Raw YDKE input:', sanitized);
-      // console.log('Parsed deck data:', {
+      // console.debug('Raw YDKE input:', sanitized);
+      // console.debug('Parsed deck data:', {
       //   main: parsed.main,
       //   extra: parsed.extra,
       //   side: parsed.side,
@@ -252,7 +275,7 @@ export default function App() {
     if (!deck) {
       return;
     }
-    // console.log('Decoded YDKE deck:', {
+    // console.debug('Decoded YDKE deck:', {
     //   main: deck.main,
     //   extra: deck.extra,
     //   side: deck.side,
@@ -296,6 +319,15 @@ export default function App() {
       side: findSlots(deck.side),
     };
   }, [deck]);
+
+  const cardBreakdown = useMemo(
+    () => ({
+      main: deck?.main.length ?? 0,
+      extra: deck?.extra.length ?? 0,
+      side: deck?.side.length ?? 0,
+    }),
+    [deck],
+  );
 
   useEffect(() => {
     if (!deck || uniqueCardIds.length === 0) {
@@ -344,25 +376,58 @@ export default function App() {
   }, [deck, deckInput]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (!isResultsView) {
+      if (deckQueryParam) {
+        const next = new URLSearchParams(location.search);
+        next.delete('deck');
+        setSearchParams(next, { replace: true });
+      }
       return;
     }
 
     if (!shareToken) {
-      window.history.replaceState({}, '', window.location.pathname);
+      if (deckQueryParam) {
+        const next = new URLSearchParams(location.search);
+        next.delete('deck');
+        setSearchParams(next, { replace: true });
+      }
       return;
     }
 
-    const nextHash = `deck=${shareToken}`;
-    if (window.location.hash.replace(/^#/, '') !== nextHash) {
-      window.history.replaceState({}, '', `${window.location.pathname}#${nextHash}`);
+    if (deckQueryParam === shareToken) {
+      return;
     }
+
+    const next = new URLSearchParams(location.search);
+    next.set('deck', shareToken);
+    setSearchParams(next, { replace: true });
+  }, [shareToken, deckQueryParam, location.search, setSearchParams, isResultsView]);
+
+  const shareUrl = useMemo(() => {
+    if (typeof window === 'undefined' || !shareToken) {
+      return '';
+    }
+    return `${window.location.origin}${window.location.pathname}#/results?deck=${encodeURIComponent(
+      shareToken,
+    )}`;
   }, [shareToken]);
 
-  const shareUrl =
-    typeof window !== 'undefined' && shareToken
-      ? `${window.location.origin}${window.location.pathname}#deck=${shareToken}`
-      : '';
+  useEffect(() => {
+    if (!deckQueryParam) {
+      return;
+    }
+    try {
+      const decoded = decodeDeckHash(deckQueryParam);
+      deckInputSourceRef.current = 'url';
+      setDeckInput(decoded);
+      if (!isResultsView) {
+        navigate('/results', { replace: true });
+      }
+    } catch (error) {
+      console.warn('Unable to decode deck from query:', error);
+    }
+  }, [deckQueryParam, isResultsView, navigate]);
+
 
   const activeCardDetails = focusedCard
     ? cardDetails[focusedCard.id] ?? pointCardInfo[focusedCard.name] ?? null
@@ -382,6 +447,252 @@ export default function App() {
       : `No information found. Search ${focusedCard.name} in Yu-Gi-Oh! DB ↗`
     : null;
 
+  const deckGroups = useMemo<DeckGroups | null>(() => {
+    if (!deck) {
+      return null;
+    }
+
+    const monsterPriority = (typeLabel: string, zone: DeckSection) => {
+      const basePriority = (() => {
+        if (typeLabel.includes('normal') && !typeLabel.includes('pendulum')) {
+          return 0;
+        }
+        if (typeLabel.includes('effect') && !typeLabel.includes('pendulum') && !typeLabel.includes('ritual')) {
+          return 1;
+        }
+        if (typeLabel.includes('pendulum')) {
+          return 2;
+        }
+        if (typeLabel.includes('ritual')) {
+          return 3;
+        }
+        return 4;
+      })();
+      if (zone === 'extra') {
+        if (typeLabel.includes('fusion')) {
+          return 5;
+        }
+        if (typeLabel.includes('synchro')) {
+          return 6;
+        }
+        if (typeLabel.includes('xyz')) {
+          return 7;
+        }
+        if (typeLabel.includes('link')) {
+          return 8;
+        }
+        return 9;
+      }
+      return basePriority;
+    };
+
+    const spellPriority = (raceLabel: string) => {
+      if (raceLabel.includes('normal')) {
+        return 0;
+      }
+      if (raceLabel.includes('quick')) {
+        return 1;
+      }
+      if (raceLabel.includes('ritual')) {
+        return 2;
+      }
+      if (raceLabel.includes('field')) {
+        return 3;
+      }
+      if (raceLabel.includes('continuous')) {
+        return 4;
+      }
+      if (raceLabel.includes('equip')) {
+        return 5;
+      }
+      return 6;
+    };
+
+    const trapPriority = (raceLabel: string) => {
+      if (raceLabel.includes('counter')) {
+        return 0;
+      }
+      if (raceLabel.includes('continuous')) {
+        return 1;
+      }
+      return 2;
+    };
+
+    const getSortMeta = (card: DeckCardGroup, zone: DeckSection) => {
+      const rawType = (card.type ?? '').toLowerCase();
+      const rawRace = (card.race ?? '').toLowerCase();
+      const name = card.name.toLowerCase();
+      const order = card.orderIndex ?? Number.MAX_SAFE_INTEGER;
+
+      if (rawType.includes('monster')) {
+        return {
+          priority: 0,
+          sub: monsterPriority(`${rawType} ${rawRace}`, zone),
+          level: card.level ?? 0,
+          sortByLevel: !['link', 'xyz'].some((label) => rawType.includes(label)),
+          name,
+          order,
+        };
+      }
+
+      if (rawType.includes('spell')) {
+        return {
+          priority: 1,
+          sub: spellPriority(rawRace),
+          level: 0,
+          sortByLevel: false,
+          name,
+          order,
+        };
+      }
+
+      if (rawType.includes('trap')) {
+        return {
+          priority: 2,
+          sub: trapPriority(rawRace),
+          level: 0,
+          sortByLevel: false,
+          name,
+          order,
+        };
+      }
+
+      return { priority: 4, sub: 0, level: card.level ?? 0, sortByLevel: false, name, order };
+    };
+
+    const compareCards = (zone: DeckSection) => (a: DeckCardGroup, b: DeckCardGroup) => {
+      if (cardSortMode[zone] === 'points') {
+        const pointDiff = (b.pointsPerCopy ?? 0) - (a.pointsPerCopy ?? 0);
+        if (pointDiff !== 0) {
+          return pointDiff;
+        }
+        const totalDiff = (b.totalPoints ?? 0) - (a.totalPoints ?? 0);
+        if (totalDiff !== 0) {
+          return totalDiff;
+        }
+      }
+      const metaA = getSortMeta(a, zone);
+      const metaB = getSortMeta(b, zone);
+
+      if (metaA.priority !== metaB.priority) {
+        return metaA.priority - metaB.priority;
+      }
+
+      if (metaA.sub !== metaB.sub) {
+        return metaA.sub - metaB.sub;
+      }
+
+      if (metaA.sortByLevel && metaB.sortByLevel && metaA.level !== metaB.level) {
+        return (metaB.level ?? 0) - (metaA.level ?? 0);
+      }
+
+      const nameCompare = metaA.name.localeCompare(metaB.name);
+      if (nameCompare !== 0) {
+        return nameCompare;
+      }
+      return metaA.order - metaB.order;
+    };
+
+    const toGroup = (ids: number[], zone: DeckSection): DeckCardGroup[] => {
+      const counts = new Map<number, { count: number; firstIndex: number }>();
+      ids.forEach((id, index) => {
+        const entry = counts.get(id);
+        if (entry) {
+          entry.count += 1;
+        } else {
+          counts.set(id, { count: 1, firstIndex: index });
+        }
+      });
+
+      const rawGroups = Array.from(counts.entries()).map(([id, meta]) => {
+        const info = cardDetails[id];
+        const fallbackName = id === 0 ? 'Missing ID' : `Card #${id}`;
+        const originalName = info?.name ?? fallbackName;
+        const displayName = id === 0 && !info?.name ? fallbackName : simplifyCardName(originalName);
+        const normalized = normalizeCardName(displayName);
+        const points = genesysPointMap.get(normalized);
+
+        const rawType = info?.type;
+        const rawRace = info?.race;
+        return {
+          id,
+          count: meta.count,
+          zone,
+          name: displayName,
+          image: info?.image,
+          type: rawType ?? info?.race,
+          race: rawRace,
+          displayType: formatCardTypeLabel(rawType ?? info?.race, rawRace),
+          desc: info?.desc,
+          level: info?.level,
+          linkValue: info?.linkValue,
+          orderIndex: meta.firstIndex,
+          linkUrl: info?.ygoprodeckUrl,
+          pointsPerCopy: points ?? 0,
+          totalPoints: (points ?? 0) * meta.count,
+          missingInfo: !info,
+          notInList: !genesysPointMap.has(normalized),
+        };
+      });
+
+      const merged = new Map<string, DeckCardGroup>();
+      rawGroups.forEach((card) => {
+        const key = `${normalizeCardName(card.name)}::${card.zone}`;
+        const existing = merged.get(key);
+        if (existing) {
+          existing.count += card.count;
+          existing.totalPoints += card.totalPoints;
+          existing.orderIndex = Math.min(
+            existing.orderIndex ?? Number.MAX_SAFE_INTEGER,
+            card.orderIndex ?? Number.MAX_SAFE_INTEGER,
+          );
+          if (!existing.image && card.image) {
+            existing.image = card.image;
+          }
+          if (!existing.type && card.type) {
+            existing.type = card.type;
+          }
+          if (!existing.race && card.race) {
+            existing.race = card.race;
+          }
+          if (!existing.displayType && card.displayType) {
+            existing.displayType = card.displayType;
+          }
+          if (!existing.desc && card.desc) {
+            existing.desc = card.desc;
+          }
+          if (!existing.level && card.level) {
+            existing.level = card.level;
+          }
+          if (!existing.linkValue && card.linkValue) {
+            existing.linkValue = card.linkValue;
+          }
+        } else {
+          merged.set(key, { ...card });
+        }
+      });
+
+      return Array.from(merged.values()).sort(compareCards(zone));
+    };
+
+    return {
+      main: toGroup(deck.main, 'main'),
+      extra: toGroup(deck.extra, 'extra'),
+      side: toGroup(deck.side, 'side'),
+    };
+  }, [deck, cardDetails, genesysPointMap, cardSortMode.main, cardSortMode.extra, cardSortMode.side]);
+
+  const totalPoints = useMemo(() => {
+    if (!deckGroups) {
+      return 0;
+    }
+
+    return [...deckGroups.main, ...deckGroups.extra, ...deckGroups.side].reduce(
+      (sum, card) => sum + card.totalPoints,
+      0,
+    );
+  }, [deckGroups]);
+
   const handleCardFocus = (card: DeckCardGroup) => {
     if (card.id <= 0) {
       return;
@@ -398,6 +709,11 @@ export default function App() {
     setFocusedCard(null);
     setMissingCardContext({ zone: card.zone, cardName: card.name });
   };
+
+  const handleDeckInputChange = useCallback((value: string) => {
+    deckInputSourceRef.current = 'manual';
+    setDeckInput(value);
+  }, []);
 
   const clampPoints = (value: number) => Math.min(Math.max(Math.round(value) || 1, 1), 100);
 
@@ -504,10 +820,11 @@ export default function App() {
   }, [pointSearch, showPointList, pointMin, pointMax]);
 
   useEffect(() => {
-    if (view === 'results' && altArtCount > 0) {
+    if (isResultsView && altArtCount > 0) {
       setShowUndetectedCardsWarning(true);
     }
-  }, [view, altArtCount]);
+  }, [isResultsView, altArtCount]);
+
 
   const handleImportYdkFile = useCallback(
     async (file: File) => {
@@ -518,8 +835,8 @@ export default function App() {
           throw new Error('No cards found in YDK file.');
         }
         const ydke = buildYdke(deck.main, deck.extra, deck.side);
+        deckInputSourceRef.current = 'file';
         setDeckInput(ydke);
-        setView('results');
         toast.success('YDK deck imported.');
       } catch (error) {
         console.error('YDK import failed', error);
@@ -542,6 +859,102 @@ export default function App() {
     },
     [],
   );
+
+  useEffect(() => {
+    const decksMissingSummary: Array<{
+      folderId: string;
+      deckId: string;
+      deckString: string;
+    }> = [];
+    savedFolders.forEach((folder) => {
+      folder.decks.forEach((deckEntry) => {
+        if (deckEntry.summary?.points === undefined) {
+          decksMissingSummary.push({
+            folderId: folder.id,
+            deckId: deckEntry.id,
+            deckString: deckEntry.deck,
+          });
+        }
+      });
+    });
+    if (decksMissingSummary.length === 0) {
+      return;
+    }
+
+    let cancelled = false;
+    (async () => {
+      const parsedDecks = decksMissingSummary
+        .map(({ folderId, deckId, deckString }) => {
+          try {
+            return { folderId, deckId, parsed: parseYdke(deckString) };
+          } catch {
+            return null;
+          }
+        })
+        .filter((entry): entry is { folderId: string; deckId: string; parsed: ParsedDeck } => Boolean(entry));
+      if (parsedDecks.length === 0) {
+        return;
+      }
+
+      const allIds = parsedDecks
+        .flatMap(({ parsed }) => [...parsed.main, ...parsed.extra, ...parsed.side])
+        .filter((id) => id > 0);
+
+      let details: Record<number, CardDetails> = {};
+      try {
+        details = await fetchCardsByIds(allIds);
+      } catch (error) {
+        console.warn('Unable to backfill saved deck summaries', error);
+        return;
+      }
+      if (cancelled) {
+        return;
+      }
+
+      const updates = parsedDecks.map(({ folderId, deckId, parsed }) => {
+        const totalPoints = [...parsed.main, ...parsed.extra, ...parsed.side].reduce((sum, id) => {
+          const card = details[id];
+          if (!card) {
+            return sum;
+          }
+          const normalized = normalizeCardName(card.name);
+          return sum + (genesysPointMap.get(normalized) ?? 0);
+        }, 0);
+        return {
+          folderId,
+          deckId,
+          summary: {
+            main: parsed.main.length,
+            extra: parsed.extra.length,
+            side: parsed.side.length,
+            points: totalPoints,
+          },
+        };
+      });
+
+      setSavedFoldersAndPersist((prev) =>
+        prev.map((folder) => {
+          const folderUpdates = updates.filter((update) => update.folderId === folder.id);
+          if (folderUpdates.length === 0) {
+            return folder;
+          }
+          const lookup = new Map(folderUpdates.map((entry) => [entry.deckId, entry.summary]));
+          const decks = folder.decks.map((deckEntry) => {
+            const summary = lookup.get(deckEntry.id);
+            if (!summary) {
+              return deckEntry;
+            }
+            return { ...deckEntry, summary };
+          });
+          return { ...folder, decks };
+        }),
+      );
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [savedFolders, genesysPointMap, setSavedFoldersAndPersist]);
 
   const handleImportJsonDeck = useCallback(
     async (file: File) => {
@@ -616,8 +1029,8 @@ export default function App() {
         const side = convertSection(sideKonami);
 
         const ydke = buildYdke(main, extra, side);
+        deckInputSourceRef.current = 'json';
         setDeckInput(ydke);
-        setView('results');
         if (missingKonamiCount > 0) {
           toast.warning(
             `${missingKonamiCount} card${missingKonamiCount === 1 ? '' : 's'} were not found in the YGOProDeck database and were added as Missing ID.`,
@@ -642,12 +1055,18 @@ export default function App() {
         toast.error('Load or paste a deck before saving.');
         return;
       }
-      const trimmedName = name.trim() || `Deck ${new Date().toLocaleString()}`;
+      const trimmedName = name.trim() || 'Untitled deck';
       const entry: SavedDeckEntry = {
         id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
         name: trimmedName,
         deck: deckString,
         savedAt: new Date().toISOString(),
+        summary: {
+          main: cardBreakdown.main,
+          extra: cardBreakdown.extra,
+          side: cardBreakdown.side,
+          points: totalPoints,
+        },
       };
       setSavedFoldersAndPersist((prev) => {
         const next = [...prev];
@@ -663,8 +1082,9 @@ export default function App() {
         toast.success('Deck saved locally.');
         return next;
       });
+      lastSavedDeckRef.current = deckString;
     },
-    [deckInput, setSavedFoldersAndPersist],
+    [deckInput, setSavedFoldersAndPersist, cardBreakdown, totalPoints],
   );
 
   const handleLoadSavedDeck = useCallback(
@@ -675,11 +1095,44 @@ export default function App() {
         toast.error('Saved deck not found.');
         return;
       }
+      deckInputSourceRef.current = 'saved';
       setDeckInput(deck.deck);
-      setView('results');
+      navigate('/results', { replace: false });
       toast.success(`Loaded ${deck.name}`);
     },
-    [savedFolders],
+    [savedFolders, navigate],
+  );
+
+  const handleRenameSavedDeck = useCallback(
+    (folderId: string, deckId: string, nextName: string) => {
+      const trimmed = nextName.trim();
+      if (!trimmed) {
+        toast.error('Enter a deck name.');
+        return;
+      }
+      let renamed = false;
+      setSavedFoldersAndPersist((prev) =>
+        prev.map((folder) => {
+          if (folder.id !== folderId) {
+            return folder;
+          }
+          const decks = folder.decks.map((deck) => {
+            if (deck.id !== deckId) {
+              return deck;
+            }
+            renamed = true;
+            return { ...deck, name: trimmed };
+          });
+          return { ...folder, decks };
+        }),
+      );
+      if (renamed) {
+        toast.success('Deck renamed.');
+      } else {
+        toast.error('Unable to rename deck.');
+      }
+    },
+    [setSavedFoldersAndPersist],
   );
 
   const handleDeleteSavedDeck = useCallback(
@@ -703,6 +1156,41 @@ export default function App() {
       } else {
         toast.error('Unable to delete deck.');
       }
+    },
+    [setSavedFoldersAndPersist],
+  );
+
+  const handleSaveCurrentDeck = useCallback(() => {
+    handleSaveDeck('', undefined);
+    setShouldAutoSaveDeck(false);
+  }, [handleSaveDeck]);
+
+  const handleMoveSavedDeck = useCallback(
+    (sourceFolderId: string, deckId: string, targetFolderId: string, targetIndex: number) => {
+      setSavedFoldersAndPersist((prev) => {
+        const next = prev.map((folder) => ({ ...folder, decks: [...folder.decks] }));
+        const sourceFolder = next.find((folder) => folder.id === sourceFolderId);
+        const targetFolder = next.find((folder) => folder.id === targetFolderId);
+        if (!sourceFolder || !targetFolder) {
+          return prev;
+        }
+        const sourceIndex = sourceFolder.decks.findIndex((deck) => deck.id === deckId);
+        if (sourceIndex === -1) {
+          return prev;
+        }
+        if (sourceFolderId === targetFolderId) {
+          const boundedIndex = Math.max(0, Math.min(targetIndex, sourceFolder.decks.length - 1));
+          sourceFolder.decks = arrayMove(sourceFolder.decks, sourceIndex, boundedIndex);
+          return next;
+        }
+        const [deckToMove] = sourceFolder.decks.splice(sourceIndex, 1);
+        if (!deckToMove) {
+          return prev;
+        }
+        const insertIndex = Math.max(0, Math.min(targetIndex, targetFolder.decks.length));
+        targetFolder.decks.splice(insertIndex, 0, deckToMove);
+        return next;
+      });
     },
     [setSavedFoldersAndPersist],
   );
@@ -757,6 +1245,44 @@ export default function App() {
     [setSavedFoldersAndPersist],
   );
 
+  useEffect(() => {
+    if (!deck) {
+      return;
+    }
+    const trimmed = deckInput.trim();
+    if (!trimmed) {
+      setShouldAutoSaveDeck(false);
+      return;
+    }
+    if (trimmed === lastSavedDeckRef.current) {
+      setShouldAutoSaveDeck(false);
+      return;
+    }
+    const source = deckInputSourceRef.current;
+    if (source !== 'manual' && source !== 'file' && source !== 'json') {
+      setShouldAutoSaveDeck(source === 'url');
+      return;
+    }
+    handleSaveDeck('', undefined);
+    deckInputSourceRef.current = 'system';
+    setShouldAutoSaveDeck(false);
+    if (!isResultsView) {
+      navigate('/results', { replace: false });
+    }
+  }, [deck, deckInput, handleSaveDeck, isResultsView, navigate]);
+
+  useEffect(() => {
+    if (!deck || !deckInput.trim()) {
+      setShouldAutoSaveDeck(false);
+      return;
+    }
+    if (deckInputSourceRef.current === 'url') {
+      setShouldAutoSaveDeck(true);
+    } else if (shouldAutoSaveDeck) {
+      setShouldAutoSaveDeck(false);
+    }
+  }, [deck, deckInput, shouldAutoSaveDeck]);
+
   const handleExportSavedDecks = useCallback(() => {
     const deckCount = savedFolders.reduce((sum, folder) => sum + folder.decks.length, 0);
     if (deckCount === 0) {
@@ -809,9 +1335,17 @@ export default function App() {
   );
 
   const modalDepth =
-    Number(showPointList) + Number(showBlockedList) + (focusedCard ? 1 : 0) + (missingCardContext ? 1 : 0);
+    Number(showPointList) +
+    Number(showBlockedList) +
+    (focusedCard ? 1 : 0) +
+    (missingCardContext ? 1 : 0) +
+    Number(showSavedDeckModal);
 
   const closeTopModal = useCallback(() => {
+    if (showSavedDeckModal) {
+      setShowSavedDeckModal(false);
+      return true;
+    }
     if (missingCardContext) {
       setMissingCardContext(null);
       return true;
@@ -829,7 +1363,7 @@ export default function App() {
       return true;
     }
     return false;
-  }, [focusedCard, missingCardContext, showChatAssistant, showBlockedList, showPointList]);
+  }, [focusedCard, missingCardContext, showSavedDeckModal, showBlockedList, showPointList]);
 
   const requestCloseTopModal = useCallback(() => {
     if (modalDepthRef.current > 0) {
@@ -882,13 +1416,14 @@ export default function App() {
     }
 
     const nextYdke = buildYdke(updated.main, updated.extra, updated.side);
+    deckInputSourceRef.current = 'system';
     setDeckInput(nextYdke);
     closeTopModal();
     toast.success(limit === 1 ? 'Replaced 1 missing card.' : `Replaced ${limit} missing cards.`);
   };
 
   useEffect(() => {
-    if (!focusedCard && !showBlockedList && !showPointList && !missingCardContext) {
+    if (!focusedCard && !showBlockedList && !showPointList && !missingCardContext && !showSavedDeckModal) {
       return;
     }
 
@@ -900,7 +1435,7 @@ export default function App() {
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [focusedCard, missingCardContext, showBlockedList, showPointList, requestCloseTopModal]);
+  }, [focusedCard, missingCardContext, showBlockedList, showPointList, showSavedDeckModal, requestCloseTopModal]);
 
   useEffect(() => {
     if (!showChatAssistant) {
@@ -978,266 +1513,7 @@ export default function App() {
     return text.replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
   };
 
-  const deckGroups = useMemo<DeckGroups | null>(() => {
-    if (!deck) {
-      return null;
-    }
-
-    const monsterPriority = (typeLabel: string, zone: DeckSection) => {
-      const basePriority = (() => {
-        if (typeLabel.includes('normal') && !typeLabel.includes('pendulum')) {
-          return 0;
-        }
-        if (typeLabel.includes('effect') && !typeLabel.includes('pendulum') && !typeLabel.includes('ritual')) {
-          return 1;
-        }
-        if (typeLabel.includes('pendulum')) {
-          return 2;
-        }
-        if (typeLabel.includes('ritual')) {
-          return 3;
-        }
-        return 4;
-      })();
-      if (zone === 'extra') {
-        if (typeLabel.includes('fusion')) {
-          return 5;
-        }
-        if (typeLabel.includes('synchro')) {
-          return 6;
-        }
-        if (typeLabel.includes('xyz')) {
-          return 7;
-        }
-        if (typeLabel.includes('link')) {
-          return 8;
-        }
-        return 9;
-      }
-      return basePriority;
-    };
-
-    const spellPriority = (raceLabel: string) => {
-      if (raceLabel.includes('normal')) {
-        return 0;
-      }
-      if (raceLabel.includes('equip')) {
-        return 1;
-      }
-      if (raceLabel.includes('quick')) {
-        return 2;
-      }
-      if (raceLabel.includes('field')) {
-        return 3;
-      }
-      if (raceLabel.includes('ritual')) {
-        return 4;
-      }
-      if (raceLabel.includes('continuous')) {
-        return 5;
-      }
-      return 6;
-    };
-
-    const trapPriority = (raceLabel: string) => {
-      if (raceLabel.includes('normal')) {
-        return 0;
-      }
-      if (raceLabel.includes('counter')) {
-        return 1;
-      }
-      if (raceLabel.includes('continuous')) {
-        return 2;
-      }
-      return 3;
-    };
-
-    const getSortMeta = (card: DeckCardGroup, zone: DeckSection) => {
-      const info = cardDetails[card.id];
-      const typeLabel = (info?.type ?? card.type ?? '').toLowerCase();
-      const raceLabel = (info?.race ?? card.race ?? '').toLowerCase();
-      const levelValue = info?.level ?? card.level ?? info?.linkValue ?? card.linkValue ?? 0;
-      const name = card.name.toLowerCase();
-      const order = card.orderIndex ?? Number.MAX_SAFE_INTEGER;
-
-      if (card.id <= 0) {
-        return { priority: 0, sub: 0, level: 0, sortByLevel: false, name, order };
-      }
-
-      const isSpell = typeLabel.includes('spell');
-      const isTrap = typeLabel.includes('trap');
-      const isMonster = !isSpell && !isTrap;
-
-      if (isMonster) {
-        return {
-          priority: 1,
-          sub: monsterPriority(typeLabel, zone),
-          level: levelValue,
-          sortByLevel: true,
-          name,
-          order,
-        };
-      }
-      if (isSpell) {
-        return {
-          priority: 2,
-          sub: spellPriority(raceLabel),
-          level: 0,
-          sortByLevel: false,
-          name,
-          order,
-        };
-      }
-      if (isTrap) {
-        return {
-          priority: 3,
-          sub: trapPriority(raceLabel),
-          level: 0,
-          sortByLevel: false,
-          name,
-          order,
-        };
-      }
-      return { priority: 4, sub: 0, level: levelValue, sortByLevel: false, name, order };
-    };
-
-    const compareCards = (zone: DeckSection) => (a: DeckCardGroup, b: DeckCardGroup) => {
-      if (cardSortMode[zone] === 'points') {
-        const pointDiff = (b.pointsPerCopy ?? 0) - (a.pointsPerCopy ?? 0);
-        if (pointDiff !== 0) {
-          return pointDiff;
-        }
-        const totalDiff = (b.totalPoints ?? 0) - (a.totalPoints ?? 0);
-        if (totalDiff !== 0) {
-          return totalDiff;
-        }
-      }
-      const metaA = getSortMeta(a, zone);
-      const metaB = getSortMeta(b, zone);
-
-      if (metaA.priority !== metaB.priority) {
-        return metaA.priority - metaB.priority;
-      }
-
-      if (metaA.sub !== metaB.sub) {
-        return metaA.sub - metaB.sub;
-      }
-
-      const nameCompare = metaA.name.localeCompare(metaB.name);
-      if (nameCompare !== 0) {
-        return nameCompare;
-      }
-      return metaA.order - metaB.order;
-    };
-
-    const toGroup = (ids: number[], zone: DeckSection): DeckCardGroup[] => {
-      const counts = new Map<number, { count: number; firstIndex: number }>();
-      ids.forEach((id, index) => {
-        const entry = counts.get(id);
-        if (entry) {
-          entry.count += 1;
-        } else {
-          counts.set(id, { count: 1, firstIndex: index });
-        }
-      });
-
-      const rawGroups = Array.from(counts.entries()).map(([id, meta]) => {
-        const info = cardDetails[id];
-        const fallbackName = id === 0 ? 'Missing ID' : `Card #${id}`;
-        const originalName = info?.name ?? fallbackName;
-        const displayName =
-          id === 0 && !info?.name ? fallbackName : simplifyCardName(originalName);
-        const normalized = normalizeCardName(displayName);
-        const points = genesysPointMap.get(normalized);
-
-        const rawType = info?.type;
-        const rawRace = info?.race;
-        return {
-          id,
-          count: meta.count,
-          zone,
-          name: displayName,
-          image: info?.image,
-          type: rawType ?? info?.race,
-          race: rawRace,
-          displayType: formatCardTypeLabel(rawType ?? info?.race, rawRace),
-          desc: info?.desc,
-          level: info?.level,
-          linkValue: info?.linkValue,
-          orderIndex: meta.firstIndex,
-          linkUrl: info?.ygoprodeckUrl,
-          pointsPerCopy: points ?? 0,
-          totalPoints: (points ?? 0) * meta.count,
-          missingInfo: !info,
-          notInList: !genesysPointMap.has(normalized),
-        };
-      });
-
-      const merged = new Map<string, DeckCardGroup>();
-      rawGroups.forEach((card) => {
-        const key = `${normalizeCardName(card.name)}::${card.zone}`;
-        const existing = merged.get(key);
-        if (existing) {
-          existing.count += card.count;
-          existing.totalPoints += card.totalPoints;
-          existing.orderIndex = Math.min(existing.orderIndex ?? Number.MAX_SAFE_INTEGER, card.orderIndex ?? Number.MAX_SAFE_INTEGER);
-          if (!existing.image && card.image) {
-            existing.image = card.image;
-          }
-          if (!existing.type && card.type) {
-            existing.type = card.type;
-          }
-          if (!existing.race && card.race) {
-            existing.race = card.race;
-          }
-          if (!existing.displayType && card.displayType) {
-            existing.displayType = card.displayType;
-          }
-          if (!existing.desc && card.desc) {
-            existing.desc = card.desc;
-          }
-          if (!existing.level && card.level) {
-            existing.level = card.level;
-          }
-          if (!existing.linkValue && card.linkValue) {
-            existing.linkValue = card.linkValue;
-          }
-        } else {
-          merged.set(key, { ...card });
-        }
-      });
-
-      return Array.from(merged.values()).sort(compareCards(zone));
-    };
-
-    return {
-      main: toGroup(deck.main, 'main'),
-      extra: toGroup(deck.extra, 'extra'),
-      side: toGroup(deck.side, 'side'),
-    };
-  }, [deck, cardDetails, genesysPointMap, cardSortMode.main, cardSortMode.extra, cardSortMode.side]);
-
-  const totalPoints = useMemo(() => {
-    if (!deckGroups) {
-      return 0;
-    }
-
-    return [...deckGroups.main, ...deckGroups.extra, ...deckGroups.side].reduce(
-      (sum, card) => sum + card.totalPoints,
-      0,
-    );
-  }, [deckGroups]);
-
   const cardsOverCap = pointCap > 0 && totalPoints > pointCap;
-  const cardBreakdown = useMemo(
-    () => ({
-      main: deck?.main.length ?? 0,
-      extra: deck?.extra.length ?? 0,
-      side: deck?.side.length ?? 0,
-    }),
-    [deck],
-  );
-
   const unknownCards = useMemo(() => {
     if (!deckGroups) {
       return 0;
@@ -1297,7 +1573,6 @@ export default function App() {
     }
   };
 
-  const hasDeck = Boolean(deck);
   const pointsRemaining = pointCap - totalPoints;
   const handlePointCapChange = (value: number) => setPointCap(value);
   const handleBrowsePointList = () => {
@@ -1309,20 +1584,23 @@ export default function App() {
   const handleBackToImport = () => {
     setShowChatAssistant(false);
     setShowUndetectedCardsWarning(false);
-    setView('import');
+    navigate('/', { replace: false });
   };
   const handleViewResults = () => {
-    setView('results');
+    navigate('/results', { replace: false });
     if (altArtCount > 0) {
       setShowUndetectedCardsWarning(true);
     }
   };
 
   useEffect(() => {
-    if (view !== 'results') {
+    if (!isResultsView) {
       setShowChatAssistant(false);
+      if (showSavedDeckModal) {
+        setShowSavedDeckModal(false);
+      }
     }
-  }, [view]);
+  }, [isResultsView, showSavedDeckModal]);
 
   const assistantContext = useMemo<AssistantDeckContext>(() => {
     const sanitize = (value?: string | null) => (value ?? '').replace(/\s+/g, ' ').trim();
@@ -1381,25 +1659,35 @@ export default function App() {
     [assistantContextString],
   );
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    if (isResultsView) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [isResultsView, deckInput, savedFolders]);
+
+  const mainWidthClass = isResultsView ? 'max-w-6xl' : 'max-w-4xl';
+
   return (
     <div className="min-h-screen bg-canvas text-slate-50">
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-1 py-1 md:px-8">
-        {view === 'import' ? (
+      <main className={`mx-auto flex w-full ${mainWidthClass} flex-col gap-6 px-1 py-1 md:px-6`}>
+        {!isResultsView ? (
           <ImportScreen
             genesysData={genesysData}
-            deckInput={deckInput}
             deckError={deckError}
-            hasDeck={hasDeck}
-            onDeckInputChange={setDeckInput}
+            onDeckInputChange={handleDeckInputChange}
             onViewBreakdown={handleViewResults}
             onImportYdkFile={handleImportYdkFile}
             onImportJsonDeck={handleImportJsonDeck}
             savedFolders={savedFolders}
-            onSaveDeck={handleSaveDeck}
             onLoadSavedDeck={handleLoadSavedDeck}
             onDeleteSavedDeck={handleDeleteSavedDeck}
             onCreateFolder={handleCreateFolder}
             onDeleteFolder={handleDeleteFolder}
+            onRenameDeck={handleRenameSavedDeck}
+            onMoveDeck={handleMoveSavedDeck}
             onExportSavedDecks={handleExportSavedDecks}
             onImportSavedDecks={handleImportSavedDecks}
           />
@@ -1423,6 +1711,7 @@ export default function App() {
                 onBrowsePointList={handleBrowsePointList}
                 onShowBlocked={handleShowBlockedList}
                 onBack={handleBackToImport}
+                onShowSavedDecks={() => setShowSavedDeckModal(true)}
               />
             </div>
             <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
@@ -1452,7 +1741,7 @@ export default function App() {
         </a>
       </footer>
 
-      {view === 'results' && (
+      {isResultsView && (
         <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
           <div
             className={`flex h-[min(85vh,680px)] w-[min(92vw,480px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/95 shadow-2xl shadow-black/40 transition-all duration-200 ${showChatAssistant ? 'pointer-events-auto opacity-100 translate-y-0 scale-100' : 'pointer-events-none opacity-0 translate-y-4 scale-95'
@@ -1633,6 +1922,19 @@ export default function App() {
           missingCount={missingSlots[missingCardContext.zone].length}
           onClose={requestCloseTopModal}
           onResolve={handleMissingIdResolve}
+        />
+      )}
+
+      {showSavedDeckModal && (
+        <SavedDeckModal
+          folders={savedFolders}
+          showUnsavedNotice={shouldAutoSaveDeck}
+          onSaveCurrentDeck={handleSaveCurrentDeck}
+          onLoadDeck={(folderId, deckId) => {
+            handleLoadSavedDeck(folderId, deckId);
+            setShowSavedDeckModal(false);
+          }}
+          onClose={() => setShowSavedDeckModal(false)}
         />
       )}
 

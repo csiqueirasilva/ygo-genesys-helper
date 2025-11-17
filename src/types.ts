@@ -59,11 +59,19 @@ export interface AssistantDeckContext {
   notes: string;
 }
 
+export interface SavedDeckSummary {
+  main: number;
+  extra: number;
+  side: number;
+  points?: number;
+}
+
 export interface SavedDeckEntry {
   id: string;
   name: string;
   deck: string;
   savedAt: string;
+  summary?: SavedDeckSummary;
 }
 
 export interface SavedDeckFolder {
