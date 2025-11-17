@@ -1561,6 +1561,18 @@ export default function App() {
     return Array.from(unique.values()).sort((a, b) => a.name.localeCompare(b.name));
   }, [deckGroups, cardDetails]);
 
+  const blockedCardIdSet = useMemo(() => {
+    const ids = new Set<number>();
+    blockedCards.forEach((card) => {
+      if (card.id > 0) {
+        ids.add(card.id);
+      }
+    });
+    return ids;
+  }, [blockedCards]);
+
+  const blockedCardTotalCount = useMemo(() => blockedCards.reduce((sum, card) => sum + card.count, 0), [blockedCards]);
+
   const handleCopyShareLink = async () => {
     if (!shareUrl) {
       return;
@@ -1709,6 +1721,7 @@ export default function App() {
                 shareStatus={shareStatus}
                 unknownCards={unknownCards}
                 blockedCount={blockedCards.length}
+                blockedTotalCount={blockedCardTotalCount}
                 cardError={cardError}
                 isFetchingCards={isFetchingCards}
                 onPointCapChange={handlePointCapChange}
@@ -1729,6 +1742,7 @@ export default function App() {
                   onSortModeChange={(zone, mode) =>
                     setCardSortMode((prev) => (prev[zone] === mode ? prev : { ...prev, [zone]: mode }))
                   }
+                  blockedCardIds={blockedCardIdSet}
                 />
               </div>
             </section>

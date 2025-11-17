@@ -20,14 +20,14 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'pnpm'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.4
+          run_install: false
       - name: Create env file
         run: |
           cat <<EOF > .env

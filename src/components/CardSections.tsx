@@ -8,6 +8,7 @@ interface CardSectionsProps {
   onMissingCardSelect?: (card: DeckCardGroup) => void;
   sortMode: Record<DeckSection, 'points' | 'default'>;
   onSortModeChange: (zone: DeckSection, mode: 'points' | 'default') => void;
+  blockedCardIds: Set<number>;
 }
 
 const sections: DeckSection[] = ['main', 'extra', 'side'];
@@ -18,6 +19,7 @@ export function CardSections({
   onMissingCardSelect,
   sortMode,
   onSortModeChange,
+  blockedCardIds,
 }: CardSectionsProps) {
   if (!deckGroups) {
     return <p className="text-sm text-slate-400">Paste a deck to unlock card insights.</p>;
@@ -140,7 +142,7 @@ export function CardSections({
               </label>
             </div>
           </div>
-          {deckGroups[zone].length === 0 ? (
+              { deckGroups[zone].length === 0 ? (
             <p className="text-sm text-slate-500">No cards in this section.</p>
           ) : (
             <ul
@@ -158,6 +160,7 @@ export function CardSections({
                   }
                   onCardSelect(card);
                 };
+                const isForbidden = card.id > 0 && blockedCardIds.has(card.id);
 
                 if (gridView[zone]) {
                   const colors = getFrameColors(card);
@@ -177,8 +180,12 @@ export function CardSections({
                           ) : (
                             <div className="flex h-36 items-center justify-center bg-slate-900 text-slate-400">No art</div>
                           )}
-                          <div className="absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border border-white/50 bg-black/80 text-sm font-semibold">
-                            {card.totalPoints}
+                          <div
+                            className={`absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${
+                              isForbidden ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/50 bg-black/80'
+                            }`}
+                          >
+                            {isForbidden ? '✕' : card.totalPoints}
                           </div>
                         </div>
                         <div
@@ -252,8 +259,12 @@ export function CardSections({
                         </div>
                       </div>
                       <div className="flex items-center gap-3 text-sm font-semibold text-white">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/40 text-base">
-                          {card.totalPoints}
+                        <div
+                          className={`flex h-10 w-10 items-center justify-center rounded-full border text-base ${
+                            isForbidden ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/30 bg-black/40'
+                          }`}
+                        >
+                          {isForbidden ? '✕' : card.totalPoints}
                         </div>
                         <span>×{card.count}</span>
                       </div>

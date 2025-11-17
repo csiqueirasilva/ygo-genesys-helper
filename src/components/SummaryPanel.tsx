@@ -45,6 +45,7 @@ interface SummaryPanelProps {
   shareStatus: 'idle' | 'copied' | 'error';
   unknownCards: number;
   blockedCount: number;
+  blockedTotalCount: number;
   cardError: string | null;
   isFetchingCards: boolean;
   onPointCapChange: (value: number) => void;
@@ -65,6 +66,7 @@ export function SummaryPanel({
   shareStatus,
   unknownCards,
   blockedCount,
+  blockedTotalCount,
   cardError,
   isFetchingCards,
   onPointCapChange,
@@ -197,17 +199,17 @@ export function SummaryPanel({
         </div>
       </div>
 
-        {blockedCount > 0 && (
-          <div className="flex flex-wrap gap-2 text-xs">
-            <button
-              type="button"
-              className="inline-flex items-center rounded-full bg-amber-500/20 px-3 py-1 text-amber-200"
-              onClick={onShowBlocked}
-            >
-              {blockedCount} blocked cards
-            </button>
-          </div>
-        )}
+      {blockedCount > 0 && (
+        <div className="flex flex-wrap gap-2 text-xs">
+          <button
+            type="button"
+            className="inline-flex items-center rounded-full bg-amber-500/20 px-3 py-1 text-amber-200"
+            onClick={onShowBlocked}
+          >
+            {blockedCount} blocked card types ({blockedTotalCount} cards)
+          </button>
+        </div>
+      )}
 
       {cardError && <p className="text-xs text-rose-300">{cardError}</p>}
       {isFetchingCards && <p className="text-xs text-slate-400">Loading card details…</p>}
