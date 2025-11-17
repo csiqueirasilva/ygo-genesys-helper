@@ -6,6 +6,7 @@ const CHUNK_SIZE = 40;
 interface ApiCardImage {
   image_url?: string;
   image_url_small?: string;
+  image_url_cropped?: string;
 }
 
 interface ApiMeta {
@@ -45,6 +46,7 @@ const adaptApiCard = (card: ApiCard): CardDetails => ({
   level: card.level,
   linkValue: card.linkval,
   image: card.card_images?.[0]?.image_url_small ?? card.card_images?.[0]?.image_url,
+  imageCropped: card.card_images?.[0]?.image_url_cropped ?? card.card_images?.[0]?.image_url,
   desc: card.desc,
   ygoprodeckUrl: card.ygoprodeck_url,
 });

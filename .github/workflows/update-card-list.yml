@@ -16,10 +16,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
+          cache: pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+      - run: pnpm install --frozen-lockfile
       - name: Update Genesys list
-        run: npm run update-card-list
+        run: pnpm run update-card-list
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

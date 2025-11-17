@@ -20,6 +20,7 @@ export interface CardDetails {
   linkValue?: number;
   desc?: string;
   image?: string;
+  imageCropped?: string;
   ygoprodeckUrl?: string;
 }
 
@@ -47,6 +48,7 @@ export interface DeckCardGroup {
   totalPoints: number;
   missingInfo: boolean;
   notInList: boolean;
+  fullImage?: string;
 }
 
 export interface AssistantDeckContext {

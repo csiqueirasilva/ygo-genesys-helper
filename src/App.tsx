@@ -620,6 +620,7 @@ export default function App() {
           zone,
           name: displayName,
           image: info?.image,
+          fullImage: info?.imageCropped ?? info?.image,
           type: rawType ?? info?.race,
           race: rawRace,
           displayType: formatCardTypeLabel(rawType ?? info?.race, rawRace),
@@ -648,6 +649,9 @@ export default function App() {
           );
           if (!existing.image && card.image) {
             existing.image = card.image;
+          }
+          if (!existing.fullImage && card.fullImage) {
+            existing.fullImage = card.fullImage;
           }
           if (!existing.type && card.type) {
             existing.type = card.type;
@@ -749,6 +753,7 @@ export default function App() {
       count: 1,
       zone: 'main',
       image: info?.image,
+      fullImage: info?.imageCropped ?? info?.image,
       type: info?.type ?? info?.race,
       race: info?.race,
       displayType: formatCardTypeLabel(info?.type, info?.race),
