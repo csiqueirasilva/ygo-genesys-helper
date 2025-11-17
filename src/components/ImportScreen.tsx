@@ -26,10 +26,11 @@ import {
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import type { GenesysPayload, SavedDeckEntry, SavedDeckFolder } from '../types';
+import type { CardDetails, GenesysPayload, SavedDeckEntry, SavedDeckFolder } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
-import { parseYdke } from '../lib/ydke.ts';
+import { parseYdke, type ParsedDeck } from '../lib/ydke.ts';
 import { toast } from 'sonner';
+import { fetchCardsByIds } from '../lib/ygoprodeck.ts';
 
 interface SortableDeckRowProps {
   deck: SavedDeckEntry;
@@ -43,6 +44,7 @@ interface SortableDeckRowProps {
   onRenameStart: () => void;
   onDelete: () => void;
   onCopy: () => void;
+  onCopyList: () => void;
 }
 
 const SortableDeckRow = ({
@@ -57,6 +59,7 @@ const SortableDeckRow = ({
   onRenameStart,
   onDelete,
   onCopy,
+  onCopyList,
 }: SortableDeckRowProps) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: deck.id,
@@ -213,6 +216,14 @@ const SortableDeckRow = ({
       </div>
       {!isRenaming && (
         <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80 hover:border-white"
+            onClick={onCopyList}
+            title="Copy card list"
+          >
+            TXT
+          </button>
           <button
             type="button"
             className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white hover:border-white"
@@ -384,6 +395,8 @@ export function ImportScreen({
   const [pendingFolderName, setPendingFolderName] = useState('');
   const [renamingDeck, setRenamingDeck] = useState<{ folderId: string; deckId: string } | null>(null);
   const [renameValue, setRenameValue] = useState('');
+  const [folderMenu, setFolderMenu] = useState<{ folderId: string } | null>(null);
+  const folderMenuRef = useRef<HTMLDivElement | null>(null);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 2 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
@@ -410,11 +423,11 @@ export function ImportScreen({
             legacy[id] = true;
           }
         });
-        console.debug('[folders] loaded legacy state', legacy);
+        console.log('[folders] loaded legacy state', legacy);
         return legacy;
       }
       if (parsed && typeof parsed === 'object') {
-        console.debug('[folders] loaded object state', parsed);
+        console.log('[folders] loaded object state', parsed);
         return parsed as Record<string, boolean>;
       }
       return {};
@@ -428,13 +441,13 @@ export function ImportScreen({
   const persistExpanded = useCallback((next: Record<string, boolean>) => {
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(FOLDER_OPEN_STORAGE_KEY, JSON.stringify(next));
-      console.debug('[folders] persisted state', next);
+      console.log('[folders] persisted state', next);
     }
   }, []);
 
   useEffect(() => {
     const initial = readExpandedState();
-    console.debug('[folders] hydration complete', initial);
+    console.log('[folders] hydration complete', initial);
     setExpandedFolders(initial);
   }, []);
 
@@ -560,6 +573,122 @@ export function ImportScreen({
     }
   };
 
+  const copyTextToClipboard = useCallback(async (text: string, successMessage: string) => {
+    const trimmed = text.trim();
+    if (!trimmed) {
+      toast.error('Nothing to copy.');
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(trimmed);
+      toast.success(successMessage);
+    } catch {
+      const manual = window.prompt('Copy this list manually:', trimmed);
+      if (manual !== null) {
+        toast.success(successMessage);
+      }
+    }
+  }, []);
+
+  const buildDeckCardLists = useCallback(
+    async (targetDecks: SavedDeckEntry[]): Promise<Array<{ deck: SavedDeckEntry; lines: string[] }> | null> => {
+      if (targetDecks.length === 0) {
+        toast.error('No decks available for export.');
+        return null;
+      }
+      const parsedDecks: Array<{ deck: SavedDeckEntry; parsed: ParsedDeck }> = [];
+      for (const deck of targetDecks) {
+        try {
+          parsedDecks.push({ deck, parsed: parseYdke(deck.deck) });
+        } catch (error) {
+          console.error('Unable to parse deck', deck.name, error);
+          toast.error(`Unable to read ${deck.name}.`);
+          return null;
+        }
+      }
+      const idSet = new Set<number>();
+      parsedDecks.forEach(({ parsed }) => {
+        [...parsed.main, ...parsed.extra, ...parsed.side].forEach((id) => {
+          if (id > 0) {
+            idSet.add(id);
+          }
+        });
+      });
+      if (idSet.size === 0) {
+        toast.error('No cards available for export.');
+        return null;
+      }
+      let details: Record<number, CardDetails> = {};
+      try {
+        details = await fetchCardsByIds([...idSet]);
+      } catch (error) {
+        console.error('Card lookup failed', error);
+        toast.error('Unable to load card details.');
+        return null;
+      }
+      return parsedDecks.map(({ deck, parsed }) => {
+        const counts = new Map<string, number>();
+        [...parsed.main, ...parsed.extra, ...parsed.side].forEach((id) => {
+          if (id <= 0) {
+            return;
+          }
+          const card = details[id];
+          const name = card?.name ?? `Card #${id}`;
+          counts.set(name, (counts.get(name) ?? 0) + 1);
+        });
+        const lines = [...counts.entries()]
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([name, count]) => `${count} ${name}`);
+        return { deck, lines };
+      });
+    },
+    [],
+  );
+
+  const handleCopyDeckCardList = useCallback(
+    async (deck: SavedDeckEntry) => {
+      const result = await buildDeckCardLists([deck]);
+      if (!result || result.length === 0) {
+        return;
+      }
+      const lines = result[0].lines;
+      if (lines.length === 0) {
+        toast.error('No cards available for export.');
+        return;
+      }
+      await copyTextToClipboard(lines.join('\n'), `Copied card list for ${deck.name}.`);
+    },
+    [buildDeckCardLists, copyTextToClipboard],
+  );
+
+  const handleCopyFolderCardList = useCallback(
+    async (folder: SavedDeckFolder) => {
+      if (folder.decks.length === 0) {
+        toast.error('This folder has no decks.');
+        return;
+      }
+      const result = await buildDeckCardLists(folder.decks);
+      if (!result) {
+        return;
+      }
+      const sections = result
+        .map(({ deck, lines }) => {
+          if (lines.length === 0) {
+            return null;
+          }
+          return [`# ${deck.name}`, ...lines];
+        })
+        .filter(Boolean) as string[][];
+      if (sections.length === 0) {
+        toast.error('No cards available for export.');
+        return;
+      }
+      const text = sections.map((lines) => lines.join('\n')).join('\n\n');
+      await copyTextToClipboard(text, `Copied folder list for ${folder.name}.`);
+    },
+    [buildDeckCardLists, copyTextToClipboard],
+  );
+
   useEffect(() => {
     const handlePaste = (event: ClipboardEvent) => {
       const target = event.target as HTMLElement | null;
@@ -594,7 +723,7 @@ export function ImportScreen({
           next[folderId] = false;
         }
         persistExpanded(next);
-        console.debug('[folders] toggle', folderId, next);
+        console.log('[folders] toggle', folderId, next);
         return next;
       });
     },
@@ -610,7 +739,7 @@ export function ImportScreen({
         }
         const next = { ...base, [folderId]: true };
         persistExpanded(next);
-        console.debug('[folders] ensure open', folderId, next);
+        console.log('[folders] ensure open', folderId, next);
         return next;
       });
     },
@@ -620,7 +749,7 @@ export function ImportScreen({
   useEffect(() => {
     setExpandedFolders((prev) => {
       if (prev === null) {
-        console.debug('[folders] sync skipped until hydration');
+        console.log('[folders] sync skipped until hydration');
         return prev;
       }
       const next = { ...prev };
@@ -635,10 +764,36 @@ export function ImportScreen({
         return prev;
       }
       persistExpanded(next);
-      console.debug('[folders] sync with saved folders', next);
+      console.log('[folders] sync with saved folders', next);
       return next;
     });
   }, [savedFolders, persistExpanded]);
+
+  useEffect(() => {
+    if (!folderMenu) {
+      return;
+    }
+    const handleClick = (event: MouseEvent) => {
+      if (!folderMenuRef.current) {
+        setFolderMenu(null);
+        return;
+      }
+      if (!folderMenuRef.current.contains(event.target as Node)) {
+        setFolderMenu(null);
+      }
+    };
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFolderMenu(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [folderMenu]);
 
   useEffect(() => {
     if (!showNewFolderModal) {
@@ -895,14 +1050,53 @@ export function ImportScreen({
                         {folder.name} · {folder.decks.length} deck{folder.decks.length === 1 ? '' : 's'}
                       </span>
                     </button>
-                    <button
-                      type="button"
-                      className="text-xs text-rose-200 hover:text-rose-100 disabled:opacity-40"
-                      onClick={() => onDeleteFolder(folder.id)}
-                      disabled={folder.decks.length > 0 || savedFolders.length <= 1}
-                    >
-                      Delete folder
-                    </button>
+                    <div className="flex items-center gap-2 relative">
+                      <button
+                        type="button"
+                        className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80 hover:border-white"
+                        onClick={() => handleCopyFolderCardList(folder)}
+                      >
+                        TXT
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-full border border-white/20 p-2 text-xs font-semibold uppercase tracking-wide text-white/80 hover:border-white"
+                        onClick={() =>
+                          setFolderMenu((prev) => {
+                            if (prev?.folderId === folder.id) {
+                              folderMenuRef.current = null;
+                              return null;
+                            }
+                            return { folderId: folder.id };
+                          })
+                        }
+                        aria-haspopup="menu"
+                        aria-expanded={folderMenu?.folderId === folder.id}
+                      >
+                        ⋯
+                      </button>
+                      {folderMenu?.folderId === folder.id && (
+                        <div
+                          ref={(node) => {
+                            folderMenuRef.current = node;
+                          }}
+                          className="absolute right-0 top-full z-30 mt-2 rounded-2xl border border-white/10 bg-black/95 p-1 text-sm shadow-xl"
+                        >
+                          <button
+                            type="button"
+                            className="flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2 text-left text-xs font-semibold text-rose-200 hover:bg-rose-500/10 disabled:opacity-40"
+                            onClick={() => {
+                              onDeleteFolder(folder.id);
+                              folderMenuRef.current = null;
+                              setFolderMenu(null);
+                            }}
+                            disabled={folder.decks.length > 0 || savedFolders.length <= 1}
+                          >
+                            Delete folder
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                   {isExpanded &&
                     (folder.decks.length === 0 ? (
@@ -922,14 +1116,15 @@ export function ImportScreen({
                                 onRenameChange={(value) => setRenameValue(value)}
                                 onRenameSubmit={handleRenameSubmit}
                                 onCancelRename={handleCancelRename}
-                                onLoad={() => onLoadSavedDeck(folder.id, deck.id)}
-                                onRenameStart={() => handleStartRename(folder.id, deck.id, deck.name)}
-                                onDelete={() => onDeleteSavedDeck(folder.id, deck.id)}
-                                onCopy={() => handleCopyDeckYdke(deck)}
-                              />
-                            );
-                          })}
-                        </ul>
+                              onLoad={() => onLoadSavedDeck(folder.id, deck.id)}
+                              onRenameStart={() => handleStartRename(folder.id, deck.id, deck.name)}
+                              onDelete={() => onDeleteSavedDeck(folder.id, deck.id)}
+                              onCopy={() => handleCopyDeckYdke(deck)}
+                              onCopyList={() => handleCopyDeckCardList(deck)}
+                            />
+                          );
+                        })}
+                      </ul>
                       </SortableContext>
                     ))}
                 </FolderContainer>
