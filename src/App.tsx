@@ -1060,11 +1060,18 @@ export default function App() {
         toast.error('Load or paste a deck before saving.');
         return;
       }
+      let canonicalDeck = deckString;
+      try {
+        const parsed = parseYdke(deckString);
+        canonicalDeck = buildYdke(parsed.main, parsed.extra, parsed.side);
+      } catch {
+        // Leave as-is if the input isn't a YDKE string; this keeps compatibility with legacy saves.
+      }
       const trimmedName = name.trim() || 'Untitled deck';
       const entry: SavedDeckEntry = {
         id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
         name: trimmedName,
-        deck: deckString,
+        deck: canonicalDeck,
         savedAt: new Date().toISOString(),
         summary: {
           main: cardBreakdown.main,

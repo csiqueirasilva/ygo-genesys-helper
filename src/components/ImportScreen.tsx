@@ -28,7 +28,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import type { CardDetails, GenesysPayload, SavedDeckEntry, SavedDeckFolder } from '../types';
 import { formatTimestamp } from '../lib/strings.ts';
-import { parseYdke, type ParsedDeck } from '../lib/ydke.ts';
+import { parseYdke, buildYdke, type ParsedDeck } from '../lib/ydke.ts';
 import { toast } from 'sonner';
 import { fetchCardsByIds } from '../lib/ygoprodeck.ts';
 
@@ -562,11 +562,19 @@ export function ImportScreen({
   };
 
   const handleCopyDeckYdke = async (deck: SavedDeckEntry) => {
+    const source = deck.deck.trim();
+    let canonical = source;
     try {
-      await navigator.clipboard.writeText(deck.deck);
+      const parsed = parseYdke(source);
+      canonical = buildYdke(parsed.main, parsed.extra, parsed.side);
+    } catch {
+      // fallback to raw string if not a valid YDKE
+    }
+    try {
+      await navigator.clipboard.writeText(canonical);
       toast.success(`Copied ${deck.name} as YDKE URL.`);
     } catch {
-      const confirmed = window.prompt('Copy this YDKE string manually:', deck.deck);
+      const confirmed = window.prompt('Copy this YDKE string manually:', canonical);
       if (confirmed !== null) {
         toast.success(`Copied ${deck.name} as YDKE URL.`);
       }
