@@ -89,7 +89,7 @@ function decodeSection(section: string): DecodedSection {
 
 export function encodeDeckHash(ydke: string): string {
   const payload = gzip(ydke.trim());
-  return bytesToBase64(payload);
+  return bytesToBase64Url(payload);
 }
 
 export function decodeDeckHash(encoded: string): string {
@@ -116,7 +116,7 @@ function base64ToBytes(encoded: string): Uint8Array {
   return bytes;
 }
 
-function bytesToBase64(bytes: Uint8Array): string {
+function bytesToBase64Url(bytes: Uint8Array): string {
   if (typeof btoa !== 'function') {
     throw new Error('Base64 encoding is not available in this environment.');
   }
@@ -129,6 +129,21 @@ function bytesToBase64(bytes: Uint8Array): string {
   }
 
   return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/u, '');
+}
+
+function bytesToBase64Standard(bytes: Uint8Array): string {
+  if (typeof btoa !== 'function') {
+    throw new Error('Base64 encoding is not available in this environment.');
+  }
+
+  let binary = '';
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    const chunk = bytes.subarray(i, i + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+
+  return btoa(binary);
 }
 
 export function getDeckSize(deck?: ParsedDeck): number {
@@ -146,7 +161,7 @@ function encodeSection(ids: number[]): string {
   const bytes = new Uint8Array(ids.length * 4);
   const view = new DataView(bytes.buffer);
   ids.forEach((id, index) => view.setUint32(index * 4, id, true));
-  return bytesToBase64(bytes);
+  return bytesToBase64Standard(bytes);
 }
 
 export function buildYdke(main: number[], extra: number[], side: number[]): string {
