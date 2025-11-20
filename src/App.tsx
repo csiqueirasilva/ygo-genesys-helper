@@ -30,6 +30,7 @@ const genesysData = genesysPayload as GenesysPayload;
 const SAVED_DECKS_STORAGE_KEY = 'ygo-genesys-saved-decks-v1';
 const DEFAULT_FOLDER_ID = 'folder-default';
 const DEFAULT_FOLDER_NAME = 'Unsorted';
+const SAVED_SUMMARY_VERSION = 2;
 
 const generateFolderId = () => `folder-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 const createFolder = (name: string, id?: string, decks: SavedDeckEntry[] = []): SavedDeckFolder => ({
@@ -66,6 +67,12 @@ const normalizeDeckEntry = (raw: any): SavedDeckEntry | null => {
               ? undefined
               : Number.isFinite(Number(raw.summary.points))
                 ? Number(raw.summary.points)
+                : undefined,
+          version:
+            raw.summary.version === null || raw.summary.version === undefined
+              ? undefined
+              : Number.isFinite(Number(raw.summary.version))
+                ? Number(raw.summary.version)
                 : undefined,
         }
       : undefined;
@@ -873,7 +880,14 @@ export default function App() {
     }> = [];
     savedFolders.forEach((folder) => {
       folder.decks.forEach((deckEntry) => {
-        if (deckEntry.summary?.points === undefined) {
+        const summary = deckEntry.summary;
+        const needsSummary =
+          !summary ||
+          summary.version !== SAVED_SUMMARY_VERSION ||
+          summary.points === undefined ||
+          summary.points === null ||
+          !Number.isFinite(summary.points);
+        if (needsSummary) {
           decksMissingSummary.push({
             folderId: folder.id,
             deckId: deckEntry.id,
@@ -922,7 +936,7 @@ export default function App() {
           if (!card) {
             return sum;
           }
-          const normalized = normalizeCardName(card.name);
+          const normalized = normalizeCardName(simplifyCardName(card.name));
           return sum + (genesysPointMap.get(normalized) ?? 0);
         }, 0);
         return {
@@ -933,6 +947,7 @@ export default function App() {
             extra: parsed.extra.length,
             side: parsed.side.length,
             points: totalPoints,
+            version: SAVED_SUMMARY_VERSION,
           },
         };
       });
@@ -1077,7 +1092,7 @@ export default function App() {
           main: cardBreakdown.main,
           extra: cardBreakdown.extra,
           side: cardBreakdown.side,
-          points: totalPoints,
+          points: undefined,
         },
       };
       setSavedFoldersAndPersist((prev) => {
@@ -1096,7 +1111,7 @@ export default function App() {
       });
       lastSavedDeckRef.current = deckString;
     },
-    [deckInput, setSavedFoldersAndPersist, cardBreakdown, totalPoints],
+    [deckInput, setSavedFoldersAndPersist, cardBreakdown],
   );
 
   const handleLoadSavedDeck = useCallback(

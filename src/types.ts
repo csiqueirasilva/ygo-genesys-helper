@@ -66,6 +66,7 @@ export interface SavedDeckSummary {
   extra: number;
   side: number;
   points?: number;
+  version?: number;
 }
 
 export interface SavedDeckEntry {
