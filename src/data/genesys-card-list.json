@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-01-29T06:56:46.243Z",
+  "lastUpdated": "2026-01-30T06:58:36.882Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -81,6 +81,10 @@
     {
       "name": "Artifact Scythe",
       "points": 100
+    },
+    {
+      "name": "Artmage Non-Finito",
+      "points": 15
     },
     {
       "name": "Ash Blossom & Joyous Spring",
@@ -627,6 +631,10 @@
       "points": 51
     },
     {
+      "name": "Ecclesia and the Dark Dragon",
+      "points": 3
+    },
+    {
       "name": "Eclipse Wyvern",
       "points": 33
     },
@@ -653,6 +661,10 @@
     {
       "name": "Elemental HERO Stratos",
       "points": 3
+    },
+    {
+      "name": "Elfnote Power Patron",
+      "points": 15
     },
     {
       "name": "Elzette, Azamina of the White Forest",
@@ -715,6 +727,10 @@
       "points": 85
     },
     {
+      "name": "Fallen of the White Dragon",
+      "points": 30
+    },
+    {
       "name": "Fiber Jar",
       "points": 30
     },
@@ -769,6 +785,10 @@
     {
       "name": "Forbidden Chalice",
       "points": 5
+    },
+    {
+      "name": "Forbidden Crown",
+      "points": 10
     },
     {
       "name": "Forbidden Droplet",
@@ -1031,10 +1051,6 @@
       "points": 100
     },
     {
-      "name": "K9- Lupis",
-      "points": 5
-    },
-    {
       "name": "K9-04 Noroi",
       "points": 15
     },
@@ -1049,6 +1065,14 @@
     {
       "name": "K9-66a Jokul",
       "points": 33
+    },
+    {
+      "name": "K9-ØØ Lupis",
+      "points": 5
+    },
+    {
+      "name": "K9-X \"Ripper/M\"",
+      "points": 10
     },
     {
       "name": "K9-X \"Werewolf\"",
@@ -1301,6 +1325,10 @@
     {
       "name": "Mementotlan Twin Dragon",
       "points": 33
+    },
+    {
+      "name": "Mercurium the Living Quicksilver",
+      "points": 10
     },
     {
       "name": "Metamorphosis",
@@ -1959,6 +1987,10 @@
       "points": 33
     },
     {
+      "name": "Shiina, Twin Tempests of Celestial Thunder",
+      "points": 10
+    },
+    {
       "name": "Shooting Riser Dragon",
       "points": 33
     },
@@ -2021,6 +2053,10 @@
     {
       "name": "Spell Canceller",
       "points": 20
+    },
+    {
+      "name": "Spenta, the Magistus Sealer",
+      "points": 15
     },
     {
       "name": "Spiritual Beast Tamer Lara",
@@ -2373,6 +2409,10 @@
     {
       "name": "Zaborg the Mega Monarch",
       "points": 80
+    },
+    {
+      "name": "Zalen the Shackled Dragon",
+      "points": 10
     },
     {
       "name": "Zoodiac Barrage",
