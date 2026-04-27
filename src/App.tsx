@@ -190,6 +190,10 @@ export default function App() {
   const deckInputSourceRef = useRef<'manual' | 'file' | 'json' | 'saved' | 'url' | 'system'>('system');
   const [shouldAutoSaveDeck, setShouldAutoSaveDeck] = useState(false);
   const lastSavedDeckRef = useRef('');
+  const [activeDeck, setActiveDeck] = useState<{ folderId: string; deckId: string; name: string } | null>(null);
+  const [pendingUpdateDeck, setPendingUpdateDeck] = useState<{ folderId: string; deckId: string; name: string } | null>(null);
+  const [showUpdateDeckModal, setShowUpdateDeckModal] = useState(false);
+  const deckUpdateTargetRef = useRef<{ folderId: string; deckId: string } | null>(null);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
@@ -200,6 +204,34 @@ export default function App() {
   });
   const [savedFolders, setSavedFolders] = useState<SavedDeckFolder[]>(() => ensureFolders([]));
   const [showSavedDeckModal, setShowSavedDeckModal] = useState(false);
+  const cancelPendingUpdate = useCallback(() => {
+    deckUpdateTargetRef.current = null;
+    setPendingUpdateDeck(null);
+  }, []);
+  const handleCancelPendingUpdate = useCallback(() => {
+    if (pendingUpdateDeck) {
+      toast.info('Deck update cancelled.');
+    }
+    cancelPendingUpdate();
+  }, [pendingUpdateDeck, cancelPendingUpdate]);
+  const handleOpenUpdateModal = useCallback(() => {
+    if (!activeDeck) {
+      toast.error('Load a saved deck before updating.');
+      return;
+    }
+    setShowUpdateDeckModal(true);
+  }, [activeDeck]);
+  const handleConfirmUpdateDeck = useCallback(() => {
+    if (!activeDeck) {
+      toast.error('Load a saved deck before updating.');
+      setShowUpdateDeckModal(false);
+      return;
+    }
+    deckUpdateTargetRef.current = { folderId: activeDeck.folderId, deckId: activeDeck.deckId };
+    setPendingUpdateDeck(activeDeck);
+    setShowUpdateDeckModal(false);
+    toast.success(`Update armed for ${activeDeck.name}. Paste a YDKE link or upload a deck file to replace it.`);
+  }, [activeDeck]);
   const location = useLocation();
   const navigate = useNavigate();
   const [, setSearchParams] = useSearchParams();
@@ -423,9 +455,14 @@ export default function App() {
     if (!deckQueryParam) {
       return;
     }
+    if (deckQueryParam === shareToken && deckInputSourceRef.current !== 'url') {
+      return;
+    }
     try {
       const decoded = decodeDeckHash(deckQueryParam);
       deckInputSourceRef.current = 'url';
+      setActiveDeck(null);
+      cancelPendingUpdate();
       setDeckInput(decoded);
       if (!isResultsView) {
         navigate('/results', { replace: true });
@@ -433,7 +470,7 @@ export default function App() {
     } catch (error) {
       console.warn('Unable to decode deck from query:', error);
     }
-  }, [deckQueryParam, isResultsView, navigate]);
+  }, [deckQueryParam, isResultsView, navigate, cancelPendingUpdate, shareToken]);
 
 
   const activeCardDetails = focusedCard
@@ -721,10 +758,17 @@ export default function App() {
     setMissingCardContext({ zone: card.zone, cardName: card.name });
   };
 
-  const handleDeckInputChange = useCallback((value: string) => {
-    deckInputSourceRef.current = 'manual';
-    setDeckInput(value);
-  }, []);
+  const handleDeckInputChange = useCallback(
+    (value: string) => {
+      deckInputSourceRef.current = 'manual';
+      if (!deckUpdateTargetRef.current) {
+        setActiveDeck(null);
+        cancelPendingUpdate();
+      }
+      setDeckInput(value);
+    },
+    [cancelPendingUpdate],
+  );
 
   const clampPoints = (value: number) => Math.min(Math.max(Math.round(value) || 1, 1), 100);
 
@@ -848,6 +892,10 @@ export default function App() {
         }
         const ydke = buildYdke(deck.main, deck.extra, deck.side);
         deckInputSourceRef.current = 'file';
+        if (!deckUpdateTargetRef.current) {
+          setActiveDeck(null);
+          cancelPendingUpdate();
+        }
         setDeckInput(ydke);
         toast.success('YDK deck imported.');
       } catch (error) {
@@ -857,7 +905,7 @@ export default function App() {
         );
       }
     },
-    [],
+    [cancelPendingUpdate],
   );
 
   const setSavedFoldersAndPersist = useCallback(
@@ -1050,6 +1098,10 @@ export default function App() {
 
         const ydke = buildYdke(main, extra, side);
         deckInputSourceRef.current = 'json';
+        if (!deckUpdateTargetRef.current) {
+          setActiveDeck(null);
+          cancelPendingUpdate();
+        }
         setDeckInput(ydke);
         if (missingKonamiCount > 0) {
           toast.warning(
@@ -1065,7 +1117,7 @@ export default function App() {
         );
       }
     },
-    [],
+    [cancelPendingUpdate],
   );
 
   const handleSaveDeck = useCallback(
@@ -1082,19 +1134,71 @@ export default function App() {
       } catch {
         // Leave as-is if the input isn't a YDKE string; this keeps compatibility with legacy saves.
       }
-      const trimmedName = name.trim() || 'Untitled deck';
+      const trimmedName = name.trim();
+      const fallbackName = trimmedName || 'Untitled deck';
+      const timestamp = new Date().toISOString();
+      const summary = {
+        main: cardBreakdown.main,
+        extra: cardBreakdown.extra,
+        side: cardBreakdown.side,
+        points: undefined,
+      };
+
+      const updateTarget = deckUpdateTargetRef.current;
+      if (updateTarget) {
+        let updated = false;
+        let updatedName = '';
+        setSavedFoldersAndPersist((prev) =>
+          prev.map((folder) => {
+            if (folder.id !== updateTarget.folderId) {
+              return folder;
+            }
+            const decks = folder.decks.map((deckEntry) => {
+              if (deckEntry.id !== updateTarget.deckId) {
+                return deckEntry;
+              }
+              updated = true;
+              const nextName = trimmedName || deckEntry.name;
+              updatedName = nextName;
+              return {
+                ...deckEntry,
+                name: nextName,
+                deck: canonicalDeck,
+                savedAt: timestamp,
+                summary,
+              };
+            });
+            return { ...folder, decks };
+          }),
+        );
+        if (updated) {
+          toast.success('Saved deck updated.');
+          setActiveDeck((prev) =>
+            prev && prev.folderId === updateTarget.folderId && prev.deckId === updateTarget.deckId
+              ? { ...prev, name: updatedName || prev.name }
+              : prev,
+          );
+          setPendingUpdateDeck((prev) =>
+            prev && prev.folderId === updateTarget.folderId && prev.deckId === updateTarget.deckId
+              ? { ...prev, name: updatedName || prev.name }
+              : prev,
+          );
+          cancelPendingUpdate();
+          lastSavedDeckRef.current = deckString;
+          return;
+        }
+        console.warn('Update target not found; saving as a new deck instead.');
+        cancelPendingUpdate();
+      }
+
       const entry: SavedDeckEntry = {
         id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
-        name: trimmedName,
+        name: fallbackName,
         deck: canonicalDeck,
-        savedAt: new Date().toISOString(),
-        summary: {
-          main: cardBreakdown.main,
-          extra: cardBreakdown.extra,
-          side: cardBreakdown.side,
-          points: undefined,
-        },
+        savedAt: timestamp,
+        summary,
       };
+      let savedLocation: { folderId: string; deckId: string; name: string } | null = null;
       setSavedFoldersAndPersist((prev) => {
         const next = [...prev];
         let targetIndex = folderId ? next.findIndex((folder) => folder.id === folderId) : -1;
@@ -1104,14 +1208,20 @@ export default function App() {
           }
           targetIndex = 0;
         }
-        const folder = { ...next[targetIndex], decks: [entry, ...next[targetIndex].decks].slice(0, 200) };
+        const targetFolder = next[targetIndex];
+        const folder = { ...targetFolder, decks: [entry, ...targetFolder.decks].slice(0, 200) };
         next[targetIndex] = folder;
+        savedLocation = { folderId: folder.id, deckId: entry.id, name: entry.name };
         toast.success('Deck saved locally.');
         return next;
       });
+      if (savedLocation) {
+        setActiveDeck(savedLocation);
+      }
+      cancelPendingUpdate();
       lastSavedDeckRef.current = deckString;
     },
-    [deckInput, setSavedFoldersAndPersist, cardBreakdown],
+    [deckInput, setSavedFoldersAndPersist, cardBreakdown, cancelPendingUpdate],
   );
 
   const handleLoadSavedDeck = useCallback(
@@ -1123,11 +1233,13 @@ export default function App() {
         return;
       }
       deckInputSourceRef.current = 'saved';
+      setActiveDeck({ folderId, deckId, name: deck.name });
+      cancelPendingUpdate();
       setDeckInput(deck.deck);
       navigate('/results', { replace: false });
       toast.success(`Loaded ${deck.name}`);
     },
-    [savedFolders, navigate],
+    [savedFolders, navigate, cancelPendingUpdate],
   );
 
   const handleRenameSavedDeck = useCallback(
@@ -1155,6 +1267,12 @@ export default function App() {
       );
       if (renamed) {
         toast.success('Deck renamed.');
+        setActiveDeck((prev) =>
+          prev && prev.folderId === folderId && prev.deckId === deckId ? { ...prev, name: trimmed } : prev,
+        );
+        setPendingUpdateDeck((prev) =>
+          prev && prev.folderId === folderId && prev.deckId === deckId ? { ...prev, name: trimmed } : prev,
+        );
       } else {
         toast.error('Unable to rename deck.');
       }
@@ -1179,12 +1297,18 @@ export default function App() {
         return next;
       });
       if (deleted) {
+        if (activeDeck?.folderId === folderId && activeDeck?.deckId === deckId) {
+          setActiveDeck(null);
+        }
+        if (pendingUpdateDeck?.folderId === folderId && pendingUpdateDeck?.deckId === deckId) {
+          cancelPendingUpdate();
+        }
         toast.success('Deck deleted.');
       } else {
         toast.error('Unable to delete deck.');
       }
     },
-    [setSavedFoldersAndPersist],
+    [setSavedFoldersAndPersist, activeDeck, pendingUpdateDeck, cancelPendingUpdate],
   );
 
   const handleSaveCurrentDeck = useCallback(() => {
@@ -1218,8 +1342,21 @@ export default function App() {
         targetFolder.decks.splice(insertIndex, 0, deckToMove);
         return next;
       });
+      if (activeDeck?.deckId === deckId) {
+        setActiveDeck((prev) =>
+          prev && prev.deckId === deckId ? { ...prev, folderId: targetFolderId } : prev,
+        );
+      }
+      if (pendingUpdateDeck?.deckId === deckId) {
+        setPendingUpdateDeck((prev) =>
+          prev && prev.deckId === deckId ? { ...prev, folderId: targetFolderId } : prev,
+        );
+        if (deckUpdateTargetRef.current?.deckId === deckId) {
+          deckUpdateTargetRef.current = { folderId: targetFolderId, deckId };
+        }
+      }
     },
-    [setSavedFoldersAndPersist],
+    [setSavedFoldersAndPersist, activeDeck, pendingUpdateDeck],
   );
 
   const handleCreateFolder = useCallback(
@@ -1310,6 +1447,71 @@ export default function App() {
     }
   }, [deck, deckInput, shouldAutoSaveDeck]);
 
+  const handleExportTxt = useCallback(() => {
+    if (!deckGroups) {
+      toast.info('No deck loaded to export.');
+      return;
+    }
+
+    const lines: string[] = [];
+    if (activeDeck?.name) {
+      lines.push(`Deck: ${activeDeck.name}`);
+      lines.push('----------------------------------------');
+    }
+    
+    const sections = [
+      { key: 'main', label: 'Main Deck' },
+      { key: 'extra', label: 'Extra Deck' },
+      { key: 'side', label: 'Side Deck' }
+    ] as const;
+
+    sections.forEach(({ key, label }) => {
+      const cards = deckGroups[key];
+      if (cards.length === 0) return;
+      
+      lines.push('');
+      lines.push(`// ${label} (${cards.reduce((sum, c) => sum + c.count, 0)} cards)`);
+      cards.forEach((card) => {
+        lines.push(`${card.count}x ${card.name} ${card.pointsPerCopy ? `[${card.pointsPerCopy} pts]` : ''}`);
+      });
+    });
+
+    lines.push('');
+    lines.push(`Total Points: ${totalPoints}`);
+    
+    if (pointCap > 0) {
+      lines.push(`Point Cap: ${pointCap}`);
+    }
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `${activeDeck?.name ? activeDeck.name.replace(/[^a-z0-9]/gi, '_').toLowerCase() : 'deck-list'}.txt`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }, [deckGroups, activeDeck, totalPoints, pointCap]);
+
+  useEffect(() => {
+    const handlePaste = (event: ClipboardEvent) => {
+      if (!isResultsView) return;
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      const pasted = event.clipboardData?.getData('text')?.trim();
+      if (pasted && pasted.startsWith('ydke://')) {
+        event.preventDefault();
+        if (activeDeck && !deckUpdateTargetRef.current) {
+          deckUpdateTargetRef.current = { folderId: activeDeck.folderId, deckId: activeDeck.deckId };
+        }
+        handleDeckInputChange(pasted);
+        toast.success('YDKE pasted and deck updated.');
+      }
+    };
+    window.addEventListener('paste', handlePaste);
+    return () => window.removeEventListener('paste', handlePaste);
+  }, [isResultsView, activeDeck, handleDeckInputChange]);
+
   const handleExportSavedDecks = useCallback(() => {
     const deckCount = savedFolders.reduce((sum, folder) => sum + folder.decks.length, 0);
     if (deckCount === 0) {
@@ -1366,9 +1568,14 @@ export default function App() {
     Number(showBlockedList) +
     (focusedCard ? 1 : 0) +
     (missingCardContext ? 1 : 0) +
-    Number(showSavedDeckModal);
+    Number(showSavedDeckModal) +
+    Number(showUpdateDeckModal);
 
   const closeTopModal = useCallback(() => {
+    if (showUpdateDeckModal) {
+      setShowUpdateDeckModal(false);
+      return true;
+    }
     if (showSavedDeckModal) {
       setShowSavedDeckModal(false);
       return true;
@@ -1390,7 +1597,7 @@ export default function App() {
       return true;
     }
     return false;
-  }, [focusedCard, missingCardContext, showSavedDeckModal, showBlockedList, showPointList]);
+  }, [focusedCard, missingCardContext, showSavedDeckModal, showBlockedList, showPointList, showUpdateDeckModal]);
 
   const requestCloseTopModal = useCallback(() => {
     if (modalDepthRef.current > 0) {
@@ -1752,6 +1959,11 @@ export default function App() {
                 onShowBlocked={handleShowBlockedList}
                 onBack={handleBackToImport}
                 onShowSavedDecks={() => setShowSavedDeckModal(true)}
+                canUpdateSavedDeck={Boolean(activeDeck)}
+                onShowUpdateDeck={handleOpenUpdateModal}
+                pendingUpdateDeckName={pendingUpdateDeck?.name ?? null}
+                onCancelUpdateDeck={pendingUpdateDeck ? handleCancelPendingUpdate : undefined}
+                onExportTxt={handleExportTxt}
               />
             </div>
             <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
@@ -1964,6 +2176,63 @@ export default function App() {
           onClose={requestCloseTopModal}
           onResolve={handleMissingIdResolve}
         />
+      )}
+
+      {showUpdateDeckModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={() => setShowUpdateDeckModal(false)}>
+          <div
+            className="w-full max-w-md space-y-4 rounded-[28px] border border-white/10 bg-panel/95 p-5 text-slate-50 shadow-panel"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Saved decks</p>
+                <h3 className="text-2xl font-semibold">Update deck</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowUpdateDeckModal(false)}
+                className="text-2xl text-slate-300 hover:text-white"
+                aria-label="Close update deck instructions"
+              >
+                ×
+              </button>
+            </div>
+            {activeDeck ? (
+              <>
+                <p className="text-sm text-slate-300">
+                  You&apos;re editing <span className="font-semibold text-white">{activeDeck.name}</span>. After arming update mode, the next YDKE link you paste anywhere in the app—or any .ydk/.json file you upload—will replace this saved deck.
+                </p>
+                <ul className="list-disc space-y-2 rounded-2xl border border-white/10 bg-black/30 p-4 text-sm text-slate-200">
+                  <li>Click <span className="font-semibold text-white">Continue</span> to arm update mode.</li>
+                  <li>Paste a new <code className="text-xs text-slate-100">ydke://</code> link or use the Upload button to import a .ydk/.json deck.</li>
+                  <li>Once the import finishes, the saved deck is updated automatically.</li>
+                </ul>
+                <p className="text-xs text-amber-200/90">
+                  You can cancel the update at any time from the banner on the results screen before pasting a new deck.
+                </p>
+                <div className="flex flex-wrap justify-end gap-2">
+                  <button
+                    type="button"
+                    className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:border-white"
+                    onClick={() => setShowUpdateDeckModal(false)}
+                  >
+                    Not now
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-slate-900"
+                    onClick={handleConfirmUpdateDeck}
+                  >
+                    Continue
+                  </button>
+                </div>
+              </>
+            ) : (
+              <p className="text-sm text-rose-200">Load a saved deck before trying to update it.</p>
+            )}
+          </div>
+        </div>
       )}
 
       {showSavedDeckModal && (
