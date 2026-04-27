@@ -190,7 +190,7 @@ export default function App() {
   const deckInputSourceRef = useRef<'manual' | 'file' | 'json' | 'saved' | 'url' | 'system'>('system');
   const [shouldAutoSaveDeck, setShouldAutoSaveDeck] = useState(false);
   const lastSavedDeckRef = useRef('');
-  const [activeDeck, setActiveDeck] = useState<{ folderId: string; deckId: string; name: string } | null>(null);
+  const [activeDeck, setActiveDeck] = useState<{ folderId?: string; deckId?: string; name: string } | null>(null);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
@@ -377,11 +377,11 @@ export default function App() {
       return '';
     }
     try {
-      return encodeDeckHash(deckInput.trim());
+      return encodeDeckHash(deckInput.trim(), activeDeck?.name);
     } catch {
       return '';
     }
-  }, [deck, deckInput]);
+  }, [deck, deckInput, activeDeck?.name]);
 
   const expectedUrlDeckRef = useRef<string | null>(null);
   const prevShareTokenRef = useRef(shareToken);
@@ -430,8 +430,12 @@ export default function App() {
         try {
           const decoded = decodeDeckHash(deckQueryParam);
           deckInputSourceRef.current = 'url';
-          setActiveDeck(null);
-          setDeckInput(decoded);
+          if (decoded.name) {
+            setActiveDeck({ name: decoded.name });
+          } else {
+            setActiveDeck(null);
+          }
+          setDeckInput(decoded.ydke);
         } catch (error) {
           console.warn('Unable to decode deck from query:', error);
         }
@@ -1895,7 +1899,11 @@ export default function App() {
                 activeDeckName={activeDeck?.name ?? null}
                 onRenameDeck={(newName) => {
                   if (activeDeck) {
-                    handleRenameSavedDeck(activeDeck.folderId, activeDeck.deckId, newName);
+                    if (activeDeck.folderId && activeDeck.deckId) {
+                      handleRenameSavedDeck(activeDeck.folderId, activeDeck.deckId, newName);
+                    } else {
+                      setActiveDeck({ name: newName });
+                    }
                   }
                 }}
                 onSaveDeck={() => handleSaveDeck('', undefined)}

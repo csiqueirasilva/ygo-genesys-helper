@@ -87,15 +87,25 @@ function decodeSection(section: string): DecodedSection {
   return { cards, hasInferredIds: hadInferred, inferredCount };
 }
 
-export function encodeDeckHash(ydke: string): string {
-  const payload = gzip(ydke.trim());
+export function encodeDeckHash(ydke: string, name?: string): string {
+  const data = JSON.stringify({ y: ydke.trim(), n: name?.trim() || undefined });
+  const payload = gzip(data);
   return bytesToBase64Url(payload);
 }
 
-export function decodeDeckHash(encoded: string): string {
+export function decodeDeckHash(encoded: string): { ydke: string; name?: string } {
   const bytes = base64ToBytes(encoded);
-  const text = ungzip(bytes);
-  return new TextDecoder().decode(text);
+  const data = ungzip(bytes);
+  const text = new TextDecoder().decode(data);
+  try {
+    const parsed = JSON.parse(text);
+    if (typeof parsed === 'object' && parsed !== null && parsed.y) {
+      return { ydke: parsed.y, name: parsed.n };
+    }
+  } catch {
+    // Fallback for legacy format
+  }
+  return { ydke: text };
 }
 
 function base64ToBytes(encoded: string): Uint8Array {
