@@ -414,33 +414,43 @@ export default function App() {
     }
   }, [deck, deckInput]);
 
+  const lastProcessedShareTokenRef = useRef<string | null>(shareToken);
+
   useEffect(() => {
+    if (shareToken === lastProcessedShareTokenRef.current) {
+      return;
+    }
+    lastProcessedShareTokenRef.current = shareToken;
+
     if (!isResultsView) {
-      if (deckQueryParam) {
-        const next = new URLSearchParams(location.search);
-        next.delete('deck');
-        setSearchParams(next, { replace: true });
+      setSearchParams((prev) => {
+        if (prev.has('deck')) {
+          const next = new URLSearchParams(prev);
+          next.delete('deck');
+          return next;
+        }
+        return prev;
+      }, { replace: true });
+      return;
+    }
+
+    setSearchParams((prev) => {
+      if (!shareToken) {
+        if (prev.has('deck')) {
+          const next = new URLSearchParams(prev);
+          next.delete('deck');
+          return next;
+        }
+        return prev;
       }
-      return;
-    }
-
-    if (!shareToken) {
-      if (deckQueryParam) {
-        const next = new URLSearchParams(location.search);
-        next.delete('deck');
-        setSearchParams(next, { replace: true });
+      if (prev.get('deck') !== shareToken) {
+        const next = new URLSearchParams(prev);
+        next.set('deck', shareToken);
+        return next;
       }
-      return;
-    }
-
-    if (deckQueryParam === shareToken) {
-      return;
-    }
-
-    const next = new URLSearchParams(location.search);
-    next.set('deck', shareToken);
-    setSearchParams(next, { replace: true });
-  }, [shareToken, deckQueryParam, location.search, setSearchParams, isResultsView]);
+      return prev;
+    }, { replace: true });
+  }, [shareToken, isResultsView, setSearchParams]);
 
   const shareUrl = useMemo(() => {
     if (typeof window === 'undefined' || !shareToken) {
@@ -451,11 +461,18 @@ export default function App() {
     )}`;
   }, [shareToken]);
 
+  const lastProcessedUrlDeckRef = useRef<string | null>(null);
+
   useEffect(() => {
+    if (deckQueryParam === lastProcessedUrlDeckRef.current) {
+      return;
+    }
+    lastProcessedUrlDeckRef.current = deckQueryParam;
+
     if (!deckQueryParam) {
       return;
     }
-    if (deckQueryParam === shareToken && deckInputSourceRef.current !== 'url') {
+    if (deckQueryParam === shareToken) {
       return;
     }
     try {
