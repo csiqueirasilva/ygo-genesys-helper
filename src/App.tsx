@@ -414,43 +414,62 @@ export default function App() {
     }
   }, [deck, deckInput]);
 
-  const lastProcessedShareTokenRef = useRef<string | null>(shareToken);
+  const expectedUrlDeckRef = useRef<string | null>(null);
+  const prevShareTokenRef = useRef(shareToken);
+  const prevIsResultsViewRef = useRef(isResultsView);
 
   useEffect(() => {
-    if (shareToken === lastProcessedShareTokenRef.current) {
-      return;
-    }
-    lastProcessedShareTokenRef.current = shareToken;
+    const tokenChanged = shareToken !== prevShareTokenRef.current;
+    const viewBecameResults = isResultsView && !prevIsResultsViewRef.current;
+    
+    prevShareTokenRef.current = shareToken;
+    prevIsResultsViewRef.current = isResultsView;
 
     if (!isResultsView) {
-      setSearchParams((prev) => {
-        if (prev.has('deck')) {
+      if (deckQueryParam) {
+        setSearchParams((prev) => {
           const next = new URLSearchParams(prev);
           next.delete('deck');
           return next;
-        }
-        return prev;
-      }, { replace: true });
+        }, { replace: true });
+      }
       return;
     }
 
-    setSearchParams((prev) => {
-      if (!shareToken) {
-        if (prev.has('deck')) {
-          const next = new URLSearchParams(prev);
-          next.delete('deck');
-          return next;
-        }
-        return prev;
-      }
-      if (prev.get('deck') !== shareToken) {
+    if (shareToken === deckQueryParam) {
+      expectedUrlDeckRef.current = null;
+      return;
+    }
+
+    if (shareToken === expectedUrlDeckRef.current) {
+      return;
+    }
+
+    if (tokenChanged || viewBecameResults) {
+      expectedUrlDeckRef.current = shareToken;
+      setSearchParams((prev) => {
         const next = new URLSearchParams(prev);
-        next.set('deck', shareToken);
+        if (shareToken) {
+          next.set('deck', shareToken);
+        } else {
+          next.delete('deck');
+        }
         return next;
+      }, { replace: true });
+    } else {
+      if (deckQueryParam) {
+        try {
+          const decoded = decodeDeckHash(deckQueryParam);
+          deckInputSourceRef.current = 'url';
+          setActiveDeck(null);
+          cancelPendingUpdate();
+          setDeckInput(decoded);
+        } catch (error) {
+          console.warn('Unable to decode deck from query:', error);
+        }
       }
-      return prev;
-    }, { replace: true });
-  }, [shareToken, isResultsView, setSearchParams]);
+    }
+  }, [shareToken, deckQueryParam, isResultsView, setSearchParams, cancelPendingUpdate]);
 
   const shareUrl = useMemo(() => {
     if (typeof window === 'undefined' || !shareToken) {
@@ -460,35 +479,6 @@ export default function App() {
       shareToken,
     )}`;
   }, [shareToken]);
-
-  const lastProcessedUrlDeckRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    if (deckQueryParam === lastProcessedUrlDeckRef.current) {
-      return;
-    }
-    lastProcessedUrlDeckRef.current = deckQueryParam;
-
-    if (!deckQueryParam) {
-      return;
-    }
-    if (deckQueryParam === shareToken) {
-      return;
-    }
-    try {
-      const decoded = decodeDeckHash(deckQueryParam);
-      deckInputSourceRef.current = 'url';
-      setActiveDeck(null);
-      cancelPendingUpdate();
-      setDeckInput(decoded);
-      if (!isResultsView) {
-        navigate('/results', { replace: true });
-      }
-    } catch (error) {
-      console.warn('Unable to decode deck from query:', error);
-    }
-  }, [deckQueryParam, isResultsView, navigate, cancelPendingUpdate, shareToken]);
-
 
   const activeCardDetails = focusedCard
     ? cardDetails[focusedCard.id] ?? pointCardInfo[focusedCard.name] ?? null
