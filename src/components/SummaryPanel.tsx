@@ -1,3 +1,19 @@
+import { useState, useRef, useEffect } from 'react';
+
+const EditIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+  </svg>
+);
+
+const SaveIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+    <polyline points="17 21 17 13 7 13 7 21" />
+    <polyline points="7 3 7 8 15 8" />
+  </svg>
+);
+
 const CopyIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -54,10 +70,9 @@ interface SummaryPanelProps {
   onShowBlocked: () => void;
   onBack: () => void;
   onShowSavedDecks: () => void;
-  canUpdateSavedDeck: boolean;
-  onShowUpdateDeck: () => void;
-  pendingUpdateDeckName?: string | null;
-  onCancelUpdateDeck?: () => void;
+  activeDeckName: string | null;
+  onRenameDeck: (newName: string) => void;
+  onSaveDeck: () => void;
   onExportTxt: () => void;
 }
 
@@ -80,14 +95,33 @@ export function SummaryPanel({
   onShowBlocked,
   onBack,
   onShowSavedDecks,
-  canUpdateSavedDeck,
-  onShowUpdateDeck,
-  pendingUpdateDeckName,
-  onCancelUpdateDeck,
+  activeDeckName,
+  onRenameDeck,
+  onSaveDeck,
   onExportTxt
 }: SummaryPanelProps) {
   const capLabel = pointCap > 0 ? `${pointCap}` : 'No cap';
   const mobileStatusLabel = cardsOverCap ? 'Over cap' : 'Within cap';
+
+  const [isRenaming, setIsRenaming] = useState(false);
+  const [renameInput, setRenameInput] = useState('');
+  const renameInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isRenaming) {
+      setRenameInput(activeDeckName || '');
+      // Slight delay to ensure the input is rendered before focusing
+      setTimeout(() => renameInputRef.current?.focus(), 10);
+    }
+  }, [isRenaming, activeDeckName]);
+
+  const handleRenameSubmit = () => {
+    const trimmed = renameInput.trim();
+    if (trimmed && trimmed !== activeDeckName) {
+      onRenameDeck(trimmed);
+    }
+    setIsRenaming(false);
+  };
 
   return (
     <section className="rounded-[28px] border border-white/10 bg-panel p-3 shadow-panel space-y-3">
@@ -121,15 +155,6 @@ export function SummaryPanel({
             <span className="sm:hidden">Saved</span>
             <span className="hidden sm:inline">Saved decks</span>
           </button>
-          {canUpdateSavedDeck && (
-            <button
-              type="button"
-              onClick={onShowUpdateDeck}
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-amber-300/40 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-amber-100 shadow-sm transition hover:border-amber-200/80 md:text-sm"
-            >
-              Update deck
-            </button>
-          )}
           <button
             type="button"
             className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-full bg-slate-800 px-5 py-2 text-sm font-semibold text-slate-100 disabled:opacity-40 transition hover:bg-slate-700"
@@ -160,25 +185,52 @@ export function SummaryPanel({
         </div>
       </div>
 
-      {shareStatus === 'error' && (
-        <p className="text-xs text-rose-300">Clipboard is unavailable. Copy the link manually.</p>
-      )}
-
-      {pendingUpdateDeckName && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-400/40 bg-amber-400/10 px-3 py-2 text-xs text-amber-100">
-          <p>
-            Next YDKE paste or .ydk/.json import will replace <span className="font-semibold text-white">{pendingUpdateDeckName}</span>.
-          </p>
-          {onCancelUpdateDeck && (
-            <button
-              type="button"
-              onClick={onCancelUpdateDeck}
-              className="rounded-full border border-amber-200/40 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-amber-50 hover:border-amber-200"
-            >
-              Cancel update
-            </button>
+      <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3">
+        <div className="flex-1">
+          {isRenaming ? (
+            <input
+              ref={renameInputRef}
+              type="text"
+              value={renameInput}
+              onChange={(e) => setRenameInput(e.target.value)}
+              onBlur={handleRenameSubmit}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleRenameSubmit();
+                if (e.key === 'Escape') setIsRenaming(false);
+              }}
+              className="w-full bg-transparent text-lg font-semibold text-white outline-none"
+            />
+          ) : (
+            <h2 className="text-lg font-semibold text-white truncate" title={activeDeckName || 'Untitled deck'}>
+              {activeDeckName || 'Untitled deck'}
+            </h2>
           )}
         </div>
+        {activeDeckName ? (
+          <button
+            type="button"
+            onClick={() => setIsRenaming(true)}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white"
+            aria-label="Rename deck"
+            title="Rename deck"
+          >
+            <EditIcon className="h-4 w-4" />
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={onSaveDeck}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-emerald-400 transition hover:bg-emerald-500/20 hover:text-emerald-300"
+            aria-label="Save deck"
+            title="Save deck locally"
+          >
+            <SaveIcon className="h-4 w-4" />
+          </button>
+        )}
+      </div>
+
+      {shareStatus === 'error' && (
+        <p className="text-xs text-rose-300">Clipboard is unavailable. Copy the link manually.</p>
       )}
 
       <div className="rounded-2xl border border-white/10 bg-black/30 p-3 sm:hidden">
