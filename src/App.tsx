@@ -740,10 +740,12 @@ export default function App() {
   const handleDeckInputChange = useCallback(
     (value: string) => {
       deckInputSourceRef.current = 'manual';
-      setActiveDeck(null);
+      if (!isResultsView) {
+        setActiveDeck(null);
+      }
       setDeckInput(value);
     },
-    [],
+    [isResultsView],
   );
 
   const clampPoints = (value: number) => Math.min(Math.max(Math.round(value) || 1, 1), 100);
@@ -1105,7 +1107,7 @@ export default function App() {
         // Leave as-is if the input isn't a YDKE string; this keeps compatibility with legacy saves.
       }
       const trimmedName = name.trim();
-      const fallbackName = trimmedName || 'Untitled deck';
+      const fallbackName = trimmedName || activeDeck?.name || 'Untitled deck';
       const timestamp = new Date().toISOString();
       const summary = {
         main: cardBreakdown.main,
@@ -1114,7 +1116,7 @@ export default function App() {
         points: undefined,
       };
 
-      if (activeDeck) {
+      if (activeDeck && activeDeck.folderId && activeDeck.deckId) {
         let updated = false;
         let updatedName = '';
         setSavedFoldersAndPersist((prev) =>
@@ -1368,7 +1370,7 @@ export default function App() {
       return;
     }
     const source = deckInputSourceRef.current;
-    if (source !== 'manual' && source !== 'file' && source !== 'json') {
+    if (source === 'url' || source === 'saved' || source === 'system') {
       setShouldAutoSaveDeck(source === 'url');
       return;
     }
