@@ -178,6 +178,13 @@ export function CardSections({
                 
                 const isOverLimit = format === 'advanced' && card.count > limitCount;
 
+                const cardMeta = metaData.popularCards[card.id.toString()];
+                const isRelevantMeta = cardMeta && (
+                  cardMeta.staple || 
+                  (format === 'genesys' && cardMeta.metaContext?.genesys) ||
+                  (format === 'advanced' && cardMeta.metaContext?.advanced)
+                );
+
                 if (gridView[zone]) {
                   const colors = getFrameColors(card);
                   return (
@@ -209,7 +216,7 @@ export function CardSections({
                           >
                             {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
                           </div>
-                          {metaData.popularCards[card.id.toString()] && (
+                          {isRelevantMeta && (
                             <button
                               type="button"
                               onClick={(e) => {
@@ -302,7 +309,7 @@ export function CardSections({
                               OVER LIMIT ({limitCount})
                             </span>
                           )}
-                          {metaData.popularCards[card.id.toString()] && (
+                          {isRelevantMeta && (
                             <button
                               type="button"
                               onClick={(e) => {

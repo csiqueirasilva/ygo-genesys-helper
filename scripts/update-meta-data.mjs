@@ -54,6 +54,12 @@ async function scrapeRecentDecks(url) {
   return decks;
 }
 
+function extractArchetypes(decks) {
+  // Extract archetype names from deck titles (e.g. "Magnet Warrior" from "Magnet Warrior Tournament Deck")
+  // We'll take the full title as a potential archetype or partial match
+  return Array.from(new Set(decks.map(d => d.name)));
+}
+
 try {
   const [allCards, banlist, genesysDecks, advancedDecks] = await Promise.all([
     fetchAllCardsWithMisc(),
@@ -62,30 +68,39 @@ try {
     scrapeRecentDecks(ADVANCED_META_URL)
   ]);
 
+  const genesysArchetypes = extractArchetypes(genesysDecks);
+  const advancedArchetypes = extractArchetypes(advancedDecks);
+
   // Process card popularity
   const popularCards = {};
-  
-  // Aggregate card IDs from recent tournament decks for an additional meta signal
-  // (In a real scenario, we would fetch the YDKEs of these decks, but for now we'll 
-  // rely on the API's 'viewsweek' which is surprisingly consistent with meta trends).
-
   allCards.forEach(card => {
     const misc = card.misc_info?.[0];
     
-    // We only consider cards "popular" if they have clear weekly activity (Index > 0)
-    // or if they are officially tagged staples.
-    if (misc && (misc.viewsweek >= 101 || misc.staple === 'Yes')) {
-      const popularityScore = Math.floor(misc.viewsweek / 101);
+    // Check if card belongs to a meta archetype
+    const isGenesysMeta = card.archetype && genesysArchetypes.some(a => a.toLowerCase().includes(card.archetype.toLowerCase()));
+    const isAdvancedMeta = card.archetype && advancedArchetypes.some(a => a.toLowerCase().includes(card.archetype.toLowerCase()));
+    
+    const viewsweek = misc?.viewsweek || 0;
+    const isStaple = misc?.staple === 'Yes';
+    
+    // Define Meta Relevancy
+    // High index (> 5) or official staple or belongs to recent tournament archetype
+    if (isStaple || (viewsweek >= 101) || isGenesysMeta || isAdvancedMeta) {
+      const popularityScore = Math.floor(viewsweek / 101);
       
       popularCards[card.id] = {
         name: card.name,
         viewsweek: popularityScore,
-        views: misc.views || 0,
-        upvotes: misc.upvotes || 0,
-        downvotes: misc.downvotes || 0,
-        staple: misc.staple === 'Yes',
+        views: misc?.views || 0,
+        upvotes: misc?.upvotes || 0,
+        downvotes: misc?.downvotes || 0,
+        staple: isStaple,
         archetype: card.archetype,
-        formats: misc.formats || []
+        formats: misc?.formats || [],
+        metaContext: {
+          genesys: isGenesysMeta,
+          advanced: isAdvancedMeta
+        }
       };
     }
   });
@@ -94,9 +109,11 @@ try {
     lastUpdated: new Date().toISOString(),
     genesys: {
       recentDecks: genesysDecks.slice(0, 30),
+      metaArchetypes: genesysArchetypes,
     },
     advanced: {
       recentDecks: advancedDecks.slice(0, 30),
+      metaArchetypes: advancedArchetypes,
       banlist,
     },
     popularCards,

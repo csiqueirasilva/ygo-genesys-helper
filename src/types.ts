@@ -111,6 +111,10 @@ export interface MetaData {
     staple: boolean;
     archetype?: string;
     formats?: string[];
+    metaContext?: {
+      genesys?: boolean;
+      advanced?: boolean;
+    };
   }>;
 }
 

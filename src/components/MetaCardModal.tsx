@@ -91,10 +91,12 @@ export function MetaCardModal({ cardId, format, onClose }: MetaCardModalProps) {
             <div className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-sm text-slate-200">
               {cardMeta.staple ? (
                 <p>Recognized as a <strong className="text-cyan-300 font-bold">Global Staple</strong>. This card provides high utility across multiple deck types and is consistently used in competitive play.</p>
+              ) : (format === 'genesys' && cardMeta.metaContext?.genesys) || (format === 'advanced' && cardMeta.metaContext?.advanced) ? (
+                <p>Belongs to a <strong className="text-cyan-300 font-bold">Tournament Winning Archetype</strong>. This card (or its archetype: {cardMeta.archetype || 'N/A'}) has appeared in top-performing decks in recent {format === 'genesys' ? 'Genesys' : 'Advanced'} tournaments.</p>
               ) : cardMeta.viewsweek > 5 ? (
-                <p>Currently <strong className="text-cyan-300 font-bold">Trending High</strong>. This card is receiving significant attention this week, often indicating a shift in the meta or a new combo discovery.</p>
+                <p>Currently a <strong className="text-cyan-300 font-bold">Global Trend</strong>. This card is receiving significant community attention this week, indicating it is being widely tested in new builds.</p>
               ) : (
-                <p>Considered a <strong className="text-cyan-300 font-bold">Format Specific Pick</strong>. It shows consistent usage in specific archetypes or as a counter-pick in the current {format === 'genesys' ? 'Genesys' : 'TCG'} environment.</p>
+                <p>Considered a <strong className="text-cyan-300 font-bold">Strategic Tech Pick</strong>. It shows consistent usage in specific builds or as a counter-pick in the current {format === 'genesys' ? 'Genesys' : 'TCG'} environment.</p>
               )}
             </div>
           </div>
