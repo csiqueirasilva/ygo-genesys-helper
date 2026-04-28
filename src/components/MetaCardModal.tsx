@@ -75,9 +75,9 @@ export function MetaCardModal({ cardId, format, onClose }: MetaCardModalProps) {
         <div className="p-6 space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-2xl border border-white/5 bg-black/30 p-4 text-center">
-              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mb-1">Weekly Views</p>
+              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mb-1">Meta Index</p>
               <p className="text-2xl font-black text-cyan-400">↑{cardMeta.viewsweek}</p>
-              <p className="text-[0.6rem] text-slate-400 mt-1">Active interest</p>
+              <p className="text-[0.6rem] text-slate-400 mt-1">Relative popularity</p>
             </div>
             <div className="rounded-2xl border border-white/5 bg-black/30 p-4 text-center">
               <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mb-1">Global Approval</p>
@@ -91,7 +91,7 @@ export function MetaCardModal({ cardId, format, onClose }: MetaCardModalProps) {
             <div className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-sm text-slate-200">
               {cardMeta.staple ? (
                 <p>Recognized as a <strong className="text-cyan-300 font-bold">Global Staple</strong>. This card provides high utility across multiple deck types and is consistently used in competitive play.</p>
-              ) : cardMeta.viewsweek > 500 ? (
+              ) : cardMeta.viewsweek > 5 ? (
                 <p>Currently <strong className="text-cyan-300 font-bold">Trending High</strong>. This card is receiving significant attention this week, often indicating a shift in the meta or a new combo discovery.</p>
               ) : (
                 <p>Considered a <strong className="text-cyan-300 font-bold">Format Specific Pick</strong>. It shows consistent usage in specific archetypes or as a counter-pick in the current {format === 'genesys' ? 'Genesys' : 'TCG'} environment.</p>
@@ -113,7 +113,7 @@ export function MetaCardModal({ cardId, format, onClose }: MetaCardModalProps) {
                     </div>
                     <div className="text-right">
                       <span className="text-[0.7rem] font-bold text-cyan-400">↑{s.viewsweek}</span>
-                      <p className="text-[0.5rem] text-slate-500 uppercase tracking-tighter">Views/wk</p>
+                      <p className="text-[0.5rem] text-slate-500 uppercase tracking-tighter">Meta Index</p>
                     </div>
                   </div>
                 ))}

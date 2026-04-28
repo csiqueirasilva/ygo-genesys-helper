@@ -25,7 +25,7 @@ export function MetaInsights({ deckGroups, format }: MetaInsightsProps) {
       const meta = metaData.popularCards[card.id.toString()];
       if (meta) {
         if (meta.staple) stapleCount++;
-        if (meta.viewsweek > 1000) highMetaCount++;
+        if (meta.viewsweek > 10) highMetaCount++;
         
         // Advanced format specific meta filters could go here
         const isRelevantPopularity = format === 'genesys' || (meta.formats && meta.formats.includes('TCG'));
@@ -92,7 +92,7 @@ export function MetaInsights({ deckGroups, format }: MetaInsightsProps) {
             </div>
             <div>
               <div className="mb-1 flex justify-between text-xs">
-                <span className="text-slate-300">High Demand Cards (Views)</span>
+                <span className="text-slate-300">High Demand Cards (Meta Index)</span>
                 <span className="font-bold text-cyan-400">{analysis.metaPercent}%</span>
               </div>
               <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
@@ -155,7 +155,7 @@ export function MetaInsights({ deckGroups, format }: MetaInsightsProps) {
       </div>
       
       <p className="text-center text-[0.6rem] text-slate-500 italic">
-        Data provided by YGOPRODeck. Popularity based on weekly database views.
+        Data provided by YGOPRODeck. Popularity based on weekly database activity index.
       </p>
     </section>
   );

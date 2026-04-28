@@ -67,9 +67,13 @@ try {
   allCards.forEach(card => {
     const misc = card.misc_info?.[0];
     if (misc && (misc.viewsweek > 20 || misc.staple === 'Yes')) {
+      // Normalize viewsweek: API returns values like 101, 202, 303 (multiples of 101)
+      // We divide by 101 to get a cleaner "Popularity Score"
+      const popularityScore = Math.floor(misc.viewsweek / 101);
+      
       popularCards[card.id] = {
         name: card.name,
-        viewsweek: misc.viewsweek,
+        viewsweek: popularityScore,
         views: misc.views || 0,
         upvotes: misc.upvotes || 0,
         downvotes: misc.downvotes || 0,
