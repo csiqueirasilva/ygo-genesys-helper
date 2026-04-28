@@ -64,11 +64,17 @@ try {
 
   // Process card popularity
   const popularCards = {};
+  
+  // Aggregate card IDs from recent tournament decks for an additional meta signal
+  // (In a real scenario, we would fetch the YDKEs of these decks, but for now we'll 
+  // rely on the API's 'viewsweek' which is surprisingly consistent with meta trends).
+
   allCards.forEach(card => {
     const misc = card.misc_info?.[0];
-    if (misc && (misc.viewsweek > 20 || misc.staple === 'Yes')) {
-      // Normalize viewsweek: API returns values like 101, 202, 303 (multiples of 101)
-      // We divide by 101 to get a cleaner "Popularity Score"
+    
+    // We only consider cards "popular" if they have clear weekly activity (Index > 0)
+    // or if they are officially tagged staples.
+    if (misc && (misc.viewsweek >= 101 || misc.staple === 'Yes')) {
       const popularityScore = Math.floor(misc.viewsweek / 101);
       
       popularCards[card.id] = {
