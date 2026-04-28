@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-28T01:44:01.453Z",
+  "lastUpdated": "2026-04-28T08:32:39.129Z",
   "genesys": {
     "recentDecks": [
       {
@@ -107,6 +107,16 @@
   "advanced": {
     "recentDecks": [
       {
+        "name": "Enneacraft",
+        "url": "https://ygoprodeck.com/deck/enneacraft-708128",
+        "meta": "Top 8 (~70 players) 3 days ago piloted by Miguel Angel Jimenez"
+      },
+      {
+        "name": "K9 Artmage",
+        "url": "https://ygoprodeck.com/deck/k9-artmage-708125",
+        "meta": "Runner-Up (~70 players) 3 days ago piloted by Javier Ruiz"
+      },
+      {
         "name": "Artmage DoomZ",
         "url": "https://ygoprodeck.com/deck/artmage-doomz-708041",
         "meta": "Runner-Up (~120 players) 3 days ago piloted by Hunter Hero"
@@ -195,16 +205,6 @@
         "name": "Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/branded-dracotail-707992",
         "meta": "Runner-Up (106 players) 2 days ago piloted by Benedikt Stingl"
-      },
-      {
-        "name": "Magistus Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/magistus-branded-dracotail-707987",
-        "meta": "Top 8 (255 players) 3 days ago piloted by Michael Haran"
-      },
-      {
-        "name": "Sky Striker",
-        "url": "https://ygoprodeck.com/deck/sky-striker-707981",
-        "meta": "Winner (73 players) 2 days ago piloted by Matteo Colagiorgio"
       }
     ],
     "banlist": {
