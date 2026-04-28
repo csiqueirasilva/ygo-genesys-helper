@@ -105,6 +105,9 @@ export interface MetaData {
   popularCards: Record<string, {
     name: string;
     viewsweek: number;
+    views: number;
+    upvotes: number;
+    downvotes: number;
     staple: boolean;
     archetype?: string;
     formats?: string[];

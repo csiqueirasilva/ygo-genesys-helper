@@ -70,6 +70,9 @@ try {
       popularCards[card.id] = {
         name: card.name,
         viewsweek: misc.viewsweek,
+        views: misc.views || 0,
+        upvotes: misc.upvotes || 0,
+        downvotes: misc.downvotes || 0,
         staple: misc.staple === 'Yes',
         archetype: card.archetype,
         formats: misc.formats || []

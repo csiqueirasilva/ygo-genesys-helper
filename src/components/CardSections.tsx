@@ -9,6 +9,7 @@ interface CardSectionsProps {
   deckGroups: DeckGroups | null;
   format: Format;
   onCardSelect: (card: DeckCardGroup) => void;
+  onMetaClick: (cardId: number) => void;
   onMissingCardSelect?: (card: DeckCardGroup) => void;
   sortMode: Record<DeckSection, 'points' | 'default'>;
   onSortModeChange: (zone: DeckSection, mode: 'points' | 'default') => void;
@@ -21,6 +22,7 @@ export function CardSections({
   deckGroups,
   format,
   onCardSelect,
+  onMetaClick,
   onMissingCardSelect,
   sortMode,
   onSortModeChange,
@@ -208,9 +210,16 @@ export function CardSections({
                             {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
                           </div>
                           {metaData.popularCards[card.id.toString()] && (
-                            <div className="absolute right-2 top-2 rounded-md bg-cyan-500/80 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm backdrop-blur-sm">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                onMetaClick(card.id);
+                              }}
+                              className="absolute right-2 top-2 rounded-md bg-cyan-500/80 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm backdrop-blur-sm transition hover:bg-cyan-400"
+                            >
                               META
-                            </div>
+                            </button>
                           )}
                         </div>
                         <div
@@ -294,9 +303,16 @@ export function CardSections({
                             </span>
                           )}
                           {metaData.popularCards[card.id.toString()] && (
-                            <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-medium">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                onMetaClick(card.id);
+                              }}
+                              className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-medium hover:bg-cyan-500/30"
+                            >
                               Meta Staple/Trend
-                            </span>
+                            </button>
                           )}
                         </div>
                       </div>

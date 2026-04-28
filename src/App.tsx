@@ -25,6 +25,7 @@ import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
 import { MetaInsights } from './components/MetaInsights.tsx';
+import { MetaCardModal } from './components/MetaCardModal.tsx';
 // import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { MissingIdResolver } from './components/MissingIdResolver.tsx';
 import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
@@ -200,6 +201,7 @@ export default function App() {
   const [shouldAutoSaveDeck, setShouldAutoSaveDeck] = useState(false);
   const lastSavedDeckRef = useRef('');
   const [activeDeck, setActiveDeck] = useState<{ folderId?: string; deckId?: string; name: string } | null>(null);
+  const [metaCardId, setMetaCardId] = useState<number | null>(null);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
@@ -1521,11 +1523,16 @@ export default function App() {
     Number(showBlockedList) +
     (focusedCard ? 1 : 0) +
     (missingCardContext ? 1 : 0) +
+    (metaCardId ? 1 : 0) +
     Number(showSavedDeckModal);
 
   const closeTopModal = useCallback(() => {
     if (showSavedDeckModal) {
       setShowSavedDeckModal(false);
+      return true;
+    }
+    if (metaCardId) {
+      setMetaCardId(null);
       return true;
     }
     if (missingCardContext) {
@@ -1617,8 +1624,7 @@ export default function App() {
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-    }, [focusedCard, missingCardContext, showBlockedList, showPointList, showSavedDeckModal, requestCloseTopModal]);
-
+    }, [focusedCard, missingCardContext, showBlockedList, showPointList, showSavedDeckModal, metaCardId, requestCloseTopModal]);
   useEffect(() => {
     if (!showChatAssistant) {
       return;
@@ -1941,6 +1947,7 @@ export default function App() {
                   deckGroups={deckGroups}
                   format={format}
                   onCardSelect={handleCardFocus}
+                  onMetaClick={setMetaCardId}
                   onMissingCardSelect={handleMissingCardSelect}
                   sortMode={cardSortMode}
                   onSortModeChange={(zone, mode) =>
@@ -2147,6 +2154,14 @@ export default function App() {
           missingCount={missingSlots[missingCardContext.zone].length}
           onClose={requestCloseTopModal}
           onResolve={handleMissingIdResolve}
+        />
+      )}
+
+      {metaCardId && (
+        <MetaCardModal
+          cardId={metaCardId}
+          format={format}
+          onClose={() => setMetaCardId(null)}
         />
       )}
 
