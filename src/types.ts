@@ -82,3 +82,20 @@ export interface SavedDeckFolder {
   name: string;
   decks: SavedDeckEntry[];
 }
+
+export interface MetaData {
+  lastUpdated: string;
+  recentDecks: Array<{
+    name: string;
+    url: string;
+    meta: string;
+  }>;
+  metaArchetypes: string[];
+  popularCards: Record<string, {
+    name: string;
+    viewsweek: number;
+    staple: boolean;
+    archetype?: string;
+  }>;
+}
+

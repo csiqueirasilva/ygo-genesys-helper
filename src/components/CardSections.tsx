@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
-import type { DeckCardGroup, DeckGroups, DeckSection } from '../types';
+import type { DeckCardGroup, DeckGroups, DeckSection, MetaData } from '../types';
 import { formatCardTypeLabel } from '../lib/strings';
+import metaDataPayload from '../data/meta-data.json';
+
+const metaData = metaDataPayload as MetaData;
 
 interface CardSectionsProps {
   deckGroups: DeckGroups | null;
@@ -187,6 +190,11 @@ export function CardSections({
                           >
                             {isForbidden ? '✕' : card.totalPoints}
                           </div>
+                          {metaData.popularCards[card.id.toString()] && (
+                            <div className="absolute right-2 top-2 rounded-md bg-cyan-500/80 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm backdrop-blur-sm">
+                              META
+                            </div>
+                          )}
                         </div>
                         <div
                           className="flex flex-col gap-1 px-2 py-3"
@@ -256,6 +264,11 @@ export function CardSections({
                             ) : (
                               <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
                             ))}
+                          {metaData.popularCards[card.id.toString()] && (
+                            <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-medium">
+                              Meta Staple/Trend
+                            </span>
+                          )}
                         </div>
                       </div>
                       <div className="flex items-center gap-3 text-sm font-semibold text-white">

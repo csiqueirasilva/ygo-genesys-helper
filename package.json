@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "update-card-list": "node scripts/update-card-list.mjs",
+    "update-meta-data": "node scripts/update-meta-data.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

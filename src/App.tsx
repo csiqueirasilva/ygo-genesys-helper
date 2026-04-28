@@ -19,6 +19,7 @@ import type {
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
+import { MetaInsights } from './components/MetaInsights.tsx';
 // import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { MissingIdResolver } from './components/MissingIdResolver.tsx';
 import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
@@ -1916,6 +1917,7 @@ export default function App() {
                 onExportTxt={handleExportTxt}
               />
             </div>
+            <MetaInsights deckGroups={deckGroups} />
             <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
               <div className="flex-1 overflow-y-auto pr-2">
                 <CardSections

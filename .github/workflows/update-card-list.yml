@@ -21,8 +21,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Update Genesys list
         run: pnpm run update-card-list
+      - name: Update Meta data
+        run: node scripts/update-meta-data.mjs
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: refresh Genesys card list'
-          file_pattern: src/data/genesys-card-list.json
+          commit_message: 'chore: refresh Genesys card list and meta data'
+          file_pattern: 'src/data/*.json'
