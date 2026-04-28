@@ -83,19 +83,32 @@ export interface SavedDeckFolder {
   decks: SavedDeckEntry[];
 }
 
+export type Format = 'genesys' | 'advanced';
+
 export interface MetaData {
   lastUpdated: string;
-  recentDecks: Array<{
-    name: string;
-    url: string;
-    meta: string;
-  }>;
-  metaArchetypes: string[];
+  genesys: {
+    recentDecks: Array<{
+      name: string;
+      url: string;
+      meta: string;
+    }>;
+  };
+  advanced: {
+    recentDecks: Array<{
+      name: string;
+      url: string;
+      meta: string;
+    }>;
+    banlist: Record<string, 'Forbidden' | 'Limited' | 'Semi-Limited'>;
+  };
   popularCards: Record<string, {
     name: string;
     viewsweek: number;
     staple: boolean;
     archetype?: string;
+    formats?: string[];
   }>;
 }
+
 

@@ -11,11 +11,16 @@ import type {
   DeckCardGroup,
   DeckGroups,
   DeckSection,
+  Format,
   GenesysCard,
   GenesysPayload,
+  MetaData,
   SavedDeckEntry,
   SavedDeckFolder,
 } from './types.ts';
+import metaDataPayload from './data/meta-data.json';
+
+const metaData = metaDataPayload as MetaData;
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
@@ -191,6 +196,7 @@ export default function App() {
   const modalDepthRef = useRef(0);
   const prevModalDepthRef = useRef(0);
   const deckInputSourceRef = useRef<'manual' | 'file' | 'json' | 'saved' | 'url' | 'system'>('system');
+  const [format, setFormat] = useState<Format>('genesys');
   const [shouldAutoSaveDeck, setShouldAutoSaveDeck] = useState(false);
   const lastSavedDeckRef = useRef('');
   const [activeDeck, setActiveDeck] = useState<{ folderId?: string; deckId?: string; name: string } | null>(null);
@@ -1689,7 +1695,7 @@ export default function App() {
     return text.replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
   };
 
-  const cardsOverCap = pointCap > 0 && totalPoints > pointCap;
+  const cardsOverCap = format === 'genesys' && pointCap > 0 && totalPoints > pointCap;
   const unknownCards = useMemo(() => {
     if (!deckGroups) {
       return 0;
@@ -1711,7 +1717,16 @@ export default function App() {
       deckGroups[zone].forEach((card) => {
         const details = cardDetails[card.id];
         const type = details?.type?.toLowerCase() ?? '';
-        const isBlocked = type.includes('link') || type.includes('pendulum');
+        
+        let isBlocked = false;
+        if (format === 'genesys') {
+          isBlocked = type.includes('link') || type.includes('pendulum');
+        } else {
+          const banStatus = metaData.advanced.banlist[card.id.toString()];
+          const limit = banStatus === 'Limited' ? 1 : banStatus === 'Semi-Limited' ? 2 : 3;
+          isBlocked = banStatus === 'Forbidden' || card.count > limit;
+        }
+
         if (!isBlocked) {
           return;
         }
@@ -1730,7 +1745,7 @@ export default function App() {
     });
 
     return Array.from(unique.values()).sort((a, b) => a.name.localeCompare(b.name));
-  }, [deckGroups, cardDetails]);
+  }, [deckGroups, cardDetails, format]);
 
   const blockedCardIdSet = useMemo(() => {
     const ids = new Set<number>();
@@ -1885,6 +1900,8 @@ export default function App() {
           <div className="flex h-full flex-col gap-4">
             <div className="sticky top-2 z-30 md:top-4">
               <SummaryPanel
+                format={format}
+                onFormatChange={setFormat}
                 pointCap={pointCap}
                 totalPoints={totalPoints}
                 cardBreakdown={cardBreakdown}
@@ -1917,11 +1934,12 @@ export default function App() {
                 onExportTxt={handleExportTxt}
               />
             </div>
-            <MetaInsights deckGroups={deckGroups} />
+            <MetaInsights deckGroups={deckGroups} format={format} />
             <section className="flex flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel/90 p-4 shadow-panel">
               <div className="flex-1 overflow-y-auto pr-2">
                 <CardSections
                   deckGroups={deckGroups}
+                  format={format}
                   onCardSelect={handleCardFocus}
                   onMissingCardSelect={handleMissingCardSelect}
                   sortMode={cardSortMode}

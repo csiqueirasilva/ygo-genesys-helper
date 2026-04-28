@@ -1,21 +1,22 @@
 import { useMemo } from 'react';
-import type { DeckGroups, MetaData } from '../types.ts';
+import type { DeckGroups, MetaData, Format } from '../types.ts';
 import metaDataPayload from '../data/meta-data.json';
 
 const metaData = metaDataPayload as MetaData;
 
 interface MetaInsightsProps {
   deckGroups: DeckGroups | null;
+  format: Format;
 }
 
-export function MetaInsights({ deckGroups }: MetaInsightsProps) {
+export function MetaInsights({ deckGroups, format }: MetaInsightsProps) {
   const analysis = useMemo(() => {
     if (!deckGroups) return null;
 
     const allDeckCards = [...deckGroups.main, ...deckGroups.extra, ...deckGroups.side];
     
     let stapleCount = 0;
-    let highMetaCount = 0; // Top viewed cards
+    let highMetaCount = 0;
     const matchedArchetypes = new Set<string>();
     
     const deckPopularity: Array<{ name: string; viewsweek: number; staple: boolean }> = [];
@@ -25,17 +26,24 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
       if (meta) {
         if (meta.staple) stapleCount++;
         if (meta.viewsweek > 1000) highMetaCount++;
-        if (meta.archetype) matchedArchetypes.add(meta.archetype);
-        deckPopularity.push({ name: card.name, viewsweek: meta.viewsweek, staple: meta.staple });
+        
+        // Advanced format specific meta filters could go here
+        const isRelevantPopularity = format === 'genesys' || (meta.formats && meta.formats.includes('TCG'));
+        
+        if (isRelevantPopularity) {
+          if (meta.archetype) matchedArchetypes.add(meta.archetype);
+          deckPopularity.push({ name: card.name, viewsweek: meta.viewsweek, staple: meta.staple });
+        }
       }
     });
 
     // Sort by popularity
     deckPopularity.sort((a, b) => b.viewsweek - a.viewsweek);
 
+    const recentDecks = format === 'genesys' ? metaData.genesys.recentDecks : metaData.advanced.recentDecks;
+
     // Find similarity with recent meta decks
-    const metaMatches = metaData.recentDecks.map(metaDeck => {
-      // Very simple name-based heuristic for archetype match
+    const metaMatches = recentDecks.map(metaDeck => {
       const isArchetypeMatch = matchedArchetypes.has(metaDeck.name.split(' ')[0]);
       return { ...metaDeck, isArchetypeMatch };
     });
@@ -47,15 +55,20 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
       metaMatches: metaMatches.slice(0, 6),
       totalCards: allDeckCards.length
     };
-  }, [deckGroups]);
+  }, [deckGroups, format]);
 
   if (!analysis) return null;
+
+  const formatLabel = format === 'genesys' ? 'Genesys' : 'Advanced';
+  const formatUrl = format === 'genesys' 
+    ? "https://ygoprodeck.com/category/format/tournament%20meta%20decks%20(genesys)"
+    : "https://ygoprodeck.com/category/format/tournament%20meta%20decks";
 
   return (
     <section className="space-y-4 rounded-[28px] border border-white/10 bg-panel/90 p-5 shadow-panel">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">Meta Insights</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/80">{formatLabel} Insights</p>
           <h3 className="text-xl font-semibold text-white">Market & Meta Alignment</h3>
         </div>
         <div className="text-right">
@@ -104,9 +117,9 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
 
       <div>
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-400">Similar Recent Meta Builds (Genesys)</p>
+          <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-400">Similar Recent Meta Builds ({formatLabel})</p>
           <a
-            href="https://ygoprodeck.com/category/format/tournament%20meta%20decks%20(genesys)"
+            href={formatUrl}
             target="_blank"
             rel="noreferrer"
             className="text-[0.6rem] font-bold uppercase tracking-widest text-cyan-400 hover:text-cyan-300 hover:underline"
@@ -115,7 +128,7 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
           </a>
         </div>
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {analysis.metaMatches.map((deck, idx) => (
+          {analysis.metaMatches.length > 0 ? analysis.metaMatches.map((deck, idx) => (
             <a
               key={idx}
               href={deck.url}
@@ -135,7 +148,9 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
               </div>
               <p className="mt-1 text-[0.65rem] leading-tight text-slate-400">{deck.meta}</p>
             </a>
-          ))}
+          )) : (
+            <p className="col-span-full py-4 text-center text-xs text-slate-500">No recent tournament data found for this format.</p>
+          )}
         </div>
       </div>
       
@@ -145,3 +160,4 @@ export function MetaInsights({ deckGroups }: MetaInsightsProps) {
     </section>
   );
 }
+

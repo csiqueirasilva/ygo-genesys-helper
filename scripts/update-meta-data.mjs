@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { load } from 'cheerio';
 
 const GENESYS_META_URL = 'https://ygoprodeck.com/category/format/tournament%20meta%20decks%20(genesys)';
+const ADVANCED_META_URL = 'https://ygoprodeck.com/category/format/tournament%20meta%20decks';
 const API_ENDPOINT = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outputPath = resolve(__dirname, '../src/data/meta-data.json');
@@ -16,22 +17,37 @@ async function fetchAllCardsWithMisc() {
   return payload.data;
 }
 
-async function scrapeGenesysArchetypes() {
-  console.log('Scraping Genesys meta archetypes...');
-  const response = await fetch(GENESYS_META_URL);
-  if (!response.ok) throw new Error('Failed to fetch Genesys meta page');
+async function fetchBanlist() {
+  console.log('Fetching TCG Banlist...');
+  const response = await fetch(`${API_ENDPOINT}?banlist=tcg`);
+  if (!response.ok) throw new Error('Failed to fetch banlist');
+  const payload = await response.json();
+  const banlist = {};
+  payload.data.forEach(card => {
+    banlist[card.id] = card.banlist_info.ban_tcg;
+  });
+  return banlist;
+}
+
+async function scrapeRecentDecks(url) {
+  console.log(`Scraping meta decks from ${url}...`);
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.warn(`Warning: Failed to fetch meta page ${url}`);
+    return [];
+  }
   const $ = load(await response.text());
   
   const decks = [];
   $('.deck_article-card-container').each((_, el) => {
     const titleEl = $(el).find('.deck_article-card-title');
     const name = titleEl.text().trim();
-    const url = titleEl.attr('href');
+    const deckUrl = titleEl.attr('href');
     const statsEl = $(el).find('.deck_article-card-stats');
     const meta = statsEl.text().replace(/\s+/g, ' ').trim();
     
-    if (name && url) {
-      decks.push({ name, url: `https://ygoprodeck.com${url}`, meta });
+    if (name && deckUrl) {
+      decks.push({ name, url: `https://ygoprodeck.com${deckUrl}`, meta });
     }
   });
   
@@ -39,43 +55,43 @@ async function scrapeGenesysArchetypes() {
 }
 
 try {
-  const [allCards, recentDecks] = await Promise.all([
+  const [allCards, banlist, genesysDecks, advancedDecks] = await Promise.all([
     fetchAllCardsWithMisc(),
-    scrapeGenesysArchetypes()
+    fetchBanlist(),
+    scrapeRecentDecks(GENESYS_META_URL),
+    scrapeRecentDecks(ADVANCED_META_URL)
   ]);
-
-  if (recentDecks.length === 0) {
-    console.warn('Warning: Scraped zero decks from Genesys meta page.');
-  }
 
   // Process card popularity
   const popularCards = {};
   allCards.forEach(card => {
     const misc = card.misc_info?.[0];
-    // Threshold viewsweek > 20 to keep data size reasonable
     if (misc && (misc.viewsweek > 20 || misc.staple === 'Yes')) {
       popularCards[card.id] = {
         name: card.name,
         viewsweek: misc.viewsweek,
         staple: misc.staple === 'Yes',
-        archetype: card.archetype
+        archetype: card.archetype,
+        formats: misc.formats || []
       };
     }
   });
 
-  // Extract unique archetypes from recent decks
-  const metaArchetypes = Array.from(new Set(recentDecks.map(d => d.name)));
-
   const payload = {
     lastUpdated: new Date().toISOString(),
-    recentDecks: recentDecks.slice(0, 50),
-    metaArchetypes,
+    genesys: {
+      recentDecks: genesysDecks.slice(0, 30),
+    },
+    advanced: {
+      recentDecks: advancedDecks.slice(0, 30),
+      banlist,
+    },
     popularCards,
   };
 
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, JSON.stringify(payload, null, 2), 'utf8');
-  console.log(`Saved meta data to ${outputPath} (${Object.keys(popularCards).length} popular cards, ${recentDecks.length} recent decks)`);
+  console.log(`Saved meta data to ${outputPath} (${Object.keys(popularCards).length} popular cards)`);
 } catch (error) {
   console.error('Meta data update failed:', error);
   process.exit(1);

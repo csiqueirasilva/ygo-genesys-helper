@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { DeckCardGroup, DeckGroups, DeckSection, MetaData } from '../types';
+import type { DeckCardGroup, DeckGroups, DeckSection, MetaData, Format } from '../types';
 import { formatCardTypeLabel } from '../lib/strings';
 import metaDataPayload from '../data/meta-data.json';
 
@@ -7,6 +7,7 @@ const metaData = metaDataPayload as MetaData;
 
 interface CardSectionsProps {
   deckGroups: DeckGroups | null;
+  format: Format;
   onCardSelect: (card: DeckCardGroup) => void;
   onMissingCardSelect?: (card: DeckCardGroup) => void;
   sortMode: Record<DeckSection, 'points' | 'default'>;
@@ -18,6 +19,7 @@ const sections: DeckSection[] = ['main', 'extra', 'side'];
 
 export function CardSections({
   deckGroups,
+  format,
   onCardSelect,
   onMissingCardSelect,
   sortMode,
@@ -163,14 +165,25 @@ export function CardSections({
                   }
                   onCardSelect(card);
                 };
-                const isForbidden = card.id > 0 && blockedCardIds.has(card.id);
+
+                const banStatus = metaData.advanced.banlist[card.id.toString()];
+                const isForbidden = (format === 'genesys' && card.id > 0 && blockedCardIds.has(card.id)) || 
+                                  (format === 'advanced' && banStatus === 'Forbidden');
+                
+                const limitCount = format === 'advanced' 
+                  ? (banStatus === 'Limited' ? 1 : banStatus === 'Semi-Limited' ? 2 : 3)
+                  : 3;
+                
+                const isOverLimit = format === 'advanced' && card.count > limitCount;
 
                 if (gridView[zone]) {
                   const colors = getFrameColors(card);
                   return (
                     <li
                       key={`${zone}-${card.id}-${card.name}-grid-${index}`}
-                      className="relative overflow-hidden rounded-xl border border-white/15 bg-black/30 text-xs text-white"
+                      className={`relative overflow-hidden rounded-xl border text-xs text-white transition ${
+                        isForbidden || isOverLimit ? 'border-rose-500/50 bg-rose-500/10' : 'border-white/15 bg-black/30'
+                      }`}
                     >
                       <button type="button" className="block w-full" onClick={handleSelect}>
                         <div className="relative">
@@ -184,11 +197,15 @@ export function CardSections({
                             <div className="flex h-36 items-center justify-center bg-slate-900 text-slate-400">No art</div>
                           )}
                           <div
-                            className={`absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${
-                              isForbidden ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/50 bg-black/80'
+                            className={`absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold shadow-lg backdrop-blur-sm ${
+                              isForbidden || isOverLimit 
+                                ? 'border-rose-400 bg-rose-600 text-white' 
+                                : format === 'advanced' 
+                                  ? 'border-white/20 bg-black/60 text-slate-400 opacity-0 group-hover:opacity-100'
+                                  : 'border-white/50 bg-black/80'
                             }`}
                           >
-                            {isForbidden ? '✕' : card.totalPoints}
+                            {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
                           </div>
                           {metaData.popularCards[card.id.toString()] && (
                             <div className="absolute right-2 top-2 rounded-md bg-cyan-500/80 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm backdrop-blur-sm">
@@ -258,12 +275,24 @@ export function CardSections({
                               Missing ID · Click to replace
                             </span>
                           )}
-                          {card.id > 0 &&
+                          {card.id > 0 && format === 'genesys' &&
                             (card.notInList ? (
                               <span className="rounded-full border border-white/15 px-2 py-0.5">0 pts (not listed)</span>
                             ) : (
                               <span className="rounded-full border border-white/15 px-2 py-0.5">{card.pointsPerCopy} pts each</span>
                             ))}
+                          {format === 'advanced' && banStatus && (
+                            <span className={`rounded-full px-2 py-0.5 font-bold ${
+                              banStatus === 'Forbidden' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                            }`}>
+                              {banStatus}
+                            </span>
+                          )}
+                          {isOverLimit && (
+                             <span className="rounded-full bg-rose-600 px-2 py-0.5 text-white font-bold animate-pulse">
+                              OVER LIMIT ({limitCount})
+                            </span>
+                          )}
                           {metaData.popularCards[card.id.toString()] && (
                             <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-medium">
                               Meta Staple/Trend
@@ -274,12 +303,12 @@ export function CardSections({
                       <div className="flex items-center gap-3 text-sm font-semibold text-white">
                         <div
                           className={`flex h-10 w-10 items-center justify-center rounded-full border text-base ${
-                            isForbidden ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/30 bg-black/40'
+                            isForbidden || isOverLimit ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/30 bg-black/40'
                           }`}
                         >
-                          {isForbidden ? '✕' : card.totalPoints}
+                          {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
                         </div>
-                        <span>×{card.count}</span>
+                        <span className={isOverLimit ? 'text-rose-400 font-black' : ''}>×{card.count}</span>
                       </div>
                     </div>
                   </li>
