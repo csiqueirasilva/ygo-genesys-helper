@@ -209,12 +209,14 @@ export function CardSections({
                             className={`absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold shadow-lg backdrop-blur-sm ${
                               isForbidden || isOverLimit 
                                 ? 'border-rose-400 bg-rose-600 text-white' 
-                                : format === 'advanced' 
-                                  ? 'border-white/20 bg-black/60 text-slate-400 opacity-0 group-hover:opacity-100'
-                                  : 'border-white/50 bg-black/80'
+                                : format === 'advanced' && banStatus
+                                  ? 'border-amber-400/50 bg-amber-600/90 text-white'
+                                  : format === 'advanced' 
+                                    ? 'border-white/20 bg-black/60 text-slate-400 opacity-0 group-hover:opacity-100'
+                                    : 'border-white/50 bg-black/80'
                             }`}
                           >
-                            {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
+                            {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'advanced' && banStatus ? (banStatus === 'Limited' ? '1' : '2') : format === 'genesys' ? card.totalPoints : ''}
                           </div>
                           {isRelevantMeta && (
                             <button
@@ -326,10 +328,10 @@ export function CardSections({
                       <div className="flex items-center gap-3 text-sm font-semibold text-white">
                         <div
                           className={`flex h-10 w-10 items-center justify-center rounded-full border text-base ${
-                            isForbidden || isOverLimit ? 'border-rose-200 bg-rose-600/90 text-white' : 'border-white/30 bg-black/40'
+                            isForbidden || isOverLimit ? 'border-rose-200 bg-rose-600/90 text-white' : format === 'advanced' && banStatus ? 'border-amber-400/50 bg-amber-600/90 text-white' : 'border-white/30 bg-black/40'
                           }`}
                         >
-                          {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'genesys' ? card.totalPoints : ''}
+                          {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'advanced' && banStatus ? (banStatus === 'Limited' ? '1' : '2') : format === 'genesys' ? card.totalPoints : ''}
                         </div>
                         <span className={isOverLimit ? 'text-rose-400 font-black' : ''}>×{card.count}</span>
                       </div>
