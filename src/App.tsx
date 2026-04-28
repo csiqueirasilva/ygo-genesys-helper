@@ -6,7 +6,7 @@ import { normalizeCardName, formatCardTypeLabel } from './lib/strings.ts';
 import { parseYdke, encodeDeckHash, decodeDeckHash, parseYdk, buildYdke, type ParsedDeck } from './lib/ydke.ts';
 import { fetchCardByName, fetchCardsByIds, fetchCardsByKonamiIds } from './lib/ygoprodeck.ts';
 import type {
-  AssistantDeckContext,
+  // AssistantDeckContext,
   CardDetails,
   DeckCardGroup,
   DeckGroups,
@@ -19,7 +19,7 @@ import type {
 import { ImportScreen } from './components/ImportScreen.tsx';
 import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
-import { ChatKitPanel } from './components/ChatKitPanel.tsx';
+// import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { MissingIdResolver } from './components/MissingIdResolver.tsx';
 import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
 import { SavedDeckModal } from './components/SavedDeckModal.tsx';
@@ -121,6 +121,7 @@ const persistFolders = (folders: SavedDeckFolder[]) => {
   window.localStorage.setItem(SAVED_DECKS_STORAGE_KEY, JSON.stringify(payload));
 };
 
+/*
 const hashString = (value: string) => {
   let hash = 0;
   for (let index = 0; index < value.length; index += 1) {
@@ -128,6 +129,7 @@ const hashString = (value: string) => {
   }
   return hash.toString(36);
 };
+*/
 
 const buildCardDbUrl = (name: string) => {
   const params = new URLSearchParams({
@@ -1787,6 +1789,7 @@ export default function App() {
     }
   }, [isResultsView, showSavedDeckModal]);
 
+  /*
   const assistantContext = useMemo<AssistantDeckContext>(() => {
     const sanitize = (value?: string | null) => (value ?? '').replace(/\s+/g, ' ').trim();
 
@@ -1836,13 +1839,14 @@ export default function App() {
       notes: notes.join(' ') || '',
     };
   }, [deckGroups, pointCap, pointsRemaining, totalPoints, cardError, altArtCount]);
+  */
 
-  const assistantContextString = useMemo(() => JSON.stringify(assistantContext), [assistantContext]);
+  // const assistantContextString = useMemo(() => JSON.stringify(assistantContext), [assistantContext]);
 
-  const assistantContextKey = useMemo(
-    () => `assistant-${assistantContextString.length}-${hashString(assistantContextString)}`,
-    [assistantContextString],
-  );
+  // const assistantContextKey = useMemo(
+  //   () => `assistant-${assistantContextString.length}-${hashString(assistantContextString)}`,
+  //   [assistantContextString],
+  // );
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -1940,6 +1944,7 @@ export default function App() {
         </a>
       </footer>
 
+      {/* Assistant experiment - keeping code commented out to easily enable it in the future if needed
       {isResultsView && (
         <div className="pointer-events-none fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
           <div
@@ -1973,6 +1978,7 @@ export default function App() {
           )}
         </div>
       )}
+      */}
 
       <Toaster position="bottom-center" toastOptions={{ className: 'font-semibold' }} richColors closeButton />
 
