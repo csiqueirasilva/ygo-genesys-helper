@@ -152,14 +152,16 @@ export function CardSections({
               >
                 {editMode[zone] ? 'Editing' : 'Edit'}
               </button>
-              <button
-                type="button"
-                onClick={() => onAddCard(zone, null)}
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500 text-slate-900 shadow-lg transition hover:bg-cyan-400 active:scale-95 font-bold text-lg"
-                title="Add card"
-              >
-                +
-              </button>
+              {editMode[zone] && (
+                <button
+                  type="button"
+                  onClick={() => onAddCard(zone, null)}
+                  className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500 text-slate-900 shadow-lg transition hover:bg-cyan-400 active:scale-95 font-bold text-lg"
+                  title="Add card"
+                >
+                  +
+                </button>
+              )}
               <button
                 type="button"
                 className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] transition ${
