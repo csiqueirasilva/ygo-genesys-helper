@@ -314,13 +314,13 @@ export function SummaryPanel({
       {/* Desktop Grid with 4 blocks */}
       <div className="hidden gap-2 sm:grid sm:grid-cols-4">
         {/* Block 1: Format Toggle */}
-        <div className="flex flex-col rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+        <div className="flex flex-col min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
           <span>Active Format</span>
           <div className="mt-2 flex flex-1 gap-1 rounded-xl bg-black/20 p-1">
             <button
               type="button"
               onClick={() => onFormatChange('genesys')}
-              className={`flex-1 rounded-lg text-[0.6rem] font-bold transition ${
+              className={`flex-1 rounded-lg text-[0.7rem] font-bold transition ${
                 format === 'genesys' ? 'bg-cyan-500 text-slate-900' : 'text-slate-500 hover:text-slate-300'
               }`}
             >
@@ -329,7 +329,7 @@ export function SummaryPanel({
             <button
               type="button"
               onClick={() => onFormatChange('advanced')}
-              className={`flex-1 rounded-lg text-[0.6rem] font-bold transition ${
+              className={`flex-1 rounded-lg text-[0.7rem] font-bold transition ${
                 format === 'advanced' ? 'bg-amber-500 text-slate-900' : 'text-slate-500 hover:text-slate-300'
               }`}
             >
@@ -341,7 +341,7 @@ export function SummaryPanel({
         {format === 'genesys' ? (
           <>
             {/* Block 2: Max Points */}
-            <label className="flex flex-col rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <label className="flex flex-col min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Max points</span>
               <input
                 type="number"
@@ -355,7 +355,7 @@ export function SummaryPanel({
 
             {/* Block 3: Total Points */}
             <div
-              className={`flex flex-col items-center rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400 ${
+              className={`flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400 ${
                 cardsOverCap ? 'border-rose-400/60 bg-rose-500/5' : ''
               }`}
             >
@@ -369,7 +369,7 @@ export function SummaryPanel({
             </div>
 
             {/* Block 4: Counts */}
-            <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Main / Extra / Side</span>
               <div className="flex items-baseline justify-between gap-4 text-slate-100">
                 <span className="text-xl font-semibold tracking-tight text-slate-300">
@@ -391,11 +391,11 @@ export function SummaryPanel({
         ) : (
           <>
             {/* Advanced Layout filling remaining 3 columns */}
-            <div className="col-span-2 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="col-span-2 flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Deck Format</span>
               <span className="mt-1 text-xl font-bold text-amber-100 uppercase tracking-widest">Advanced TCG</span>
             </div>
-            <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Main / Extra / Side</span>
               <span className="mt-1 text-xl font-bold tracking-tight text-slate-300">
                 {cardBreakdown.main} / {cardBreakdown.extra} / {cardBreakdown.side}
