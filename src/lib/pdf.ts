@@ -56,12 +56,12 @@ export async function generateDeckListPDF(
         const widgets = field.acroField.getWidgets();
         widgets.forEach((widget) => {
           const rect = widget.getRectangle();
-          // Draw a slightly larger rectangle to ensure the watermark is hidden
+          // Draw a slightly smaller rectangle to avoid overlapping the original form borders
           page.drawRectangle({
-            x: rect.x,
-            y: rect.y,
-            width: rect.width,
-            height: rect.height,
+            x: rect.x + 2,
+            y: rect.y + 2,
+            width: rect.width - 4,
+            height: rect.height - 4,
             color: rgb(1, 1, 1),
           });
         });
