@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import type { DeckGroups, UserProfile } from '../types';
 
 export function generateDeckListPDF(
@@ -8,7 +8,7 @@ export function generateDeckListPDF(
   deckName: string,
   format: 'genesys' | 'advanced'
 ) {
-  const doc = new jsPDF() as any;
+  const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
 
   // Header
@@ -33,7 +33,7 @@ export function generateDeckListPDF(
 
     const tableData = cards.map(c => [c.count.toString(), c.name]);
     
-    doc.autoTable({
+    autoTable(doc, {
       startY: currentY,
       head: [['Qty', 'Card Name']],
       body: tableData,
