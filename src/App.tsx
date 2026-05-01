@@ -1135,13 +1135,16 @@ export default function App() {
       if (activeDeck && activeDeck.folderId && activeDeck.deckId) {
         let updated = false;
         let updatedName = '';
+        const folderId = activeDeck.folderId;
+        const deckId = activeDeck.deckId;
+
         setSavedFoldersAndPersist((prev) =>
           prev.map((folder) => {
-            if (folder.id !== activeDeck.folderId) {
+            if (folder.id !== folderId) {
               return folder;
             }
             const decks = folder.decks.map((deckEntry) => {
-              if (deckEntry.id !== activeDeck.deckId) {
+              if (deckEntry.id !== deckId) {
                 return deckEntry;
               }
               updated = true;
@@ -1158,13 +1161,10 @@ export default function App() {
             return { ...folder, decks };
           }),
         );
+
         if (updated) {
           toast.success('Saved deck updated.');
-          setActiveDeck((prev) =>
-            prev && prev.folderId === activeDeck.folderId && prev.deckId === activeDeck.deckId
-              ? { ...prev, name: updatedName || prev.name }
-              : prev,
-          );
+          setActiveDeck({ folderId, deckId, name: updatedName || activeDeck.name });
           lastSavedDeckRef.current = deckString;
           return;
         }
@@ -1191,7 +1191,6 @@ export default function App() {
         const folder = { ...targetFolder, decks: [entry, ...targetFolder.decks].slice(0, 200) };
         next[targetIndex] = folder;
         
-        // Use functional update for activeDeck to ensure we are using the calculated folder ID
         setActiveDeck({ folderId: folder.id, deckId: entry.id, name: entry.name });
         toast.success('Deck saved locally.');
         return next;
@@ -1486,10 +1485,14 @@ export default function App() {
 
   const handleRemoveCard = useCallback((zone: DeckSection, cardId: number) => {
     const parsed = parseYdke(deckInput);
-    parsed[zone] = parsed[zone].filter(id => id !== cardId);
-    const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
-    deckInputSourceRef.current = 'manual';
-    setDeckInput(nextYdke);
+    const section = parsed[zone];
+    const index = section.indexOf(cardId);
+    if (index !== -1) {
+      section.splice(index, 1);
+      const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
+      deckInputSourceRef.current = 'manual';
+      setDeckInput(nextYdke);
+    }
   }, [deckInput]);
 
   const handleAddCard = useCallback((zone: DeckSection, card: any) => {
