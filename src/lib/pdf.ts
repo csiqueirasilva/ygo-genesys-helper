@@ -31,7 +31,7 @@ export async function generateDeckListPDF(
     setField('First  Middle Names', firstName, 10);
     if (lastName) {
       setField('Last Names', lastName, 10);
-      setField('Last Name Initial', lastName.charAt(0).toUpperCase(), 20);
+      setField('Last Name Initial', lastName.charAt(0).toUpperCase(), 22);
     }
     setField('CARD GAME ID', profile.konamiId || '', 10);
     setField('Country of Residency', profile.residency || '', 10);
@@ -55,12 +55,13 @@ export async function generateDeckListPDF(
         const field = form.getTextField(df.name);
         const widgets = field.acroField.getWidgets();
         widgets.forEach((widget) => {
-          const { x, y, width, height } = widget.getRectangle();
+          const rect = widget.getRectangle();
+          // Draw a slightly larger rectangle to ensure the watermark is hidden
           page.drawRectangle({
-            x,
-            y,
-            width,
-            height,
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height,
             color: rgb(1, 1, 1),
           });
         });
@@ -107,7 +108,7 @@ export async function generateDeckListPDF(
     fillList(spells, 'Spell', 'Spell Card', 18);
     fillList(traps, 'Trap', 'Trap Card', 18);
 
-    setField('Main Deck Total', deckGroups.main.reduce((s, c) => s + c.count, 0).toString(), 20);
+    setField('Main Deck Total', deckGroups.main.reduce((s, c) => s + c.count, 0).toString(), 22);
     setField('Total Monster Cards', monsters.reduce((s, c) => s + c.count, 0).toString(), 10);
     setField('Total Spell Cards', spells.reduce((s, c) => s + c.count, 0).toString(), 10);
     setField('Total Trap Cards', traps.reduce((s, c) => s + c.count, 0).toString(), 10);
