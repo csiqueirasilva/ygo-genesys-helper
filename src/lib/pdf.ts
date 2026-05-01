@@ -56,11 +56,12 @@ export async function generateDeckListPDF(
         const widgets = field.acroField.getWidgets();
         widgets.forEach((widget) => {
           const rect = widget.getRectangle();
-          // Draw a slightly smaller rectangle to avoid overlapping the original form borders
+          // Draw a smaller rectangle to avoid overlapping the original form borders
+          // Reduced width by 6px (3px each side) and height by 4px (2px each side)
           page.drawRectangle({
-            x: rect.x + 2,
+            x: rect.x + 3,
             y: rect.y + 2,
-            width: rect.width - 4,
+            width: rect.width - 6,
             height: rect.height - 4,
             color: rgb(1, 1, 1),
           });
