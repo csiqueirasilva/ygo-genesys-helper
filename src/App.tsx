@@ -26,6 +26,7 @@ import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
 import { MetaInsights } from './components/MetaInsights.tsx';
 import { MetaCardModal } from './components/MetaCardModal.tsx';
+import { CardSearchModal } from './components/CardSearchModal.tsx';
 import { ProfileModal } from './components/ProfileModal.tsx';
 import { generateDeckListPDF } from './lib/pdf.ts';
 // import { ChatKitPanel } from './components/ChatKitPanel.tsx';
@@ -204,6 +205,7 @@ export default function App() {
   const lastSavedDeckRef = useRef('');
   const [activeDeck, setActiveDeck] = useState<{ folderId?: string; deckId?: string; name: string } | null>(null);
   const [metaCardId, setMetaCardId] = useState<number | null>(null);
+  const [searchZone, setSearchZone] = useState<DeckSection | null>(null);
   const [showChatAssistant, setShowChatAssistant] = useState(false);
   const [showUndetectedCardsWarning, setShowUndetectedCardsWarning] = useState(false);
   const [missingCardContext, setMissingCardContext] = useState<{ zone: DeckSection; cardName: string } | null>(null);
@@ -1486,6 +1488,10 @@ export default function App() {
   }, [deckInput]);
 
   const handleAddCard = useCallback((zone: DeckSection, card: any) => {
+    if (!card) {
+      setSearchZone(zone);
+      return;
+    }
     const parsed = parseYdke(deckInput);
     parsed[zone].push(card.id);
     const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
@@ -1568,11 +1574,16 @@ export default function App() {
     (focusedCard ? 1 : 0) +
     (missingCardContext ? 1 : 0) +
     (metaCardId ? 1 : 0) +
+    (searchZone ? 1 : 0) +
     Number(showSavedDeckModal);
 
   const closeTopModal = useCallback(() => {
     if (showSavedDeckModal) {
       setShowSavedDeckModal(false);
+      return true;
+    }
+    if (searchZone) {
+      setSearchZone(null);
       return true;
     }
     if (metaCardId) {
@@ -2212,6 +2223,13 @@ export default function App() {
           cardId={metaCardId}
           format={format}
           onClose={() => setMetaCardId(null)}
+        />
+      )}
+
+      {searchZone && (
+        <CardSearchModal
+          onClose={() => setSearchZone(null)}
+          onAddCard={(card) => handleAddCard(searchZone, card)}
         />
       )}
 

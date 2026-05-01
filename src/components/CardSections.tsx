@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { DeckCardGroup, DeckGroups, DeckSection, MetaData, Format } from '../types';
 import { formatCardTypeLabel } from '../lib/strings';
-import { searchCards } from '../lib/ygoprodeck';
 import metaDataPayload from '../data/meta-data.json';
 
 const metaData = metaDataPayload as MetaData;
@@ -44,6 +43,19 @@ export function CardSections({
     extra: true,
     side: true,
   });
+  const [editMode, setEditMode] = useState<Record<DeckSection, boolean>>({
+    main: false,
+    extra: false,
+    side: false,
+  });
+
+  const toggleGridView = (zone: DeckSection) => {
+    setGridView((prev) => ({ ...prev, [zone]: !prev[zone] }));
+  };
+
+  const toggleEditMode = (zone: DeckSection) => {
+    setEditMode((prev) => ({ ...prev, [zone]: !prev[zone] }));
+  };
 
   const expandedCards = useMemo(() => {
     return sections.reduce<Record<DeckSection, DeckCardGroup[]>>((acc, zone) => {
@@ -129,24 +141,25 @@ export function CardSections({
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Add card..."
-                  className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] font-semibold text-white outline-none focus:border-cyan-500/50 w-24 transition-all focus:w-40"
-                  onKeyDown={async (e) => {
-                    if (e.key === 'Enter') {
-                      const query = (e.target as HTMLInputElement).value;
-                      if (!query) return;
-                      const results = await searchCards({ query, pageSize: 1 });
-                      if (results.cards.length > 0) {
-                        onAddCard(zone, results.cards[0]);
-                        (e.target as HTMLInputElement).value = '';
-                      }
-                    }
-                  }}
-                />
-              </div>
+              <button
+                type="button"
+                onClick={() => toggleEditMode(zone)}
+                className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] transition ${
+                  editMode[zone]
+                    ? 'border-amber-400 bg-amber-400/20 text-amber-100'
+                    : 'border-white/10 bg-black/20 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {editMode[zone] ? 'Editing' : 'Edit'}
+              </button>
+              <button
+                type="button"
+                onClick={() => onAddCard(zone, null)}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500 text-slate-900 shadow-lg transition hover:bg-cyan-400 active:scale-95 font-bold text-lg"
+                title="Add card"
+              >
+                +
+              </button>
               <button
                 type="button"
                 className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] transition ${
@@ -154,7 +167,7 @@ export function CardSections({
                     ? 'border-cyan-300/60 bg-cyan-300/10 text-cyan-100'
                     : 'border-white/15 bg-black/20 text-slate-300 hover:border-white/30'
                 }`}
-                onClick={() => setGridView((prev) => ({ ...prev, [zone]: !prev[zone] }))}
+                onClick={() => toggleGridView(zone)}
                 aria-pressed={gridView[zone]}
                 title={gridView[zone] ? 'Show list view' : 'Show grid view'}
               >
@@ -243,6 +256,15 @@ export function CardSections({
                           >
                             {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'advanced' && banStatus ? (banStatus === 'Limited' ? '1' : '2') : format === 'genesys' ? card.totalPoints : ''}
                           </div>
+                          {editMode[zone] && (
+                            <button
+                              onClick={(e) => { e.stopPropagation(); onRemoveCard(zone, card.id); }}
+                              className="absolute left-1 top-1 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-rose-600 text-white shadow-xl hover:bg-rose-500 active:scale-90 font-bold border-2 border-white/20"
+                              title="Remove card"
+                            >
+                              ✕
+                            </button>
+                          )}
                           {isRelevantMeta && (
                             <button
                               type="button"
