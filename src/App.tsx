@@ -1177,7 +1177,7 @@ export default function App() {
         savedAt: timestamp,
         summary,
       };
-      let savedLocation: { folderId: string; deckId: string; name: string } | null = null;
+
       setSavedFoldersAndPersist((prev) => {
         const next = [...prev];
         let targetIndex = folderId ? next.findIndex((folder) => folder.id === folderId) : -1;
@@ -1190,13 +1190,12 @@ export default function App() {
         const targetFolder = next[targetIndex];
         const folder = { ...targetFolder, decks: [entry, ...targetFolder.decks].slice(0, 200) };
         next[targetIndex] = folder;
-        savedLocation = { folderId: folder.id, deckId: entry.id, name: entry.name };
+        
+        // Use functional update for activeDeck to ensure we are using the calculated folder ID
+        setActiveDeck({ folderId: folder.id, deckId: entry.id, name: entry.name });
         toast.success('Deck saved locally.');
         return next;
       });
-      if (savedLocation) {
-        setActiveDeck(savedLocation);
-      }
       lastSavedDeckRef.current = deckString;
     },
     [deckInput, setSavedFoldersAndPersist, cardBreakdown, activeDeck],
