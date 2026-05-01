@@ -314,13 +314,13 @@ export function SummaryPanel({
       {/* Desktop Grid with 4 blocks */}
       <div className="hidden gap-2 sm:grid sm:grid-cols-4">
         {/* Block 1: Format Toggle */}
-        <div className="flex flex-col min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+        <div className="flex flex-col h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
           <span>Active Format</span>
-          <div className="mt-2 flex flex-1 gap-1 rounded-xl bg-black/20 p-1">
+          <div className="mt-1 flex flex-1 gap-1 rounded-xl bg-black/20 p-1">
             <button
               type="button"
               onClick={() => onFormatChange('genesys')}
-              className={`flex-1 rounded-lg text-[0.7rem] font-bold transition ${
+              className={`flex-1 rounded-lg text-[0.8rem] font-bold transition ${
                 format === 'genesys' ? 'bg-cyan-500 text-slate-900' : 'text-slate-500 hover:text-slate-300'
               }`}
             >
@@ -329,7 +329,7 @@ export function SummaryPanel({
             <button
               type="button"
               onClick={() => onFormatChange('advanced')}
-              className={`flex-1 rounded-lg text-[0.7rem] font-bold transition ${
+              className={`flex-1 rounded-lg text-[0.8rem] font-bold transition ${
                 format === 'advanced' ? 'bg-amber-500 text-slate-900' : 'text-slate-500 hover:text-slate-300'
               }`}
             >
@@ -341,61 +341,57 @@ export function SummaryPanel({
         {format === 'genesys' ? (
           <>
             {/* Block 2: Max Points */}
-            <label className="flex flex-col min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <label className="flex flex-col h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Max points</span>
               <input
                 type="number"
                 min={0}
                 max={500}
                 value={pointCap}
-                className="mt-2 w-full rounded-xl border border-white/15 bg-slate-950/60 px-2 py-1.5 text-center text-2xl font-bold tracking-tight text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                className="mt-1 w-full flex-1 rounded-xl border border-white/15 bg-slate-950/60 px-2 py-1 text-center text-2xl font-bold tracking-tight text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
                 onChange={(event) => onPointCapChange(Number(event.target.value) || 0)}
               />
             </label>
 
             {/* Block 3: Total Points */}
             <div
-              className={`flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400 ${
+              className={`flex flex-col items-center justify-center h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400 ${
                 cardsOverCap ? 'border-rose-400/60 bg-rose-500/5' : ''
               }`}
             >
               <span>Total points</span>
-              <span className={`mt-1 text-2xl font-bold tracking-tight ${cardsOverCap ? 'text-rose-200' : 'text-slate-50'}`}>
+              <span className={`text-2xl font-bold tracking-tight ${cardsOverCap ? 'text-rose-200' : 'text-slate-50'}`}>
                 {totalPoints}
               </span>
-              <span className={`mt-1 text-[0.65rem] uppercase tracking-[0.2em] ${cardsOverCap ? 'text-rose-200' : 'text-emerald-200'}`}>
+              <span className={`text-[0.65rem] uppercase tracking-[0.2em] ${cardsOverCap ? 'text-rose-200' : 'text-emerald-200'}`}>
                 {cardsOverCap ? 'Over cap' : 'Within cap'}
               </span>
             </div>
 
             {/* Block 4: Counts */}
-            <div className="flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="flex flex-col items-center justify-center h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Main / Extra / Side</span>
               <div className="flex items-baseline justify-between gap-4 text-slate-100">
                 <span className="text-xl font-semibold tracking-tight text-slate-300">
                   {cardBreakdown.main} / {cardBreakdown.extra} / {cardBreakdown.side}
                 </span>
               </div>
-              {pointCap > 0 && (
-                <span className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-slate-500">
-                  {cardsOverCap ? `-${Math.abs(pointsRemaining)} points` : `${pointsRemaining} points remaining`}
+              {pointCap > 0 || unknownCards > 0 ? (
+                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-slate-500 truncate">
+                  {cardsOverCap ? `-${Math.abs(pointsRemaining)} pts` : `${pointsRemaining} pts left`}
+                  {unknownCards > 0 ? ` · ${unknownCards} off` : ''}
                 </span>
-              )}
-              {unknownCards > 0 && (
-                <span className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-slate-500">
-                  {unknownCards} cards at 0 pts
-                </span>
-              )}
+              ) : null}
             </div>
           </>
         ) : (
           <>
             {/* Advanced Layout filling remaining 3 columns */}
-            <div className="col-span-2 flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="col-span-2 flex flex-col items-center justify-center h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Deck Format</span>
               <span className="mt-1 text-xl font-bold text-amber-100 uppercase tracking-widest">Advanced TCG</span>
             </div>
-            <div className="flex flex-col items-center justify-center min-h-[88px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <div className="flex flex-col items-center justify-center h-[92px] rounded-2xl border border-white/10 bg-black/30 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
               <span>Main / Extra / Side</span>
               <span className="mt-1 text-xl font-bold tracking-tight text-slate-300">
                 {cardBreakdown.main} / {cardBreakdown.extra} / {cardBreakdown.side}
