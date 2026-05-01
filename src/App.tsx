@@ -1387,12 +1387,18 @@ export default function App() {
     }
     const source = deckInputSourceRef.current;
     if (source === 'url' || source === 'saved' || source === 'system') {
+      // If we just loaded from URL or Saved, update the ref to prevent immediate re-save
+      lastSavedDeckRef.current = trimmed;
       setShouldAutoSaveDeck(source === 'url');
       return;
     }
+    
+    // Manual edit (manual, file, json) -> Save in place
     handleSaveDeck('', undefined);
+    // Important: lastSavedDeckRef.current is updated inside handleSaveDeck
     deckInputSourceRef.current = 'system';
     setShouldAutoSaveDeck(false);
+    
     if (!isResultsView) {
       navigate('/results', { replace: false });
     }
