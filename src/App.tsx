@@ -1945,6 +1945,7 @@ export default function App() {
             onMoveDeck={handleMoveSavedDeck}
             onExportSavedDecks={handleExportSavedDecks}
             onImportSavedDecks={handleImportSavedDecks}
+            onShowProfile={() => setShowProfileModal(true)}
           />
         ) : (
           <div className="flex h-full flex-col gap-4">

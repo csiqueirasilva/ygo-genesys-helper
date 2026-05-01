@@ -369,6 +369,7 @@ interface ImportScreenProps {
   onMoveDeck: (sourceFolderId: string, deckId: string, targetFolderId: string, targetIndex: number) => void;
   onExportSavedDecks: () => void;
   onImportSavedDecks: (file: File) => void;
+  onShowProfile: () => void;
 }
 
 export function ImportScreen({
@@ -387,6 +388,7 @@ export function ImportScreen({
   onMoveDeck,
   onExportSavedDecks,
   onImportSavedDecks,
+  onShowProfile,
 }: ImportScreenProps) {
   const [isDragActive, setIsDragActive] = useState(false);
   const dragCounter = useRef(0);
@@ -913,26 +915,15 @@ export function ImportScreen({
                 Paste a YDKE link, instantly check points, and share your build with a single link.
               </p>
             </div>
-            <a
-              href="/ygo-genesys-helper/"
+            <button
+              type="button"
+              onClick={onShowProfile}
               className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-slate-200 transition hover:border-white/60 hover:text-white"
-              aria-label="Open Genesys helper home"
+              aria-label="Open Player Profile"
+              title="Player Profile Settings"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.8}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-                aria-hidden="true"
-              >
-                <path d="M10 14 21 3" />
-                <path d="M21 10V3h-7" />
-                <path d="M21 21H3V3" />
-              </svg>
-            </a>
+              👤
+            </button>
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs text-slate-300 sm:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
