@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-04-30T08:29:08.406Z",
+  "lastUpdated": "2026-05-01T08:20:05.229Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -81,6 +81,10 @@
     {
       "name": "Artifact Scythe",
       "points": 100
+    },
+    {
+      "name": "Artmage Impasto -Recapture-",
+      "points": 10
     },
     {
       "name": "Artmage Non-Finito",
@@ -333,6 +337,18 @@
     {
       "name": "Chicken Game",
       "points": 7
+    },
+    {
+      "name": "Clown Crew Biancaviso",
+      "points": 1
+    },
+    {
+      "name": "Clown Crew Malabarisme",
+      "points": 10
+    },
+    {
+      "name": "Clown Crew Matinee Operatics",
+      "points": 20
     },
     {
       "name": "Cold Wave",
@@ -603,6 +619,14 @@
       "points": 10
     },
     {
+      "name": "Dominus Spark",
+      "points": 10
+    },
+    {
+      "name": "DoomZ XIII Over - Graflareio",
+      "points": 20
+    },
+    {
       "name": "Dracotail Arthalion",
       "points": 20
     },
@@ -699,6 +723,10 @@
       "points": 15
     },
     {
+      "name": "Elfnote Regina",
+      "points": 40
+    },
+    {
       "name": "Elzette, Azamina of the White Forest",
       "points": 22
     },
@@ -733,6 +761,10 @@
     {
       "name": "Evolzar Lars",
       "points": 20
+    },
+    {
+      "name": "Exceptional Schedule",
+      "points": 10
     },
     {
       "name": "Exosister Betrayal",
@@ -849,6 +881,10 @@
     {
       "name": "Fusion Destiny",
       "points": 33
+    },
+    {
+      "name": "Fydraulis Harmonia",
+      "points": 50
     },
     {
       "name": "Gagagaga Girl",
@@ -1143,12 +1179,24 @@
       "points": 15
     },
     {
+      "name": "Kewl Tune B2B",
+      "points": 40
+    },
+    {
       "name": "Kewl Tune Clip",
       "points": 6
     },
     {
+      "name": "Kewl Tune Crackle",
+      "points": 70
+    },
+    {
       "name": "Kewl Tune Cue",
       "points": 6
+    },
+    {
+      "name": "Kewl Tune Rotary",
+      "points": 40
     },
     {
       "name": "Kewl Tune Synchro",
@@ -1655,6 +1703,10 @@
       "points": 40
     },
     {
+      "name": "Officiator of Doom Samuel",
+      "points": 10
+    },
+    {
       "name": "Ohime the Manifested Mikanko",
       "points": 33
     },
@@ -1729,6 +1781,10 @@
     {
       "name": "Pot of Prosperity",
       "points": 40
+    },
+    {
+      "name": "Power Vice Dragon",
+      "points": 5
     },
     {
       "name": "Powersink Stone",
@@ -2123,6 +2179,10 @@
       "points": 33
     },
     {
+      "name": "Solemn Accusation",
+      "points": 12
+    },
+    {
       "name": "Solemn Judgment",
       "points": 7
     },
@@ -2313,6 +2373,10 @@
     {
       "name": "The Bystial Lubellion",
       "points": 30
+    },
+    {
+      "name": "The Crimson King",
+      "points": 10
     },
     {
       "name": "The Dragon that Devours the Dogma",
