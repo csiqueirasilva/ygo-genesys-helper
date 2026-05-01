@@ -11,6 +11,7 @@ export async function generateDeckListPDF(
     const templateBytes = await fetch('./KDE_DeckList.pdf').then(res => res.arrayBuffer());
     const pdfDoc = await PDFDocument.load(templateBytes);
     const form = pdfDoc.getForm();
+    const page = pdfDoc.getPages()[0];
 
     // Player Information
     const names = (profile.fullName || '').trim().split(' ');
@@ -30,7 +31,7 @@ export async function generateDeckListPDF(
     setField('First  Middle Names', firstName, 10);
     if (lastName) {
       setField('Last Names', lastName, 10);
-      setField('Last Name Initial', lastName.charAt(0).toUpperCase(), 16); // Larger as requested
+      setField('Last Name Initial', lastName.charAt(0).toUpperCase(), 20);
     }
     setField('CARD GAME ID', profile.konamiId || '', 10);
     setField('Country of Residency', profile.residency || '', 10);
@@ -38,7 +39,7 @@ export async function generateDeckListPDF(
 
     const date = profile.eventDate ? new Date(profile.eventDate + 'T12:00:00') : new Date();
     
-    // Date: 05 / 08 / 2026 with white background to hide watermark
+    // Date: 05 / 08 / 2026
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
     const year = date.getFullYear().toString();
@@ -52,19 +53,23 @@ export async function generateDeckListPDF(
     dateFields.forEach(df => {
       try {
         const field = form.getTextField(df.name);
-        // Set solid white background to hide the "mm", "dd", "yyyy" watermarks
-        // We use low-level AcroForm access to set the background color
         const widgets = field.acroField.getWidgets();
         widgets.forEach((widget) => {
-          (widget as any).setBackgroundColor(rgb(1, 1, 1));
+          const { x, y, width, height } = widget.getRectangle();
+          page.drawRectangle({
+            x,
+            y,
+            width,
+            height,
+            color: rgb(1, 1, 1),
+          });
         });
-        
         field.setText(df.val);
         field.setFontSize(10);
       } catch (e) {}
     });
 
-    // Helper to fill sections with exact field names from inspection
+    // Helper to fill sections with exact field names
     const fillList = (cards: any[], namePrefix: string, countPrefix: string, max: number) => {
       cards.forEach((card, index) => {
         if (index < max) {
@@ -77,8 +82,8 @@ export async function generateDeckListPDF(
             const name = card.name || '';
             let fontSize = 10;
             if (name.length > 25) fontSize = 8.5;
-            if (name.length > 35) fontSize = 7;
-            if (name.length > 45) fontSize = 6;
+            if (name.length > 35) fontSize = 7.5;
+            if (name.length > 45) fontSize = 6.5;
             
             field.setText(name);
             field.setFontSize(fontSize);
@@ -87,8 +92,7 @@ export async function generateDeckListPDF(
             countField.setText(card.count.toString());
             countField.setFontSize(10);
           } catch (e) {
-             // Fallback for some weirdly named fields if any
-             console.warn(`Missing field: ${fieldName} or ${countName}`);
+            console.warn(`Missing field: ${fieldName} or ${countName}`);
           }
         }
       });
@@ -103,7 +107,7 @@ export async function generateDeckListPDF(
     fillList(spells, 'Spell', 'Spell Card', 18);
     fillList(traps, 'Trap', 'Trap Card', 18);
 
-    setField('Main Deck Total', deckGroups.main.reduce((s, c) => s + c.count, 0).toString(), 10);
+    setField('Main Deck Total', deckGroups.main.reduce((s, c) => s + c.count, 0).toString(), 20);
     setField('Total Monster Cards', monsters.reduce((s, c) => s + c.count, 0).toString(), 10);
     setField('Total Spell Cards', spells.reduce((s, c) => s + c.count, 0).toString(), 10);
     setField('Total Trap Cards', traps.reduce((s, c) => s + c.count, 0).toString(), 10);
