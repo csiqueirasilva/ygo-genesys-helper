@@ -1457,8 +1457,8 @@ export default function App() {
     if (!deckGroups) return;
     const profileRaw = localStorage.getItem('ygo-user-profile');
     const profile = profileRaw ? JSON.parse(profileRaw) : { fullName: '', konamiId: '' };
-    generateDeckListPDF(deckGroups, profile, activeDeck?.name || 'Untitled Deck', format);
-  }, [deckGroups, activeDeck, format]);
+    generateDeckListPDF(deckGroups, profile, activeDeck?.name || 'Untitled Deck');
+  }, [deckGroups, activeDeck]);
 
   const handleUpdateCardCount = useCallback((zone: DeckSection, cardId: number, delta: number) => {
     const parsed = parseYdke(deckInput);

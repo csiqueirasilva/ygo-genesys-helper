@@ -4,8 +4,7 @@ import type { DeckGroups, UserProfile } from '../types';
 export async function generateDeckListPDF(
   deckGroups: DeckGroups,
   profile: UserProfile,
-  deckName: string,
-  format: 'genesys' | 'advanced'
+  deckName: string
 ) {
   try {
     // Fetch the official template from our public folder
@@ -14,31 +13,36 @@ export async function generateDeckListPDF(
     const form = pdfDoc.getForm();
 
     // Player Information
-    const names = profile.fullName.trim().split(' ');
+    const names = (profile.fullName || '').trim().split(' ');
     const lastName = names.length > 1 ? names.pop() : '';
     const firstName = names.join(' ');
 
-    form.getTextField('First  Middle Names').setText(firstName);
+    // Helper to set field with specific font size and ensure it's not transparent
+    const setField = (name: string, text: string, fontSize: number) => {
+      try {
+        const field = form.getTextField(name);
+        field.setText(text || '');
+        field.setFontSize(fontSize);
+      } catch (e) {
+        console.warn(`Field not found: ${name}`);
+      }
+    };
+    setField('First  Middle Names', firstName, 10);
     if (lastName) {
-      form.getTextField('Last Names').setText(lastName);
-      form.getTextField('Last Name Initial').setText(lastName.charAt(0).toUpperCase());
+      setField('Last Names', lastName, 10);
+      setField('Last Name Initial', lastName.charAt(0).toUpperCase(), 10);
     }
-    form.getTextField('CARD GAME ID').setText(profile.konamiId || '');
-    form.getTextField('Country of Residency').setText(profile.residency || '');
-
-    // Event Information
-    const eventDisplayName = profile.eventName 
-      ? `${profile.eventName} | ${deckName} (${format === 'genesys' ? 'Genesys' : 'Advanced'})`
-      : `${deckName} (${format === 'genesys' ? 'Genesys' : 'Advanced'})`;
-    form.getTextField('Event Name').setText(eventDisplayName);
+    setField('CARD GAME ID', profile.konamiId || '', 10);
+    setField('Country of Residency', profile.residency || '', 10);
+    setField('Event Name', profile.eventName || '', 9);
 
     const date = profile.eventDate ? new Date(profile.eventDate + 'T12:00:00') : new Date();
-    // Use toString() to avoid leading zeros (e.g. 1 instead of 01)
-    form.getTextField('Event Date - Month').setText((date.getMonth() + 1).toString());
-    form.getTextField('Event Date - Day').setText(date.getDate().toString());
-    form.getTextField('Event Date - Year').setText(date.getFullYear().toString());
+    // Konami form wants MM / DD / YYYY without leading zeros
+    setField('Event Date - Month', (date.getMonth() + 1).toString(), 10);
+    setField('Event Date - Day', date.getDate().toString(), 10);
+    setField('Event Date - Year', date.getFullYear().toString(), 10);
 
-    // Helper to fill sections
+    // Helper to fill sections with dynamic font sizing for legibility
     const fillSection = (cards: any[], prefix: string, max: number) => {
       let countFilled = 0;
       cards.forEach((card, index) => {
@@ -48,29 +52,37 @@ export async function generateDeckListPDF(
 
           try {
             const field = form.getTextField(fieldName);
-            field.setText(card.name);
-            field.setFontSize(7); // Reduced font size to fit long names
+            const name = card.name || '';
 
-            const countField = form.getTextField(countName);
-            countField.setText(card.count.toString());
-            countField.setFontSize(8); // Reduced font size
+            // Dynamic font size: Start at 9pt, go down to 6pt if long
+            let fontSize = 9;
+            if (name.length > 30) fontSize = 7.5;
+            if (name.length > 40) fontSize = 6;
+
+            field.setText(name);
+            field.setFontSize(fontSize);
+
+            // For counts, use a standard clear size
+            try {
+              const countField = form.getTextField(countName);
+              countField.setText(card.count.toString());
+              countField.setFontSize(10);
+            } catch (e) {
+              // Fallback for fields like "Side Deck 1 Count"
+              const fallbackCountName = `${prefix} ${index + 1} Count`;
+              const countField = form.getTextField(fallbackCountName);
+              countField.setText(card.count.toString());
+              countField.setFontSize(10);
+            }
 
             countFilled += card.count;
           } catch (e) {
-            try {
-               const fallbackCountName = `${prefix} ${index + 1} Count`;
-               const countField = form.getTextField(fallbackCountName);
-               countField.setText(card.count.toString());
-               countField.setFontSize(8);
-            } catch(e2) {
-               console.warn(`Could not find field: ${fieldName} or ${countName}`);
-            }
+            console.warn(`Could not find field: ${fieldName}`);
           }
         }
       });
       return countFilled;
-    };
-    // Main Deck needs to be split by type
+    };    // Main Deck needs to be split by type
     const monsters = deckGroups.main.filter(c => (c.type || '').toLowerCase().includes('monster'));
     const spells = deckGroups.main.filter(c => (c.type || '').toLowerCase().includes('spell'));
     const traps = deckGroups.main.filter(c => (c.type || '').toLowerCase().includes('trap'));
