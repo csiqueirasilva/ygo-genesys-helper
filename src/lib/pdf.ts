@@ -17,20 +17,23 @@ export async function generateDeckListPDF(
     const names = profile.fullName.trim().split(' ');
     const lastName = names.length > 1 ? names.pop() : '';
     const firstName = names.join(' ');
-    
+
     form.getTextField('First  Middle Names').setText(firstName);
     if (lastName) {
       form.getTextField('Last Names').setText(lastName);
       form.getTextField('Last Name Initial').setText(lastName.charAt(0).toUpperCase());
     }
-    form.getTextField('CARD GAME ID').setText(profile.konamiId);
-    
-    // We can't easily set format/event name here without more fields, but we can try to put deck name somewhere
-    // The official form doesn't have a "Deck Name" field usually, but let's check the list again
-    // It has "Event Name". Let's use that for Deck Name + Format
-    form.getTextField('Event Name').setText(`${deckName} (${format === 'genesys' ? 'Genesys' : 'Advanced'})`);
+    form.getTextField('CARD GAME ID').setText(profile.konamiId || '');
+    form.getTextField('Country of Residency').setText(profile.residency || '');
 
-    const date = new Date();
+    // Event Information
+    const eventDisplayName = profile.eventName 
+      ? `${profile.eventName} | ${deckName} (${format === 'genesys' ? 'Genesys' : 'Advanced'})`
+      : `${deckName} (${format === 'genesys' ? 'Genesys' : 'Advanced'})`;
+    form.getTextField('Event Name').setText(eventDisplayName);
+
+    const date = profile.eventDate ? new Date(profile.eventDate + 'T12:00:00') : new Date();
+    // Use toString() to avoid leading zeros (e.g. 1 instead of 01)
     form.getTextField('Event Date - Month').setText((date.getMonth() + 1).toString());
     form.getTextField('Event Date - Day').setText(date.getDate().toString());
     form.getTextField('Event Date - Year').setText(date.getFullYear().toString());
@@ -46,23 +49,19 @@ export async function generateDeckListPDF(
           try {
             const field = form.getTextField(fieldName);
             field.setText(card.name);
-            field.setFontSize(8); // Set font size to fit long names
+            field.setFontSize(7); // Reduced font size to fit long names
 
             const countField = form.getTextField(countName);
             countField.setText(card.count.toString());
-            countField.setFontSize(9);
+            countField.setFontSize(8); // Reduced font size
 
             countFilled += card.count;
           } catch (e) {
-            // Some fields might have slightly different names (e.g. "Side Deck 1" instead of "Side Deck Card 1")
-            // Based on inspection:
-            // Side Deck 1, Side Deck 1 Count
-            // Extra Deck 1, Extra Deck 1 Count
             try {
                const fallbackCountName = `${prefix} ${index + 1} Count`;
                const countField = form.getTextField(fallbackCountName);
                countField.setText(card.count.toString());
-               countField.setFontSize(9);
+               countField.setFontSize(8);
             } catch(e2) {
                console.warn(`Could not find field: ${fieldName} or ${countName}`);
             }
@@ -71,7 +70,6 @@ export async function generateDeckListPDF(
       });
       return countFilled;
     };
-
     // Main Deck needs to be split by type
     const monsters = deckGroups.main.filter(c => (c.type || '').toLowerCase().includes('monster'));
     const spells = deckGroups.main.filter(c => (c.type || '').toLowerCase().includes('spell'));

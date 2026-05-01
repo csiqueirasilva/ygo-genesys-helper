@@ -121,4 +121,7 @@ export interface MetaData {
 export interface UserProfile {
   fullName: string;
   konamiId: string;
+  residency: string;
+  eventName: string;
+  eventDate: string; // ISO string or empty
 }
