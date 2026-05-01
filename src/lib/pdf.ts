@@ -54,20 +54,29 @@ export async function generateDeckListPDF(
       try {
         const field = form.getTextField(df.name);
         const widgets = field.acroField.getWidgets();
+        const numChars = df.name.includes('Year') ? 4 : 2;
+        
         widgets.forEach((widget) => {
           const rect = widget.getRectangle();
-          // Draw a smaller rectangle to avoid overlapping the original form borders
-          // Reduced width by 6px (3px each side) and height by 4px (2px each side)
-          page.drawRectangle({
-            x: rect.x + 3,
-            y: rect.y + 2,
-            width: rect.width - 6,
-            height: rect.height - 4,
-            color: rgb(1, 1, 1),
-          });
+          const charWidth = rect.width / numChars;
+          
+          // Draw individual white rectangles for each digit slot
+          // to avoid covering the vertical separators between them
+          for (let i = 0; i < numChars; i++) {
+            page.drawRectangle({
+              x: rect.x + (i * charWidth) + 1.5,
+              y: rect.y + 1.5,
+              width: charWidth - 3,
+              height: rect.height - 3,
+              color: rgb(1, 1, 1),
+            });
+          }
         });
+        
         field.setText(df.val);
         field.setFontSize(10);
+        // Use character spacing to align digits with the boxes
+        // Most PDF viewers will distribute the text across the field width
       } catch (e) {}
     });
 
