@@ -1,4 +1,4 @@
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, rgb } from 'pdf-lib';
 import type { DeckGroups, UserProfile } from '../types';
 
 export async function generateDeckListPDF(
@@ -52,10 +52,13 @@ export async function generateDeckListPDF(
     dateFields.forEach(df => {
       try {
         const field = form.getTextField(df.name);
-        // Fill white background to hide watermark
-        // Using form field properties if possible, or just setting text
-        // pdf-lib doesn't easily set background color of a field via form API in a way that works everywhere
-        // But we can set the field text and it should be enough if the PDF viewer honors it.
+        // Set solid white background to hide the "mm", "dd", "yyyy" watermarks
+        // We use low-level AcroForm access to set the background color
+        const widgets = field.acroField.getWidgets();
+        widgets.forEach((widget) => {
+          (widget as any).setBackgroundColor(rgb(1, 1, 1));
+        });
+        
         field.setText(df.val);
         field.setFontSize(10);
       } catch (e) {}
