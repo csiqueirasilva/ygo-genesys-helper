@@ -77,6 +77,8 @@ interface SummaryPanelProps {
   onRenameDeck: (newName: string) => void;
   onSaveDeck: () => void;
   onExportTxt: () => void;
+  onExportPdf: () => void;
+  onShowProfile: () => void;
 }
 
 export function SummaryPanel({
@@ -103,7 +105,9 @@ export function SummaryPanel({
   activeDeckName,
   onRenameDeck,
   onSaveDeck,
-  onExportTxt
+  onExportTxt,
+  onExportPdf,
+  onShowProfile
 }: SummaryPanelProps) {
   const capLabel = pointCap > 0 ? `${pointCap}` : 'No cap';
   const mobileStatusLabel = cardsOverCap ? 'Over cap' : 'Within cap';
@@ -183,13 +187,30 @@ export function SummaryPanel({
           </button>
           <button
             type="button"
-            className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-full bg-slate-800 px-5 py-2 text-sm font-semibold text-slate-100 disabled:opacity-40 transition hover:bg-slate-700"
-            onClick={onExportTxt}
-            aria-label="Export to TXT"
+            onClick={onShowProfile}
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:border-white/40"
+            title="Player Profile Settings"
           >
-            <span className="hidden md:inline">Export TXT</span>
-            <span className="md:hidden">TXT</span>
+            👤
           </button>
+          <div className="flex gap-1">
+            <button
+              type="button"
+              className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-l-full bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:bg-slate-700"
+              onClick={onExportTxt}
+              title="Export to TXT"
+            >
+              TXT
+            </button>
+            <button
+              type="button"
+              className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-r-full bg-rose-900/40 border-l border-white/10 px-4 py-2 text-xs font-semibold text-rose-100 transition hover:bg-rose-900/60"
+              onClick={onExportPdf}
+              title="Export to PDF (Konami Format)"
+            >
+              PDF
+            </button>
+          </div>
           <button
             type="button"
             className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-accentSecondary px-5 py-2 text-sm font-semibold text-slate-900 disabled:opacity-40"

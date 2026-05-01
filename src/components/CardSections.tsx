@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { DeckCardGroup, DeckGroups, DeckSection, MetaData, Format } from '../types';
 import { formatCardTypeLabel } from '../lib/strings';
+import { searchCards } from '../lib/ygoprodeck';
 import metaDataPayload from '../data/meta-data.json';
 
 const metaData = metaDataPayload as MetaData;
@@ -10,6 +11,9 @@ interface CardSectionsProps {
   format: Format;
   onCardSelect: (card: DeckCardGroup) => void;
   onMetaClick: (cardId: number) => void;
+  onUpdateCardCount: (zone: DeckSection, cardId: number, delta: number) => void;
+  onRemoveCard: (zone: DeckSection, cardId: number) => void;
+  onAddCard: (zone: DeckSection, card: any) => void;
   onMissingCardSelect?: (card: DeckCardGroup) => void;
   sortMode: Record<DeckSection, 'points' | 'default'>;
   onSortModeChange: (zone: DeckSection, mode: 'points' | 'default') => void;
@@ -23,6 +27,9 @@ export function CardSections({
   format,
   onCardSelect,
   onMetaClick,
+  onUpdateCardCount,
+  onRemoveCard,
+  onAddCard,
   onMissingCardSelect,
   sortMode,
   onSortModeChange,
@@ -122,6 +129,24 @@ export function CardSections({
               </span>
             </div>
             <div className="flex items-center gap-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Add card..."
+                  className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] font-semibold text-white outline-none focus:border-cyan-500/50 w-24 transition-all focus:w-40"
+                  onKeyDown={async (e) => {
+                    if (e.key === 'Enter') {
+                      const query = (e.target as HTMLInputElement).value;
+                      if (!query) return;
+                      const results = await searchCards({ query, pageSize: 1 });
+                      if (results.cards.length > 0) {
+                        onAddCard(zone, results.cards[0]);
+                        (e.target as HTMLInputElement).value = '';
+                      }
+                    }
+                  }}
+                />
+              </div>
               <button
                 type="button"
                 className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] transition ${
@@ -334,6 +359,27 @@ export function CardSections({
                           {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'advanced' && banStatus ? (banStatus === 'Limited' ? '1' : '2') : format === 'genesys' ? card.totalPoints : ''}
                         </div>
                         <span className={isOverLimit ? 'text-rose-400 font-black' : ''}>×{card.count}</span>
+                        <div className="flex gap-1 ml-auto">
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, -1); }}
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                          >
+                            -
+                          </button>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, 1); }}
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                          >
+                            +
+                          </button>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onRemoveCard(zone, card.id); }}
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 border border-rose-500/20 ml-1"
+                            title="Remove from deck"
+                          >
+                            ×
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </li>

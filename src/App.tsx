@@ -26,6 +26,8 @@ import { SummaryPanel } from './components/SummaryPanel.tsx';
 import { CardSections } from './components/CardSections.tsx';
 import { MetaInsights } from './components/MetaInsights.tsx';
 import { MetaCardModal } from './components/MetaCardModal.tsx';
+import { ProfileModal } from './components/ProfileModal.tsx';
+import { generateDeckListPDF } from './lib/pdf.ts';
 // import { ChatKitPanel } from './components/ChatKitPanel.tsx';
 import { MissingIdResolver } from './components/MissingIdResolver.tsx';
 import type { MissingReplacementPick } from './components/MissingIdResolver.tsx';
@@ -212,6 +214,7 @@ export default function App() {
   });
   const [savedFolders, setSavedFolders] = useState<SavedDeckFolder[]>(() => ensureFolders([]));
   const [showSavedDeckModal, setShowSavedDeckModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [, setSearchParams] = useSearchParams();
@@ -1450,6 +1453,47 @@ export default function App() {
     URL.revokeObjectURL(url);
   }, [deckGroups, activeDeck, totalPoints, pointCap]);
 
+  const handleExportPdf = useCallback(() => {
+    if (!deckGroups) return;
+    const profileRaw = localStorage.getItem('ygo-user-profile');
+    const profile = profileRaw ? JSON.parse(profileRaw) : { fullName: '', konamiId: '' };
+    generateDeckListPDF(deckGroups, profile, activeDeck?.name || 'Untitled Deck', format);
+  }, [deckGroups, activeDeck, format]);
+
+  const handleUpdateCardCount = useCallback((zone: DeckSection, cardId: number, delta: number) => {
+    const parsed = parseYdke(deckInput);
+    const section = parsed[zone];
+    const index = section.findIndex(id => id === cardId);
+    if (index === -1 && delta < 0) return;
+    
+    if (delta > 0) {
+      section.push(cardId);
+    } else {
+      section.splice(index, 1);
+    }
+    
+    const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
+    deckInputSourceRef.current = 'manual';
+    setDeckInput(nextYdke);
+  }, [deckInput]);
+
+  const handleRemoveCard = useCallback((zone: DeckSection, cardId: number) => {
+    const parsed = parseYdke(deckInput);
+    parsed[zone] = parsed[zone].filter(id => id !== cardId);
+    const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
+    deckInputSourceRef.current = 'manual';
+    setDeckInput(nextYdke);
+  }, [deckInput]);
+
+  const handleAddCard = useCallback((zone: DeckSection, card: any) => {
+    const parsed = parseYdke(deckInput);
+    parsed[zone].push(card.id);
+    const nextYdke = buildYdke(parsed.main, parsed.extra, parsed.side);
+    deckInputSourceRef.current = 'manual';
+    setDeckInput(nextYdke);
+    toast.success(`Added ${card.name} to ${zone} deck.`);
+  }, [deckInput]);
+
   useEffect(() => {
     const handlePaste = (event: ClipboardEvent) => {
       if (!isResultsView) return;
@@ -1938,6 +1982,8 @@ export default function App() {
                 }}
                 onSaveDeck={() => handleSaveDeck('', undefined)}
                 onExportTxt={handleExportTxt}
+                onExportPdf={handleExportPdf}
+                onShowProfile={() => setShowProfileModal(true)}
               />
             </div>
             <MetaInsights deckGroups={deckGroups} format={format} />
@@ -1948,6 +1994,9 @@ export default function App() {
                   format={format}
                   onCardSelect={handleCardFocus}
                   onMetaClick={setMetaCardId}
+                  onUpdateCardCount={handleUpdateCardCount}
+                  onRemoveCard={handleRemoveCard}
+                  onAddCard={handleAddCard}
                   onMissingCardSelect={handleMissingCardSelect}
                   sortMode={cardSortMode}
                   onSortModeChange={(zone, mode) =>
@@ -2163,6 +2212,10 @@ export default function App() {
           format={format}
           onClose={() => setMetaCardId(null)}
         />
+      )}
+
+      {showProfileModal && (
+        <ProfileModal onClose={() => setShowProfileModal(false)} />
       )}
 
       {showSavedDeckModal && (

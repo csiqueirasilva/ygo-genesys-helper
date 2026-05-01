@@ -118,4 +118,7 @@ export interface MetaData {
   }>;
 }
 
-
+export interface UserProfile {
+  fullName: string;
+  konamiId: string;
+}

@@ -17,6 +17,8 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@openai/chatkit": "^1.0.1",
     "@openai/chatkit-react": "^1.2.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.7",
     "pako": "^2.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
