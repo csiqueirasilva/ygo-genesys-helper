@@ -1925,14 +1925,18 @@ export default function App() {
   //   [assistantContextString],
   // );
 
+  const prevIsResultsViewRefForScroll = useRef(isResultsView);
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
     }
-    if (isResultsView) {
+    const becameResults = isResultsView && !prevIsResultsViewRefForScroll.current;
+    prevIsResultsViewRefForScroll.current = isResultsView;
+
+    if (becameResults) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [isResultsView, deckInput, savedFolders]);
+  }, [isResultsView]);
 
   const mainWidthClass = isResultsView ? 'max-w-6xl' : 'max-w-4xl';
 
