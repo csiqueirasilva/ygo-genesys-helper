@@ -1132,22 +1132,22 @@ export default function App() {
         points: undefined,
       };
 
-      if (activeDeck && activeDeck.folderId && activeDeck.deckId) {
-        let updated = false;
-        let updatedName = '';
-        const folderId = activeDeck.folderId;
-        const deckId = activeDeck.deckId;
+      const folderIdToSearch = activeDeck?.folderId;
+      const deckIdToSearch = activeDeck?.deckId;
+      const existingFolder = folderIdToSearch ? savedFolders.find(f => f.id === folderIdToSearch) : null;
+      const existingDeck = deckIdToSearch ? existingFolder?.decks.find(d => d.id === deckIdToSearch) : null;
 
+      if (existingDeck && folderIdToSearch && deckIdToSearch) {
+        let updatedName = '';
         setSavedFoldersAndPersist((prev) =>
           prev.map((folder) => {
-            if (folder.id !== folderId) {
+            if (folder.id !== folderIdToSearch) {
               return folder;
             }
             const decks = folder.decks.map((deckEntry) => {
-              if (deckEntry.id !== deckId) {
+              if (deckEntry.id !== deckIdToSearch) {
                 return deckEntry;
               }
-              updated = true;
               const nextName = trimmedName || deckEntry.name;
               updatedName = nextName;
               return {
@@ -1161,13 +1161,10 @@ export default function App() {
             return { ...folder, decks };
           }),
         );
-
-        if (updated) {
-          toast.success('Saved deck updated.');
-          setActiveDeck({ folderId, deckId, name: updatedName || activeDeck.name });
-          lastSavedDeckRef.current = deckString;
-          return;
-        }
+        toast.success('Saved deck updated.');
+        setActiveDeck({ folderId: folderIdToSearch, deckId: deckIdToSearch, name: updatedName || existingDeck.name });
+        lastSavedDeckRef.current = deckString;
+        return;
       }
 
       const entry: SavedDeckEntry = {
@@ -1197,7 +1194,7 @@ export default function App() {
       });
       lastSavedDeckRef.current = deckString;
     },
-    [deckInput, setSavedFoldersAndPersist, cardBreakdown, activeDeck],
+    [deckInput, setSavedFoldersAndPersist, cardBreakdown, activeDeck, savedFolders],
   );
 
   const handleLoadSavedDeck = useCallback(
