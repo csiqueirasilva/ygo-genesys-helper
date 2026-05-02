@@ -236,9 +236,9 @@ export function CardSections({
                     >
                       <button type="button" className="block w-full" onClick={handleSelect}>
                         <div className="relative">
-                          {card.fullImage || card.image ? (
+                          {card.image ? (
                             <img
-                              src={card.fullImage ?? card.image}
+                              src={card.image}
                               alt={card.name}
                               className="h-40 w-full object-cover"
                             />

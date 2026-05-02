@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'sonner';
 
@@ -18,6 +18,7 @@ import { CardSections } from './components/CardSections.tsx';
 import { MetaInsights } from './components/MetaInsights.tsx';
 import { MetaCardModal } from './components/MetaCardModal.tsx';
 import { CardSearchModal } from './components/CardSearchModal.tsx';
+import { CardDetailModal } from './components/CardDetailModal.tsx';
 import { ProfileModal } from './components/ProfileModal.tsx';
 import { SavedDeckModal } from './components/SavedDeckModal.tsx';
 
@@ -118,10 +119,65 @@ export default function App() {
 
   // 5. UI State
   const [metaCardId, setMetaCardId] = useState<number | null>(null);
+  const [focusedCard, setFocusedCard] = useState<any>(null);
   const [searchZone, setSearchZone] = useState<DeckSection | null>(null);
   const [showSavedDeckModal, setShowSavedDeckModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [cardSortMode, setCardSortMode] = useState<any>({ main: 'points', extra: 'points', side: 'points' });
+
+  // 6. Modal Depth Management
+  const modalDepth =
+    (focusedCard ? 1 : 0) +
+    (metaCardId ? 1 : 0) +
+    (searchZone ? 1 : 0) +
+    (showProfileModal ? 1 : 0) +
+    (showSavedDeckModal ? 1 : 0);
+
+  const prevModalDepthRef = useRef(0);
+  const closeTopModal = useCallback(() => {
+    if (showSavedDeckModal) {
+      setShowSavedDeckModal(false);
+      return true;
+    }
+    if (showProfileModal) {
+      setShowProfileModal(false);
+      return true;
+    }
+    if (searchZone) {
+      setSearchZone(null);
+      return true;
+    }
+    if (metaCardId) {
+      setMetaCardId(null);
+      return true;
+    }
+    if (focusedCard) {
+      setFocusedCard(null);
+      return true;
+    }
+    return false;
+  }, [showSavedDeckModal, showProfileModal, searchZone, metaCardId, focusedCard]);
+
+  useEffect(() => {
+    if (modalDepth > prevModalDepthRef.current) {
+      window.history.pushState({ modal: 'overlay' }, '', window.location.href);
+    }
+    prevModalDepthRef.current = modalDepth;
+  }, [modalDepth]);
+
+  useEffect(() => {
+    const handlePop = () => closeTopModal();
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, [closeTopModal]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeTopModal();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [closeTopModal]);
 
   // Handlers
   const handleLoadSavedDeck = (fId: string, dId: string) => {
@@ -266,7 +322,7 @@ export default function App() {
               <CardSections
                 deckGroups={deckGroups}
                 format={format}
-                onCardSelect={() => {}}
+                onCardSelect={setFocusedCard}
                 onMetaClick={setMetaCardId}
                 onUpdateCardCount={handleUpdateCardCount}
                 onRemoveCard={handleRemoveCard}
@@ -297,6 +353,14 @@ export default function App() {
           cardId={metaCardId}
           format={format}
           onClose={() => setMetaCardId(null)}
+        />
+      )}
+
+      {focusedCard && (
+        <CardDetailModal
+          card={focusedCard}
+          details={cardDetails[focusedCard.id] || null}
+          onClose={() => setFocusedCard(null)}
         />
       )}
 
