@@ -663,14 +663,6 @@ export default function App() {
         />
       )}
 
-      {focusedCard && (
-        <CardDetailModal
-          card={focusedCard}
-          details={cardDetails[focusedCard.id] || null}
-          onClose={() => setFocusedCard(null)}
-        />
-      )}
-
       {showUndetectedCardsWarning && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={() => setShowUndetectedCardsWarning(false)}>
           <div
@@ -899,6 +891,14 @@ export default function App() {
           onLoadDeck={handleLoadSavedDeck}
           onSaveCurrentDeck={() => handleSaveDeck('', undefined, totalPoints)}
           showUnsavedNotice={false}
+        />
+      )}
+
+      {focusedCard && (
+        <CardDetailModal
+          card={focusedCard}
+          details={cardDetails[focusedCard.id] || null}
+          onClose={() => setFocusedCard(null)}
         />
       )}
     </div>

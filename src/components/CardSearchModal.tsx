@@ -33,7 +33,7 @@ export function CardSearchModal({ onClose, onAddCard }: CardSearchModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={onClose}>
       <div 
         className="w-full max-w-2xl flex flex-col max-h-[85vh] overflow-hidden rounded-[32px] border border-white/10 bg-panel shadow-2xl"
         onClick={e => e.stopPropagation()}

@@ -52,7 +52,7 @@ export function MetaCardModal({ cardId, format, onClose }: MetaCardModalProps) {
     : 100;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={onClose}>
       <div 
         className="w-full max-w-lg overflow-hidden rounded-[32px] border border-white/10 bg-panel shadow-2xl"
         onClick={e => e.stopPropagation()}

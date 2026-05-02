@@ -29,7 +29,7 @@ export function CardDetailModal({ card, details, onClose }: CardDetailModalProps
   const cardLinkLabel = `View in Yu-Gi-Oh! DB ↗`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={onClose}>
       <div
         className="relative flex max-h-[90vh] w-full max-w-3xl flex-col gap-4 overflow-y-auto rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel touch-pan-y"
         onClick={(event) => event.stopPropagation()}
