@@ -1,4 +1,5 @@
 import type { DeckCardGroup, CardDetails } from '../types';
+import { formatCardTypeLabel } from '../lib/strings';
 
 interface CardDetailModalProps {
   card: DeckCardGroup;
@@ -12,8 +13,6 @@ export function CardDetailModal({ card, details, onClose }: CardDetailModalProps
     return text.replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
   };
 
-  const cardDesc = details?.desc ?? card.desc;
-  
   const buildCardDbUrl = (name: string) => {
     const params = new URLSearchParams({
       ope: '1',
@@ -26,95 +25,64 @@ export function CardDetailModal({ card, details, onClose }: CardDetailModalProps
     return `https://www.db.yugioh-card.com/yugiohdb/card_search.action?${params.toString()}`;
   };
 
-  const cardLink = details?.ygoprodeckUrl ?? card.linkUrl ?? buildCardDbUrl(card.name);
+  const cardLink = details?.ygoprodeckUrl || buildCardDbUrl(card.name);
+  const cardLinkLabel = `View in Yu-Gi-Oh! DB ↗`;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={onClose}>
       <div
-        className="flex max-h-[95vh] w-full max-w-4xl flex-col gap-6 overflow-hidden rounded-[32px] border border-white/10 bg-panel/95 p-6 shadow-2xl md:flex-row md:items-stretch"
+        className="relative flex max-h-[90vh] w-full max-w-3xl flex-col gap-4 overflow-y-auto rounded-[28px] border border-white/10 bg-panel/95 p-5 shadow-panel touch-pan-y"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex flex-col items-center gap-4 md:w-1/3">
-          <div className="relative aspect-[0.68] w-full max-w-[260px] overflow-hidden rounded-2xl border border-white/5 bg-slate-900 shadow-2xl">
-            {card.fullImage ? (
-              <img src={card.fullImage} alt={card.name} className="h-full w-full object-cover" />
+        <button
+          onClick={onClose}
+          aria-label="Close card details"
+          className="absolute right-4 top-4 text-2xl text-slate-300 transition hover:text-white"
+        >
+          ×
+        </button>
+        <div className="flex flex-col gap-4 md:flex-row">
+          <div className="mx-auto w-52 overflow-hidden rounded-2xl border border-white/10 bg-black/30 md:mx-0 md:h-auto md:self-center">
+            {details?.image || card.image ? (
+              <img
+                src={details?.image ?? card.image}
+                alt={card.name}
+                className="h-full w-full object-cover"
+              />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-sm uppercase tracking-widest text-slate-500">
-                Image pending
-              </div>
+              <div className="flex h-72 items-center justify-center text-sm text-slate-400">No art</div>
             )}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-8">
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-xl font-black text-white">{card.pointsPerCopy}</span>
-                <span className="text-[0.65rem] font-bold uppercase tracking-widest text-cyan-200">
-                  Genesys Pts
-                </span>
-              </div>
-            </div>
           </div>
-          <div className="flex flex-col gap-2 w-full max-w-[260px]">
-            <a
-              href={cardLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center justify-center rounded-full bg-white/5 px-4 text-xs font-semibold uppercase tracking-wider text-slate-200 transition hover:bg-white/15 hover:text-white"
-            >
-              View in Database ↗
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-1 flex-col justify-between overflow-hidden">
-          <div className="space-y-4 overflow-y-auto pr-2">
-            <div>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <h2 className="text-3xl font-bold leading-tight text-white">{card.name}</h2>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold uppercase tracking-widest text-slate-400">
-                    <span className="text-cyan-200">{card.displayType}</span>
-                    {card.level && (
-                      <span className="flex items-center gap-1.5">
-                        <span className="text-amber-400">★</span>
-                        {card.level}
-                      </span>
-                    )}
-                    {card.linkValue && (
-                      <span className="flex items-center gap-1.5">
-                        <span className="text-cyan-400">LINK</span>
-                        {card.linkValue}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <button className="text-3xl text-slate-400 transition hover:text-white" onClick={onClose}>
-                  ×
-                </button>
+          <div className="flex-1 space-y-3 pt-8 md:pt-0">
+            <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">
+              {card.zone === 'main' ? 'Main Deck' : card.zone === 'extra' ? 'Extra Deck' : 'Side Deck'}
+            </p>
+            <h2 className="text-2xl font-semibold text-white">{card.name}</h2>
+            <p className="text-sm text-slate-400">
+              {formatCardTypeLabel(
+                details?.type ?? card.type,
+                details?.race ?? card.race,
+              )}
+            </p>
+            <p className="text-sm text-slate-200 leading-relaxed">{formatCardText(details?.desc ?? card.desc)}</p>
+            {cardLink && (
+              <a className="text-sm font-semibold text-cyan-300 hover:underline" href={cardLink} target="_blank" rel="noreferrer">
+                {cardLinkLabel}
+              </a>
+            )}
+            <div className="grid grid-cols-3 gap-3 text-sm">
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                <p className="text-xs text-slate-400">Copies</p>
+                <p className="text-lg font-semibold text-white">×{card.count}</p>
               </div>
-            </div>
-
-            <div className="space-y-4 rounded-2xl border border-white/5 bg-black/40 p-5">
-              <div className="prose prose-invert max-w-none text-slate-200">
-                <p className="whitespace-pre-wrap text-sm leading-relaxed tracking-wide">
-                  {formatCardText(cardDesc)}
-                </p>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                <p className="text-xs text-slate-400">Points/copy</p>
+                <p className="text-lg font-semibold text-white">{card.pointsPerCopy}</p>
               </div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-            <div className="flex items-baseline gap-2">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-                In this deck:
-              </span>
-              <span className="text-2xl font-bold text-white">
-                {card.count} copy{card.count === 1 ? '' : 'ies'}
-              </span>
-            </div>
-            <div className="text-right">
-              <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-cyan-200/60">
-                Subtotal
-              </p>
-              <p className="text-3xl font-black text-cyan-200">{card.totalPoints} pts</p>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
+                <p className="text-xs text-slate-400">Total pts</p>
+                <p className="text-lg font-semibold text-white">{card.totalPoints}</p>
+              </div>
             </div>
           </div>
         </div>

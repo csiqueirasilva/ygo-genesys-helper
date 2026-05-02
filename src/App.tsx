@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'sonner';
 
 import genesysPayload from './data/genesys-card-list.json';
-import { normalizeCardName } from './lib/strings.ts';
+import { normalizeCardName, formatCardTypeLabel } from './lib/strings.ts';
 import { parseYdk, buildYdke } from './lib/ydke.ts';
 import { normalizeFolders } from './lib/storage.ts';
 import type {
@@ -29,8 +29,10 @@ import { useCardDetails } from './hooks/useCardDetails';
 import { useDeckStats } from './hooks/useDeckStats';
 import { DEFAULT_POINT_CAP, createFolder, SAVED_DECKS_STORAGE_KEY } from './constants';
 import { generateDeckListPDF } from './lib/pdf';
+import metaDataPayload from './data/meta-data.json';
 
 const genesysData = genesysPayload as GenesysPayload;
+const metaData = metaDataPayload as any;
 
 export default function App() {
   const location = useLocation();
@@ -106,7 +108,7 @@ export default function App() {
       if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
 
       const pasted = event.clipboardData?.getData('text')?.trim();
-      if (pasted && pasted.startsWith('ydke://')) {
+      if (pasted && (pasted.startsWith('ydke://') || pasted.startsWith('ydk://'))) {
         event.preventDefault();
         deckInputSourceRef.current = 'url';
         setDeckInput(pasted);
@@ -123,6 +125,8 @@ export default function App() {
   const [searchZone, setSearchZone] = useState<DeckSection | null>(null);
   const [showSavedDeckModal, setShowSavedDeckModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const [showPointList, setShowPointList] = useState(false);
+  const [showBlockedList, setShowBlockedList] = useState(false);
   const [cardSortMode, setCardSortMode] = useState<any>({ main: 'points', extra: 'points', side: 'points' });
 
   // 6. Modal Depth Management
@@ -131,6 +135,8 @@ export default function App() {
     (metaCardId ? 1 : 0) +
     (searchZone ? 1 : 0) +
     (showProfileModal ? 1 : 0) +
+    (showPointList ? 1 : 0) +
+    (showBlockedList ? 1 : 0) +
     (showSavedDeckModal ? 1 : 0);
 
   const prevModalDepthRef = useRef(0);
@@ -151,12 +157,20 @@ export default function App() {
       setMetaCardId(null);
       return true;
     }
+    if (showBlockedList) {
+      setShowBlockedList(false);
+      return true;
+    }
+    if (showPointList) {
+      setShowPointList(false);
+      return true;
+    }
     if (focusedCard) {
       setFocusedCard(null);
       return true;
     }
     return false;
-  }, [showSavedDeckModal, showProfileModal, searchZone, metaCardId, focusedCard]);
+  }, [showSavedDeckModal, showProfileModal, searchZone, metaCardId, focusedCard, showBlockedList, showPointList]);
 
   useEffect(() => {
     if (modalDepth > prevModalDepthRef.current) {
@@ -217,6 +231,43 @@ export default function App() {
     if (activeDeck?.deckId === deckId) setActiveDeck(null);
   };
 
+  const handleExportTxt = useCallback(() => {
+    if (!deckGroups) {
+      toast.info('No deck loaded to export.');
+      return;
+    }
+    const lines: string[] = [];
+    if (activeDeck?.name) {
+      lines.push(`Deck: ${activeDeck.name}`);
+      lines.push('----------------------------------------');
+    }
+    const sections: Array<{ key: DeckSection; label: string }> = [
+      { key: 'main', label: 'Main Deck' },
+      { key: 'extra', label: 'Extra Deck' },
+      { key: 'side', label: 'Side Deck' }
+    ];
+    sections.forEach(({ key, label }) => {
+      const cards = deckGroups[key];
+      if (cards.length === 0) return;
+      lines.push('');
+      lines.push(`// ${label} (${cards.reduce((sum, c) => sum + c.count, 0)} cards)`);
+      cards.forEach((card) => {
+        lines.push(`${card.count}x ${card.name} ${card.pointsPerCopy ? `[${card.pointsPerCopy} pts]` : ''}`);
+      });
+    });
+    lines.push('');
+    lines.push(`Total Points: ${totalPoints}`);
+    if (pointCap > 0) lines.push(`Point Cap: ${pointCap}`);
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `${activeDeck?.name ? activeDeck.name.replace(/[^a-z0-9]/gi, '_').toLowerCase() : 'deck-list'}.txt`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }, [deckGroups, activeDeck, totalPoints, pointCap]);
+
   const handleImportYdkFile = async (file: File) => {
     try {
       const content = await file.text();
@@ -241,6 +292,13 @@ export default function App() {
     }
   };
 
+  const handleBrowsePointList = () => {
+    setFocusedCard(null);
+    setShowPointList(true);
+  };
+
+  const handleShowBlockedList = () => setShowBlockedList(true);
+
   // Auto-save effect
   useEffect(() => {
     if (!deck || !deckInput.trim() || deckInput.trim() === lastSavedDeckRef.current) return;
@@ -260,6 +318,33 @@ export default function App() {
     prevIsResultsViewRefForScroll.current = isResultsView;
     if (becameResults) window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [isResultsView]);
+
+  const blockedCards = useMemo(() => {
+    if (!deckGroups) return [];
+    const unique = new Map<string, any>();
+    (['main', 'extra', 'side'] as DeckSection[]).forEach((zone) => {
+      deckGroups[zone].forEach((card) => {
+        const details = cardDetails[card.id];
+        const type = details?.type?.toLowerCase() ?? '';
+        let isBlocked = false;
+        if (format === 'genesys') {
+          isBlocked = type.includes('link') || type.includes('pendulum');
+        } else {
+          const banStatus = (metaData as any).advanced.banlist[card.id.toString()];
+          const limit = banStatus === 'Limited' ? 1 : banStatus === 'Semi-Limited' ? 2 : 3;
+          isBlocked = banStatus === 'Forbidden' || card.count > limit;
+        }
+        if (!isBlocked) return;
+        const existing = unique.get(card.name);
+        if (existing) existing.count += card.count;
+        else unique.set(card.name, { ...card, displayType: formatCardTypeLabel(details?.type, details?.race) });
+      });
+    });
+    return Array.from(unique.values()).sort((a, b) => a.name.localeCompare(b.name));
+  }, [deckGroups, cardDetails, format]);
+
+  const blockedCardIdSet = useMemo(() => new Set(blockedCards.map(c => c.id).filter(id => id > 0)), [blockedCards]);
+  const blockedTotalCount = useMemo(() => blockedCards.reduce((sum, card) => sum + card.count, 0), [blockedCards]);
 
   return (
     <div className="min-h-screen bg-canvas text-slate-50">
@@ -296,20 +381,20 @@ export default function App() {
               shareUrl={shareUrl}
               shareStatus="idle"
               unknownCards={0}
-              blockedCount={0}
-              blockedTotalCount={0}
+              blockedCount={blockedCards.length}
+              blockedTotalCount={blockedTotalCount}
               cardError={cardError}
               isFetchingCards={isFetchingCards}
               onPointCapChange={setPointCap}
               onCopyShareLink={handleCopyShareLink}
-              onBrowsePointList={() => {}}
-              onShowBlocked={() => {}}
+              onBrowsePointList={handleBrowsePointList}
+              onShowBlocked={handleShowBlockedList}
               onBack={() => navigate('/')}
               onShowSavedDecks={() => setShowSavedDeckModal(true)}
               activeDeckName={activeDeck?.name ?? null}
               onRenameDeck={(name) => activeDeck && handleRenameSavedDeck(activeDeck.folderId!, activeDeck.deckId!, name)}
               onSaveDeck={() => handleSaveDeck('', undefined, totalPoints)}
-              onExportTxt={() => {}}
+              onExportTxt={handleExportTxt}
               onExportPdf={() => {
                 const profileRaw = localStorage.getItem('ygo-user-profile');
                 const profile = profileRaw ? JSON.parse(profileRaw) : { fullName: '', konamiId: '' };
@@ -329,7 +414,7 @@ export default function App() {
                 onAddCard={(zone) => setSearchZone(zone)}
                 sortMode={cardSortMode}
                 onSortModeChange={(z, m: any) => setCardSortMode({ ...cardSortMode, [z]: m })}
-                blockedCardIds={new Set()}
+                blockedCardIds={blockedCardIdSet}
               />
             </section>
           </div>
