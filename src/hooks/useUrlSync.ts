@@ -75,11 +75,15 @@ export function useUrlSync(
         try {
           const decoded = decodeDeckHash(deckQueryParam);
           deckInputSourceRef.current = 'url';
-          if (decoded.name) {
-            setActiveDeck({ name: decoded.name });
-          } else {
-            setActiveDeck(null);
-          }
+          
+          // Preserve existing folder and ID if we are already in results view
+          setActiveDeck((prev: any) => {
+            if (prev?.folderId && prev?.deckId) {
+              return { ...prev, name: decoded.name || prev.name };
+            }
+            return decoded.name ? { name: decoded.name } : null;
+          });
+          
           setDeckInput(decoded.ydke);
         } catch (error) {
           console.warn('Unable to decode deck from query:', error);

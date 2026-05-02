@@ -98,6 +98,24 @@ export default function App() {
     setDeckInput
   );
 
+  useEffect(() => {
+    const handlePaste = (event: ClipboardEvent) => {
+      if (!isResultsView) return;
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      const pasted = event.clipboardData?.getData('text')?.trim();
+      if (pasted && pasted.startsWith('ydke://')) {
+        event.preventDefault();
+        deckInputSourceRef.current = 'url';
+        setDeckInput(pasted);
+        toast.success('YDKE pasted and deck updated.');
+      }
+    };
+    window.addEventListener('paste', handlePaste);
+    return () => window.removeEventListener('paste', handlePaste);
+  }, [isResultsView, setDeckInput]);
+
   // 5. UI State
   const [metaCardId, setMetaCardId] = useState<number | null>(null);
   const [searchZone, setSearchZone] = useState<DeckSection | null>(null);

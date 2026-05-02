@@ -144,13 +144,13 @@ export function CardSections({
               <button
                 type="button"
                 onClick={() => toggleEditMode(zone)}
-                className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] transition ${
+                className={`rounded-full border px-4 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.2em] shadow-sm transition-all duration-200 ${
                   editMode[zone]
-                    ? 'border-amber-400 bg-amber-400/20 text-amber-100'
-                    : 'border-white/10 bg-black/20 text-slate-400 hover:text-slate-200'
+                    ? 'border-amber-400 bg-amber-500 text-slate-900 scale-105 ring-4 ring-amber-500/20'
+                    : 'border-white/10 bg-black/40 text-slate-400 hover:border-white/30 hover:text-white'
                 }`}
               >
-                {editMode[zone] ? 'Editing' : 'Edit'}
+                {editMode[zone] ? 'Editing On' : 'Edit Section'}
               </button>
               {editMode[zone] && (
                 <button
