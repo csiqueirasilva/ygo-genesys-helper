@@ -1,17 +1,14 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
-import type { SavedDeckEntry, DeckSection, SavedDeckFolder } from '../types';
+import type { SavedDeckEntry, DeckSection, SavedDeckFolder, ParsedDeck } from '../types';
 import { parseYdke, buildYdke } from '../lib/ydke';
 import { toast } from 'sonner';
 import { 
-  createFolder, 
-  DEFAULT_FOLDER_ID, 
-  DEFAULT_FOLDER_NAME 
+  SAVED_SUMMARY_VERSION 
 } from '../constants';
 
 export type DeckInputSource = 'manual' | 'file' | 'json' | 'saved' | 'url' | 'system';
 
 export function useActiveDeck(
-  cardBreakdown: { main: number; extra: number; side: number },
   setSavedFoldersAndPersist: (producer: (prev: SavedDeckFolder[]) => SavedDeckFolder[]) => void,
   savedFolders: SavedDeckFolder[]
 ) {
@@ -34,7 +31,7 @@ export function useActiveDeck(
   }, [deckInput]);
 
   const handleSaveDeck = useCallback(
-    (name: string, folderId?: string) => {
+    (name: string, folderId?: string, points?: number) => {
       const deckString = deckInput.trim();
       if (!deckString) {
         toast.error('Load or paste a deck before saving.');
@@ -42,8 +39,9 @@ export function useActiveDeck(
       }
       
       let canonicalDeck = deckString;
+      let parsed: ParsedDeck | null = null;
       try {
-        const parsed = parseYdke(deckString);
+        parsed = parseYdke(deckString);
         canonicalDeck = buildYdke(parsed.main, parsed.extra, parsed.side);
       } catch {}
 
@@ -51,10 +49,11 @@ export function useActiveDeck(
       const fallbackName = trimmedName || activeDeck?.name || 'Untitled deck';
       const timestamp = new Date().toISOString();
       const summary = {
-        main: cardBreakdown.main,
-        extra: cardBreakdown.extra,
-        side: cardBreakdown.side,
-        points: undefined,
+        main: parsed?.main.length || 0,
+        extra: parsed?.extra.length || 0,
+        side: parsed?.side.length || 0,
+        points: points,
+        version: SAVED_SUMMARY_VERSION
       };
 
       const folderIdToSearch = activeDeck?.folderId;
@@ -99,12 +98,7 @@ export function useActiveDeck(
       setSavedFoldersAndPersist((prev) => {
         const next = [...prev];
         let targetIndex = folderId ? next.findIndex((f) => f.id === folderId) : -1;
-        if (targetIndex < 0) {
-          if (next.length === 0) {
-            next.push(createFolder(DEFAULT_FOLDER_NAME, DEFAULT_FOLDER_ID));
-          }
-          targetIndex = 0;
-        }
+        if (targetIndex < 0) targetIndex = 0;
         
         const targetFolder = next[targetIndex];
         targetFolder.decks = [entry, ...targetFolder.decks].slice(0, 200);
@@ -115,7 +109,7 @@ export function useActiveDeck(
       });
       lastSavedDeckRef.current = deckString;
     },
-    [deckInput, activeDeck, savedFolders, cardBreakdown, setSavedFoldersAndPersist]
+    [deckInput, activeDeck, savedFolders, setSavedFoldersAndPersist]
   );
 
   const handleUpdateCardCount = useCallback((zone: DeckSection, cardId: number, delta: number) => {

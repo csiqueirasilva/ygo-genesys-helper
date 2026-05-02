@@ -4,6 +4,8 @@ import { Toaster, toast } from 'sonner';
 
 import genesysPayload from './data/genesys-card-list.json';
 import { normalizeCardName } from './lib/strings.ts';
+import { parseYdk, buildYdke } from './lib/ydke.ts';
+import { normalizeFolders } from './lib/storage.ts';
 import type {
   DeckSection,
   Format,
@@ -24,7 +26,8 @@ import { useActiveDeck } from './hooks/useActiveDeck';
 import { useUrlSync } from './hooks/useUrlSync';
 import { useCardDetails } from './hooks/useCardDetails';
 import { useDeckStats } from './hooks/useDeckStats';
-import { DEFAULT_POINT_CAP, createFolder } from './constants';
+import { DEFAULT_POINT_CAP, createFolder, SAVED_DECKS_STORAGE_KEY } from './constants';
+import { generateDeckListPDF } from './lib/pdf';
 
 const genesysData = genesysPayload as GenesysPayload;
 
@@ -34,13 +37,21 @@ export default function App() {
   const isResultsView = location.pathname === '/results';
 
   // 1. Deck Library Management
-  const { savedFolders, setSavedFoldersAndPersist } = useDeckLibrary();
+  const { savedFolders, setSavedFolders, setSavedFoldersAndPersist } = useDeckLibrary();
+
+  // Load from storage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(SAVED_DECKS_STORAGE_KEY);
+      if (stored) {
+        setSavedFolders(normalizeFolders(JSON.parse(stored)));
+      }
+    } catch {}
+  }, [setSavedFolders]);
 
   // 2. Active Deck State
   const [pointCap, setPointCap] = useState(DEFAULT_POINT_CAP);
   const [format, setFormat] = useState<Format>('genesys');
-  
-  const [cardBreakdown, setCardBreakdown] = useState({ main: 0, extra: 0, side: 0 });
   
   const {
     deckInput,
@@ -55,7 +66,7 @@ export default function App() {
     handleUpdateCardCount,
     handleRemoveCard,
     handleAddCard
-  } = useActiveDeck(cardBreakdown, setSavedFoldersAndPersist, savedFolders);
+  } = useActiveDeck(setSavedFoldersAndPersist, savedFolders);
 
   // 3. Card Data & Stats
   const genesysPointMap = useMemo(() => {
@@ -70,16 +81,11 @@ export default function App() {
   const { cardDetails, isFetchingCards, cardError } = useCardDetails(uniqueCardIds);
   const { deckGroups, totalPoints } = useDeckStats(deck, cardDetails, genesysPointMap);
 
-  // Sync breakdown back for the hook
-  useEffect(() => {
-    if (deck) {
-      setCardBreakdown({
-        main: deck.main.length,
-        extra: deck.extra.length,
-        side: deck.side.length
-      });
-    }
-  }, [deck]);
+  const cardBreakdown = useMemo(() => ({
+    main: deck?.main.length || 0,
+    extra: deck?.extra.length || 0,
+    side: deck?.side.length || 0
+  }), [deck]);
 
   // 4. URL Sync
   const { shareUrl } = useUrlSync(
@@ -137,6 +143,30 @@ export default function App() {
     if (activeDeck?.deckId === deckId) setActiveDeck(null);
   };
 
+  const handleImportYdkFile = async (file: File) => {
+    try {
+      const content = await file.text();
+      const d = parseYdk(content);
+      const ydke = buildYdke(d.main, d.extra, d.side);
+      deckInputSourceRef.current = 'file';
+      setActiveDeck(null);
+      setDeckInput(ydke);
+      toast.success('YDK deck imported.');
+    } catch (e) {
+      toast.error('Failed to import YDK file.');
+    }
+  };
+
+  const handleCopyShareLink = async () => {
+    if (!shareUrl) return;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success('Deck link copied to clipboard');
+    } catch (error) {
+      toast.error('Clipboard unavailable.');
+    }
+  };
+
   // Auto-save effect
   useEffect(() => {
     if (!deck || !deckInput.trim() || deckInput.trim() === lastSavedDeckRef.current) return;
@@ -145,9 +175,9 @@ export default function App() {
       lastSavedDeckRef.current = deckInput.trim();
       return;
     }
-    handleSaveDeck('', undefined);
+    handleSaveDeck('', undefined, totalPoints);
     deckInputSourceRef.current = 'system';
-  }, [deck, deckInput, handleSaveDeck]);
+  }, [deck, deckInput, handleSaveDeck, totalPoints]);
 
   const prevIsResultsViewRefForScroll = useRef(isResultsView);
   useEffect(() => {
@@ -166,7 +196,7 @@ export default function App() {
             deckError={deckError}
             onDeckInputChange={setDeckInput}
             onViewBreakdown={() => navigate('/results')}
-            onImportYdkFile={() => {}} // TODO
+            onImportYdkFile={handleImportYdkFile}
             onImportJsonDeck={() => {}} // TODO
             savedFolders={savedFolders}
             onLoadSavedDeck={handleLoadSavedDeck}
@@ -197,16 +227,20 @@ export default function App() {
               cardError={cardError}
               isFetchingCards={isFetchingCards}
               onPointCapChange={setPointCap}
-              onCopyShareLink={() => {}}
+              onCopyShareLink={handleCopyShareLink}
               onBrowsePointList={() => {}}
               onShowBlocked={() => {}}
               onBack={() => navigate('/')}
               onShowSavedDecks={() => setShowSavedDeckModal(true)}
               activeDeckName={activeDeck?.name ?? null}
               onRenameDeck={(name) => activeDeck && handleRenameSavedDeck(activeDeck.folderId!, activeDeck.deckId!, name)}
-              onSaveDeck={() => handleSaveDeck('', undefined)}
+              onSaveDeck={() => handleSaveDeck('', undefined, totalPoints)}
               onExportTxt={() => {}}
-              onExportPdf={() => {}}
+              onExportPdf={() => {
+                const profileRaw = localStorage.getItem('ygo-user-profile');
+                const profile = profileRaw ? JSON.parse(profileRaw) : { fullName: '', konamiId: '' };
+                if (deckGroups) generateDeckListPDF(deckGroups, profile, activeDeck?.name || 'Untitled Deck');
+              }}
               onShowProfile={() => setShowProfileModal(true)}
             />
             <MetaInsights deckGroups={deckGroups} format={format} />
@@ -254,7 +288,7 @@ export default function App() {
           folders={savedFolders}
           onClose={() => setShowSavedDeckModal(false)}
           onLoadDeck={handleLoadSavedDeck}
-          onSaveCurrentDeck={() => handleSaveDeck('', undefined)}
+          onSaveCurrentDeck={() => handleSaveDeck('', undefined, totalPoints)}
           showUnsavedNotice={false}
         />
       )}

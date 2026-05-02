@@ -24,6 +24,14 @@ export interface CardDetails {
   ygoprodeckUrl?: string;
 }
 
+export interface ParsedDeck {
+  main: number[];
+  extra: number[];
+  side: number[];
+  hasInferredIds?: boolean;
+  inferredCardCount?: number;
+}
+
 export interface DeckGroups {
   main: DeckCardGroup[];
   extra: DeckCardGroup[];
