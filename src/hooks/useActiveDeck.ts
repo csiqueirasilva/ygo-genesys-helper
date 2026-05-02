@@ -48,6 +48,8 @@ export function useActiveDeck(
       const trimmedName = name.trim();
       const fallbackName = trimmedName || activeDeck?.name || 'Untitled deck';
       const timestamp = new Date().toISOString();
+      
+      // CRITICAL: Calculate summary directly from the parsed YDKE to ensure it reflects current state
       const summary = {
         main: parsed?.main.length || 0,
         extra: parsed?.extra.length || 0,
