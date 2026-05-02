@@ -383,27 +383,29 @@ export function CardSections({
                           {isForbidden ? '✕' : isOverLimit ? `!${limitCount}` : format === 'advanced' && banStatus ? (banStatus === 'Limited' ? '1' : '2') : format === 'genesys' ? card.totalPoints : ''}
                         </div>
                         <span className={isOverLimit ? 'text-rose-400 font-black' : ''}>×{card.count}</span>
-                        <div className="flex gap-1 ml-auto">
-                          <button
-                            onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, -1); }}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                          >
-                            -
-                          </button>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, 1); }}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                          >
-                            +
-                          </button>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); onRemoveCard(zone, card.id); }}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 border border-rose-500/20 ml-1"
-                            title="Remove from deck"
-                          >
-                            ×
-                          </button>
-                        </div>
+                        {editMode[zone] && (
+                          <div className="flex gap-1 ml-auto">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, -1); }}
+                              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                            >
+                              -
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); onUpdateCardCount(zone, card.id, 1); }}
+                              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                            >
+                              +
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); onRemoveCard(zone, card.id); }}
+                              className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 border border-rose-500/20 ml-1"
+                              title="Remove from deck"
+                            >
+                              ×
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </li>
