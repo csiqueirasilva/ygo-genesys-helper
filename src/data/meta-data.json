@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-03T08:07:01.211Z",
+  "lastUpdated": "2026-05-04T08:36:30.152Z",
   "genesys": {
     "recentDecks": [
       {
@@ -45,12 +45,12 @@
       {
         "name": "Odion",
         "url": "https://ygoprodeck.com/deck/odion-704066",
-        "meta": "Runner-Up (6 players) 4 weeks ago piloted by Michael Bach Vebel"
+        "meta": "Runner-Up (6 players) 1 month ago piloted by Michael Bach Vebel"
       },
       {
         "name": "Magnet Warrior",
         "url": "https://ygoprodeck.com/deck/magnet-warrior-704064",
-        "meta": "Winner (6 players) 4 weeks ago piloted by Ole Risager"
+        "meta": "Winner (6 players) 1 month ago piloted by Ole Risager"
       },
       {
         "name": "Kewl Tune",
@@ -122,6 +122,11 @@
   },
   "advanced": {
     "recentDecks": [
+      {
+        "name": "Bystial Maliss",
+        "url": "https://ygoprodeck.com/deck/bystial-maliss-709049",
+        "meta": "Top 8 (106 players) 1 week ago piloted by Ifran Khan"
+      },
       {
         "name": "Fiendsmith Shining Sarcophagus Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-shining-sarcophagus-yummy-708842",
@@ -216,14 +221,10 @@
         "name": "Orcust",
         "url": "https://ygoprodeck.com/deck/orcust-708164",
         "meta": "Top 8 (60 players) 1 week ago piloted by Andreas Maravelis"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-708162",
-        "meta": "Runner-Up (109 players) 1 week ago piloted by Dennis Block"
       }
     ],
     "metaArchetypes": [
+      "Bystial Maliss",
       "Fiendsmith Shining Sarcophagus Yummy",
       "Fiendsmith Yummy",
       "Radiant Typhoon Sky Striker R.B.",
@@ -1342,6 +1343,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "6637331": {
+      "name": "Bystial Druiswurm",
+      "viewsweek": 0,
+      "views": 2277546,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "Speed Duel",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "6763530": {
@@ -4514,6 +4534,24 @@
         "advanced": true
       }
     },
+    "27572350": {
+      "name": "Bystial Dis Pater",
+      "viewsweek": 0,
+      "views": 838349,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "27755794": {
       "name": "Radiant Typhoon Meghala",
       "viewsweek": 0,
@@ -5256,6 +5294,24 @@
         "advanced": true
       }
     },
+    "32731036": {
+      "name": "The Bystial Lubellion",
+      "viewsweek": 0,
+      "views": 1507559,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "32756828": {
       "name": "Branded Beast",
       "viewsweek": 0,
@@ -5426,6 +5482,24 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "33854624": {
+      "name": "Bystial Magnamhut",
+      "viewsweek": 0,
+      "views": 2534806,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
       "formats": [
         "TCG",
         "OCG",
@@ -7074,6 +7148,24 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "45005708": {
+      "name": "The Bystial Aluber",
+      "viewsweek": 0,
+      "views": 114456,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "45171524": {
@@ -9216,6 +9308,25 @@
         "advanced": false
       }
     },
+    "60242223": {
+      "name": "Bystial Saronir",
+      "viewsweek": 0,
+      "views": 1107941,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "60303245": {
       "name": "Salamangreat Almiraj",
       "viewsweek": 0,
@@ -10357,6 +10468,24 @@
         "advanced": false
       }
     },
+    "69120785": {
+      "name": "The Bystial Alba Los",
+      "viewsweek": 0,
+      "views": 42748,
+      "upvotes": 5,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "69230391": {
       "name": "Thestalos the Mega Monarch",
       "viewsweek": 0,
@@ -10879,6 +11008,25 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": true
+      }
+    },
+    "72656408": {
+      "name": "Bystial Baldrake",
+      "viewsweek": 0,
+      "views": 1047255,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Bystial",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
