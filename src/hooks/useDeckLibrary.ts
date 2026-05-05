@@ -31,8 +31,13 @@ export function useDeckLibrary() {
   const setSavedFoldersAndPersist = useCallback(
     (producer: (prev: SavedDeckFolder[]) => SavedDeckFolder[]) => {
       setSavedFolders((prev) => {
-        const next = ensureFolders(producer(prev.map(f => ({ ...f, decks: [...f.decks] }))));
+        // Evaluate the producer to get the new state array
+        const result = typeof producer === 'function' ? producer(prev) : producer;
+        const next = ensureFolders(result);
+        
+        // Persist the actual resulting array to localStorage
         persistFolders(next);
+        
         return next;
       });
     },

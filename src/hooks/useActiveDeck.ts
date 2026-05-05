@@ -64,14 +64,13 @@ export function useActiveDeck(
       const existingDeck = deckIdToSearch ? existingFolder?.decks.find(d => d.id === deckIdToSearch) : null;
 
       if (existingDeck && folderIdToSearch && deckIdToSearch) {
-        let updatedName = '';
+        const nextName = trimmedName || existingDeck.name;
+        
         setSavedFoldersAndPersist((prev) =>
           prev.map((folder) => {
             if (folder.id !== folderIdToSearch) return folder;
             const decks = folder.decks.map((deckEntry) => {
               if (deckEntry.id !== deckIdToSearch) return deckEntry;
-              const nextName = trimmedName || deckEntry.name;
-              updatedName = nextName;
               return {
                 ...deckEntry,
                 name: nextName,
@@ -83,8 +82,9 @@ export function useActiveDeck(
             return { ...folder, decks };
           }),
         );
+        
         toast.success('Saved deck updated.');
-        setActiveDeck({ folderId: folderIdToSearch, deckId: deckIdToSearch, name: updatedName || existingDeck.name });
+        setActiveDeck({ folderId: folderIdToSearch, deckId: deckIdToSearch, name: nextName });
         lastSavedDeckRef.current = deckString;
         return;
       }
@@ -101,9 +101,11 @@ export function useActiveDeck(
         const next = [...prev];
         let targetIndex = folderId ? next.findIndex((f) => f.id === folderId) : -1;
         if (targetIndex < 0) targetIndex = 0;
+        if (next.length === 0) return next;
         
-        const targetFolder = next[targetIndex];
+        const targetFolder = { ...next[targetIndex] };
         targetFolder.decks = [entry, ...targetFolder.decks].slice(0, 200);
+        next[targetIndex] = targetFolder;
         
         setActiveDeck({ folderId: targetFolder.id, deckId: entry.id, name: entry.name });
         toast.success('Deck saved locally.');
