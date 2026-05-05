@@ -178,7 +178,7 @@ export function SummaryPanel({
                 type="button"
                 className="inline-flex h-11 items-center uppercase justify-center gap-2 rounded-l-full bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:bg-slate-700"
                 onClick={onExportTxt}
-                title="Export to TXT"
+                title="Copy Deck List (TXT) to Clipboard"
               >
                 TXT
               </button>

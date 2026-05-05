@@ -283,7 +283,7 @@ export default function App() {
     if (activeDeck?.deckId === deckId) setActiveDeck(null);
   };
 
-  const handleExportTxt = useCallback(() => {
+  const handleExportTxt = useCallback(async () => {
     if (!deckGroups) {
       toast.info('No deck loaded to export.');
       return;
@@ -311,13 +311,13 @@ export default function App() {
     lines.push(`Total Points: ${totalPoints}`);
     if (pointCap > 0) lines.push(`Point Cap: ${pointCap}`);
 
-    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = `${activeDeck?.name ? activeDeck.name.replace(/[^a-z0-9]/gi, '_').toLowerCase() : 'deck-list'}.txt`;
-    anchor.click();
-    URL.revokeObjectURL(url);
+    try {
+      await navigator.clipboard.writeText(lines.join('\n'));
+      toast.success('Deck list text copied to clipboard.');
+    } catch (error) {
+      console.warn('Clipboard unavailable', error);
+      toast.error('Clipboard unavailable.');
+    }
   }, [deckGroups, activeDeck, totalPoints, pointCap]);
 
   const handleImportYdkFile = async (file: File) => {
