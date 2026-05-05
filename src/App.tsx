@@ -536,7 +536,7 @@ export default function App() {
         if (folder.id !== activeDeck.folderId) return folder;
         const decks = folder.decks.map(d => {
           if (d.id !== activeDeck.deckId) return d;
-          if (d.summary?.points !== totalPoints) {
+          if (d.summary && d.summary.points !== totalPoints) {
             changed = true;
             return { ...d, summary: { ...d.summary, points: totalPoints } };
           }
