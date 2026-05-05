@@ -526,6 +526,28 @@ export default function App() {
     deckInputSourceRef.current = 'system';
   }, [deck, deckInput, handleSaveDeck, totalPoints]);
 
+  // Self-correct points in saved library when totalPoints updates asynchronously
+  useEffect(() => {
+    if (!activeDeck || !deckInput.trim() || deckInput.trim() !== lastSavedDeckRef.current) return;
+    
+    setSavedFoldersAndPersist((prev) => {
+      let changed = false;
+      const next = prev.map(folder => {
+        if (folder.id !== activeDeck.folderId) return folder;
+        const decks = folder.decks.map(d => {
+          if (d.id !== activeDeck.deckId) return d;
+          if (d.summary?.points !== totalPoints) {
+            changed = true;
+            return { ...d, summary: { ...d.summary, points: totalPoints } };
+          }
+          return d;
+        });
+        return { ...folder, decks };
+      });
+      return changed ? next : prev;
+    });
+  }, [totalPoints, activeDeck, deckInput, setSavedFoldersAndPersist, lastSavedDeckRef]);
+
   const prevIsResultsViewRefForScroll = useRef(isResultsView);
   useEffect(() => {
     if (typeof window === 'undefined') return;
