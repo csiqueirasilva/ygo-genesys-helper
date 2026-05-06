@@ -106,6 +106,7 @@ export default function App() {
     setActiveDeck,
     setDeckInput
   );
+  const isSavedDeck = Boolean(activeDeck?.folderId && activeDeck?.deckId);
 
   useEffect(() => {
     const handlePaste = (event: ClipboardEvent) => {
@@ -635,7 +636,12 @@ export default function App() {
               onBack={() => navigate('/')}
               onShowSavedDecks={() => setShowSavedDeckModal(true)}
               activeDeckName={activeDeck?.name ?? null}
-              onRenameDeck={(name) => activeDeck && handleRenameSavedDeck(activeDeck.folderId!, activeDeck.deckId!, name)}
+              isSavedDeck={isSavedDeck}
+              onRenameDeck={(name) => {
+                if (activeDeck?.folderId && activeDeck?.deckId) {
+                  handleRenameSavedDeck(activeDeck.folderId, activeDeck.deckId, name);
+                }
+              }}
               onSaveDeck={() => handleSaveDeck('', undefined, totalPoints)}
               onExportTxt={handleExportTxt}
               onExportPdf={() => {

@@ -28,6 +28,10 @@ export function parseYdke(rawInput: string): ParsedDeck {
   const sections = data.replace(/\s+/g, '').split('!');
 
   if (sections.length < 3) {
+    const decoded = tryDecodeSharedDeckPayload(data);
+    if (decoded) {
+      return parseYdke(decoded);
+    }
     throw new Error('Incomplete YDKE link. Make sure it includes main, extra, and side sections.');
   }
 
@@ -47,6 +51,20 @@ export function parseYdke(rawInput: string): ParsedDeck {
     hasInferredIds: inferredCount > 0 || undefined,
     inferredCardCount: inferredCount || undefined,
   };
+}
+
+function tryDecodeSharedDeckPayload(encoded: string): string | null {
+  try {
+    const decoded = decodeDeckHash(encoded);
+    const ydke = decoded.ydke.trim();
+    if (ydke.toLowerCase().startsWith('ydke://')) {
+      return ydke;
+    }
+  } catch {
+    // Ignore and fall back to the raw parser error.
+  }
+
+  return null;
 }
 
 interface DecodedSection {
@@ -72,7 +90,7 @@ function decodeSection(section: string): DecodedSection {
   let hadInferred = false;
   let inferredCount = 0;
   for (let offset = 0; offset < view.byteLength; offset += 4) {
-    let cardId = view.getUint32(offset, true);
+    const cardId = view.getUint32(offset, true);
     if (cardId === 0 && lastId !== 0) {
       // Some deck editors encode alternate-art duplicates as 0. Keep them as 0 so users
       // can manually resolve the missing IDs, but still track that an inferred slot existed.

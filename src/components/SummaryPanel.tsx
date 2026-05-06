@@ -74,6 +74,7 @@ interface SummaryPanelProps {
   onBack: () => void;
   onShowSavedDecks: () => void;
   activeDeckName: string | null;
+  isSavedDeck: boolean;
   onRenameDeck: (newName: string) => void;
   onSaveDeck: () => void;
   onExportTxt: () => void;
@@ -103,6 +104,7 @@ export function SummaryPanel({
   onBack,
   onShowSavedDecks,
   activeDeckName,
+  isSavedDeck,
   onRenameDeck,
   onSaveDeck,
   onExportTxt,
@@ -235,7 +237,7 @@ export function SummaryPanel({
             </h2>
           )}
         </div>
-        {activeDeckName ? (
+        {isSavedDeck ? (
           <button
             type="button"
             onClick={() => setIsRenaming(true)}
