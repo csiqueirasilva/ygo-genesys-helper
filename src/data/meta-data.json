@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-05-05T08:19:00.728Z",
+  "lastUpdated": "2026-05-06T08:33:50.569Z",
   "genesys": {
     "recentDecks": [
       {
         "name": "Atlantean Ice Barrier",
         "url": "https://ygoprodeck.com/deck/atlantean-ice-barrier-709203",
-        "meta": "Top 4 (18 players) 2 days ago piloted by Eray~"
+        "meta": "Top 4 (18 players) 3 days ago piloted by Eray~"
       },
       {
         "name": "Elfnote Crystron",
         "url": "https://ygoprodeck.com/deck/elfnote-crystron-709198",
-        "meta": "Runner-Up (18 players) 2 days ago piloted by Milad Ahmadi"
+        "meta": "Runner-Up (18 players) 3 days ago piloted by Milad Ahmadi"
       },
       {
         "name": "Gem-Knight",
@@ -124,34 +124,54 @@
   "advanced": {
     "recentDecks": [
       {
+        "name": "@Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/ignister-maliss-709374",
+        "meta": "Top 4 (~150 players) 2 weeks ago piloted by Antonio Allocca"
+      },
+      {
+        "name": "@Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/ignister-maliss-709368",
+        "meta": "Top 8 (111 players) 2 weeks ago piloted by Andrea Capelletti"
+      },
+      {
+        "name": "@Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/ignister-maliss-709365",
+        "meta": "Top 8 (88 players) 2 weeks ago piloted by D'Angelo"
+      },
+      {
+        "name": "Sky Striker @Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/sky-striker-ignister-maliss-709363",
+        "meta": "Top 8 (~150 players) 2 weeks ago piloted by Gianluca Tufariello"
+      },
+      {
         "name": "Despia Branded",
         "url": "https://ygoprodeck.com/deck/despia-branded-709207",
-        "meta": "Winner (370 players) 3 days ago piloted by Julian Strassl"
+        "meta": "Winner (370 players) 4 days ago piloted by Julian Strassl"
       },
       {
         "name": "Fiendsmith Azamina Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-azamina-yummy-709186",
-        "meta": "Top 16 (275 players) 3 days ago piloted by Ruben Penaranda"
+        "meta": "Top 16 (275 players) 4 days ago piloted by Ruben Penaranda"
       },
       {
         "name": "Azamina Yummy",
         "url": "https://ygoprodeck.com/deck/azamina-yummy-709183",
-        "meta": "Top 8 (275 players) 3 days ago piloted by Nicolay Arriagada Palmet"
+        "meta": "Top 8 (275 players) 4 days ago piloted by Nicolay Arriagada Palmet"
       },
       {
         "name": "Branded",
         "url": "https://ygoprodeck.com/deck/branded-709175",
-        "meta": "Top 16 (275 players) 3 days ago piloted by Andres Torres"
+        "meta": "Top 16 (275 players) 4 days ago piloted by Andres Torres"
       },
       {
         "name": "Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/branded-dracotail-709171",
-        "meta": "Top 8 (275 players) 3 days ago piloted by Cristian Urena"
+        "meta": "Top 8 (275 players) 4 days ago piloted by Cristian Urena"
       },
       {
         "name": "Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/branded-dracotail-709169",
-        "meta": "Winner (275 players) 3 days ago piloted by Julien Kehon"
+        "meta": "Winner (275 players) 4 days ago piloted by Julien Kehon"
       },
       {
         "name": "Bystial Maliss",
@@ -202,29 +222,11 @@
         "name": "Azamina Mitsurugi",
         "url": "https://ygoprodeck.com/deck/azamina-mitsurugi-708398",
         "meta": "Top 4 (435 players) 2 weeks ago piloted by Andreas D."
-      },
-      {
-        "name": "Azamina Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/azamina-mitsurugi-708387",
-        "meta": "Top 8 (435 players) 2 weeks ago piloted by Jack Verma"
-      },
-      {
-        "name": "Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/branded-dracotail-708382",
-        "meta": "Top 8 (111 players) 2 weeks ago piloted by Oliver Newton"
-      },
-      {
-        "name": "Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/branded-dracotail-708343",
-        "meta": "Top 8 (~150 players) 1 week ago piloted by Lorenzo Sidoti"
-      },
-      {
-        "name": "Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/mitsurugi-708342",
-        "meta": "Top 4 (~150 players) 1 week ago piloted by @Kaputzee"
       }
     ],
     "metaArchetypes": [
+      "@Ignister Maliss",
+      "Sky Striker @Ignister Maliss",
       "Despia Branded",
       "Fiendsmith Azamina Yummy",
       "Azamina Yummy",
@@ -237,8 +239,7 @@
       "K9 Vanquish Soul",
       "Radiant Typhoon Mimighoul Yummy",
       "Radiant Typhoon",
-      "Azamina Mitsurugi",
-      "Mitsurugi"
+      "Azamina Mitsurugi"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -7595,7 +7596,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "3734202": {
@@ -19232,6 +19233,24 @@
       ],
       "metaContext": {}
     },
+    "10493654": {
+      "name": "A.I. Contact",
+      "viewsweek": 0,
+      "views": 68318,
+      "upvotes": 3,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "10505300": {
       "name": "Slower Swallow",
       "viewsweek": 2,
@@ -21351,6 +21370,24 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "11738489": {
+      "name": "The Arrival Cyberse @Ignister",
+      "viewsweek": 0,
+      "views": 246730,
+      "upvotes": 22,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "11741041": {
       "name": "Raigeki Bottle",
@@ -25627,7 +25664,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "14148099": {
@@ -28494,6 +28531,25 @@
       ],
       "metaContext": {}
     },
+    "15808381": {
+      "name": "Achichi @Ignister",
+      "viewsweek": 0,
+      "views": 211888,
+      "upvotes": 12,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "15839054": {
       "name": "Synchro Fusionist",
       "viewsweek": 1,
@@ -28834,7 +28890,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "16021142": {
@@ -40500,6 +40556,25 @@
       ],
       "metaContext": {}
     },
+    "22933016": {
+      "name": "A.I.dle Reborn",
+      "viewsweek": 0,
+      "views": 166515,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "22938501": {
       "name": "Regenesis Sage",
       "viewsweek": 3,
@@ -44160,7 +44235,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "24903843": {
@@ -52891,7 +52966,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "30126992": {
@@ -64907,6 +64982,25 @@
         "advanced": false
       }
     },
+    "37061511": {
+      "name": "Water Leviathan @Ignister",
+      "viewsweek": 0,
+      "views": 86302,
+      "upvotes": 4,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "37083210": {
       "name": "Cross Counter",
       "viewsweek": 1,
@@ -68582,7 +68676,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "39139935": {
@@ -72197,7 +72291,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "41350417": {
@@ -74426,7 +74520,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "42431833": {
@@ -96732,6 +96826,25 @@
         "advanced": false
       }
     },
+    "55762976": {
+      "name": "Gussari @Ignister",
+      "viewsweek": 0,
+      "views": 50933,
+      "upvotes": 1,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "55763552": {
       "name": "Dragon Piper",
       "viewsweek": 2,
@@ -102443,6 +102556,25 @@
       ],
       "metaContext": {}
     },
+    "59054773": {
+      "name": "Ignister A.I.Land",
+      "viewsweek": 0,
+      "views": 188803,
+      "upvotes": 3,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "59057152": {
       "name": "Noble Knight Medraut",
       "viewsweek": 1,
@@ -102840,7 +102972,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "59344077": {
@@ -105934,7 +106066,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61173621": {
@@ -106275,7 +106407,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61405855": {
@@ -107520,7 +107652,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "62113340": {
@@ -114171,6 +114303,25 @@
       ],
       "metaContext": {}
     },
+    "66102515": {
+      "name": "Kurikurinku @Ignister",
+      "viewsweek": 0,
+      "views": 9394,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "66104644": {
       "name": "Magister of Endymion",
       "viewsweek": 1,
@@ -114253,7 +114404,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "66200210": {
@@ -119599,7 +119750,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "69385019": {
@@ -128054,7 +128205,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "74576482": {
@@ -132805,6 +132956,25 @@
       ],
       "metaContext": {}
     },
+    "77421977": {
+      "name": "A.I. Shadow",
+      "viewsweek": 0,
+      "views": 43880,
+      "upvotes": 3,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "77432167": {
       "name": "Sun God Unification",
       "viewsweek": 1,
@@ -135117,6 +135287,25 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "78751195": {
+      "name": "Doshin @Ignister",
+      "viewsweek": 0,
+      "views": 98630,
+      "upvotes": 4,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "78778375": {
@@ -141128,6 +141317,25 @@
       ],
       "metaContext": {}
     },
+    "82257671": {
+      "name": "Gatchiri @Ignister",
+      "viewsweek": 0,
+      "views": 159071,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "82260502": {
       "name": "Hieracosphinx",
       "viewsweek": 1,
@@ -145896,7 +146104,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "85346853": {
@@ -147665,6 +147873,25 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "86449372": {
+      "name": "TA.I. Strike",
+      "viewsweek": 0,
+      "views": 65482,
+      "upvotes": 2,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "86483512": {
@@ -150711,6 +150938,25 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "88413677": {
+      "name": "Doyon @Ignister",
+      "viewsweek": 0,
+      "views": 144128,
+      "upvotes": 5,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "88438982": {
@@ -165228,6 +165474,25 @@
         "advanced": false
       }
     },
+    "97383507": {
+      "name": "Dark Templar @Ignister",
+      "viewsweek": 0,
+      "views": 186872,
+      "upvotes": 12,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "97385276": {
       "name": "Level Warrior",
       "viewsweek": 1,
@@ -167225,7 +167490,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "98535702": {
