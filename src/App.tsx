@@ -154,9 +154,17 @@ export default function App() {
     });
   }, [pointSearch, pointMin, pointMax]);
 
+  const sortedPointCards = useMemo(
+    () =>
+      [...filteredPointCards].sort(
+        (a, b) => b.points - a.points || a.name.localeCompare(b.name),
+      ),
+    [filteredPointCards],
+  );
+
   const visiblePointCards = useMemo(
-    () => filteredPointCards.slice(0, pointListLimit),
-    [filteredPointCards, pointListLimit],
+    () => sortedPointCards.slice(0, pointListLimit),
+    [sortedPointCards, pointListLimit],
   );
 
   const commitPointFilters = () => {
@@ -807,6 +815,8 @@ export default function App() {
                     <button
                       key={card.name}
                       onClick={() => handlePointCardClick(card)}
+                      data-testid="genesys-point-card"
+                      data-points={card.points}
                       className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-white/5 p-2 text-left transition hover:border-white/20 hover:bg-white/10"
                     >
                       <div className="relative h-14 w-10 flex-shrink-0 overflow-hidden rounded-md bg-slate-800">
