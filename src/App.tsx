@@ -107,6 +107,13 @@ export default function App() {
     setDeckInput
   );
   const isSavedDeck = Boolean(activeDeck?.folderId && activeDeck?.deckId);
+  const handleImportDeckInput = useCallback(
+    (value: string) => {
+      setActiveDeck(null);
+      setDeckInput(value);
+    },
+    [setActiveDeck, setDeckInput],
+  );
 
   useEffect(() => {
     const handlePaste = (event: ClipboardEvent) => {
@@ -117,6 +124,7 @@ export default function App() {
       const pasted = event.clipboardData?.getData('text')?.trim();
       if (pasted && (pasted.startsWith('ydke://') || pasted.startsWith('ydk://'))) {
         event.preventDefault();
+        setActiveDeck(null);
         deckInputSourceRef.current = 'url';
         setDeckInput(pasted);
         toast.success('YDKE pasted and deck updated.');
@@ -460,6 +468,7 @@ export default function App() {
         const fetched = await fetchCardsByKonamiIds([...mainKonami, ...extraKonami, ...sideKonami]);
         const convert = (ids: number[]) => ids.map(id => fetched[id]?.id).filter(id => id > 0);
 
+        setActiveDeck(null);
         setDeckInput(buildYdke(convert(mainKonami), convert(extraKonami), convert(sideKonami)));
         deckInputSourceRef.current = 'json';
         toast.success('JSON deck imported.');
@@ -605,7 +614,7 @@ export default function App() {
           <ImportScreen
             genesysData={genesysData}
             deckError={deckError}
-            onDeckInputChange={setDeckInput}
+            onDeckInputChange={handleImportDeckInput}
             onViewBreakdown={handleViewResults}
             onImportYdkFile={handleImportYdkFile}
             onImportJsonDeck={handleImportJsonDeck}
