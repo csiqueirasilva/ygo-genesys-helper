@@ -1,21 +1,21 @@
 {
-  "lastUpdated": "2026-05-07T08:41:30.586Z",
+  "lastUpdated": "2026-05-08T07:48:19.063Z",
   "genesys": {
     "recentDecks": [
       {
         "name": "Magnet Warrior",
         "url": "https://ygoprodeck.com/deck/magnet-warrior-709461",
-        "meta": "Winner (18 players) 4 days ago piloted by Jakob Rodt"
+        "meta": "Winner (18 players) 5 days ago piloted by Jakob Rodt"
       },
       {
         "name": "Atlantean Ice Barrier",
         "url": "https://ygoprodeck.com/deck/atlantean-ice-barrier-709203",
-        "meta": "Top 4 (18 players) 4 days ago piloted by Eray~"
+        "meta": "Top 4 (18 players) 5 days ago piloted by Eray~"
       },
       {
         "name": "Elfnote Crystron",
         "url": "https://ygoprodeck.com/deck/elfnote-crystron-709198",
-        "meta": "Runner-Up (18 players) 4 days ago piloted by Milad Ahmadi"
+        "meta": "Runner-Up (18 players) 5 days ago piloted by Milad Ahmadi"
       },
       {
         "name": "Gem-Knight",
@@ -123,6 +123,46 @@
   "advanced": {
     "recentDecks": [
       {
+        "name": "Branded Dracotail",
+        "url": "https://ygoprodeck.com/deck/branded-dracotail-709728",
+        "meta": "Top 16 (275 players) 6 days ago piloted by Renzo Agustin Vasquez Tarrillo"
+      },
+      {
+        "name": "K9 Vanquish Soul",
+        "url": "https://ygoprodeck.com/deck/k9-vanquish-soul-709725",
+        "meta": "Top 32 (275 players) 6 days ago piloted by Pablo Cesar Dominguez Lamazares"
+      },
+      {
+        "name": "Magistus Branded Dracotail",
+        "url": "https://ygoprodeck.com/deck/magistus-branded-dracotail-709723",
+        "meta": "Top 16 (275 players) 6 days ago piloted by Luciano Jeronimo Bregion Junior"
+      },
+      {
+        "name": "Branded Dracotail",
+        "url": "https://ygoprodeck.com/deck/branded-dracotail-709721",
+        "meta": "Top 32 (275 players) 6 days ago piloted by Josue Samuel Becerra Duque"
+      },
+      {
+        "name": "Lunalight",
+        "url": "https://ygoprodeck.com/deck/lunalight-709720",
+        "meta": "Runner-Up (~100 players) 1 week ago piloted by Iestyn Howells"
+      },
+      {
+        "name": "Mitsurugi",
+        "url": "https://ygoprodeck.com/deck/mitsurugi-709717",
+        "meta": "Top 4 (~100 players) 1 week ago piloted by Matthew Williams"
+      },
+      {
+        "name": "Onomat Ryzeal",
+        "url": "https://ygoprodeck.com/deck/onomat-ryzeal-709708",
+        "meta": "Top 4 (275 players) 6 days ago piloted by Key Andree Chavez Curioso"
+      },
+      {
+        "name": "Sky Striker Azamina Shining Sarcophagus Mitsurugi Yummy",
+        "url": "https://ygoprodeck.com/deck/sky-striker-azamina-shining-sarcophagus-mitsurugi-yummy-709696",
+        "meta": "Winner (~150 players) 1 week ago piloted by Lukas Wegerhoff"
+      },
+      {
         "name": "@Ignister Maliss",
         "url": "https://ygoprodeck.com/deck/ignister-maliss-709554",
         "meta": "Winner (72 players) 1 week ago piloted by Fede Di Stefano"
@@ -150,27 +190,27 @@
       {
         "name": "@Ignister Maliss",
         "url": "https://ygoprodeck.com/deck/ignister-maliss-709525",
-        "meta": "Top 8 (370 players) 5 days ago piloted by Abdu El-Metnawi"
+        "meta": "Top 8 (370 players) 6 days ago piloted by Abdu El-Metnawi"
       },
       {
         "name": "Fiendsmith Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-yummy-709524",
-        "meta": "Top 4 (275 players) 5 days ago piloted by Gilberto Hector Alcazar Jurado"
+        "meta": "Top 4 (275 players) 6 days ago piloted by Gilberto Hector Alcazar Jurado"
       },
       {
         "name": "Fiendsmith Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-yummy-709522",
-        "meta": "Top 16 (275 players) 5 days ago piloted by Jhon David Guerrero Sanchez"
+        "meta": "Top 16 (275 players) 6 days ago piloted by Jhon David Guerrero Sanchez"
       },
       {
         "name": "@Ignister Maliss",
         "url": "https://ygoprodeck.com/deck/ignister-maliss-709520",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Rico Eichelberger"
+        "meta": "Top 32 (275 players) 6 days ago piloted by Rico Eichelberger"
       },
       {
         "name": "Radiant Typhoon",
         "url": "https://ygoprodeck.com/deck/radiant-typhoon-709517",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Benjamin Ignacio Munoz Mena"
+        "meta": "Top 32 (275 players) 6 days ago piloted by Benjamin Ignacio Munoz Mena"
       },
       {
         "name": "K9 Vanquish Soul",
@@ -180,62 +220,23 @@
       {
         "name": "Fiendsmith Radiant Typhoon",
         "url": "https://ygoprodeck.com/deck/fiendsmith-radiant-typhoon-709496",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Carlos Andres Herrera Buendia"
-      },
-      {
-        "name": "Azamina Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/azamina-mitsurugi-709491",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Jorge Eduardo Reita Reyes"
-      },
-      {
-        "name": "Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/branded-dracotail-709487",
-        "meta": "Top 16 (275 players) 5 days ago piloted by Rene Epigmenio Ybarra Trapote"
-      },
-      {
-        "name": "Despia Branded",
-        "url": "https://ygoprodeck.com/deck/despia-branded-709483",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Vinicius De Oliveira Curcio"
-      },
-      {
-        "name": "Lunalight",
-        "url": "https://ygoprodeck.com/deck/lunalight-709470",
-        "meta": "Top 32 (275 players) 5 days ago piloted by Felipe Santamaria Rodriguez"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-709374",
-        "meta": "Top 4 (~150 players) 2 weeks ago piloted by Antonio Allocca"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-709368",
-        "meta": "Top 8 (111 players) 2 weeks ago piloted by Andrea Capelletti"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-709365",
-        "meta": "Top 8 (88 players) 2 weeks ago piloted by D'Angelo"
-      },
-      {
-        "name": "Sky Striker @Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/sky-striker-ignister-maliss-709363",
-        "meta": "Top 8 (~150 players) 2 weeks ago piloted by Gianluca Tufariello"
+        "meta": "Top 32 (275 players) 6 days ago piloted by Carlos Andres Herrera Buendia"
       }
     ],
     "metaArchetypes": [
-      "@Ignister Maliss",
+      "Branded Dracotail",
       "K9 Vanquish Soul",
+      "Magistus Branded Dracotail",
+      "Lunalight",
       "Mitsurugi",
+      "Onomat Ryzeal",
+      "Sky Striker Azamina Shining Sarcophagus Mitsurugi Yummy",
+      "@Ignister Maliss",
       "K9 Mitsurugi",
       "Despia Branded",
       "Fiendsmith Yummy",
       "Radiant Typhoon",
-      "Fiendsmith Radiant Typhoon",
-      "Azamina Mitsurugi",
-      "Branded Dracotail",
-      "Lunalight",
-      "Sky Striker @Ignister Maliss"
+      "Fiendsmith Radiant Typhoon"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -685,6 +686,24 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "59080": {
+      "name": "Magia Magic - Thunder of Judgment",
+      "viewsweek": 0,
+      "views": 12529,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Magistus",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "62121": {
@@ -1383,7 +1402,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "336601": {
@@ -2357,7 +2376,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "876330": {
@@ -12964,7 +12983,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "5795882": {
@@ -15247,7 +15266,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "6799227": {
@@ -16644,7 +16663,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "7512044": {
@@ -16714,7 +16733,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "7562372": {
@@ -18897,7 +18916,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "8634636": {
@@ -18950,7 +18969,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "8662794": {
@@ -20765,7 +20784,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "9523599": {
@@ -57582,7 +57601,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "27174286": {
@@ -68331,7 +68350,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "32271987": {
@@ -72164,7 +72183,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34026662": {
@@ -73701,7 +73720,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34761841": {
@@ -73999,7 +74018,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34923554": {
@@ -74054,7 +74073,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34945480": {
@@ -75924,7 +75943,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "35871958": {
@@ -75961,7 +75980,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "35886170": {
@@ -76337,7 +76356,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "36099620": {
@@ -78614,7 +78633,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "37260946": {
@@ -81345,7 +81364,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "38511382": {
@@ -89738,7 +89757,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "42566602": {
@@ -111164,6 +111183,25 @@
         "advanced": false
       }
     },
+    "53276089": {
+      "name": "Ryzeal Mass Driver",
+      "viewsweek": 0,
+      "views": 13334,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Ryzeal",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "53286626": {
       "name": "Sunvine Sowing",
       "viewsweek": 1,
@@ -123261,7 +123299,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "59019082": {
@@ -125939,7 +125977,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "60398723": {
@@ -127430,6 +127468,25 @@
         "advanced": false
       }
     },
+    "61116514": {
+      "name": "Palm Ryzeal",
+      "viewsweek": 0,
+      "views": 38454,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Ryzeal",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "61127349": {
       "name": "Big Bang Shot",
       "viewsweek": 5,
@@ -127501,7 +127558,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61160289": {
@@ -127775,7 +127832,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61283655": {
@@ -138225,7 +138282,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "66540884": {
@@ -149573,7 +149630,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "72246674": {
@@ -150235,7 +150292,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "72529749": {
@@ -152624,7 +152681,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "73665146": {
@@ -154447,7 +154504,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "74694807": {
@@ -162248,7 +162305,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "78693036": {
@@ -164175,7 +164232,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "79794767": {
@@ -173942,7 +173999,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "84433295": {
@@ -175426,7 +175483,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "85136114": {
@@ -196475,7 +196532,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "95929069": {
