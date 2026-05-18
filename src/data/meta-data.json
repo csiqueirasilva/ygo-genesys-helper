@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-17T08:26:58.527Z",
+  "lastUpdated": "2026-05-18T10:15:23.066Z",
   "genesys": {
     "recentDecks": [
       {
@@ -124,6 +124,76 @@
   "advanced": {
     "recentDecks": [
       {
+        "name": "Radiant Typhoon",
+        "url": "https://ygoprodeck.com/deck/radiant-typhoon-711698",
+        "meta": "Top 4 (~350 players) 2 days ago piloted by Walter Taylor III"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-711680",
+        "meta": "Top 8 (~350 players) 2 days ago piloted by Benjamin Tamarkin"
+      },
+      {
+        "name": "Mitsurugi",
+        "url": "https://ygoprodeck.com/deck/mitsurugi-711667",
+        "meta": "Top 4 (114 players) 2 days ago piloted by Steve Harutogu"
+      },
+      {
+        "name": "Branded Elfnote",
+        "url": "https://ygoprodeck.com/deck/branded-elfnote-711664",
+        "meta": "Top 4 (105 players) 2 days ago piloted by Elijah Cauthen"
+      },
+      {
+        "name": "Sky Striker",
+        "url": "https://ygoprodeck.com/deck/sky-striker-711661",
+        "meta": "Top 4 (105 players) 2 days ago piloted by Andrew Shearer"
+      },
+      {
+        "name": "Branded Elfnote",
+        "url": "https://ygoprodeck.com/deck/branded-elfnote-711659",
+        "meta": "Top 8 (105 players) 2 days ago piloted by Justin Rhodes"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-711657",
+        "meta": "Top 8 (105 players) 2 days ago piloted by Noah Ward"
+      },
+      {
+        "name": "@Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/ignister-maliss-711654",
+        "meta": "Runner-Up (370 players) 2 weeks ago piloted by Rene Mayr"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-711653",
+        "meta": "Top 16 (704 players) 1 week ago piloted by Jose Carlo Carrillo Toscano"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-711648",
+        "meta": "Top 16 (574 players) 1 week ago piloted by Rafael Mariano Reich"
+      },
+      {
+        "name": "Azamina Yummy",
+        "url": "https://ygoprodeck.com/deck/azamina-yummy-711646",
+        "meta": "Top 4 (195 players) 1 week ago piloted by Sean Dynes"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-711639",
+        "meta": "Top 32 (574 players) 1 week ago piloted by Gustavo Vilela Maia do Carmo"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-711628",
+        "meta": "Top 4 (60 players) 1 week ago piloted by Joshua Dupre"
+      },
+      {
+        "name": "@Ignister Maliss",
+        "url": "https://ygoprodeck.com/deck/ignister-maliss-711626",
+        "meta": "Top 8 (~175 players) 1 week ago piloted by Alejandro Montenegro"
+      },
+      {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-711144",
         "meta": "Top 32 (574 players) 1 week ago piloted by Eric Kenji"
@@ -152,90 +222,19 @@
         "name": "Azamina White Forest Yummy",
         "url": "https://ygoprodeck.com/deck/azamina-white-forest-yummy-711052",
         "meta": "Top 32 (574 players) 1 week ago piloted by Fabio Lima Motta"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-710945",
-        "meta": "Runner-Up (~200 players) 1 week ago piloted by James McClendon Jr."
-      },
-      {
-        "name": "Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/branded-dracotail-710941",
-        "meta": "Top 8 (704 players) 1 week ago piloted by Rene Epigmenio Ybarra Trapote"
-      },
-      {
-        "name": "Ryzeal Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/ryzeal-mitsurugi-710938",
-        "meta": "Top 8 (704 players) 1 week ago piloted by Alfonso Gonzalez Rivera"
-      },
-      {
-        "name": "DoomZ",
-        "url": "https://ygoprodeck.com/deck/doomz-710933",
-        "meta": "Winner (166 players) 1 week ago piloted by Jordan Kroyter"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-710924",
-        "meta": "Top 8 (~175 players) 1 week ago piloted by Trevor Reid"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-710917",
-        "meta": "Top 8 (79 players) 1 week ago piloted by Jeremy Bader"
-      },
-      {
-        "name": "Mitsurugi Sky Striker",
-        "url": "https://ygoprodeck.com/deck/mitsurugi-sky-striker-710915",
-        "meta": "Top 8 (79 players) 1 week ago piloted by William Lewis"
-      },
-      {
-        "name": "Branded",
-        "url": "https://ygoprodeck.com/deck/branded-710913",
-        "meta": "Top 16 (574 players) 1 week ago piloted by Aylton Bernadino de Almeida Junior"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-710912",
-        "meta": "Top 8 (704 players) 1 week ago piloted by Alberto Sebastian Muñoz Martinez"
-      },
-      {
-        "name": "Despia Branded",
-        "url": "https://ygoprodeck.com/deck/despia-branded-710911",
-        "meta": "Top 32 (704 players) 1 week ago piloted by Erick Bernardo Vega Quezada"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-710909",
-        "meta": "Top 32 (574 players) 1 week ago piloted by Kaléu Silveira"
-      },
-      {
-        "name": "Fiendsmith Elfnote",
-        "url": "https://ygoprodeck.com/deck/fiendsmith-elfnote-710905",
-        "meta": "Top 16 (574 players) 1 week ago piloted by Cleiton Ferreira de Jesus"
-      },
-      {
-        "name": "Fiendsmith Yubel",
-        "url": "https://ygoprodeck.com/deck/fiendsmith-yubel-710901",
-        "meta": "Top 4 (~120 players) 1 week ago piloted by Ahmed Adel Aljazaery"
-      },
-      {
-        "name": "DoomZ",
-        "url": "https://ygoprodeck.com/deck/doomz-710669",
-        "meta": "Top 8 (166 players) 1 week ago piloted by Victor Barbero"
       }
     ],
     "metaArchetypes": [
-      "Kewl Tune",
+      "Radiant Typhoon",
       "Despia Branded",
+      "Mitsurugi",
+      "Branded Elfnote",
+      "Sky Striker",
+      "@Ignister Maliss",
+      "Kewl Tune",
+      "Azamina Yummy",
       "Magistus Branded Dracotail",
-      "Azamina White Forest Yummy",
-      "Branded Dracotail",
-      "Ryzeal Mitsurugi",
-      "DoomZ",
-      "Mitsurugi Sky Striker",
-      "Branded",
-      "Fiendsmith Elfnote",
-      "Fiendsmith Yubel"
+      "Azamina White Forest Yummy"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -729,24 +728,6 @@
       ],
       "metaContext": {}
     },
-    "2463794": {
-      "name": "Fiendsmith's Requiem",
-      "viewsweek": 0,
-      "views": 910877,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "2743001": {
       "name": "Crystron Phoenix",
       "viewsweek": 0,
@@ -904,6 +885,24 @@
       ],
       "metaContext": {}
     },
+    "3723262": {
+      "name": "Wizard @Ignister",
+      "viewsweek": 0,
+      "views": 206480,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "3837261": {
       "name": "Dragonic Warrior",
       "viewsweek": 0,
@@ -1028,26 +1027,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "4779091": {
-      "name": "Yubel - Terror Incarnate",
-      "viewsweek": 0,
-      "views": 422452,
-      "upvotes": 6,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Yubel",
-      "formats": [
-        "Duel Links",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "4929256": {
@@ -1422,24 +1401,6 @@
         "advanced": true
       }
     },
-    "6798031": {
-      "name": "Ryzeal Cross",
-      "viewsweek": 0,
-      "views": 335770,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "6855503": {
       "name": "Masquerade the Blazing Dragon",
       "viewsweek": 0,
@@ -1492,25 +1453,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "7511613": {
-      "name": "Ryzeal Duo Drive",
-      "viewsweek": 0,
-      "views": 480470,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "7548747": {
@@ -1604,24 +1546,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "8633261": {
-      "name": "Ice Ryzeal",
-      "viewsweek": 0,
-      "views": 713490,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "8660395": {
@@ -1901,6 +1825,24 @@
         "advanced": true
       }
     },
+    "10493654": {
+      "name": "A.I. Contact",
+      "viewsweek": 0,
+      "views": 68419,
+      "upvotes": 3,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "10691144": {
       "name": "Mirror of the Ice Barrier",
       "viewsweek": 0,
@@ -1973,24 +1915,6 @@
         "advanced": false
       }
     },
-    "11464648": {
-      "name": "Fiendsmith's Rextremende",
-      "viewsweek": 0,
-      "views": 93163,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "11549357": {
       "name": "Gamma the Magnet Warrior",
       "viewsweek": 0,
@@ -2013,6 +1937,24 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "11738489": {
+      "name": "The Arrival Cyberse @Ignister",
+      "viewsweek": 0,
+      "views": 247135,
+      "upvotes": 22,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "12210097": {
@@ -2237,6 +2179,25 @@
       ],
       "metaContext": {}
     },
+    "14146794": {
+      "name": "Donyoribo @Ignister",
+      "viewsweek": 0,
+      "views": 40312,
+      "upvotes": 0,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "14220547": {
       "name": "Branded in Central Dogmatika",
       "viewsweek": 0,
@@ -2435,6 +2396,44 @@
       ],
       "metaContext": {}
     },
+    "15808381": {
+      "name": "Achichi @Ignister",
+      "viewsweek": 0,
+      "views": 212090,
+      "upvotes": 12,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "16020923": {
+      "name": "Pikari @Ignister",
+      "viewsweek": 0,
+      "views": 189883,
+      "upvotes": 9,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "16387555": {
       "name": "Kewl Tune Cue",
       "viewsweek": 0,
@@ -2505,6 +2504,24 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "16922142": {
+      "name": "Radiant Typhoon Krosea",
+      "viewsweek": 0,
+      "views": 271814,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "16956455": {
@@ -3123,6 +3140,25 @@
         "advanced": false
       }
     },
+    "20508881": {
+      "name": "Radiant Typhoon Vision",
+      "viewsweek": 0,
+      "views": 606161,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "20618850": {
       "name": "Runick Golden Droplet",
       "viewsweek": 0,
@@ -3161,6 +3197,24 @@
         "advanced": false
       }
     },
+    "20726052": {
+      "name": "Maliss <C> GWC-06",
+      "viewsweek": 0,
+      "views": 290050,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "20934683": {
       "name": "Azamina Debtors",
       "viewsweek": 0,
@@ -3171,6 +3225,24 @@
       "archetype": "Azamina",
       "formats": [
         "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "20938824": {
+      "name": "Maliss <P> March Hare",
+      "viewsweek": 0,
+      "views": 388524,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
         "TCG",
         "OCG",
         "Master Duel"
@@ -3308,6 +3380,25 @@
         "advanced": false
       }
     },
+    "21848500": {
+      "name": "Maliss <Q> Hearts Crypter",
+      "viewsweek": 0,
+      "views": 352238,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "21887175": {
       "name": "Mekk-Knight Crusadia Avramax",
       "viewsweek": 0,
@@ -3413,6 +3504,25 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "22933016": {
+      "name": "A.I.dle Reborn",
+      "viewsweek": 0,
+      "views": 166616,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "23002292": {
@@ -3743,6 +3853,24 @@
         "advanced": true
       }
     },
+    "24882256": {
+      "name": "Fire Phoenix @Ignister",
+      "viewsweek": 0,
+      "views": 116342,
+      "upvotes": 5,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "25072579": {
       "name": "Prototype Sky Striker Ace - Amatsu",
       "viewsweek": 0,
@@ -3912,6 +4040,25 @@
         "advanced": false
       }
     },
+    "25940932": {
+      "name": "Radiant Typhoon Ascendance",
+      "viewsweek": 0,
+      "views": 90715,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "25955749": {
       "name": "Sky Striker Maneuver - Jamming Waves!",
       "viewsweek": 0,
@@ -4010,24 +4157,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "26434972": {
-      "name": "Fiendsmith Kyrie",
-      "viewsweek": 0,
-      "views": 32969,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "26822796": {
@@ -4180,6 +4309,24 @@
         "advanced": false
       }
     },
+    "27755794": {
+      "name": "Radiant Typhoon Meghala",
+      "viewsweek": 0,
+      "views": 148575,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "28340377": {
       "name": "Court of Cards",
       "viewsweek": 0,
@@ -4252,7 +4399,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "28877382": {
@@ -4270,7 +4417,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "29284413": {
@@ -4470,6 +4617,24 @@
         "advanced": false
       }
     },
+    "30118811": {
+      "name": "Backup @Ignister",
+      "viewsweek": 0,
+      "views": 392290,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "30271097": {
       "name": "The Fallen &amp; The Virtuous",
       "viewsweek": 0,
@@ -4610,7 +4775,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "31411835": {
@@ -4741,26 +4906,6 @@
         "advanced": true
       }
     },
-    "31764700": {
-      "name": "Yubel - The Ultimate Nightmare",
-      "viewsweek": 0,
-      "views": 237821,
-      "upvotes": 15,
-      "downvotes": 8,
-      "staple": false,
-      "archetype": "Yubel",
-      "formats": [
-        "Duel Links",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "31833038": {
       "name": "Borreload Dragon",
       "viewsweek": 0,
@@ -4781,6 +4926,24 @@
         "advanced": false
       }
     },
+    "32061192": {
+      "name": "Maliss <P> Dormouse",
+      "viewsweek": 0,
+      "views": 602487,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "32442017": {
       "name": "DoomZ Raiders",
       "viewsweek": 0,
@@ -4796,7 +4959,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "32530043": {
@@ -4906,24 +5069,6 @@
         "advanced": false
       }
     },
-    "32991300": {
-      "name": "Fiendsmith's Agnumday",
-      "viewsweek": 0,
-      "views": 346021,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "33057951": {
       "name": "Surface",
       "viewsweek": 1,
@@ -5004,24 +5149,6 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Dracotail",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "34022970": {
-      "name": "Ext Ryzeal",
-      "viewsweek": 0,
-      "views": 683417,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
       "formats": [
         "TCG",
         "OCG",
@@ -5179,24 +5306,6 @@
         "advanced": true
       }
     },
-    "34909328": {
-      "name": "Ryzeal Detonator",
-      "viewsweek": 0,
-      "views": 552249,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "34933456": {
       "name": "Magistus Invocation",
       "viewsweek": 0,
@@ -5273,25 +5382,6 @@
         "advanced": false
       }
     },
-    "35552985": {
-      "name": "Fiendsmith's Sanct",
-      "viewsweek": 0,
-      "views": 202343,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "35569555": {
       "name": "Dogmatikamatrix",
       "viewsweek": 0,
@@ -5338,24 +5428,6 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "White Forest",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "35844557": {
-      "name": "Sword Ryzeal",
-      "viewsweek": 0,
-      "views": 676939,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
       "formats": [
         "TCG",
         "OCG",
@@ -5456,6 +5528,25 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": true
+      }
+    },
+    "37061511": {
+      "name": "Water Leviathan @Ignister",
+      "viewsweek": 0,
+      "views": 86302,
+      "upvotes": 4,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -5781,6 +5872,24 @@
         "advanced": false
       }
     },
+    "39138610": {
+      "name": "Allied Code Talker @Ignister",
+      "viewsweek": 0,
+      "views": 201037,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "39256679": {
       "name": "Beta The Magnet Warrior",
       "viewsweek": 0,
@@ -5822,6 +5931,24 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "39341885": {
+      "name": "Radiant Typhoon Varuroon, the Marine Eidolon",
+      "viewsweek": 0,
+      "views": 130747,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "39491690": {
@@ -6052,6 +6179,25 @@
         "advanced": false
       }
     },
+    "41306080": {
+      "name": "Hiyari @Ignister",
+      "viewsweek": 0,
+      "views": 121002,
+      "upvotes": 1,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "41420027": {
       "name": "Solemn Judgment",
       "viewsweek": 0,
@@ -6232,6 +6378,24 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": true
+      }
+    },
+    "42429678": {
+      "name": "Bururu @Ignister",
+      "viewsweek": 0,
+      "views": 140025,
+      "upvotes": 1,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -6482,7 +6646,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "43898403": {
@@ -6853,25 +7017,6 @@
         "advanced": true
       }
     },
-    "46640168": {
-      "name": "Fiendsmith's Lacrima",
-      "viewsweek": 0,
-      "views": 429672,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "46772449": {
       "name": "Evilswarm Exciton Knight",
       "viewsweek": 0,
@@ -6943,24 +7088,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "47172959": {
-      "name": "Yubel - The Loving Defender Forever",
-      "viewsweek": 0,
-      "views": 280221,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yubel",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "47219274": {
@@ -7244,7 +7371,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "49930315": {
@@ -7705,25 +7832,6 @@
         "advanced": false
       }
     },
-    "53276089": {
-      "name": "Ryzeal Mass Driver",
-      "viewsweek": 0,
-      "views": 13334,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "53408006": {
       "name": "Gem-Merchant",
       "viewsweek": 0,
@@ -7780,6 +7888,25 @@
         "advanced": false
       }
     },
+    "53813120": {
+      "name": "Radiant Typhoon Mandate",
+      "viewsweek": 0,
+      "views": 108579,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "53829527": {
       "name": "Crystron Cluster",
       "viewsweek": 0,
@@ -7819,6 +7946,24 @@
         "advanced": false
       }
     },
+    "53927851": {
+      "name": "Radiant Typhoon Varuroon, the Vibrant Vortex",
+      "viewsweek": 0,
+      "views": 151559,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "53971455": {
       "name": "Despian Luluwalilith",
       "viewsweek": 0,
@@ -7852,7 +7997,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "54241725": {
@@ -7890,7 +8035,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "54620698": {
@@ -8075,6 +8220,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "55762976": {
+      "name": "Gussari @Ignister",
+      "viewsweek": 0,
+      "views": 51034,
+      "upvotes": 1,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "55824220": {
       "name": "Pyroxene Fusion",
@@ -8359,6 +8523,24 @@
         "advanced": false
       }
     },
+    "57111661": {
+      "name": "Maliss <C> TB-11",
+      "viewsweek": 0,
+      "views": 257534,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "57605303": {
       "name": "Armed Dragon Thunderbolt",
       "viewsweek": 0,
@@ -8527,6 +8709,25 @@
         "advanced": false
       }
     },
+    "59054773": {
+      "name": "Ignister A.I.Land",
+      "viewsweek": 0,
+      "views": 189106,
+      "upvotes": 3,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "59123194": {
       "name": "Enlightenment Paladin",
       "viewsweek": 1,
@@ -8558,6 +8759,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "59332125": {
+      "name": "A.I. Love Fusion",
+      "viewsweek": 0,
+      "views": 85508,
+      "upvotes": 5,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "59438930": {
@@ -8790,25 +9010,6 @@
         "advanced": false
       }
     },
-    "60394026": {
-      "name": "Ryzeal Plugin",
-      "viewsweek": 0,
-      "views": 160780,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "60442460": {
       "name": "Branded Befallen",
       "viewsweek": 0,
@@ -8843,7 +9044,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "60921537": {
@@ -8902,25 +9103,6 @@
         "advanced": false
       }
     },
-    "61116514": {
-      "name": "Palm Ryzeal",
-      "viewsweek": 0,
-      "views": 38555,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "61159609": {
       "name": "Trismagistus",
       "viewsweek": 0,
@@ -8930,6 +9112,25 @@
       "staple": false,
       "archetype": "Magistus",
       "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "61168637": {
+      "name": "Linkslayer @Ignister",
+      "viewsweek": 0,
+      "views": 9999,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
@@ -8969,6 +9170,25 @@
       "staple": false,
       "archetype": "Magistus",
       "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "61399402": {
+      "name": "Light Dragon @Ignister",
+      "viewsweek": 0,
+      "views": 407634,
+      "upvotes": 9,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
@@ -9070,6 +9290,24 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": true
+      }
+    },
+    "62111090": {
+      "name": "Earth Golem @Ignister",
+      "viewsweek": 0,
+      "views": 379283,
+      "upvotes": 3,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -9587,7 +9825,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "65853758": {
@@ -9623,6 +9861,45 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": true
+      }
+    },
+    "66102515": {
+      "name": "Kurikurinku @Ignister",
+      "viewsweek": 0,
+      "views": 9495,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "66192538": {
+      "name": "Danmari @Ignister",
+      "viewsweek": 0,
+      "views": 77148,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "Speed Duel",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -9808,7 +10085,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "67359907": {
@@ -9896,7 +10173,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "68144894": {
@@ -9915,6 +10192,24 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "68337209": {
+      "name": "Maliss in Underground",
+      "viewsweek": 0,
+      "views": 584053,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "68371799": {
@@ -10009,7 +10304,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "68957034": {
@@ -10086,6 +10381,24 @@
         "advanced": false
       }
     },
+    "69272449": {
+      "name": "Maliss <P> White Rabbit",
+      "viewsweek": 0,
+      "views": 762865,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "69279219": {
       "name": "My Body as a Shield",
       "viewsweek": 1,
@@ -10121,6 +10434,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "69381150": {
+      "name": "A.I.Q",
+      "viewsweek": 0,
+      "views": 31227,
+      "upvotes": 2,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "69601012": {
@@ -10462,25 +10794,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "72238166": {
-      "name": "Node Ryzeal",
-      "viewsweek": 0,
-      "views": 364720,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "72272462": {
       "name": "Despian Quaeritis",
@@ -10840,6 +11153,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "74567889": {
+      "name": "Dark Infant @Ignister",
+      "viewsweek": 0,
+      "views": 117262,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Speed Duel",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "74631897": {
@@ -11369,6 +11701,25 @@
         "advanced": false
       }
     },
+    "77421977": {
+      "name": "A.I. Shadow",
+      "viewsweek": 0,
+      "views": 43981,
+      "upvotes": 3,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "77565204": {
       "name": "Future Fusion",
       "viewsweek": 1,
@@ -11539,26 +11890,6 @@
         "advanced": false
       }
     },
-    "78371393": {
-      "name": "Yubel",
-      "viewsweek": 0,
-      "views": 635890,
-      "upvotes": 38,
-      "downvotes": 9,
-      "staple": false,
-      "archetype": "Yubel",
-      "formats": [
-        "Duel Links",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "78397661": {
       "name": "Ecclesia and the Dark Dragon",
       "viewsweek": 1,
@@ -11589,6 +11920,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "78751195": {
+      "name": "Doshin @Ignister",
+      "viewsweek": 0,
+      "views": 98731,
+      "upvotes": 4,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "79418928": {
       "name": "Beta The Electromagnet Warrior",
@@ -11759,6 +12109,24 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": false
+      }
+    },
+    "80538047": {
+      "name": "Radiant Typhoon Swen",
+      "viewsweek": 0,
+      "views": 387711,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -11852,7 +12220,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "81767888": {
@@ -11930,24 +12298,6 @@
         "advanced": false
       }
     },
-    "82135803": {
-      "name": "Fiendsmith's Desirae",
-      "viewsweek": 0,
-      "views": 793099,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "82159583": {
       "name": "Clown Crew Biancaviso",
       "viewsweek": 0,
@@ -11963,6 +12313,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "82257671": {
+      "name": "Gatchiri @Ignister",
+      "viewsweek": 0,
+      "views": 159273,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "82319644": {
@@ -12220,7 +12589,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "84171830": {
@@ -12298,24 +12667,6 @@
         "advanced": false
       }
     },
-    "84433129": {
-      "name": "Star Ryzeal",
-      "viewsweek": 0,
-      "views": 154789,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Ryzeal",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "84477320": {
       "name": "Dracotail Phryxul",
       "viewsweek": 0,
@@ -12390,6 +12741,43 @@
         "advanced": false
       }
     },
+    "85315450": {
+      "name": "Radiant Typhoon Fonix, the Great Flame",
+      "viewsweek": 0,
+      "views": 151055,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
+    "85327820": {
+      "name": "A.I.'s Ritual",
+      "viewsweek": 0,
+      "views": 66416,
+      "upvotes": 6,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "85718645": {
       "name": "Delg the Dark Monarch",
       "viewsweek": 0,
@@ -12461,6 +12849,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "86449372": {
+      "name": "TA.I. Strike",
+      "viewsweek": 0,
+      "views": 65482,
+      "upvotes": 2,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "86762958": {
@@ -12670,6 +13077,25 @@
         "advanced": false
       }
     },
+    "88413677": {
+      "name": "Doyon @Ignister",
+      "viewsweek": 0,
+      "views": 144229,
+      "upvotes": 5,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "88494899": {
       "name": "Medium of the Ice Barrier",
       "viewsweek": 0,
@@ -12854,24 +13280,6 @@
       "downvotes": 3,
       "staple": false,
       "archetype": "Sky Striker",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "90829280": {
-      "name": "Spirit of Yubel",
-      "viewsweek": 0,
-      "views": 562018,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yubel",
       "formats": [
         "TCG",
         "OCG",
@@ -13121,7 +13529,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "93172951": {
@@ -13255,6 +13663,24 @@
       ],
       "metaContext": {}
     },
+    "93453053": {
+      "name": "Maliss in the Mirror",
+      "viewsweek": 0,
+      "views": 138478,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "93469007": {
       "name": "Assault Overload",
       "viewsweek": 0,
@@ -13347,6 +13773,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "94103142": {
+      "name": "Radiant Typhoon Manifestation",
+      "viewsweek": 0,
+      "views": 76920,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Radiant Typhoon",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "94119480": {
@@ -13452,6 +13897,25 @@
         "advanced": false
       }
     },
+    "94722358": {
+      "name": "Maliss <C> MTP-07",
+      "viewsweek": 0,
+      "views": 334366,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "94845588": {
       "name": "The Hallowed Azamina",
       "viewsweek": 0,
@@ -13506,6 +13970,24 @@
         "advanced": false
       }
     },
+    "95454996": {
+      "name": "Maliss <Q> White Binder",
+      "viewsweek": 0,
+      "views": 376508,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "95457011": {
       "name": "Edea the Heavenly Squire",
       "viewsweek": 0,
@@ -13539,7 +14021,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "95679145": {
@@ -13629,6 +14111,24 @@
         "advanced": false
       }
     },
+    "96676583": {
+      "name": "Maliss <P> Chessy Cat",
+      "viewsweek": 0,
+      "views": 681519,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Maliss",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "96795312": {
       "name": "Sage of Strength - Akash",
       "viewsweek": 0,
@@ -13700,6 +14200,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "97383507": {
+      "name": "Dark Templar @Ignister",
+      "viewsweek": 0,
+      "views": 186973,
+      "upvotes": 12,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "@Ignister",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "97434754": {
       "name": "Artmage Litera",
@@ -13848,7 +14367,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "98552723": {
@@ -13869,24 +14388,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "98567237": {
-      "name": "Fiendsmith's Tract",
-      "viewsweek": 0,
-      "views": 1073984,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "98684051": {
@@ -14149,24 +14650,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "99989863": {
-      "name": "Fiendsmith in Paradise",
-      "viewsweek": 0,
-      "views": 316708,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "100295121": {
