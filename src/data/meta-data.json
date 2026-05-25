@@ -1,11 +1,21 @@
 {
-  "lastUpdated": "2026-05-24T08:36:50.635Z",
+  "lastUpdated": "2026-05-25T10:19:44.694Z",
   "genesys": {
     "recentDecks": [
       {
+        "name": "Monarch",
+        "url": "https://ygoprodeck.com/deck/monarch-713026",
+        "meta": "Winner (~8 players) 1 week ago piloted by Maya Jordan Burden"
+      },
+      {
+        "name": "Monarch",
+        "url": "https://ygoprodeck.com/deck/monarch-713023",
+        "meta": "Top 16 (175 players) 2 days ago piloted by Maya Jordan Burden"
+      },
+      {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-712060",
-        "meta": "Winner (8 players) 5 days ago piloted by Albert Zhou"
+        "meta": "Winner (8 players) 6 days ago piloted by Albert Zhou"
       },
       {
         "name": "Chimera Hecahands",
@@ -91,19 +101,10 @@
         "name": "Odion",
         "url": "https://ygoprodeck.com/deck/odion-704066",
         "meta": "Runner-Up (6 players) 1 month ago piloted by Michael Bach Vebel"
-      },
-      {
-        "name": "Magnet Warrior",
-        "url": "https://ygoprodeck.com/deck/magnet-warrior-704064",
-        "meta": "Winner (6 players) 1 month ago piloted by Ole Risager"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-702183",
-        "meta": "Top 8 (164 players) 2 months ago piloted by Rocco Di Rienzo"
       }
     ],
     "metaArchetypes": [
+      "Monarch",
       "Kewl Tune",
       "Chimera Hecahands",
       "Exosister",
@@ -123,123 +124,116 @@
   "advanced": {
     "recentDecks": [
       {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-712823",
-        "meta": "Top 16 (204 players) 1 week ago piloted by José Alexander Ovalles Ramos"
-      },
-      {
-        "name": "Sky Striker",
-        "url": "https://ygoprodeck.com/deck/sky-striker-712822",
-        "meta": "Top 16 (204 players) 1 week ago piloted by Elvi Medrano"
-      },
-      {
-        "name": "Clown Crew",
-        "url": "https://ygoprodeck.com/deck/clown-crew-712817",
-        "meta": "Top 16 (204 players) 1 week ago piloted by Erick Herrera"
-      },
-      {
-        "name": "Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/mitsurugi-712813",
-        "meta": "Runner-Up (~300 players) 1 week ago piloted by Keylor Porras"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-712688",
-        "meta": "Top 8 (155 players) 1 week ago piloted by Brian Steiner"
-      },
-      {
-        "name": "Atlantean Mermail",
-        "url": "https://ygoprodeck.com/deck/atlantean-mermail-712679",
-        "meta": "Runner-Up (155 players) 1 week ago piloted by Rudy Gonzalez"
-      },
-      {
         "name": "Radiant Typhoon",
-        "url": "https://ygoprodeck.com/deck/radiant-typhoon-712658",
-        "meta": "Top 4 (~200 players) 1 week ago piloted by Ricardo Salazar"
-      },
-      {
-        "name": "Fiendsmith Yummy",
-        "url": "https://ygoprodeck.com/deck/fiendsmith-yummy-712652",
-        "meta": "Top 8 (155 players) 1 week ago piloted by Ander Asturias"
-      },
-      {
-        "name": "DoomZ",
-        "url": "https://ygoprodeck.com/deck/doomz-712296",
-        "meta": "Top 8 (~400 players) 1 week ago piloted by Jacob Johnson"
+        "url": "https://ygoprodeck.com/deck/radiant-typhoon-713105",
+        "meta": "Top 4 (177 players) 1 week ago piloted by Gryphin Kennedy"
       },
       {
         "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-712293",
-        "meta": "Top 8 (114 players) 1 week ago piloted by Maurice M."
+        "url": "https://ygoprodeck.com/deck/kewl-tune-713099",
+        "meta": "Top 8 (60 players) 2 weeks ago piloted by Ricardo McBride"
       },
       {
         "name": "Power Patron Artmage",
-        "url": "https://ygoprodeck.com/deck/power-patron-artmage-712291",
-        "meta": "Top 4 (155 players) 1 week ago piloted by Cody Bartz"
+        "url": "https://ygoprodeck.com/deck/power-patron-artmage-713098",
+        "meta": "Top 16 (1618 players) 2 days ago piloted by Cody Bartz"
       },
       {
         "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-712280",
-        "meta": "Runner-Up (~200 players) 1 week ago piloted by Benjamin Muñoz Mena"
+        "url": "https://ygoprodeck.com/deck/kewl-tune-713096",
+        "meta": "Top 16 (1618 players) 2 days ago piloted by Brandon Freeman"
+      },
+      {
+        "name": "Power Patron",
+        "url": "https://ygoprodeck.com/deck/power-patron-713095",
+        "meta": "Top 16 (1618 players) 2 days ago piloted by Jeffrey Jones"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713093",
+        "meta": "Top 16 (1618 players) 2 days ago piloted by Chase DeDomenic"
+      },
+      {
+        "name": "DoomZ",
+        "url": "https://ygoprodeck.com/deck/doomz-713092",
+        "meta": "Top 8 (1618 players) 2 days ago piloted by Ittipat Arunnaveesiri"
+      },
+      {
+        "name": "Power Patron Artmage",
+        "url": "https://ygoprodeck.com/deck/power-patron-artmage-713086",
+        "meta": "Top 8 (1618 players) 2 days ago piloted by Jorge Kosho"
       },
       {
         "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-712276",
-        "meta": "Winner (~200 players) 1 week ago piloted by Claudio Patricio Ulloa Salinas"
+        "url": "https://ygoprodeck.com/deck/kewl-tune-713081",
+        "meta": "Top 8 (1618 players) 2 days ago piloted by Enzo Fiallos"
       },
       {
-        "name": "Radiant Typhoon Tri-Brigade Yummy",
-        "url": "https://ygoprodeck.com/deck/radiant-typhoon-tri-brigade-yummy-712244",
-        "meta": "Winner (100 players) 1 week ago piloted by Kenneth Benitez"
+        "name": "Mitsurugi",
+        "url": "https://ygoprodeck.com/deck/mitsurugi-713079",
+        "meta": "Top 8 (1618 players) 2 days ago piloted by Andrew Hadfield"
       },
       {
-        "name": "Enneacraft",
-        "url": "https://ygoprodeck.com/deck/enneacraft-712237",
-        "meta": "Top 8 (~350 players) 1 week ago piloted by Jason Smith"
-      },
-      {
-        "name": "Charmer Fairy Tail",
-        "url": "https://ygoprodeck.com/deck/charmer-fairy-tail-712126",
-        "meta": "Top 8 (~300 players) 1 week ago piloted by Esteban Granados"
-      },
-      {
-        "name": "Shining Sarcophagus Orcust",
-        "url": "https://ygoprodeck.com/deck/shining-sarcophagus-orcust-712098",
-        "meta": "Winner (~175 players) 2 weeks ago piloted by Jeremy Leishman"
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-713077",
+        "meta": "Top 4 (1618 players) 2 days ago piloted by Dominic Couch"
       },
       {
         "name": "Radiant Typhoon Sky Striker",
-        "url": "https://ygoprodeck.com/deck/radiant-typhoon-sky-striker-712093",
-        "meta": "Top 8 (155 players) 1 week ago piloted by Julian Harvey"
+        "url": "https://ygoprodeck.com/deck/radiant-typhoon-sky-striker-713074",
+        "meta": "Top 4 (1618 players) 2 days ago piloted by Raymond Dai"
       },
       {
-        "name": "Gem-Knight",
-        "url": "https://ygoprodeck.com/deck/gem-knight-712084",
-        "meta": "Top 8 (~300 players) 1 week ago piloted by Daniel Otero Alvarez"
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713073",
+        "meta": "Runner-Up (1618 players) 2 days ago piloted by Lucas Sacco"
       },
       {
-        "name": "Sky Striker",
-        "url": "https://ygoprodeck.com/deck/sky-striker-712081",
-        "meta": "Winner (~300 players) 1 week ago piloted by Camilo Neiva"
+        "name": "Branded Dracotail",
+        "url": "https://ygoprodeck.com/deck/branded-dracotail-713072",
+        "meta": "Winner (1618 players) 2 days ago piloted by Jesse Kotton"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713022",
+        "meta": "Top 4 (67 players) 2 days ago piloted by Joshua Zylberberg"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-713019",
+        "meta": "Top 8 (67 players) 2 days ago piloted by Cailan Newton"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713018",
+        "meta": "Top 8 (67 players) 2 days ago piloted by Patrick Inga"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713016",
+        "meta": "Runner-Up (67 players) 2 days ago piloted by Tansu Dagyaran"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713010",
+        "meta": "Winner (155 players) 1 week ago piloted by Fernando Iñaki"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-713008",
+        "meta": "Top 8 (404 players) 1 week ago piloted by Camilo Rojas"
       }
     ],
     "metaArchetypes": [
-      "@Ignister Maliss",
-      "Sky Striker",
-      "Clown Crew",
-      "Mitsurugi",
-      "Atlantean Mermail",
       "Radiant Typhoon",
-      "Fiendsmith Yummy",
-      "DoomZ",
       "Kewl Tune",
       "Power Patron Artmage",
-      "Radiant Typhoon Tri-Brigade Yummy",
-      "Enneacraft",
-      "Charmer Fairy Tail",
-      "Shining Sarcophagus Orcust",
+      "Power Patron",
+      "Despia Branded",
+      "DoomZ",
+      "Mitsurugi",
       "Radiant Typhoon Sky Striker",
-      "Gem-Knight"
+      "Branded Dracotail"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -483,7 +477,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "146746": {
@@ -523,26 +517,6 @@
         "advanced": false
       }
     },
-    "282886": {
-      "name": "Mermail Abyssnose",
-      "viewsweek": 0,
-      "views": 33019,
-      "upvotes": 3,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "637216": {
       "name": "Monster Express",
       "viewsweek": 1,
@@ -557,24 +531,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "703897": {
-      "name": "Orcust Crescendo",
-      "viewsweek": 0,
-      "views": 352764,
-      "upvotes": 5,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "706925": {
       "name": "Atlantean Marksman",
@@ -594,30 +550,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "759393": {
-      "name": "Hiita the Fire Charmer",
-      "viewsweek": 0,
-      "views": 120352,
-      "upvotes": 6,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "980973": {
@@ -660,7 +593,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "1122030": {
@@ -697,6 +630,24 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": false
+      }
+    },
+    "1498449": {
+      "name": "Dracotail Faimena",
+      "viewsweek": 0,
+      "views": 782618,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -828,24 +779,6 @@
       ],
       "metaContext": {}
     },
-    "2463794": {
-      "name": "Fiendsmith's Requiem",
-      "viewsweek": 0,
-      "views": 916538,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "2743001": {
       "name": "Crystron Phoenix",
       "viewsweek": 0,
@@ -914,7 +847,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "3113836": {
@@ -934,25 +867,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "3134857": {
-      "name": "Orcustrion",
-      "viewsweek": 0,
-      "views": 97706,
-      "upvotes": 5,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "3422200": {
@@ -1016,24 +931,6 @@
         "advanced": false
       }
     },
-    "3723262": {
-      "name": "Wizard @Ignister",
-      "viewsweek": 0,
-      "views": 208298,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "3837261": {
       "name": "Dragonic Warrior",
       "viewsweek": 0,
@@ -1050,42 +947,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "4026187": {
-      "name": "Teller of Fairy Tails",
-      "viewsweek": 0,
-      "views": 47093,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "4055337": {
-      "name": "Orcust Knightmare",
-      "viewsweek": 0,
-      "views": 636036,
-      "upvotes": 21,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "4081665": {
@@ -1107,24 +968,6 @@
         "advanced": false
       }
     },
-    "4215180": {
-      "name": "Lollipo☆Yummy",
-      "viewsweek": 0,
-      "views": 439723,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "4280258": {
       "name": "Apollousa, Bow of the Goddess",
       "viewsweek": 0,
@@ -1138,27 +981,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "4376659": {
-      "name": "Familiar-Possessed - Hiita",
-      "viewsweek": 0,
-      "views": 160995,
-      "upvotes": 6,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "4408198": {
       "name": "Exosister Arment",
@@ -1209,6 +1031,29 @@
         "Duel Links",
         "Speed Duel",
         "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "4929256": {
+      "name": "Mobius the Frost Monarch",
+      "viewsweek": 0,
+      "views": 499436,
+      "upvotes": 19,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "GOAT",
+        "OCG GOAT",
+        "Duel Links",
+        "Common Charity",
+        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
@@ -1271,6 +1116,24 @@
         "advanced": false
       }
     },
+    "5431722": {
+      "name": "Dracotail Flame",
+      "viewsweek": 0,
+      "views": 296868,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "5530780": {
       "name": "Exosister Gibrine",
       "viewsweek": 3,
@@ -1305,22 +1168,24 @@
         "advanced": false
       }
     },
-    "5786513": {
-      "name": "Turn Silence",
+    "5795980": {
+      "name": "Strike of the Monarchs",
       "viewsweek": 0,
-      "views": 105858,
-      "upvotes": 0,
-      "downvotes": 0,
+      "views": 68751,
+      "upvotes": 2,
+      "downvotes": 2,
       "staple": false,
-      "archetype": "Shining Sarcophagus",
+      "archetype": "Monarch",
       "formats": [
+        "Duel Links",
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "5914858": {
@@ -1380,6 +1245,24 @@
       ],
       "metaContext": {
         "genesys": true,
+        "advanced": false
+      }
+    },
+    "6153210": {
+      "name": "Ketu Dracotail",
+      "viewsweek": 0,
+      "views": 460300,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
         "advanced": true
       }
     },
@@ -1398,7 +1281,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "6763530": {
@@ -1416,7 +1299,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "6855503": {
@@ -1434,7 +1317,25 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
+      }
+    },
+    "7375867": {
+      "name": "Dracotail Mululu",
+      "viewsweek": 0,
+      "views": 564516,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "7394770": {
@@ -1452,7 +1353,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "7572887": {
@@ -1495,25 +1396,6 @@
         "advanced": false
       }
     },
-    "7889323": {
-      "name": "Tri-Brigade Showdown",
-      "viewsweek": 0,
-      "views": 26523,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "8078366": {
       "name": "Atlantean Attack Squad",
       "viewsweek": 0,
@@ -1531,25 +1413,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "8264361": {
-      "name": "Dharc the Dark Charmer, Gloomy",
-      "viewsweek": 0,
-      "views": 1851501,
-      "upvotes": 10,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "8267140": {
@@ -1588,6 +1452,26 @@
         "advanced": true
       }
     },
+    "8522996": {
+      "name": "The First Monarch",
+      "viewsweek": 0,
+      "views": 157628,
+      "upvotes": 2,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "8692301": {
       "name": "Gem-Knight Zirconia",
       "viewsweek": 0,
@@ -1604,27 +1488,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "8719957": {
-      "name": "Abyss-scale of the Kraken",
-      "viewsweek": 0,
-      "views": 59922,
-      "upvotes": 3,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "8949584": {
@@ -1698,6 +1562,23 @@
       ],
       "metaContext": {}
     },
+    "9283801": {
+      "name": "The Monarchs Revolt",
+      "viewsweek": 0,
+      "views": 79018,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "9396662": {
       "name": "Mirror Mage of the Ice Barrier",
       "viewsweek": 0,
@@ -1748,22 +1629,25 @@
         "advanced": true
       }
     },
-    "9839945": {
-      "name": "Lyna the Light Charmer, Lustrous",
+    "9748752": {
+      "name": "Caius the Shadow Monarch",
       "viewsweek": 0,
-      "views": 719257,
-      "upvotes": 10,
-      "downvotes": 0,
+      "views": 476600,
+      "upvotes": 8,
+      "downvotes": 2,
       "staple": false,
-      "archetype": "Charmer",
+      "archetype": "Monarch",
       "formats": [
+        "Duel Links",
+        "Common Charity",
+        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "10000080": {
@@ -1783,24 +1667,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "10019086": {
-      "name": "Tri-Brigade Arms Bucephalus II",
-      "viewsweek": 0,
-      "views": 412253,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "10045474": {
@@ -1835,7 +1701,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "10266279": {
@@ -1853,24 +1719,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "10493654": {
-      "name": "A.I. Contact",
-      "viewsweek": 0,
-      "views": 68520,
-      "upvotes": 3,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "10691144": {
@@ -1893,42 +1741,6 @@
         "advanced": false
       }
     },
-    "10793085": {
-      "name": "Tri-Brigade Roar",
-      "viewsweek": 0,
-      "views": 42875,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "10966439": {
-      "name": "Marshmao☆Yummy",
-      "viewsweek": 0,
-      "views": 418880,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "11074235": {
       "name": "Mana Dragon Zirnitron",
       "viewsweek": 0,
@@ -1944,22 +1756,23 @@
       ],
       "metaContext": {}
     },
-    "11464648": {
-      "name": "Fiendsmith's Rextremende",
+    "11250655": {
+      "name": "Emperor of the Land and Sea",
       "viewsweek": 0,
-      "views": 93870,
-      "upvotes": 0,
-      "downvotes": 0,
+      "views": 11138,
+      "upvotes": 3,
+      "downvotes": 2,
       "staple": false,
-      "archetype": "Fiendsmith",
+      "archetype": "Monarch",
       "formats": [
-        "TCG",
+        "OCG GOAT",
+        "Duel Links",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "11549357": {
@@ -1984,24 +1797,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "11738489": {
-      "name": "The Arrival Cyberse @Ignister",
-      "viewsweek": 0,
-      "views": 247337,
-      "upvotes": 22,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "11911336": {
@@ -2164,7 +1959,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "13332685": {
@@ -2279,25 +2074,6 @@
       ],
       "metaContext": {}
     },
-    "14146794": {
-      "name": "Donyoribo @Ignister",
-      "viewsweek": 0,
-      "views": 40413,
-      "upvotes": 0,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "14220547": {
       "name": "Branded in Central Dogmatika",
       "viewsweek": 0,
@@ -2314,7 +2090,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "14442329": {
@@ -2389,25 +2165,6 @@
       ],
       "metaContext": {}
     },
-    "14816857": {
-      "name": "Tri-Brigade Nervall",
-      "viewsweek": 0,
-      "views": 597744,
-      "upvotes": 3,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "15502037": {
       "name": "Gamma The Electromagnet Warrior",
       "viewsweek": 0,
@@ -2416,6 +2173,25 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Magnet",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "15545291": {
+      "name": "Granmarg the Mega Monarch",
+      "viewsweek": 0,
+      "views": 51786,
+      "upvotes": 6,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Monarch",
       "formats": [
         "Duel Links",
         "TCG",
@@ -2477,63 +2253,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "15746348": {
-      "name": "Eria the Water Channeler",
-      "viewsweek": 0,
-      "views": 61193,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "15808381": {
-      "name": "Achichi @Ignister",
-      "viewsweek": 0,
-      "views": 212393,
-      "upvotes": 12,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "16020923": {
-      "name": "Pikari @Ignister",
-      "viewsweek": 0,
-      "views": 190085,
-      "upvotes": 9,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "16387555": {
       "name": "Kewl Tune Cue",
@@ -2616,29 +2335,6 @@
       "staple": false,
       "archetype": "Radiant Typhoon",
       "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "16972957": {
-      "name": "Doma The Angel of Silence",
-      "viewsweek": 0,
-      "views": 153681,
-      "upvotes": 2,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Common Charity",
-        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
@@ -2737,23 +2433,6 @@
         "advanced": true
       }
     },
-    "17621695": {
-      "name": "Enneapolis",
-      "viewsweek": 0,
-      "views": 66185,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "17719582": {
       "name": "Artmage Peripeteia -Turmoil-",
       "viewsweek": 0,
@@ -2788,7 +2467,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "17954937": {
@@ -2869,6 +2548,26 @@
         "advanced": true
       }
     },
+    "18235309": {
+      "name": "Escalation of the Monarchs",
+      "viewsweek": 0,
+      "views": 146480,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "18319762": {
       "name": "Revealer of the Ice Barrier",
       "viewsweek": 0,
@@ -2941,7 +2640,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "18711696": {
@@ -2979,7 +2678,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "19019586": {
@@ -2999,42 +2698,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "19096726": {
-      "name": "Tri-Brigade Mercourier",
-      "viewsweek": 0,
-      "views": 611824,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "19144622": {
-      "name": "Fairy Tail - Matchgiru",
-      "viewsweek": 0,
-      "views": 57553,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "19153590": {
@@ -3072,7 +2736,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "19271881": {
@@ -3091,45 +2755,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
-      }
-    },
-    "19326613": {
-      "name": "Once Upon a Fairy Tail",
-      "viewsweek": 0,
-      "views": 27122,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "19327348": {
-      "name": "Dharc the Dark Charmer",
-      "viewsweek": 0,
-      "views": 105343,
-      "upvotes": 5,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -3149,45 +2774,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "19504025": {
-      "name": "Enneacraft Reset",
-      "viewsweek": 0,
-      "views": 15352,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "19596712": {
-      "name": "Abyss-scale of Cetus",
-      "viewsweek": 0,
-      "views": 50311,
-      "upvotes": 2,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "19715246": {
@@ -3206,6 +2793,26 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "19870120": {
+      "name": "March of the Monarchs",
+      "viewsweek": 0,
+      "views": 295583,
+      "upvotes": 3,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -3294,7 +2901,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "20508881": {
@@ -3354,42 +2961,6 @@
         "advanced": false
       }
     },
-    "20726052": {
-      "name": "Maliss <C> GWC-06",
-      "viewsweek": 0,
-      "views": 291262,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "20938824": {
-      "name": "Maliss <P> March Hare",
-      "viewsweek": 0,
-      "views": 392665,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "21015833": {
       "name": "Hayabusa Knight",
       "viewsweek": 1,
@@ -3430,45 +3001,6 @@
         "advanced": false
       }
     },
-    "21390858": {
-      "name": "Familiar-Possessed - Dharc",
-      "viewsweek": 0,
-      "views": 112043,
-      "upvotes": 7,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "21441617": {
-      "name": "Orcust Cymbal Skeleton",
-      "viewsweek": 0,
-      "views": 562934,
-      "upvotes": 4,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "21546416": {
       "name": "Armed Dragon Thunder LV5",
       "viewsweek": 0,
@@ -3503,7 +3035,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "21623008": {
@@ -3561,25 +3093,6 @@
         "advanced": true
       }
     },
-    "21767650": {
-      "name": "Mermail Abyssmander",
-      "viewsweek": 0,
-      "views": 52608,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "21848500": {
       "name": "Maliss <Q> Hearts Crypter",
       "viewsweek": 1,
@@ -3596,7 +3109,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "21887175": {
@@ -3616,26 +3129,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "21954587": {
-      "name": "Mermail Abyssmegalo",
-      "viewsweek": 0,
-      "views": 210637,
-      "upvotes": 8,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "21960890": {
@@ -3668,25 +3161,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "22076135": {
-      "name": "Mermail Abyssturge",
-      "viewsweek": 0,
-      "views": 57407,
-      "upvotes": 1,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "22082432": {
@@ -3735,26 +3209,6 @@
         "advanced": true
       }
     },
-    "22446869": {
-      "name": "Mermail Abyssteus",
-      "viewsweek": 0,
-      "views": 411300,
-      "upvotes": 13,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "22790910": {
       "name": "Sage of Wisdom - Himmel",
       "viewsweek": 0,
@@ -3773,23 +3227,23 @@
         "advanced": true
       }
     },
-    "22933016": {
-      "name": "A.I.dle Reborn",
+    "22842126": {
+      "name": "Pantheism of the Monarchs",
       "viewsweek": 0,
-      "views": 166616,
-      "upvotes": 3,
-      "downvotes": 1,
+      "views": 394515,
+      "upvotes": 10,
+      "downvotes": 3,
       "staple": false,
-      "archetype": "@Ignister",
+      "archetype": "Monarch",
       "formats": [
-        "Common Charity",
+        "Duel Links",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "23002292": {
@@ -3806,6 +3260,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "23064604": {
+      "name": "Erebus the Underworld Monarch",
+      "viewsweek": 0,
+      "views": 443124,
+      "upvotes": 17,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "23076639": {
       "name": "Gazelle the King of Mythical Claws",
@@ -3935,24 +3408,6 @@
         "advanced": true
       }
     },
-    "23545031": {
-      "name": "Mermail Abyssalacia",
-      "viewsweek": 0,
-      "views": 177292,
-      "upvotes": 4,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "23599634": {
       "name": "Artmage Pact -Awakening-",
       "viewsweek": 0,
@@ -3985,6 +3440,26 @@
       ],
       "metaContext": {}
     },
+    "23689697": {
+      "name": "Mobius the Mega Monarch",
+      "viewsweek": 0,
+      "views": 104201,
+      "upvotes": 3,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "23829452": {
       "name": "Artmage Power Patron",
       "viewsweek": 0,
@@ -4001,25 +3476,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "23899727": {
-      "name": "Mermail Abysslinde",
-      "viewsweek": 0,
-      "views": 51406,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -4096,7 +3552,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "24224830": {
@@ -4167,25 +3623,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "24882256": {
-      "name": "Fire Phoenix @Ignister",
-      "viewsweek": 0,
-      "views": 116443,
-      "upvotes": 5,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "25072579": {
@@ -4235,7 +3673,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "25377819": {
@@ -4277,7 +3715,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "25661743": {
@@ -4291,25 +3729,6 @@
       "formats": [
         "TCG",
         "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "25704359": {
-      "name": "Unpossessed",
-      "viewsweek": 0,
-      "views": 123029,
-      "upvotes": 4,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
       ],
       "metaContext": {
         "genesys": false,
@@ -4353,25 +3772,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "25908748": {
-      "name": "Tri-Brigade Stand-Off",
-      "viewsweek": 0,
-      "views": 68347,
-      "upvotes": 1,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "25940932": {
@@ -4471,60 +3871,48 @@
         "advanced": false
       }
     },
-    "26434972": {
-      "name": "Fiendsmith Kyrie",
+    "26205777": {
+      "name": "Thestalos the Firestorm Monarch",
       "viewsweek": 0,
-      "views": 33171,
-      "upvotes": 0,
-      "downvotes": 0,
+      "views": 350131,
+      "upvotes": 12,
+      "downvotes": 2,
       "staple": false,
-      "archetype": "Fiendsmith",
+      "archetype": "Monarch",
       "formats": [
+        "GOAT",
+        "OCG GOAT",
+        "Duel Links",
+        "Common Charity",
+        "Edison",
+        "Speed Duel",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
-    "26845680": {
-      "name": "Orcustrated Return",
+    "26822796": {
+      "name": "The Monarchs Awaken",
       "viewsweek": 0,
-      "views": 337198,
-      "upvotes": 5,
+      "views": 38883,
+      "upvotes": 3,
       "downvotes": 1,
       "staple": false,
-      "archetype": "Orcust",
+      "archetype": "Monarch",
       "formats": [
         "Duel Links",
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "26847978": {
-      "name": "Tri-Brigade Ferrijit the Barren Blossom",
-      "viewsweek": 0,
-      "views": 723162,
-      "upvotes": 28,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "26976414": {
@@ -4545,7 +3933,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "27004302": {
@@ -4564,7 +3952,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "27126980": {
@@ -4583,26 +3971,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "27157727": {
-      "name": "Stronghold the Hidden Fortress",
-      "viewsweek": 0,
-      "views": 45530,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Shining Sarcophagus",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "27184601": {
@@ -4655,23 +4024,6 @@
       ],
       "metaContext": {}
     },
-    "27519978": {
-      "name": "Charmer Quartet in Bloom",
-      "viewsweek": 0,
-      "views": 47283,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "27527047": {
       "name": "Secret Guards of the Ice Barrier",
       "viewsweek": 0,
@@ -4690,24 +4042,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "27632520": {
-      "name": "Fairy Tail - Wiccat",
-      "viewsweek": 0,
-      "views": 31426,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "27705190": {
@@ -4763,7 +4097,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "28373620": {
@@ -4782,43 +4116,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "28454232": {
-      "name": "Enneacraft - Asta.PIXEA",
-      "viewsweek": 0,
-      "views": 88325,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "28577986": {
-      "name": "Mermail Abyssocea",
-      "viewsweek": 0,
-      "views": 44093,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "28596933": {
@@ -4873,7 +4170,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "28803166": {
@@ -4891,7 +4188,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "28877382": {
@@ -4927,7 +4224,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "29301450": {
@@ -4963,24 +4260,6 @@
         "advanced": false
       }
     },
-    "29369059": {
-      "name": "Yummy☆Surprise",
-      "viewsweek": 0,
-      "views": 293964,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "29510428": {
       "name": "Imperial Princess Quinquery",
       "viewsweek": 1,
@@ -4994,23 +4273,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "29570824": {
-      "name": "Ekto Enneacraft - \"tromarIA\"",
-      "viewsweek": 0,
-      "views": 84112,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "29595202": {
       "name": "Runick Allure",
@@ -5028,26 +4290,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "29666221": {
-      "name": "Orcustrated Attack",
-      "viewsweek": 0,
-      "views": 33986,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "29792472": {
@@ -5126,7 +4368,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "30109445": {
@@ -5142,25 +4384,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "30118811": {
-      "name": "Backup @Ignister",
-      "viewsweek": 0,
-      "views": 395926,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "30271097": {
@@ -5177,7 +4401,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "30350202": {
@@ -5231,61 +4455,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "30581601": {
-      "name": "Yummy★Snatchy",
-      "viewsweek": 0,
-      "views": 508266,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "30674956": {
-      "name": "Wynn the Wind Charmer, Verdant",
-      "viewsweek": 0,
-      "views": 346417,
-      "upvotes": 10,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "30741503": {
-      "name": "Galatea, the Orcust Automaton",
-      "viewsweek": 0,
-      "views": 582340,
-      "upvotes": 21,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "30802207": {
@@ -5362,24 +4531,6 @@
         "advanced": false
       }
     },
-    "31425736": {
-      "name": "Cupsy☆Yummy",
-      "viewsweek": 0,
-      "views": 559134,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "31533473": {
       "name": "Clown Crew Diabolo",
       "viewsweek": 0,
@@ -5395,7 +4546,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "31552317": {
@@ -5435,22 +4586,22 @@
         "advanced": false
       }
     },
-    "31603289": {
-      "name": "Cupsy★Yummy Way",
+    "31596518": {
+      "name": "Eidos the Underworld Monarch",
       "viewsweek": 0,
-      "views": 279176,
+      "views": 115475,
       "upvotes": 0,
       "downvotes": 0,
       "staple": false,
-      "archetype": "Yummy",
+      "archetype": "Monarch",
       "formats": [
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "31706048": {
@@ -5469,27 +4620,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "31764354": {
-      "name": "Familiar-Possessed - Wynn",
-      "viewsweek": 0,
-      "views": 144877,
-      "upvotes": 6,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "31822037": {
@@ -5544,27 +4674,6 @@
       ],
       "metaContext": {}
     },
-    "31887905": {
-      "name": "Familiar-Possessed - Aussa",
-      "viewsweek": 0,
-      "views": 165391,
-      "upvotes": 6,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "31980955": {
       "name": "Quiet Life",
       "viewsweek": 1,
@@ -5578,42 +4687,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "32061192": {
-      "name": "Maliss <P> Dormouse",
-      "viewsweek": 0,
-      "views": 605012,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "32270212": {
-      "name": "Ties That Bind",
-      "viewsweek": 0,
-      "views": 98246,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Shining Sarcophagus",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "32442017": {
       "name": "DoomZ Raiders",
@@ -5648,7 +4721,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "32756828": {
@@ -5666,7 +4739,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "32759190": {
@@ -5705,24 +4778,6 @@
         "advanced": false
       }
     },
-    "32991300": {
-      "name": "Fiendsmith's Agnumday",
-      "viewsweek": 0,
-      "views": 347738,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "33296432": {
       "name": "Dogmatika Adin, the Enlightened",
       "viewsweek": 0,
@@ -5759,17 +4814,37 @@
         "advanced": true
       }
     },
-    "33781156": {
-      "name": "Tri-Brigade Arms Mouser",
+    "33609262": {
+      "name": "Tenacity of the Monarchs",
       "viewsweek": 0,
-      "views": 90108,
+      "views": 356599,
+      "upvotes": 2,
+      "downvotes": 4,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "33760966": {
+      "name": "Dracotail Arthalion",
+      "viewsweek": 0,
+      "views": 553844,
       "upvotes": 0,
       "downvotes": 0,
       "staple": false,
-      "archetype": "Tri-Brigade",
+      "archetype": "Dracotail",
       "formats": [
         "TCG",
-        "OCG"
+        "OCG",
+        "Master Duel"
       ],
       "metaContext": {
         "genesys": false,
@@ -5791,7 +4866,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "34293667": {
@@ -5886,7 +4961,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "34541940": {
@@ -5925,26 +5000,6 @@
         "advanced": false
       }
     },
-    "34707034": {
-      "name": "Abyss-squall",
-      "viewsweek": 0,
-      "views": 34783,
-      "upvotes": 1,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "34721681": {
       "name": "Heavy Forward",
       "viewsweek": 1,
@@ -5981,7 +5036,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "35261759": {
@@ -6037,25 +5092,6 @@
         "advanced": false
       }
     },
-    "35552985": {
-      "name": "Fiendsmith's Sanct",
-      "viewsweek": 0,
-      "views": 203858,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "35569555": {
       "name": "Dogmatikamatrix",
       "viewsweek": 0,
@@ -6091,7 +5127,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "36224040": {
@@ -6128,7 +5164,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "36637374": {
@@ -6147,25 +5183,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
-      }
-    },
-    "37061511": {
-      "name": "Water Leviathan @Ignister",
-      "viewsweek": 0,
-      "views": 86403,
-      "upvotes": 4,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -6186,7 +5203,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "37169670": {
@@ -6299,48 +5316,6 @@
       ],
       "metaContext": {}
     },
-    "37744402": {
-      "name": "Wynn the Wind Charmer",
-      "viewsweek": 0,
-      "views": 103885,
-      "upvotes": 9,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "37781520": {
-      "name": "Mermail Abyssleed",
-      "viewsweek": 0,
-      "views": 41142,
-      "upvotes": 2,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "37806313": {
       "name": "Caravan of the Ice Barrier",
       "viewsweek": 0,
@@ -6378,29 +5353,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "37970940": {
-      "name": "Aussa the Earth Charmer",
-      "viewsweek": 0,
-      "views": 133848,
-      "upvotes": 13,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "38044854": {
@@ -6494,24 +5446,6 @@
         "advanced": false
       }
     },
-    "38505587": {
-      "name": "Moremarshmallon",
-      "viewsweek": 0,
-      "views": 96157,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Shining Sarcophagus",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "38528901": {
       "name": "Shock Troops of the Ice Barrier",
       "viewsweek": 0,
@@ -6570,24 +5504,6 @@
         "advanced": false
       }
     },
-    "39138610": {
-      "name": "Allied Code Talker @Ignister",
-      "viewsweek": 0,
-      "views": 203865,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "39256679": {
       "name": "Beta The Magnet Warrior",
       "viewsweek": 0,
@@ -6628,7 +5544,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "39341885": {
@@ -6666,7 +5582,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "39576656": {
@@ -6783,26 +5699,6 @@
         "advanced": false
       }
     },
-    "40542825": {
-      "name": "Familiar-Possessed - Lyna",
-      "viewsweek": 0,
-      "views": 114952,
-      "upvotes": 5,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "40543231": {
       "name": "Mitsurugi no Mikoto, Aramasa",
       "viewsweek": 0,
@@ -6858,25 +5754,6 @@
         "advanced": true
       }
     },
-    "40975243": {
-      "name": "Tri-Brigade Revolt",
-      "viewsweek": 0,
-      "views": 362002,
-      "upvotes": 2,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "41069676": {
       "name": "Kewl Tune Loudness War",
       "viewsweek": 1,
@@ -6913,25 +5790,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "41306080": {
-      "name": "Hiyari @Ignister",
-      "viewsweek": 0,
-      "views": 121002,
-      "upvotes": 1,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "41420027": {
@@ -6993,6 +5851,23 @@
         "advanced": false
       }
     },
+    "42125140": {
+      "name": "Dracotail Shaulas",
+      "viewsweek": 0,
+      "views": 58086,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "42141493": {
       "name": "Mulcharmy Fuwalos",
       "viewsweek": 2,
@@ -7031,25 +5906,6 @@
         "advanced": false
       }
     },
-    "42216237": {
-      "name": "Angel of Zera",
-      "viewsweek": 0,
-      "views": 88297,
-      "upvotes": 6,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "42302563": {
       "name": "Elfnote Seraphim Strelitzia",
       "viewsweek": 0,
@@ -7066,24 +5922,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "42429678": {
-      "name": "Bururu @Ignister",
-      "viewsweek": 0,
-      "views": 140126,
-      "upvotes": 1,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "42741437": {
@@ -7118,7 +5956,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "42781164": {
@@ -7174,7 +6012,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "43256007": {
@@ -7373,7 +6211,25 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
+      }
+    },
+    "44482554": {
+      "name": "Dracotail Pan",
+      "viewsweek": 0,
+      "views": 419153,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "44654994": {
@@ -7392,24 +6248,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "44716748": {
-      "name": "Trito Enneacraft - \"exapatisIA\"",
-      "viewsweek": 0,
-      "views": 16564,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -7502,7 +6340,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "45675980": {
@@ -7521,7 +6359,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "45819647": {
@@ -7557,7 +6395,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "46057733": {
@@ -7690,25 +6528,6 @@
         "advanced": false
       }
     },
-    "46640168": {
-      "name": "Fiendsmith's Lacrima",
-      "viewsweek": 0,
-      "views": 433005,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "46772449": {
       "name": "Evilswarm Exciton Knight",
       "viewsweek": 1,
@@ -7761,44 +6580,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "47163170": {
-      "name": "Tri-Brigade Bearbrumm the Rampant Rampager",
-      "viewsweek": 0,
-      "views": 263412,
-      "upvotes": 4,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "47171541": {
-      "name": "Orcustrated Release",
-      "viewsweek": 0,
-      "views": 30204,
-      "upvotes": 1,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "47219274": {
@@ -7856,7 +6637,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "47643326": {
@@ -7929,7 +6710,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "47960073": {
@@ -7948,23 +6729,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "48016074": {
-      "name": "Charmers of the Grand Circle",
-      "viewsweek": 0,
-      "views": 30607,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "48130397": {
@@ -8003,14 +6767,14 @@
         "advanced": false
       }
     },
-    "48815792": {
-      "name": "Hiita the Fire Charmer, Ablaze",
+    "48716527": {
+      "name": "The Monarchs Erupt",
       "viewsweek": 0,
-      "views": 1260311,
-      "upvotes": 10,
-      "downvotes": 0,
+      "views": 323073,
+      "upvotes": 5,
+      "downvotes": 3,
       "staple": false,
-      "archetype": "Charmer",
+      "archetype": "Monarch",
       "formats": [
         "Common Charity",
         "TCG",
@@ -8018,26 +6782,8 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "48835607": {
-      "name": "Galatea-I, the Orcust Automaton",
-      "viewsweek": 0,
-      "views": 206513,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "49036338": {
@@ -8132,7 +6878,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "49604192": {
@@ -8144,26 +6890,6 @@
       "staple": false,
       "archetype": "Mitsurugi",
       "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "49674183": {
-      "name": "Fallen Angel of Roses",
-      "viewsweek": 0,
-      "views": 88395,
-      "upvotes": 5,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
         "Common Charity",
         "TCG",
         "OCG",
@@ -8226,25 +6952,6 @@
         "TCG"
       ],
       "metaContext": {}
-    },
-    "49867899": {
-      "name": "Fiendsmith's Sequence",
-      "viewsweek": 0,
-      "views": 843334,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "50005218": {
       "name": "Sky Striker Airspace - Area Zero",
@@ -8433,42 +7140,6 @@
         "advanced": false
       }
     },
-    "50810455": {
-      "name": "Tri-Brigade Kerass",
-      "viewsweek": 0,
-      "views": 516854,
-      "upvotes": 4,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "51097887": {
-      "name": "Tri-Brigade Airborne Assault",
-      "viewsweek": 0,
-      "views": 117730,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "51227866": {
       "name": "Sky Striker Mecha - Shark Cannon",
       "viewsweek": 0,
@@ -8558,7 +7229,30 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
+      }
+    },
+    "51945556": {
+      "name": "Zaborg the Thunder Monarch",
+      "viewsweek": 0,
+      "views": 381594,
+      "upvotes": 10,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "GOAT",
+        "OCG GOAT",
+        "Duel Links",
+        "Common Charity",
+        "Edison",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
       }
     },
     "52176579": {
@@ -8579,26 +7273,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "52331012": {
-      "name": "Tri-Brigade Rugal the Silver Sheller",
-      "viewsweek": 0,
-      "views": 355762,
-      "upvotes": 6,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "52335937": {
@@ -8726,7 +7400,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "53129443": {
@@ -8786,7 +7460,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "53535814": {
@@ -8917,23 +7591,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
-      }
-    },
-    "54020393": {
-      "name": "Enneacraft Release",
-      "viewsweek": 0,
-      "views": 61212,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -8953,6 +7610,26 @@
       "metaContext": {
         "genesys": false,
         "advanced": true
+      }
+    },
+    "54241725": {
+      "name": "The Prime Monarch",
+      "viewsweek": 0,
+      "views": 272793,
+      "upvotes": 2,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
       }
     },
     "54265980": {
@@ -9003,7 +7680,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "54693926": {
@@ -9038,43 +7715,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "54842941": {
-      "name": "Enneacraft - Atori.MAR",
-      "viewsweek": 0,
-      "views": 107928,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "55051920": {
-      "name": "Orcustrated Core",
-      "viewsweek": 0,
-      "views": 35505,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "55063751": {
@@ -9184,7 +7824,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "55610199": {
@@ -9203,26 +7843,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "55762976": {
-      "name": "Gussari @Ignister",
-      "viewsweek": 0,
-      "views": 51135,
-      "upvotes": 1,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "55784832": {
@@ -9260,24 +7881,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "55965529": {
-      "name": "Enato Enneacraft - \"oknirIA\"",
-      "viewsweek": 0,
-      "views": 71135,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "55990317": {
@@ -9332,42 +7936,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "56187077": {
-      "name": "Proto Enneacraft - \"orgIA\"",
-      "viewsweek": 0,
-      "views": 74808,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "56196385": {
-      "name": "Tri-Brigade Kitt",
-      "viewsweek": 0,
-      "views": 529517,
-      "upvotes": 7,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "56252810": {
       "name": "Assault Revival",
@@ -9424,7 +7992,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "56651978": {
@@ -9460,7 +8028,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "56704140": {
@@ -9481,24 +8049,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "56725612": {
-      "name": "Fairy Tail Ball",
-      "viewsweek": 0,
-      "views": 43398,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "56733747": {
@@ -9527,46 +8077,6 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Sky Striker",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "56784842": {
-      "name": "Angel O7",
-      "viewsweek": 0,
-      "views": 42779,
-      "upvotes": 6,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
-        "Speed Duel",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "56870908": {
-      "name": "Yum☆Yum☆Yummys",
-      "viewsweek": 0,
-      "views": 18891,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
       "formats": [
         "TCG",
         "OCG",
@@ -9616,24 +8126,6 @@
         "advanced": false
       }
     },
-    "57111661": {
-      "name": "Maliss <C> TB-11",
-      "viewsweek": 0,
-      "views": 259756,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "57450198": {
       "name": "Super Quantal Mech Beast Lusterrex",
       "viewsweek": 1,
@@ -9671,6 +8163,26 @@
         "advanced": false
       }
     },
+    "57666212": {
+      "name": "Kuraz the Light Monarch",
+      "viewsweek": 0,
+      "views": 299691,
+      "upvotes": 8,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Common Charity",
+        "Edison",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "57809669": {
       "name": "Hecahands Tartaros",
       "viewsweek": 0,
@@ -9689,25 +8201,6 @@
         "advanced": false
       }
     },
-    "57835716": {
-      "name": "Orcust Harp Horror",
-      "viewsweek": 0,
-      "views": 529018,
-      "upvotes": 11,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "57847269": {
       "name": "Clown Crew Matinee Operatics",
       "viewsweek": 0,
@@ -9723,7 +8216,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "58153103": {
@@ -9779,25 +8272,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "58471134": {
-      "name": "Mermail Abysspike",
-      "viewsweek": 0,
-      "views": 315927,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "58481572": {
       "name": "Masked HERO Dark Law",
@@ -9856,63 +8330,6 @@
         "advanced": false
       }
     },
-    "59016454": {
-      "name": "Dark Magic Mirror Force",
-      "viewsweek": 0,
-      "views": 68403,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Shining Sarcophagus",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "59054773": {
-      "name": "Ignister A.I.Land",
-      "viewsweek": 0,
-      "views": 189207,
-      "upvotes": 3,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "59170782": {
-      "name": "Mermail Abysstrite",
-      "viewsweek": 0,
-      "views": 53610,
-      "upvotes": 5,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "59242457": {
       "name": "Exosisters Magnifica",
       "viewsweek": 1,
@@ -9931,25 +8348,6 @@
         "advanced": false
       }
     },
-    "59332125": {
-      "name": "A.I. Love Fusion",
-      "viewsweek": 0,
-      "views": 85609,
-      "upvotes": 5,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "59438930": {
       "name": "Ghost Ogre & Snow Rabbit",
       "viewsweek": 0,
@@ -9964,6 +8362,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "59463312": {
+      "name": "Eidos the Underworld Squire",
+      "viewsweek": 0,
+      "views": 458049,
+      "upvotes": 7,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "59464593": {
       "name": "Armed Dragon LV10",
@@ -10045,6 +8462,23 @@
         "advanced": false
       }
     },
+    "59983249": {
+      "name": "Monarchic Perfection",
+      "viewsweek": 0,
+      "views": 29109,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "60161788": {
       "name": "Blizzed, Defender of the Ice Barrier",
       "viewsweek": 0,
@@ -10083,23 +8517,28 @@
       ],
       "metaContext": {}
     },
-    "60202749": {
-      "name": "Abyss-sphere",
+    "60229110": {
+      "name": "Granmarg the Rock Monarch",
       "viewsweek": 0,
-      "views": 50337,
-      "upvotes": 1,
-      "downvotes": 0,
+      "views": 254499,
+      "upvotes": 6,
+      "downvotes": 2,
       "staple": false,
-      "archetype": "Mermail",
+      "archetype": "Monarch",
       "formats": [
+        "GOAT",
+        "OCG GOAT",
         "Duel Links",
+        "Speed Duel",
+        "Common Charity",
+        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "60303245": {
@@ -10156,7 +8595,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "60600126": {
@@ -10177,24 +8616,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "60764609": {
-      "name": "Fiendsmith Engraver",
-      "viewsweek": 0,
-      "views": 2044676,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "60921537": {
@@ -10270,26 +8691,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "61168637": {
-      "name": "Linkslayer @Ignister",
-      "viewsweek": 0,
-      "views": 10201,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "61257789": {
@@ -10313,14 +8715,14 @@
         "advanced": false
       }
     },
-    "61399402": {
-      "name": "Light Dragon @Ignister",
+    "61466310": {
+      "name": "Return of the Monarchs",
       "viewsweek": 0,
-      "views": 409452,
-      "upvotes": 9,
-      "downvotes": 2,
+      "views": 258831,
+      "upvotes": 2,
+      "downvotes": 3,
       "staple": false,
-      "archetype": "@Ignister",
+      "archetype": "Monarch",
       "formats": [
         "Common Charity",
         "TCG",
@@ -10328,8 +8730,8 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "61606250": {
@@ -10387,82 +8789,6 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
-      }
-    },
-    "62111090": {
-      "name": "Earth Golem @Ignister",
-      "viewsweek": 0,
-      "views": 379788,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "62256492": {
-      "name": "Awakening of the Possessed",
-      "viewsweek": 0,
-      "views": 165739,
-      "upvotes": 13,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Common Charity",
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "62803464": {
-      "name": "Aussa the Earth Channeler",
-      "viewsweek": 0,
-      "views": 50801,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "62834295": {
-      "name": "Orcustrated Einsatz",
-      "viewsweek": 0,
-      "views": 69023,
-      "upvotes": 3,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
         "advanced": true
       }
     },
@@ -10481,7 +8807,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "63013339": {
@@ -10580,6 +8906,24 @@
         "advanced": false
       }
     },
+    "63899196": {
+      "name": "The Monarchs Masterplan",
+      "viewsweek": 0,
+      "views": 82375,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "63941169": {
       "name": "Abyss-steam",
       "viewsweek": 1,
@@ -10672,7 +9016,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "64788463": {
@@ -10695,7 +9039,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "64926005": {
@@ -10808,7 +9152,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -10878,24 +9222,6 @@
         "advanced": true
       }
     },
-    "65853758": {
-      "name": "Yummy★Redemption",
-      "viewsweek": 0,
-      "views": 33143,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "65910922": {
       "name": "Arionpos, Serpent of the Ghoti",
       "viewsweek": 1,
@@ -10911,24 +9237,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "65953423": {
-      "name": "Fairy Tail - Rochka",
-      "viewsweek": 0,
-      "views": 60125,
-      "upvotes": 7,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "65961304": {
@@ -10966,45 +9274,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "66102515": {
-      "name": "Kurikurinku @Ignister",
-      "viewsweek": 0,
-      "views": 9596,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "66192538": {
-      "name": "Danmari @Ignister",
-      "viewsweek": 0,
-      "views": 77249,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "66661678": {
@@ -11101,24 +9370,6 @@
         "advanced": false
       }
     },
-    "66975205": {
-      "name": "Yummyusment☆Mignon",
-      "viewsweek": 0,
-      "views": 262441,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "67021206": {
       "name": "Hecahands Jauzah",
       "viewsweek": 0,
@@ -11137,24 +9388,6 @@
         "advanced": false
       }
     },
-    "67098897": {
-      "name": "Cooky★Yummy Way",
-      "viewsweek": 0,
-      "views": 268846,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "67100549": {
       "name": "Screams of the Branded",
       "viewsweek": 0,
@@ -11171,7 +9404,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "67115133": {
@@ -11260,48 +9493,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "68007326": {
-      "name": "Guardian Angel Joan",
-      "viewsweek": 0,
-      "views": 132256,
-      "upvotes": 13,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Speed Duel",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "68059897": {
-      "name": "Maliss <Q> Red Ransom",
-      "viewsweek": 0,
-      "views": 405150,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "68144894": {
@@ -11330,24 +9522,6 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Power Patron",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "68337209": {
-      "name": "Maliss in Underground",
-      "viewsweek": 0,
-      "views": 586780,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
       "formats": [
         "TCG",
         "OCG",
@@ -11392,24 +9566,6 @@
         "advanced": false
       }
     },
-    "68810435": {
-      "name": "Cooky☆Yummy",
-      "viewsweek": 0,
-      "views": 477687,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "68831625": {
       "name": "DoomZ Command \"D.O.O.M.D.U.R.G.\"",
       "viewsweek": 0,
@@ -11428,27 +9584,6 @@
         "advanced": true
       }
     },
-    "68881649": {
-      "name": "Familiar-Possessed - Eria",
-      "viewsweek": 0,
-      "views": 148834,
-      "upvotes": 3,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "68957034": {
       "name": "Runick Flashing Fire",
       "viewsweek": 0,
@@ -11458,6 +9593,26 @@
       "staple": false,
       "archetype": "Runick",
       "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "69230391": {
+      "name": "Thestalos the Mega Monarch",
+      "viewsweek": 0,
+      "views": 153161,
+      "upvotes": 10,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
@@ -11484,64 +9639,25 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
-    "69272449": {
-      "name": "Maliss <P> White Rabbit",
+    "69327790": {
+      "name": "Raiza the Mega Monarch",
       "viewsweek": 0,
-      "views": 767309,
-      "upvotes": 0,
+      "views": 293879,
+      "upvotes": 5,
       "downvotes": 0,
       "staple": false,
-      "archetype": "Maliss",
+      "archetype": "Monarch",
       "formats": [
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "69293721": {
-      "name": "Mermail Abyssgunde",
-      "viewsweek": 0,
-      "views": 149410,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "69381150": {
-      "name": "A.I.Q",
-      "viewsweek": 0,
-      "views": 31328,
-      "upvotes": 2,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "69601012": {
@@ -11596,7 +9712,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "70058649": {
@@ -11614,7 +9730,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "70368879": {
@@ -11726,6 +9842,24 @@
         "advanced": false
       }
     },
+    "70871153": {
+      "name": "Dracotail Urgula",
+      "viewsweek": 0,
+      "views": 449793,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "70980824": {
       "name": "Trishula, Zero Dragon of the Ice Barrier",
       "viewsweek": 0,
@@ -11744,25 +9878,6 @@
         "advanced": false
       }
     },
-    "71133680": {
-      "name": "Mermail Abyssnerei",
-      "viewsweek": 0,
-      "views": 39247,
-      "upvotes": 7,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "71422989": {
       "name": "Absorb Fusion",
       "viewsweek": 0,
@@ -11778,7 +9893,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "71442223": {
@@ -11816,7 +9931,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "71616908": {
@@ -11835,24 +9950,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "71801447": {
-      "name": "Enneacraft - Atil.SPIA",
-      "viewsweek": 0,
-      "views": 23031,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "72029628": {
@@ -11871,7 +9969,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "72056560": {
@@ -11890,7 +9988,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "72270339": {
@@ -11926,7 +10024,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "72554664": {
@@ -11945,7 +10043,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "72578374": {
@@ -11979,26 +10077,6 @@
       ],
       "metaContext": {}
     },
-    "72932673": {
-      "name": "Abyss-scale of the Mizuchi",
-      "viewsweek": 0,
-      "views": 115403,
-      "upvotes": 3,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "73061465": {
       "name": "Spellbreaker of the Ice Barrier",
       "viewsweek": 0,
@@ -12010,6 +10088,27 @@
       "formats": [
         "Duel Links",
         "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "73125233": {
+      "name": "Raiza the Storm Monarch",
+      "viewsweek": 0,
+      "views": 277710,
+      "upvotes": 4,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
@@ -12036,45 +10135,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "73309655": {
-      "name": "Eria the Water Charmer, Gentle",
-      "viewsweek": 0,
-      "views": 315742,
-      "upvotes": 29,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "73318863": {
-      "name": "Lyna the Light Charmer",
-      "viewsweek": 0,
-      "views": 84038,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "73355772": {
@@ -12223,25 +10284,6 @@
         "advanced": false
       }
     },
-    "74298287": {
-      "name": "Mermail Abyssdine",
-      "viewsweek": 0,
-      "views": 55451,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "74311226": {
       "name": "Atlantean Dragoons",
       "viewsweek": 0,
@@ -12258,49 +10300,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "74364659": {
-      "name": "Eria the Water Charmer",
-      "viewsweek": 0,
-      "views": 115845,
-      "upvotes": 4,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "GOAT",
-        "OCG GOAT",
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "74371660": {
-      "name": "Mermail Abyssgaios",
-      "viewsweek": 0,
-      "views": 257828,
-      "upvotes": 3,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "74431740": {
@@ -12319,25 +10319,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "74567889": {
-      "name": "Dark Infant @Ignister",
-      "viewsweek": 0,
-      "views": 117464,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "74586817": {
@@ -12454,6 +10435,24 @@
         "advanced": true
       }
     },
+    "75003700": {
+      "name": "Dracotail Lukias",
+      "viewsweek": 0,
+      "views": 632117,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "75147529": {
       "name": "Sky Striker Ace - Zeke",
       "viewsweek": 0,
@@ -12464,25 +10463,6 @@
       "archetype": "Sky Striker",
       "formats": [
         "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "75180828": {
-      "name": "Mermail Abyssbalaen",
-      "viewsweek": 0,
-      "views": 27167,
-      "upvotes": 6,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
         "TCG",
         "OCG",
         "Master Duel"
@@ -12645,24 +10625,6 @@
         "advanced": false
       }
     },
-    "76145142": {
-      "name": "Longirsu, the Orcust Orchestrator",
-      "viewsweek": 0,
-      "views": 331000,
-      "upvotes": 11,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "76359406": {
       "name": "Crystron Ametrix",
       "viewsweek": 0,
@@ -12733,25 +10695,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "76615300": {
-      "name": "Hiita the Fire Channeler",
-      "viewsweek": 0,
-      "views": 69737,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "76725398": {
@@ -12789,7 +10733,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "76948970": {
@@ -12874,25 +10818,6 @@
         "advanced": false
       }
     },
-    "77421977": {
-      "name": "A.I. Shadow",
-      "viewsweek": 0,
-      "views": 44082,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "77625948": {
       "name": "Cyberdark Edge",
       "viewsweek": 1,
@@ -12923,6 +10848,24 @@
       "downvotes": 0,
       "staple": false,
       "archetype": "Exosister",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "77832858": {
+      "name": "Thestalos the Shadowfire Monarch",
+      "viewsweek": 0,
+      "views": 54290,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Monarch",
       "formats": [
         "TCG",
         "OCG",
@@ -12989,23 +10932,6 @@
         "advanced": false
       }
     },
-    "78021082": {
-      "name": "Weaver of Fairy Tails",
-      "viewsweek": 0,
-      "views": 38589,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "78058681": {
       "name": "Kewl Tune Synchro",
       "viewsweek": 0,
@@ -13056,63 +10982,6 @@
       ],
       "metaContext": {}
     },
-    "78679226": {
-      "name": "Future Silence",
-      "viewsweek": 0,
-      "views": 174169,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Shining Sarcophagus",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "78751195": {
-      "name": "Doshin @Ignister",
-      "viewsweek": 0,
-      "views": 98731,
-      "upvotes": 4,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "79206750": {
-      "name": "Abyss-scorn",
-      "viewsweek": 0,
-      "views": 35317,
-      "upvotes": 6,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "79418928": {
       "name": "Beta The Electromagnet Warrior",
       "viewsweek": 0,
@@ -13149,17 +11018,17 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
-    "79791878": {
-      "name": "Shining Sarcophagus",
+    "79755671": {
+      "name": "Dracotail Gulamel",
       "viewsweek": 0,
-      "views": 254984,
+      "views": 427113,
       "upvotes": 0,
       "downvotes": 0,
       "staple": false,
-      "archetype": "Shining Sarcophagus",
+      "archetype": "Dracotail",
       "formats": [
         "TCG",
         "OCG",
@@ -13168,6 +11037,25 @@
       "metaContext": {
         "genesys": false,
         "advanced": true
+      }
+    },
+    "79844764": {
+      "name": "The Monarchs Stormforth",
+      "viewsweek": 0,
+      "views": 743480,
+      "upvotes": 11,
+      "downvotes": 7,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
       }
     },
     "79853073": {
@@ -13211,23 +11099,6 @@
         "advanced": false
       }
     },
-    "80015408": {
-      "name": "Enneacraft Reverth",
-      "viewsweek": 0,
-      "views": 58091,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "80117527": {
       "name": "Number 11: Big Eye",
       "viewsweek": 1,
@@ -13241,6 +11112,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "80208225": {
+      "name": "Dracotail Sting",
+      "viewsweek": 0,
+      "views": 157050,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "80280737": {
       "name": "Assault Mode Activate",
@@ -13294,23 +11184,6 @@
         "TCG",
         "OCG",
         "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "81237046": {
-      "name": "Enneacraft - Archa.TAIL",
-      "viewsweek": 0,
-      "views": 66824,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
       ],
       "metaContext": {
         "genesys": false,
@@ -13372,7 +11245,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "81560239": {
@@ -13426,7 +11299,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "81825063": {
@@ -13464,7 +11337,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "81945678": {
@@ -13482,43 +11355,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "82119326": {
-      "name": "Tails of the Fairy Tails",
-      "viewsweek": 0,
-      "views": 31218,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "82135803": {
-      "name": "Fiendsmith's Desirae",
-      "viewsweek": 0,
-      "views": 796937,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fiendsmith",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "82159583": {
@@ -13535,26 +11372,26 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
-    "82257671": {
-      "name": "Gatchiri @Ignister",
+    "82319644": {
+      "name": "Tlakalel, His Malevolent Majesty",
       "viewsweek": 0,
-      "views": 159374,
-      "upvotes": 3,
-      "downvotes": 1,
+      "views": 24585,
+      "upvotes": 2,
+      "downvotes": 0,
       "staple": false,
-      "archetype": "@Ignister",
+      "archetype": "Monarch",
       "formats": [
-        "Common Charity",
+        "Duel Links",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "82323997": {
@@ -13573,23 +11410,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "82359538": {
-      "name": "Enneacraft - Aiza.LEON",
-      "viewsweek": 0,
-      "views": 75121,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "82385847": {
@@ -13662,7 +11482,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "82782870": {
@@ -13716,7 +11536,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "83326048": {
@@ -13805,7 +11625,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "84054556": {
@@ -13824,6 +11644,25 @@
       "metaContext": {
         "genesys": true,
         "advanced": true
+      }
+    },
+    "84171830": {
+      "name": "Domain of the True Monarchs",
+      "viewsweek": 0,
+      "views": 421267,
+      "upvotes": 9,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
       }
     },
     "84192580": {
@@ -13880,6 +11719,24 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "84477320": {
+      "name": "Dracotail Phryxul",
+      "viewsweek": 0,
+      "views": 196420,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Dracotail",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "84749824": {
@@ -13975,44 +11832,23 @@
         "advanced": true
       }
     },
-    "85327820": {
-      "name": "A.I.'s Ritual",
+    "85718645": {
+      "name": "Delg the Dark Monarch",
       "viewsweek": 0,
-      "views": 66517,
-      "upvotes": 6,
-      "downvotes": 3,
+      "views": 109138,
+      "upvotes": 4,
+      "downvotes": 1,
       "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "85399281": {
-      "name": "Harvest Angel of Wisdom",
-      "viewsweek": 0,
-      "views": 45539,
-      "upvotes": 2,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Fairy",
+      "archetype": "Monarch",
       "formats": [
         "Duel Links",
-        "Common Charity",
-        "Edison",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "85976588": {
@@ -14069,51 +11905,14 @@
         "advanced": false
       }
     },
-    "86379342": {
-      "name": "Tri-Brigade Oath",
+    "87288189": {
+      "name": "Caius the Mega Monarch",
       "viewsweek": 0,
-      "views": 84922,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "86395581": {
-      "name": "Wynn the Wind Channeler",
-      "viewsweek": 0,
-      "views": 326754,
-      "upvotes": 11,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "86449372": {
-      "name": "TA.I. Strike",
-      "viewsweek": 0,
-      "views": 65482,
-      "upvotes": 2,
+      "views": 245989,
+      "upvotes": 6,
       "downvotes": 1,
       "staple": false,
-      "archetype": "@Ignister",
+      "archetype": "Monarch",
       "formats": [
         "Common Charity",
         "TCG",
@@ -14121,44 +11920,8 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "86762958": {
-      "name": "Assist★Yummy!",
-      "viewsweek": 0,
-      "views": 38590,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "87209160": {
-      "name": "Tri-Brigade Fraktall",
-      "viewsweek": 0,
-      "views": 820777,
-      "upvotes": 4,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "87462901": {
@@ -14194,6 +11957,25 @@
         "advanced": false
       }
     },
+    "87602890": {
+      "name": "Zaborg the Mega Monarch",
+      "viewsweek": 0,
+      "views": 323924,
+      "upvotes": 11,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Monarch",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "87746184": {
       "name": "Albion the Branded Dragon",
       "viewsweek": 1,
@@ -14210,7 +11992,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "87814728": {
@@ -14230,26 +12012,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "87979586": {
-      "name": "Angel Trumpeter",
-      "viewsweek": 0,
-      "views": 136851,
-      "upvotes": 6,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "88170262": {
@@ -14285,7 +12047,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "88332693": {
@@ -14306,25 +12068,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "88413677": {
-      "name": "Doyon @Ignister",
-      "viewsweek": 0,
-      "views": 144330,
-      "upvotes": 5,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "88494899": {
@@ -14365,25 +12108,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "89055154": {
-      "name": "Power Angel Valkyria",
-      "viewsweek": 0,
-      "views": 101191,
-      "upvotes": 5,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "89189982": {
@@ -14465,7 +12189,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "90179822": {
@@ -14484,7 +12208,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "90311614": {
@@ -14505,24 +12229,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "90351981": {
-      "name": "Orcustrated Babel",
-      "viewsweek": 0,
-      "views": 289095,
-      "upvotes": 10,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "90448279": {
@@ -14593,7 +12299,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "90880453": {
@@ -14630,7 +12336,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "91530236": {
@@ -14668,7 +12374,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "91800273": {
@@ -14685,24 +12391,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "91957038": {
-      "name": "Fairy Tail Tales",
-      "viewsweek": 0,
-      "views": 45305,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy Tail",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "92065772": {
       "name": "Numbing Grub in the Ice Barrier",
@@ -14739,7 +12427,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "92107604": {
@@ -14758,40 +12446,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "92171126": {
-      "name": "Deftero Enneacraft - \"alazoneIA\"",
-      "viewsweek": 0,
-      "views": 76243,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Enneacraft",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "92269002": {
-      "name": "Tri-Brigade Hammer",
-      "viewsweek": 0,
-      "views": 28183,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "TCG",
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "92385016": {
@@ -14877,25 +12531,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "93192592": {
-      "name": "Lollipo★Yummy Way",
-      "viewsweek": 0,
-      "views": 273439,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "93229151": {
@@ -14935,24 +12571,6 @@
         "advanced": false
       }
     },
-    "93360904": {
-      "name": "Yummyusment★Acroquey",
-      "viewsweek": 0,
-      "views": 206382,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Yummy",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "93379652": {
       "name": "Gem-Knight Prismaura",
       "viewsweek": 0,
@@ -14969,25 +12587,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "93453053": {
-      "name": "Maliss in the Mirror",
-      "viewsweek": 0,
-      "views": 139791,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "93469007": {
@@ -15026,7 +12626,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "93665266": {
@@ -15048,25 +12648,6 @@
         "advanced": false
       }
     },
-    "93854893": {
-      "name": "Dingirsu, the Orcust of the Evening Star",
-      "viewsweek": 0,
-      "views": 1558003,
-      "upvotes": 35,
-      "downvotes": 15,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "93880808": {
       "name": "Arcana Triumph Joker",
       "viewsweek": 0,
@@ -15082,26 +12663,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "94046012": {
-      "name": "Orcust Brass Bombard",
-      "viewsweek": 0,
-      "views": 209717,
-      "upvotes": 5,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Orcust",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "94103142": {
@@ -15211,25 +12773,6 @@
         "advanced": false
       }
     },
-    "94722358": {
-      "name": "Maliss <C> MTP-07",
-      "viewsweek": 0,
-      "views": 337599,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "94798725": {
       "name": "Gunkan Suship Uni-class Super-Dreadnought",
       "viewsweek": 1,
@@ -15303,42 +12846,22 @@
         "advanced": false
       }
     },
-    "95454996": {
-      "name": "Maliss <Q> White Binder",
+    "95457011": {
+      "name": "Edea the Heavenly Squire",
       "viewsweek": 0,
-      "views": 377316,
-      "upvotes": 0,
-      "downvotes": 0,
+      "views": 449194,
+      "upvotes": 11,
+      "downvotes": 3,
       "staple": false,
-      "archetype": "Maliss",
+      "archetype": "Monarch",
       "formats": [
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "95466842": {
-      "name": "Mermail Abysslung",
-      "viewsweek": 0,
-      "views": 32805,
-      "upvotes": 1,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "95492061": {
@@ -15428,81 +12951,22 @@
         "advanced": true
       }
     },
-    "96378317": {
-      "name": "Tri-Brigade Rendezvous",
+    "96570609": {
+      "name": "Ehther the Heavenly Monarch",
       "viewsweek": 0,
-      "views": 65599,
-      "upvotes": 2,
-      "downvotes": 0,
+      "views": 399352,
+      "upvotes": 15,
+      "downvotes": 3,
       "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "96470883": {
-      "name": "Queen Angel of Roses",
-      "viewsweek": 0,
-      "views": 75634,
-      "upvotes": 6,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Fairy",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "96676583": {
-      "name": "Maliss <P> Chessy Cat",
-      "viewsweek": 0,
-      "views": 686064,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Maliss",
+      "archetype": "Monarch",
       "formats": [
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "96682430": {
-      "name": "Mermail Abysshilde",
-      "viewsweek": 0,
-      "views": 45075,
-      "upvotes": 1,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Mermail",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "96795312": {
@@ -15577,25 +13041,6 @@
       ],
       "metaContext": {}
     },
-    "97383507": {
-      "name": "Dark Templar @Ignister",
-      "viewsweek": 0,
-      "views": 187074,
-      "upvotes": 12,
-      "downvotes": 4,
-      "staple": false,
-      "archetype": "@Ignister",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "97434754": {
       "name": "Artmage Litera",
       "viewsweek": 1,
@@ -15667,24 +13112,6 @@
         "advanced": false
       }
     },
-    "97661969": {
-      "name": "Aussa the Earth Charmer, Immovable",
-      "viewsweek": 0,
-      "views": 442167,
-      "upvotes": 9,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Charmer",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "98147766": {
       "name": "Genetic Woman",
       "viewsweek": 1,
@@ -15739,23 +13166,24 @@
         "advanced": true
       }
     },
-    "98506199": {
-      "name": "Wind Pegasus @Ignister",
+    "98552723": {
+      "name": "Restoration of the Monarchs",
       "viewsweek": 0,
-      "views": 677365,
-      "upvotes": 3,
-      "downvotes": 4,
+      "views": 74409,
+      "upvotes": 4,
+      "downvotes": 0,
       "staple": false,
-      "archetype": "@Ignister",
+      "archetype": "Monarch",
       "formats": [
+        "Duel Links",
         "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "98567237": {
@@ -15773,7 +13201,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "98806751": {
@@ -15843,7 +13271,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "99243014": {
@@ -15915,7 +13343,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "99471856": {
@@ -15953,7 +13381,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "99550630": {
@@ -15991,7 +13419,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "99674361": {
@@ -16010,26 +13438,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "99726621": {
-      "name": "Tri-Brigade Shuraig the Ominous Omen",
-      "viewsweek": 0,
-      "views": 765733,
-      "upvotes": 9,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Tri-Brigade",
-      "formats": [
-        "Common Charity",
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "99785935": {
@@ -16056,22 +13464,23 @@
         "advanced": false
       }
     },
-    "99989863": {
-      "name": "Fiendsmith in Paradise",
+    "99940363": {
+      "name": "Frost Blast of the Monarchs",
       "viewsweek": 0,
-      "views": 317920,
-      "upvotes": 0,
+      "views": 80925,
+      "upvotes": 3,
       "downvotes": 0,
       "staple": false,
-      "archetype": "Fiendsmith",
+      "archetype": "Monarch",
       "formats": [
+        "Duel Links",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "100295121": {
@@ -16085,7 +13494,7 @@
       "formats": [],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "100455007": {
