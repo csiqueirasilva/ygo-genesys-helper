@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-06-08T11:07:24.607Z",
+  "lastUpdated": "2026-06-09T09:54:34.622Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -29,6 +29,10 @@
     {
       "name": "Allure of Darkness",
       "points": 5
+    },
+    {
+      "name": "Ame no Habakiri no Mitsurugi",
+      "points": 100
     },
     {
       "name": "Ame no Habakiri no Mitsurugi",
@@ -77,6 +81,10 @@
     {
       "name": "Archnemeses Protos",
       "points": 100
+    },
+    {
+      "name": "Artifact Lancea",
+      "points": 1
     },
     {
       "name": "Artifact Scythe",
@@ -131,6 +139,10 @@
       "points": 51
     },
     {
+      "name": "Banquet of Millions",
+      "points": 51
+    },
+    {
       "name": "Baronne de Fleur",
       "points": 80
     },
@@ -171,12 +183,24 @@
       "points": 100
     },
     {
+      "name": "Beelze of the Diabolic Dragons",
+      "points": 100
+    },
+    {
       "name": "Big Welcome Labrynth",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Black Garden",
       "points": 51
+    },
+    {
+      "name": "Black Garden",
+      "points": 51
+    },
+    {
+      "name": "Black-Winged Assault Dragon",
+      "points": 1
     },
     {
       "name": "Black-Winged Assault Dragon",
@@ -212,15 +236,19 @@
     },
     {
       "name": "Book of Eclipse",
-      "points": 3
+      "points": 4
     },
     {
       "name": "Book of Moon",
-      "points": 4
+      "points": 3
     },
     {
       "name": "Brain Research Lab",
       "points": 100
+    },
+    {
+      "name": "Bramble Rose Dragon",
+      "points": 1
     },
     {
       "name": "Bramble Rose Dragon",
@@ -241,6 +269,10 @@
     {
       "name": "Brilliant Fusion",
       "points": 33
+    },
+    {
+      "name": "Broww, Huntsman of Dark World",
+      "points": 3
     },
     {
       "name": "Broww, Huntsman of Dark World",
@@ -312,7 +344,7 @@
     },
     {
       "name": "Change of Heart",
-      "points": 6
+      "points": 3
     },
     {
       "name": "Chaofeng, Phantom of the Yang Zing",
@@ -336,7 +368,7 @@
     },
     {
       "name": "Chicken Game",
-      "points": 7
+      "points": 10
     },
     {
       "name": "Clown Crew Biancaviso",
@@ -353,6 +385,10 @@
     {
       "name": "Cold Wave",
       "points": 100
+    },
+    {
+      "name": "Conduction Warrior Linear Magnum Plus Minus",
+      "points": 6
     },
     {
       "name": "Confiscation",
@@ -379,6 +415,10 @@
       "points": 1
     },
     {
+      "name": "Crimson Blade Dragon",
+      "points": 10
+    },
+    {
       "name": "Crimson Dragon",
       "points": 80
     },
@@ -388,11 +428,11 @@
     },
     {
       "name": "Crystron Inclusion",
-      "points": 25
+      "points": 20
     },
     {
       "name": "Crystron Sulfador",
-      "points": 5
+      "points": 3
     },
     {
       "name": "CXyz Gimmick Puppet Fanatix Machinix",
@@ -417,6 +457,10 @@
     {
       "name": "D.D. Crow",
       "points": 1
+    },
+    {
+      "name": "D.D. Dynamite",
+      "points": 51
     },
     {
       "name": "D.D. Dynamite",
@@ -471,10 +515,6 @@
       "points": 7
     },
     {
-      "name": "Dark End Evaporation Dragon",
-      "points": 1
-    },
-    {
       "name": "Dark Eradicator Warlock",
       "points": 100
     },
@@ -499,8 +539,12 @@
       "points": 5
     },
     {
-      "name": "Darklord Ixchel",
+      "name": "Darklord Djehuty",
       "points": 5
+    },
+    {
+      "name": "Darklord Ixchel",
+      "points": 7
     },
     {
       "name": "Deception of the Sinful Spoils",
@@ -524,7 +568,7 @@
     },
     {
       "name": "Denglong, First of the Yang Zing",
-      "points": 20
+      "points": 10
     },
     {
       "name": "Denko Sekka",
@@ -567,7 +611,19 @@
       "points": 100
     },
     {
+      "name": "Dimensional Fissure",
+      "points": 10
+    },
+    {
       "name": "Dinomorphia Domain",
+      "points": 1
+    },
+    {
+      "name": "Dinomorphia Domain",
+      "points": 1
+    },
+    {
+      "name": "Dinomorphia Frenzy",
       "points": 1
     },
     {
@@ -652,7 +708,11 @@
     },
     {
       "name": "Dragon's Light and Darkness",
-      "points": 3
+      "points": 1
+    },
+    {
+      "name": "Dragon's Mind",
+      "points": 7
     },
     {
       "name": "Dragon's Mind",
@@ -660,7 +720,7 @@
     },
     {
       "name": "Dragonic Diagram",
-      "points": 15
+      "points": 10
     },
     {
       "name": "Dragonmaid Sheou",
@@ -668,7 +728,7 @@
     },
     {
       "name": "Dragonmaid Tidying",
-      "points": 5
+      "points": 1
     },
     {
       "name": "Droll & Lock Bird",
@@ -684,11 +744,19 @@
     },
     {
       "name": "Duality",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Earthbound Immortal Aslla piscu",
       "points": 51
+    },
+    {
+      "name": "Earthbound Immortal Aslla piscu",
+      "points": 51
+    },
+    {
+      "name": "Earthbound Prisoner Stone Sweeper",
+      "points": 5
     },
     {
       "name": "Ecclesia and the Dark Dragon",
@@ -701,6 +769,10 @@
     {
       "name": "Effect Veiler",
       "points": 8
+    },
+    {
+      "name": "Eidos the Underworld Monarch",
+      "points": 5
     },
     {
       "name": "El Shaddoll Apkallone",
@@ -717,6 +789,10 @@
     {
       "name": "Elder Entity Norden",
       "points": 91
+    },
+    {
+      "name": "Elemental HERO Cosmo Neos",
+      "points": 21
     },
     {
       "name": "Elfnote Power Patron",
@@ -751,6 +827,14 @@
       "points": 100
     },
     {
+      "name": "Evigishki Gustkraken",
+      "points": 100
+    },
+    {
+      "name": "Evigishki Mind Augus",
+      "points": 1
+    },
+    {
       "name": "Evigishki Mind Augus",
       "points": 1
     },
@@ -763,12 +847,20 @@
       "points": 20
     },
     {
+      "name": "Evolzar Lars",
+      "points": 20
+    },
+    {
       "name": "Exceptional Schedule",
       "points": 10
     },
     {
       "name": "Exosister Betrayal",
       "points": 7
+    },
+    {
+      "name": "Exosister Mikailis",
+      "points": 10
     },
     {
       "name": "Exosister Mikailis",
@@ -804,7 +896,7 @@
     },
     {
       "name": "Filia Regis",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Final Countdown",
@@ -816,7 +908,7 @@
     },
     {
       "name": "Fire King Courtier Ulcanix",
-      "points": 18
+      "points": 15
     },
     {
       "name": "Fire King High Avatar Kirin",
@@ -843,8 +935,12 @@
       "points": 7
     },
     {
+      "name": "Flying \"C\"",
+      "points": 7
+    },
+    {
       "name": "Foolish Burial",
-      "points": 33
+      "points": 25
     },
     {
       "name": "Foolish Burial Goods",
@@ -852,7 +948,7 @@
     },
     {
       "name": "Forbidden Chalice",
-      "points": 5
+      "points": 1
     },
     {
       "name": "Forbidden Crown",
@@ -864,7 +960,7 @@
     },
     {
       "name": "Forbidden Lance",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Fossil Dig",
@@ -895,8 +991,16 @@
       "points": 15
     },
     {
+      "name": "Galaxy-Eyes Tachyon Primal",
+      "points": 5
+    },
+    {
       "name": "Gallant Granite",
       "points": 33
+    },
+    {
+      "name": "Gameciel, the Sea Turtle Kaiju",
+      "points": 3
     },
     {
       "name": "Garura, Wings of Resonant Life",
@@ -905,6 +1009,10 @@
     {
       "name": "Gateway of the Six",
       "points": 100
+    },
+    {
+      "name": "Gem-Knight Lady Lapis Lazuli",
+      "points": 51
     },
     {
       "name": "Gem-Knight Lady Lapis Lazuli",
@@ -940,7 +1048,7 @@
     },
     {
       "name": "Gigantic Spright",
-      "points": 15
+      "points": 7
     },
     {
       "name": "Gimmick Puppet Nightmare",
@@ -948,6 +1056,14 @@
     },
     {
       "name": "Gishki Aquamirror",
+      "points": 1
+    },
+    {
+      "name": "Gishki Aquamirror",
+      "points": 1
+    },
+    {
+      "name": "Gishki Nekromirror",
       "points": 1
     },
     {
@@ -964,11 +1080,15 @@
     },
     {
       "name": "Glow-Up Bulb",
-      "points": 21
+      "points": 15
     },
     {
       "name": "Goblin Biker Big Gabonga",
-      "points": 15
+      "points": 12
+    },
+    {
+      "name": "Goblin Biker Grand Breakout",
+      "points": 7
     },
     {
       "name": "Goblin Biker Grand Breakout",
@@ -1007,8 +1127,12 @@
       "points": 10
     },
     {
+      "name": "Grisaille Prison",
+      "points": 10
+    },
+    {
       "name": "Guardian Chimera",
-      "points": 33
+      "points": 20
     },
     {
       "name": "Guiding Quem, the Virtuous",
@@ -1031,12 +1155,32 @@
       "points": 100
     },
     {
+      "name": "Heavy Polymerization",
+      "points": 3
+    },
+    {
       "name": "Heavy Storm",
       "points": 6
     },
     {
+      "name": "Herald of Green Light",
+      "points": 2
+    },
+    {
+      "name": "Herald of Orange Light",
+      "points": 3
+    },
+    {
+      "name": "Herald of Purple Light",
+      "points": 1
+    },
+    {
       "name": "Herald of the Arc Light",
       "points": 50
+    },
+    {
+      "name": "Hot Red Dragon Archfiend Abyss",
+      "points": 20
     },
     {
       "name": "Hot Red Dragon Archfiend Abyss",
@@ -1059,8 +1203,16 @@
       "points": 5
     },
     {
+      "name": "Ichiki Sayori-Hime",
+      "points": 5
+    },
+    {
       "name": "Ido the Supreme Magical Force",
       "points": 100
+    },
+    {
+      "name": "Illusion Gate",
+      "points": 10
     },
     {
       "name": "Imperial Order",
@@ -1083,8 +1235,12 @@
       "points": 88
     },
     {
+      "name": "Infernoid Evil",
+      "points": 7
+    },
+    {
       "name": "Infinite Impermanence",
-      "points": 12
+      "points": 11
     },
     {
       "name": "Inspector Boarder",
@@ -1095,12 +1251,8 @@
       "points": 100
     },
     {
-      "name": "Interrupted Kaiju Slumber",
-      "points": 10
-    },
-    {
       "name": "Into the Void",
-      "points": 7
+      "points": 10
     },
     {
       "name": "Invoked Caliga",
@@ -1108,7 +1260,7 @@
     },
     {
       "name": "Iron Thunder",
-      "points": 5
+      "points": 3
     },
     {
       "name": "Jet Synchron",
@@ -1121,6 +1273,10 @@
     {
       "name": "Junk Speeder",
       "points": 100
+    },
+    {
+      "name": "K9-04 Noroi",
+      "points": 15
     },
     {
       "name": "K9-04 Noroi",
@@ -1140,6 +1296,10 @@
     },
     {
       "name": "K9-X \"Ripper/M\"",
+      "points": 10
+    },
+    {
+      "name": "K9-X \"Werewolf\"",
       "points": 10
     },
     {
@@ -1172,7 +1332,7 @@
     },
     {
       "name": "Keldo the Sacred Protector",
-      "points": 1
+      "points": 2
     },
     {
       "name": "Ketu Dracotail",
@@ -1184,7 +1344,7 @@
     },
     {
       "name": "Kewl Tune Clip",
-      "points": 6
+      "points": 7
     },
     {
       "name": "Kewl Tune Crackle",
@@ -1192,7 +1352,15 @@
     },
     {
       "name": "Kewl Tune Cue",
-      "points": 6
+      "points": 7
+    },
+    {
+      "name": "Kewl Tune Mix",
+      "points": 5
+    },
+    {
+      "name": "Kewl Tune Reco",
+      "points": 5
     },
     {
       "name": "Kewl Tune Rotary",
@@ -1249,6 +1417,14 @@
     {
       "name": "Laevatein, Generaider Boss of Shadows",
       "points": 1
+    },
+    {
+      "name": "Laevatein, Generaider Boss of Shadows",
+      "points": 1
+    },
+    {
+      "name": "Last Turn",
+      "points": 100
     },
     {
       "name": "Last Turn",
@@ -1319,6 +1495,10 @@
       "points": 10
     },
     {
+      "name": "Lubellion the Searing Dragon",
+      "points": 10
+    },
+    {
       "name": "Lunalight Liger Dancer",
       "points": 51
     },
@@ -1328,11 +1508,19 @@
     },
     {
       "name": "Lyrilusc - Bird Call",
-      "points": 20
+      "points": 5
     },
     {
       "name": "Lyrilusc - Independent Nightingale",
       "points": 1
+    },
+    {
+      "name": "Lyrilusc - Sapphire Swallow",
+      "points": 3
+    },
+    {
+      "name": "Lyrilusc - Turquoise Warbler",
+      "points": 3
     },
     {
       "name": "M-X-Saber Invoker",
@@ -1341,6 +1529,10 @@
     {
       "name": "Magical Explosion",
       "points": 75
+    },
+    {
+      "name": "Magical Mallet",
+      "points": 3
     },
     {
       "name": "Magical Mid-Breaker Field",
@@ -1356,11 +1548,19 @@
     },
     {
       "name": "Magicians' Souls",
-      "points": 15
+      "points": 10
+    },
+    {
+      "name": "Magnet Bonding",
+      "points": 5
     },
     {
       "name": "Majesty's Fiend",
       "points": 100
+    },
+    {
+      "name": "Manju of the Ten Thousand Hands",
+      "points": 1
     },
     {
       "name": "Manju of the Ten Thousand Hands",
@@ -1373,6 +1573,14 @@
     {
       "name": "Masked HERO Dark Law",
       "points": 70
+    },
+    {
+      "name": "Masked HERO Koga",
+      "points": 5
+    },
+    {
+      "name": "Masquerade the Blazing Dragon",
+      "points": 16
     },
     {
       "name": "Masquerade the Blazing Dragon",
@@ -1392,7 +1600,7 @@
     },
     {
       "name": "Mathmech Sigma",
-      "points": 7
+      "points": 5
     },
     {
       "name": "Maxx \"C\"",
@@ -1401,6 +1609,10 @@
     {
       "name": "Medius the Pure",
       "points": 5
+    },
+    {
+      "name": "Megalith Anastasis",
+      "points": 33
     },
     {
       "name": "Megalith Anastasis",
@@ -1428,7 +1640,7 @@
     },
     {
       "name": "Metamorphosis",
-      "points": 5
+      "points": 3
     },
     {
       "name": "Metaverse",
@@ -1447,12 +1659,24 @@
       "points": 3
     },
     {
+      "name": "Mimighoul Dungeon",
+      "points": 5
+    },
+    {
       "name": "Mind Drain",
       "points": 100
     },
     {
       "name": "Mind Master",
       "points": 1
+    },
+    {
+      "name": "Miracle Ejector",
+      "points": 5
+    },
+    {
+      "name": "Mirrorjade the Iceblade Dragon",
+      "points": 10
     },
     {
       "name": "Mirrorjade the Iceblade Dragon",
@@ -1475,6 +1699,14 @@
       "points": 51
     },
     {
+      "name": "Mitsurugi Prayers",
+      "points": 51
+    },
+    {
+      "name": "Mitsurugi Ritual",
+      "points": 51
+    },
+    {
       "name": "Mitsurugi Ritual",
       "points": 51
     },
@@ -1484,7 +1716,7 @@
     },
     {
       "name": "Monster Reborn",
-      "points": 4
+      "points": 3
     },
     {
       "name": "Morphing Jar",
@@ -1500,11 +1732,11 @@
     },
     {
       "name": "Mudora the Sword Oracle",
-      "points": 1
+      "points": 2
     },
     {
       "name": "Mulcharmy Fuwalos",
-      "points": 7
+      "points": 8
     },
     {
       "name": "Mulcharmy Meowls",
@@ -1524,7 +1756,7 @@
     },
     {
       "name": "N.As.H. Knight",
-      "points": 15
+      "points": 13
     },
     {
       "name": "Nadir Servant",
@@ -1544,7 +1776,7 @@
     },
     {
       "name": "Necrovalley",
-      "points": 40
+      "points": 25
     },
     {
       "name": "Neptabyss, the Atlantean Prince",
@@ -1555,8 +1787,16 @@
       "points": 5
     },
     {
+      "name": "Nerva the Power Patron of Creation",
+      "points": 5
+    },
+    {
       "name": "Nibiru, the Primal Being",
-      "points": 6
+      "points": 8
+    },
+    {
+      "name": "Nightmare Apprentice",
+      "points": 20
     },
     {
       "name": "Nightmare Apprentice",
@@ -1564,7 +1804,7 @@
     },
     {
       "name": "Nightmare Throne",
-      "points": 25
+      "points": 13
     },
     {
       "name": "Noh-P.U.N.K. Foxy Tune",
@@ -1581,6 +1821,10 @@
     {
       "name": "Number 1: Numeron Gate Ekam",
       "points": 10
+    },
+    {
+      "name": "Number 100: Numeron Dragon",
+      "points": 21
     },
     {
       "name": "Number 100: Numeron Dragon",
@@ -1643,6 +1887,10 @@
       "points": 1
     },
     {
+      "name": "Number 69: Heraldry Crest",
+      "points": 1
+    },
+    {
       "name": "Number 75: Bamboozling Gossip Shadow",
       "points": 70
     },
@@ -1667,6 +1915,14 @@
       "points": 80
     },
     {
+      "name": "Number 97: Draglubion",
+      "points": 80
+    },
+    {
+      "name": "Number 99: Utopia Dragonar",
+      "points": 80
+    },
+    {
       "name": "Number 99: Utopia Dragonar",
       "points": 80
     },
@@ -1680,7 +1936,11 @@
     },
     {
       "name": "Number F0: Utopic Draco Future",
-      "points": 20
+      "points": 25
+    },
+    {
+      "name": "Number F0: Utopic Future Zexal",
+      "points": 5
     },
     {
       "name": "Number S0: Utopic ZEXAL",
@@ -1751,12 +2011,16 @@
       "points": 13
     },
     {
+      "name": "Phantom Fortress Enterblathnir",
+      "points": 13
+    },
+    {
       "name": "Phantom Knights' Rank-Up-Magic Force",
       "points": 1
     },
     {
       "name": "Phantom of Yubel",
-      "points": 76
+      "points": 88
     },
     {
       "name": "Pilgrim Reaper",
@@ -1768,7 +2032,11 @@
     },
     {
       "name": "Pot of Desires",
-      "points": 20
+      "points": 15
+    },
+    {
+      "name": "Pot of Extravagance",
+      "points": 10
     },
     {
       "name": "Pot of Extravagance",
@@ -1784,7 +2052,7 @@
     },
     {
       "name": "Power Vice Dragon",
-      "points": 5
+      "points": 6
     },
     {
       "name": "Powersink Stone",
@@ -1796,7 +2064,7 @@
     },
     {
       "name": "Premature Burial",
-      "points": 3
+      "points": 2
     },
     {
       "name": "Preparation of Rites",
@@ -1867,6 +2135,14 @@
       "points": 1
     },
     {
+      "name": "QQ Enneagon",
+      "points": 1
+    },
+    {
+      "name": "Question",
+      "points": 11
+    },
+    {
       "name": "Question",
       "points": 11
     },
@@ -1884,6 +2160,10 @@
     },
     {
       "name": "Radiant Typhoon Eldam",
+      "points": 7
+    },
+    {
+      "name": "Radiant Typhoon Krosea",
       "points": 7
     },
     {
@@ -1991,6 +2271,10 @@
       "points": 1
     },
     {
+      "name": "Red-Eyes Flare Metal Dragon",
+      "points": 1
+    },
+    {
       "name": "Redox, Dragon Ruler of Boulders",
       "points": 5
     },
@@ -2020,6 +2304,10 @@
     },
     {
       "name": "Rescue-ACE Air Lifter",
+      "points": 3
+    },
+    {
+      "name": "Rescue-ACE Impulse",
       "points": 5
     },
     {
@@ -2028,7 +2316,11 @@
     },
     {
       "name": "Rescue-ACE Preventer",
-      "points": 10
+      "points": 7
+    },
+    {
+      "name": "Retaliating \"C\"",
+      "points": 5
     },
     {
       "name": "Retaliating \"C\"",
@@ -2036,11 +2328,15 @@
     },
     {
       "name": "Return from the Different Dimension",
-      "points": 40
+      "points": 20
     },
     {
       "name": "Return of the Dragon Lords",
-      "points": 7
+      "points": 3
+    },
+    {
+      "name": "Reversal Quiz",
+      "points": 100
     },
     {
       "name": "Reversal Quiz",
@@ -2052,7 +2348,7 @@
     },
     {
       "name": "Ritual Beast Tamer Elder",
-      "points": 10
+      "points": 3
     },
     {
       "name": "Rivalry of Warlords",
@@ -2107,6 +2403,10 @@
       "points": 3
     },
     {
+      "name": "Sauravis, the Ancient and Ascended",
+      "points": 3
+    },
+    {
       "name": "Schwarzschild Infinity Dragon",
       "points": 33
     },
@@ -2127,6 +2427,10 @@
       "points": 1
     },
     {
+      "name": "Senju of the Thousand Hands",
+      "points": 1
+    },
+    {
       "name": "Set Rotation",
       "points": 33
     },
@@ -2135,8 +2439,12 @@
       "points": 10
     },
     {
+      "name": "Shared Ride",
+      "points": 1
+    },
+    {
       "name": "Shien's Smoke Signal",
-      "points": 33
+      "points": 20
     },
     {
       "name": "Shiina, Twin Tempests of Celestial Thunder",
@@ -2172,7 +2480,7 @@
     },
     {
       "name": "Snatch Steal",
-      "points": 4
+      "points": 2
     },
     {
       "name": "Snoww, Unlight of Dark World",
@@ -2215,12 +2523,16 @@
       "points": 7
     },
     {
+      "name": "Speedroid Terrortop",
+      "points": 7
+    },
+    {
       "name": "Spell Canceller",
       "points": 20
     },
     {
       "name": "Spell Card \"Soul Exchange\"",
-      "points": 3
+      "points": 13
     },
     {
       "name": "Spenta, the Magistus Sealer",
@@ -2228,6 +2540,10 @@
     },
     {
       "name": "Spiritual Beast Tamer Lara",
+      "points": 10
+    },
+    {
+      "name": "Spright Starter",
       "points": 10
     },
     {
@@ -2251,6 +2567,10 @@
       "points": 21
     },
     {
+      "name": "Stardust Sifr Divine Dragon",
+      "points": 21
+    },
+    {
       "name": "Starliege Seyfert",
       "points": 33
     },
@@ -2260,6 +2580,10 @@
     },
     {
       "name": "Stray Purrely Street",
+      "points": 5
+    },
+    {
+      "name": "Subspace Battle",
       "points": 5
     },
     {
@@ -2273,6 +2597,10 @@
     {
       "name": "Summon Limit",
       "points": 100
+    },
+    {
+      "name": "Super Polymerization",
+      "points": 13
     },
     {
       "name": "Super Polymerization",
@@ -2300,19 +2628,23 @@
     },
     {
       "name": "Swordsoul Emergence",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Swordsoul Grandmaster - Chixiao",
-      "points": 20
+      "points": 10
     },
     {
       "name": "Swordsoul Strategist Longyuan",
-      "points": 5
+      "points": 1
+    },
+    {
+      "name": "Swordsoul Supreme Sovereign - Chengying",
+      "points": 10
     },
     {
       "name": "T.G. Hyper Librarian",
-      "points": 33
+      "points": 20
     },
     {
       "name": "Tearlaments Havnis",
@@ -2353,10 +2685,6 @@
     {
       "name": "Tenpai Dragon Genroku",
       "points": 25
-    },
-    {
-      "name": "Tenyi Spirit - Ashuna",
-      "points": 3
     },
     {
       "name": "Terraforming",
@@ -2487,8 +2815,16 @@
       "points": 3
     },
     {
+      "name": "Trap Trick",
+      "points": 3
+    },
+    {
       "name": "Traptrix Rafflesia",
       "points": 20
+    },
+    {
+      "name": "Treasures of the Kings",
+      "points": 5
     },
     {
       "name": "Treasures of the Kings",
@@ -2504,6 +2840,10 @@
     },
     {
       "name": "Triple Tactics Thrust",
+      "points": 13
+    },
+    {
+      "name": "Trishula, Dragon of the Ice Barrier",
       "points": 13
     },
     {
@@ -2528,11 +2868,11 @@
     },
     {
       "name": "Union Hangar",
-      "points": 15
+      "points": 5
     },
     {
       "name": "Upstart Goblin",
-      "points": 7
+      "points": 10
     },
     {
       "name": "Uzuhime the Manifested Mikanko",
@@ -2555,7 +2895,19 @@
       "points": 33
     },
     {
+      "name": "Vanquish Soul Hollie Sue",
+      "points": 33
+    },
+    {
       "name": "Vanquish Soul Jiaolong",
+      "points": 11
+    },
+    {
+      "name": "Vanquish Soul Jiaolong",
+      "points": 11
+    },
+    {
+      "name": "Vanquish Soul Razen",
       "points": 11
     },
     {
@@ -2571,10 +2923,6 @@
       "points": 20
     },
     {
-      "name": "Virtual World Mai-Hime - Lulu",
-      "points": 3
-    },
-    {
       "name": "Wandering Gryphon Rider",
       "points": 50
     },
@@ -2584,7 +2932,7 @@
     },
     {
       "name": "Welcome Labrynth",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Wind-Up Carrier Zenmaity",
@@ -2607,12 +2955,16 @@
       "points": 1
     },
     {
+      "name": "World Legacy Monstrosity",
+      "points": 1
+    },
+    {
       "name": "Zaborg the Mega Monarch",
       "points": 100
     },
     {
       "name": "Zalen the Shackled Dragon",
-      "points": 10
+      "points": 12
     },
     {
       "name": "Zoodiac Barrage",
