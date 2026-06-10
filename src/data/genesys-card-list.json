@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-06-09T09:54:34.622Z",
+  "lastUpdated": "2026-06-10T10:11:49.795Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -29,10 +29,6 @@
     {
       "name": "Allure of Darkness",
       "points": 5
-    },
-    {
-      "name": "Ame no Habakiri no Mitsurugi",
-      "points": 100
     },
     {
       "name": "Ame no Habakiri no Mitsurugi",
@@ -139,10 +135,6 @@
       "points": 51
     },
     {
-      "name": "Banquet of Millions",
-      "points": 51
-    },
-    {
       "name": "Baronne de Fleur",
       "points": 80
     },
@@ -183,24 +175,12 @@
       "points": 100
     },
     {
-      "name": "Beelze of the Diabolic Dragons",
-      "points": 100
-    },
-    {
       "name": "Big Welcome Labrynth",
       "points": 15
     },
     {
       "name": "Black Garden",
       "points": 51
-    },
-    {
-      "name": "Black Garden",
-      "points": 51
-    },
-    {
-      "name": "Black-Winged Assault Dragon",
-      "points": 1
     },
     {
       "name": "Black-Winged Assault Dragon",
@@ -251,10 +231,6 @@
       "points": 1
     },
     {
-      "name": "Bramble Rose Dragon",
-      "points": 1
-    },
-    {
       "name": "Branded Expulsion",
       "points": 33
     },
@@ -269,10 +245,6 @@
     {
       "name": "Brilliant Fusion",
       "points": 33
-    },
-    {
-      "name": "Broww, Huntsman of Dark World",
-      "points": 3
     },
     {
       "name": "Broww, Huntsman of Dark World",
@@ -463,10 +435,6 @@
       "points": 51
     },
     {
-      "name": "D.D. Dynamite",
-      "points": 51
-    },
-    {
       "name": "D/D/D Duo-Dawn King Kali Yuga",
       "points": 77
     },
@@ -619,14 +587,6 @@
       "points": 1
     },
     {
-      "name": "Dinomorphia Domain",
-      "points": 1
-    },
-    {
-      "name": "Dinomorphia Frenzy",
-      "points": 1
-    },
-    {
       "name": "Dinomorphia Frenzy",
       "points": 1
     },
@@ -715,10 +675,6 @@
       "points": 7
     },
     {
-      "name": "Dragon's Mind",
-      "points": 7
-    },
-    {
       "name": "Dragonic Diagram",
       "points": 10
     },
@@ -745,10 +701,6 @@
     {
       "name": "Duality",
       "points": 1
-    },
-    {
-      "name": "Earthbound Immortal Aslla piscu",
-      "points": 51
     },
     {
       "name": "Earthbound Immortal Aslla piscu",
@@ -827,14 +779,6 @@
       "points": 100
     },
     {
-      "name": "Evigishki Gustkraken",
-      "points": 100
-    },
-    {
-      "name": "Evigishki Mind Augus",
-      "points": 1
-    },
-    {
       "name": "Evigishki Mind Augus",
       "points": 1
     },
@@ -847,20 +791,12 @@
       "points": 20
     },
     {
-      "name": "Evolzar Lars",
-      "points": 20
-    },
-    {
       "name": "Exceptional Schedule",
       "points": 10
     },
     {
       "name": "Exosister Betrayal",
       "points": 7
-    },
-    {
-      "name": "Exosister Mikailis",
-      "points": 10
     },
     {
       "name": "Exosister Mikailis",
@@ -929,10 +865,6 @@
     {
       "name": "Floowandereeze and the Magnificent Map",
       "points": 33
-    },
-    {
-      "name": "Flying \"C\"",
-      "points": 7
     },
     {
       "name": "Flying \"C\"",
@@ -1015,10 +947,6 @@
       "points": 51
     },
     {
-      "name": "Gem-Knight Lady Lapis Lazuli",
-      "points": 51
-    },
-    {
       "name": "Gem-Knight Master Diamond",
       "points": 66
     },
@@ -1059,14 +987,6 @@
       "points": 1
     },
     {
-      "name": "Gishki Aquamirror",
-      "points": 1
-    },
-    {
-      "name": "Gishki Nekromirror",
-      "points": 1
-    },
-    {
       "name": "Gishki Nekromirror",
       "points": 1
     },
@@ -1085,10 +1005,6 @@
     {
       "name": "Goblin Biker Big Gabonga",
       "points": 12
-    },
-    {
-      "name": "Goblin Biker Grand Breakout",
-      "points": 7
     },
     {
       "name": "Goblin Biker Grand Breakout",
@@ -1121,10 +1037,6 @@
     {
       "name": "Grapha, Dragon Overlord of Dark World",
       "points": 5
-    },
-    {
-      "name": "Grisaille Prison",
-      "points": 10
     },
     {
       "name": "Grisaille Prison",
@@ -1183,10 +1095,6 @@
       "points": 20
     },
     {
-      "name": "Hot Red Dragon Archfiend Abyss",
-      "points": 20
-    },
-    {
       "name": "Hot Red Dragon Archfiend King Calamity",
       "points": 21
     },
@@ -1197,10 +1105,6 @@
     {
       "name": "Ice Ryzeal",
       "points": 20
-    },
-    {
-      "name": "Ichiki Sayori-Hime",
-      "points": 5
     },
     {
       "name": "Ichiki Sayori-Hime",
@@ -1279,10 +1183,6 @@
       "points": 15
     },
     {
-      "name": "K9-04 Noroi",
-      "points": 15
-    },
-    {
       "name": "K9-17 \"Ripper\"",
       "points": 30
     },
@@ -1295,20 +1195,16 @@
       "points": 33
     },
     {
+      "name": "K9-ØØ Lupis",
+      "points": 5
+    },
+    {
       "name": "K9-X \"Ripper/M\"",
       "points": 10
     },
     {
       "name": "K9-X \"Werewolf\"",
       "points": 10
-    },
-    {
-      "name": "K9-X \"Werewolf\"",
-      "points": 10
-    },
-    {
-      "name": "K9-�� Lupis",
-      "points": 5
     },
     {
       "name": "Kaiser Colosseum",
@@ -1419,14 +1315,6 @@
       "points": 1
     },
     {
-      "name": "Laevatein, Generaider Boss of Shadows",
-      "points": 1
-    },
-    {
-      "name": "Last Turn",
-      "points": 100
-    },
-    {
       "name": "Last Turn",
       "points": 100
     },
@@ -1489,10 +1377,6 @@
     {
       "name": "Lose 1 Turn",
       "points": 100
-    },
-    {
-      "name": "Lubellion the Searing Dragon",
-      "points": 10
     },
     {
       "name": "Lubellion the Searing Dragon",
@@ -1563,10 +1447,6 @@
       "points": 1
     },
     {
-      "name": "Manju of the Ten Thousand Hands",
-      "points": 1
-    },
-    {
       "name": "Mansion of the Dreadful Dolls",
       "points": 100
     },
@@ -1577,10 +1457,6 @@
     {
       "name": "Masked HERO Koga",
       "points": 5
-    },
-    {
-      "name": "Masquerade the Blazing Dragon",
-      "points": 16
     },
     {
       "name": "Masquerade the Blazing Dragon",
@@ -1609,10 +1485,6 @@
     {
       "name": "Medius the Pure",
       "points": 5
-    },
-    {
-      "name": "Megalith Anastasis",
-      "points": 33
     },
     {
       "name": "Megalith Anastasis",
@@ -1679,10 +1551,6 @@
       "points": 10
     },
     {
-      "name": "Mirrorjade the Iceblade Dragon",
-      "points": 10
-    },
-    {
       "name": "Miscellaneousaurus",
       "points": 67
     },
@@ -1696,14 +1564,6 @@
     },
     {
       "name": "Mitsurugi Prayers",
-      "points": 51
-    },
-    {
-      "name": "Mitsurugi Prayers",
-      "points": 51
-    },
-    {
-      "name": "Mitsurugi Ritual",
       "points": 51
     },
     {
@@ -1787,16 +1647,8 @@
       "points": 5
     },
     {
-      "name": "Nerva the Power Patron of Creation",
-      "points": 5
-    },
-    {
       "name": "Nibiru, the Primal Being",
       "points": 8
-    },
-    {
-      "name": "Nightmare Apprentice",
-      "points": 20
     },
     {
       "name": "Nightmare Apprentice",
@@ -1821,10 +1673,6 @@
     {
       "name": "Number 1: Numeron Gate Ekam",
       "points": 10
-    },
-    {
-      "name": "Number 100: Numeron Dragon",
-      "points": 21
     },
     {
       "name": "Number 100: Numeron Dragon",
@@ -1887,10 +1735,6 @@
       "points": 1
     },
     {
-      "name": "Number 69: Heraldry Crest",
-      "points": 1
-    },
-    {
       "name": "Number 75: Bamboozling Gossip Shadow",
       "points": 70
     },
@@ -1912,14 +1756,6 @@
     },
     {
       "name": "Number 97: Draglubion",
-      "points": 80
-    },
-    {
-      "name": "Number 97: Draglubion",
-      "points": 80
-    },
-    {
-      "name": "Number 99: Utopia Dragonar",
       "points": 80
     },
     {
@@ -2011,10 +1847,6 @@
       "points": 13
     },
     {
-      "name": "Phantom Fortress Enterblathnir",
-      "points": 13
-    },
-    {
       "name": "Phantom Knights' Rank-Up-Magic Force",
       "points": 1
     },
@@ -2033,10 +1865,6 @@
     {
       "name": "Pot of Desires",
       "points": 15
-    },
-    {
-      "name": "Pot of Extravagance",
-      "points": 10
     },
     {
       "name": "Pot of Extravagance",
@@ -2133,14 +1961,6 @@
     {
       "name": "QQ Enneagon",
       "points": 1
-    },
-    {
-      "name": "QQ Enneagon",
-      "points": 1
-    },
-    {
-      "name": "Question",
-      "points": 11
     },
     {
       "name": "Question",
@@ -2271,10 +2091,6 @@
       "points": 1
     },
     {
-      "name": "Red-Eyes Flare Metal Dragon",
-      "points": 1
-    },
-    {
       "name": "Redox, Dragon Ruler of Boulders",
       "points": 5
     },
@@ -2311,16 +2127,8 @@
       "points": 5
     },
     {
-      "name": "Rescue-ACE Impulse",
-      "points": 5
-    },
-    {
       "name": "Rescue-ACE Preventer",
       "points": 7
-    },
-    {
-      "name": "Retaliating \"C\"",
-      "points": 5
     },
     {
       "name": "Retaliating \"C\"",
@@ -2333,10 +2141,6 @@
     {
       "name": "Return of the Dragon Lords",
       "points": 3
-    },
-    {
-      "name": "Reversal Quiz",
-      "points": 100
     },
     {
       "name": "Reversal Quiz",
@@ -2403,10 +2207,6 @@
       "points": 3
     },
     {
-      "name": "Sauravis, the Ancient and Ascended",
-      "points": 3
-    },
-    {
       "name": "Schwarzschild Infinity Dragon",
       "points": 33
     },
@@ -2421,10 +2221,6 @@
     {
       "name": "Sengenjin Wakes from a Millennium",
       "points": 33
-    },
-    {
-      "name": "Senju of the Thousand Hands",
-      "points": 1
     },
     {
       "name": "Senju of the Thousand Hands",
@@ -2523,10 +2319,6 @@
       "points": 7
     },
     {
-      "name": "Speedroid Terrortop",
-      "points": 7
-    },
-    {
       "name": "Spell Canceller",
       "points": 20
     },
@@ -2547,10 +2339,6 @@
       "points": 10
     },
     {
-      "name": "Spright Starter",
-      "points": 10
-    },
-    {
       "name": "Stand Up Centur-Ion!",
       "points": 5
     },
@@ -2561,10 +2349,6 @@
     {
       "name": "Star Seraph Sovereignty",
       "points": 5
-    },
-    {
-      "name": "Stardust Sifr Divine Dragon",
-      "points": 21
     },
     {
       "name": "Stardust Sifr Divine Dragon",
@@ -2597,10 +2381,6 @@
     {
       "name": "Summon Limit",
       "points": 100
-    },
-    {
-      "name": "Super Polymerization",
-      "points": 13
     },
     {
       "name": "Super Polymerization",
@@ -2815,16 +2595,8 @@
       "points": 3
     },
     {
-      "name": "Trap Trick",
-      "points": 3
-    },
-    {
       "name": "Traptrix Rafflesia",
       "points": 20
-    },
-    {
-      "name": "Treasures of the Kings",
-      "points": 5
     },
     {
       "name": "Treasures of the Kings",
@@ -2840,10 +2612,6 @@
     },
     {
       "name": "Triple Tactics Thrust",
-      "points": 13
-    },
-    {
-      "name": "Trishula, Dragon of the Ice Barrier",
       "points": 13
     },
     {
@@ -2895,19 +2663,7 @@
       "points": 33
     },
     {
-      "name": "Vanquish Soul Hollie Sue",
-      "points": 33
-    },
-    {
       "name": "Vanquish Soul Jiaolong",
-      "points": 11
-    },
-    {
-      "name": "Vanquish Soul Jiaolong",
-      "points": 11
-    },
-    {
-      "name": "Vanquish Soul Razen",
       "points": 11
     },
     {
@@ -2949,10 +2705,6 @@
     {
       "name": "Witch of the White Forest",
       "points": 33
-    },
-    {
-      "name": "World Legacy Monstrosity",
-      "points": 1
     },
     {
       "name": "World Legacy Monstrosity",
