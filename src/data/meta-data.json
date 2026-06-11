@@ -1,16 +1,21 @@
 {
-  "lastUpdated": "2026-06-10T10:11:50.740Z",
+  "lastUpdated": "2026-06-11T10:46:25.897Z",
   "genesys": {
     "recentDecks": [
       {
+        "name": "Constellar Tellarknights",
+        "url": "https://ygoprodeck.com/deck/constellar-tellarknights-716053",
+        "meta": "Winner (~223 players) 4 days ago piloted by Uziel Tapia Perez"
+      },
+      {
         "name": "Labrynth",
         "url": "https://ygoprodeck.com/deck/labrynth-715919",
-        "meta": "Top 4 (~223 players) 3 days ago piloted by Alfredo Jose Zapata"
+        "meta": "Top 4 (~223 players) 4 days ago piloted by Alfredo Jose Zapata"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715883",
-        "meta": "Runner-Up (~223 players) 3 days ago piloted by Miguel Angel Hernandez Morales"
+        "meta": "Runner-Up (~223 players) 4 days ago piloted by Miguel Angel Hernandez Morales"
       },
       {
         "name": "Clown Crew",
@@ -96,14 +101,10 @@
         "name": "Super Quant",
         "url": "https://ygoprodeck.com/deck/super-quant-713388",
         "meta": "Top 32 (175 players) 2 weeks ago piloted by Jake Russell Wisniewski"
-      },
-      {
-        "name": "Purrely",
-        "url": "https://ygoprodeck.com/deck/purrely-713385",
-        "meta": "Top 32 (175 players) 2 weeks ago piloted by Brian Dong"
       }
     ],
     "metaArchetypes": [
+      "Constellar Tellarknights",
       "Labrynth",
       "Kewl Tune",
       "Clown Crew",
@@ -118,26 +119,40 @@
       "Mimighoul",
       "Exosister",
       "HERO",
-      "Super Quant",
-      "Purrely"
+      "Super Quant"
     ]
   },
   "advanced": {
     "recentDecks": [
       {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-716133",
+        "meta": "Top 4 (84 players) 5 days ago piloted by Marcus Williams"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-716055",
+        "meta": "Top 32 (799 players) 5 days ago piloted by Andre Martin Martinez"
+      },
+      {
+        "name": "Mitsurugi",
+        "url": "https://ygoprodeck.com/deck/mitsurugi-716051",
+        "meta": "Top 4 (~61 players) 5 days ago piloted by Thomas Perpetua"
+      },
+      {
         "name": "@Ignister Maliss",
         "url": "https://ygoprodeck.com/deck/ignister-maliss-715906",
-        "meta": "Top 4 (799 players) 4 days ago piloted by Valentin Alexis Ochoa Sanchez"
+        "meta": "Top 4 (799 players) 5 days ago piloted by Valentin Alexis Ochoa Sanchez"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715903",
-        "meta": "Top 8 (799 players) 4 days ago piloted by Marcelo De Jesus Vargas"
+        "meta": "Top 8 (799 players) 5 days ago piloted by Marcelo De Jesus Vargas"
       },
       {
         "name": "Predaplant Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/predaplant-branded-dracotail-715899",
-        "meta": "Top 8 (200 players) 3 days ago piloted by Justin Bean"
+        "meta": "Top 8 (200 players) 4 days ago piloted by Justin Bean"
       },
       {
         "name": "Monarch",
@@ -152,47 +167,47 @@
       {
         "name": "Fairy Tail",
         "url": "https://ygoprodeck.com/deck/fairy-tail-715875",
-        "meta": "Top 8 (~400 players) 4 days ago piloted by Tyler Bryan"
+        "meta": "Top 8 (~61 players) 5 days ago piloted by Tyler Bryan"
       },
       {
         "name": "Enneacraft",
         "url": "https://ygoprodeck.com/deck/enneacraft-715872",
-        "meta": "Top 8 (~150 players) 3 days ago piloted by Hanko Chow"
+        "meta": "Top 8 (~150 players) 4 days ago piloted by Hanko Chow"
       },
       {
         "name": "Endymion Magistus Fairy Tail",
         "url": "https://ygoprodeck.com/deck/endymion-magistus-fairy-tail-715868",
-        "meta": "Top 8 (~150 players) 3 days ago piloted by Anthony Xu"
+        "meta": "Top 8 (~150 players) 4 days ago piloted by Anthony Xu"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715867",
-        "meta": "Top 8 (799 players) 4 days ago piloted by Gabriel Martin Magdalena"
+        "meta": "Top 8 (799 players) 5 days ago piloted by Gabriel Martin Magdalena"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715866",
-        "meta": "Top 16 (256 players) 4 days ago piloted by Martin Hoebeke"
+        "meta": "Top 16 (256 players) 5 days ago piloted by Martin Hoebeke"
       },
       {
         "name": "DoomZ",
         "url": "https://ygoprodeck.com/deck/doomz-715864",
-        "meta": "Top 4 (799 players) 4 days ago piloted by Daniel Esparza Medina"
+        "meta": "Top 4 (799 players) 5 days ago piloted by Daniel Esparza Medina"
       },
       {
         "name": "DoomZ",
         "url": "https://ygoprodeck.com/deck/doomz-715859",
-        "meta": "Winner (256 players) 4 days ago piloted by Marcus Marks"
+        "meta": "Winner (256 players) 5 days ago piloted by Marcus Marks"
       },
       {
         "name": "Power Patron Artmage",
         "url": "https://ygoprodeck.com/deck/power-patron-artmage-715779",
-        "meta": "Top 8 (200 players) 3 days ago piloted by Jorge Kosho"
+        "meta": "Top 8 (200 players) 4 days ago piloted by Jorge Kosho"
       },
       {
         "name": "Despia Branded",
         "url": "https://ygoprodeck.com/deck/despia-branded-715760",
-        "meta": "Top 4 (202 players) 3 days ago piloted by Spundun Shevade"
+        "meta": "Top 4 (202 players) 4 days ago piloted by Spundun Shevade"
       },
       {
         "name": "Mitsurugi",
@@ -202,32 +217,19 @@
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715754",
-        "meta": "Winner (799 players) 4 days ago piloted by Esteban Jesus Mena Campos"
+        "meta": "Winner (799 players) 5 days ago piloted by Esteban Jesus Mena Campos"
       },
       {
         "name": "Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/branded-dracotail-715747",
-        "meta": "Winner (84 players) 4 days ago piloted by Trevor Commer"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-715735",
-        "meta": "Winner (16 players) 4 days ago piloted by Mario Ernesto Moncada Serazio"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-715734",
-        "meta": "Top 32 (799 players) 4 days ago piloted by Mario Ernesto Moncada Serazio"
-      },
-      {
-        "name": "Speedroid Radiant Typhoon",
-        "url": "https://ygoprodeck.com/deck/speedroid-radiant-typhoon-715708",
-        "meta": "Top 16 (256 players) 4 days ago piloted by Denis Galla"
+        "meta": "Winner (84 players) 5 days ago piloted by Trevor Commer"
       }
     ],
     "metaArchetypes": [
-      "@Ignister Maliss",
+      "Despia Branded",
       "Kewl Tune",
+      "Mitsurugi",
+      "@Ignister Maliss",
       "Predaplant Branded Dracotail",
       "Monarch",
       "Fairy Tail",
@@ -235,10 +237,7 @@
       "Endymion Magistus Fairy Tail",
       "DoomZ",
       "Power Patron Artmage",
-      "Despia Branded",
-      "Mitsurugi",
-      "Branded Dracotail",
-      "Speedroid Radiant Typhoon"
+      "Branded Dracotail"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -1945,7 +1944,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "1005587": {
@@ -2071,7 +2070,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -3535,6 +3534,25 @@
       ],
       "metaContext": {}
     },
+    "2091298": {
+      "name": "Constellar Praesepe",
+      "viewsweek": 0,
+      "views": 55399,
+      "upvotes": 2,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "2111707": {
       "name": "XY-Dragon Cannon",
       "viewsweek": 2,
@@ -3767,24 +3785,6 @@
       ],
       "metaContext": {}
     },
-    "2254222": {
-      "name": "Speedroid Wing Synchron",
-      "viewsweek": 0,
-      "views": 39085,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "2263869": {
       "name": "Ultimate Slayer",
       "viewsweek": 19,
@@ -3815,7 +3815,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -6286,28 +6286,6 @@
         "advanced": false
       }
     },
-    "3897065": {
-      "name": "Super Vehicroid - Stealth Union",
-      "viewsweek": 0,
-      "views": 61501,
-      "upvotes": 147,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Edison",
-        "Common Charity",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "3957130": {
       "name": "Trisborrel Dragon",
       "viewsweek": 1,
@@ -7362,6 +7340,25 @@
       ],
       "metaContext": {}
     },
+    "4820694": {
+      "name": "Constellar Tempest",
+      "viewsweek": 0,
+      "views": 25187,
+      "upvotes": 2,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "4825390": {
       "name": "Ichiroku's Ledger Book",
       "viewsweek": 1,
@@ -7744,6 +7741,26 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "5026221": {
+      "name": "Stellarnova Wave",
+      "viewsweek": 0,
+      "views": 26906,
+      "upvotes": 1,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "5041348": {
       "name": "Draco Berserker of the Tenyi",
@@ -8297,7 +8314,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "5370235": {
@@ -9673,7 +9690,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -9784,7 +9801,7 @@
         "OCG"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -11799,7 +11816,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "7614732": {
@@ -12604,25 +12621,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "8284390": {
-      "name": "Speedroid Rubberband Plane",
-      "viewsweek": 0,
-      "views": 77535,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "8324284": {
@@ -13626,24 +13624,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "9069157": {
-      "name": "Dragonroid",
-      "viewsweek": 0,
-      "views": 37087,
-      "upvotes": 0,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "9070454": {
       "name": "Draco-Utopian Aura",
@@ -15234,7 +15214,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -15589,22 +15569,6 @@
         "advanced": false
       }
     },
-    "10449150": {
-      "name": "Shuttleroid",
-      "viewsweek": 0,
-      "views": 19951,
-      "upvotes": 4,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "OCG"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "10485110": {
       "name": "Ocean Dragon Lord - Neo-Daedalus",
       "viewsweek": 1,
@@ -15934,7 +15898,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "10753491": {
@@ -15995,25 +15959,6 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
-      }
-    },
-    "10780049": {
-      "name": "Purrely Sharely!?",
-      "viewsweek": 0,
-      "views": 32784,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Purrely",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": true,
         "advanced": false
       }
     },
@@ -17874,7 +17819,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "12160911": {
@@ -20157,6 +20102,25 @@
         "advanced": false
       }
     },
+    "13851202": {
+      "name": "Satellarknight Rigel",
+      "viewsweek": 0,
+      "views": 29504,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "13857930": {
       "name": "Neo-Spacian Twinkle Moss",
       "viewsweek": 1,
@@ -21333,6 +21297,25 @@
       ],
       "metaContext": {}
     },
+    "14759024": {
+      "name": "Constellar Zubeneschamali",
+      "viewsweek": 0,
+      "views": 35744,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "14761450": {
       "name": "Penguin Squire",
       "viewsweek": 1,
@@ -22489,26 +22472,6 @@
         "advanced": true
       }
     },
-    "15555120": {
-      "name": "Hi-Speed Re-Level",
-      "viewsweek": 0,
-      "views": 31455,
-      "upvotes": 1,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "15576074": {
       "name": "Resonator Engine",
       "viewsweek": 1,
@@ -22527,24 +22490,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "15609017": {
-      "name": "Shock Surprise",
-      "viewsweek": 0,
-      "views": 33099,
-      "upvotes": 2,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "15610297": {
@@ -22901,6 +22846,25 @@
       ],
       "metaContext": {}
     },
+    "15871676": {
+      "name": "Constellar Aldebaran",
+      "viewsweek": 0,
+      "views": 27066,
+      "upvotes": 4,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "15894048": {
       "name": "Ultimate Tyranno",
       "viewsweek": 1,
@@ -23216,26 +23180,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "16114248": {
-      "name": "Pair Cycroid",
-      "viewsweek": 0,
-      "views": 73743,
-      "upvotes": 42,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "16135253": {
@@ -24084,7 +24028,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "16734927": {
@@ -24218,6 +24162,25 @@
       ],
       "metaContext": {}
     },
+    "16906241": {
+      "name": "Constellar Alrescha",
+      "viewsweek": 0,
+      "views": 31850,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "16922142": {
       "name": "Radiant Typhoon Krosea",
       "viewsweek": 20,
@@ -24233,26 +24196,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
-      }
-    },
-    "16947147": {
-      "name": "Speedroid Menko",
-      "viewsweek": 0,
-      "views": 79256,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "16955631": {
@@ -24475,6 +24419,25 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "17129783": {
+      "name": "Constellar Leonis",
+      "viewsweek": 0,
+      "views": 33538,
+      "upvotes": 2,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -24778,7 +24741,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "17330916": {
@@ -25285,26 +25248,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "17745969": {
-      "name": "Super Vehicroid - Mobile Base",
-      "viewsweek": 0,
-      "views": 75670,
-      "upvotes": 38,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "17749468": {
@@ -25839,7 +25782,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -26039,7 +25982,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "18326736": {
@@ -28399,7 +28342,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -28766,7 +28709,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "20515672": {
@@ -30107,7 +30050,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -32935,7 +32878,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "23303072": {
@@ -33027,7 +32970,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "23384666": {
@@ -33705,24 +33648,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "23792058": {
-      "name": "Speedroid Hexasaucer",
-      "viewsweek": 0,
-      "views": 34021,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Speedroid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "23804920": {
       "name": "Divine Scorpion Beast of Serket",
@@ -34667,7 +34592,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "24317029": {
@@ -34795,7 +34720,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -35424,27 +35349,6 @@
       ],
       "metaContext": {}
     },
-    "25034083": {
-      "name": "Decoyroid",
-      "viewsweek": 0,
-      "views": 48117,
-      "upvotes": 1,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "25072579": {
       "name": "Prototype Sky Striker Ace - Amatsu",
       "viewsweek": 17,
@@ -36043,7 +35947,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -36247,7 +36151,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -36797,7 +36701,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "25955164": {
@@ -36883,6 +36787,26 @@
       "staple": false,
       "archetype": "Infernoid",
       "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
+    "26057276": {
+      "name": "Satellarknight Betelgeuse",
+      "viewsweek": 0,
+      "views": 35216,
+      "upvotes": 1,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
         "TCG",
         "OCG",
         "Master Duel"
@@ -37047,25 +36971,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "26194151": {
-      "name": "Necroid Synchro",
-      "viewsweek": 0,
-      "views": 59157,
-      "upvotes": 4,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "26202165": {
       "name": "Sangan",
@@ -37268,7 +37173,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -37400,25 +37305,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "26420373": {
-      "name": "Speedroid Passinglider",
-      "viewsweek": 0,
-      "views": 68550,
-      "upvotes": 2,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "26434972": {
       "name": "Fiendsmith Kyrie",
@@ -38950,26 +38836,6 @@
         "advanced": false
       }
     },
-    "27660735": {
-      "name": "Speedroid Tri-Eyed Dice",
-      "viewsweek": 0,
-      "views": 75660,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "27671321": {
       "name": "Lightning Conger",
       "viewsweek": 1,
@@ -39055,7 +38921,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "27769400": {
@@ -39590,24 +39456,6 @@
         "advanced": false
       }
     },
-    "28151978": {
-      "name": "Speedroid Dominobutterfly",
-      "viewsweek": 0,
-      "views": 42568,
-      "upvotes": 2,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "28168628": {
       "name": "Rock of the Vanquisher",
       "viewsweek": 5,
@@ -39808,7 +39656,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -40766,7 +40614,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "29116732": {
@@ -40981,7 +40829,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -41435,7 +41283,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -45488,7 +45336,7 @@
         "OCG"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -46175,7 +46023,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "32756828": {
@@ -47032,7 +46880,7 @@
         "OCG"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -50125,25 +49973,6 @@
         "advanced": false
       }
     },
-    "35494087": {
-      "name": "Speedroid Skull Marbles",
-      "viewsweek": 0,
-      "views": 37824,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "35539880": {
       "name": "Birthright",
       "viewsweek": 1,
@@ -50161,6 +49990,26 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "35544402": {
+      "name": "Constellar Twinkle",
+      "viewsweek": 0,
+      "views": 40829,
+      "upvotes": 1,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "35550352": {
       "name": "Vanquish Soul, Start!",
@@ -50358,7 +50207,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -50977,7 +50826,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "36261276": {
@@ -51212,7 +51061,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "36407615": {
@@ -51637,25 +51486,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "36730805": {
-      "name": "Speedlift",
-      "viewsweek": 0,
-      "views": 57234,
-      "upvotes": 2,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "36733451": {
@@ -54073,7 +53903,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -54365,7 +54195,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -55213,7 +55043,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "39354437": {
@@ -56216,6 +56046,25 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "40143123": {
+      "name": "Constellar Virgo",
+      "viewsweek": 0,
+      "views": 36670,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -57914,7 +57763,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -58396,7 +58245,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -59653,6 +59502,25 @@
         "advanced": false
       }
     },
+    "42391240": {
+      "name": "Constellar Antares",
+      "viewsweek": 0,
+      "views": 31289,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "42421606": {
       "name": "Number 85: Crazy Box",
       "viewsweek": 1,
@@ -60258,7 +60126,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -61050,7 +60918,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "43387895": {
@@ -61242,6 +61110,25 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "43513897": {
+      "name": "Constellar Acubens",
+      "viewsweek": 0,
+      "views": 27203,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -61440,7 +61327,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "43711255": {
@@ -61888,7 +61775,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "44146295": {
@@ -62562,6 +62449,25 @@
         "advanced": false
       }
     },
+    "44635489": {
+      "name": "Constellar Siat",
+      "viewsweek": 0,
+      "views": 36216,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "44640691": {
       "name": "Rogue of Endymion",
       "viewsweek": 0,
@@ -62821,7 +62727,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "44760562": {
@@ -64358,28 +64264,6 @@
       ],
       "metaContext": {}
     },
-    "45945685": {
-      "name": "Cycroid",
-      "viewsweek": 0,
-      "views": 55630,
-      "upvotes": 3,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "45948430": {
       "name": "Super Soldier Synthesis",
       "viewsweek": 1,
@@ -65689,26 +65573,6 @@
         "advanced": false
       }
     },
-    "46848859": {
-      "name": "Carrierroid",
-      "viewsweek": 0,
-      "views": 26806,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "46871387": {
       "name": "Number 55: Gogogo Goliath",
       "viewsweek": 1,
@@ -66613,6 +66477,25 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "47579719": {
+      "name": "Constellar Hyades",
+      "viewsweek": 0,
+      "views": 50027,
+      "upvotes": 2,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -70259,7 +70142,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "50486289": {
@@ -70466,28 +70349,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "50684552": {
-      "name": "Wonder Garage",
-      "viewsweek": 0,
-      "views": 43172,
-      "upvotes": 0,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "50687050": {
@@ -71882,7 +71743,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -73063,7 +72924,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -73487,7 +73348,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "53085623": {
@@ -74582,7 +74443,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "53819028": {
@@ -74761,7 +74622,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "53932291": {
@@ -74780,7 +74641,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "53936268": {
@@ -75022,7 +74883,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "54175023": {
@@ -75751,27 +75612,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "54702678": {
-      "name": "Barbaroid, the Ultimate Battle Machine",
-      "viewsweek": 0,
-      "views": 115297,
-      "upvotes": 24,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "54704216": {
@@ -76770,7 +76610,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -76788,7 +76628,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -78258,7 +78098,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -78290,7 +78130,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -80737,7 +80577,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "58551308": {
@@ -81244,7 +81084,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -82396,7 +82236,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "59642500": {
@@ -83732,7 +83572,7 @@
         "OCG"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -84923,7 +84763,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "61587183": {
@@ -86223,7 +86063,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -86551,25 +86391,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "62899696": {
-      "name": "Speedroid Maliciousmagnet",
-      "viewsweek": 0,
-      "views": 47238,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "62941499": {
@@ -87276,6 +87097,25 @@
         "advanced": false
       }
     },
+    "63274863": {
+      "name": "Satellarknight Sirius",
+      "viewsweek": 0,
+      "views": 39585,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "63288573": {
       "name": "Sky Striker Ace - Kagari",
       "viewsweek": 33,
@@ -87615,6 +87455,25 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "63545861": {
+      "name": "Constellar Meteor",
+      "viewsweek": 0,
+      "views": 28586,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -88712,7 +88571,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -89275,7 +89134,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -89462,6 +89321,25 @@
         "advanced": false
       }
     },
+    "65056481": {
+      "name": "Satellarknight Alsahm",
+      "viewsweek": 0,
+      "views": 43917,
+      "upvotes": 3,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "65064143": {
       "name": "Anti-Aircraft Flower",
       "viewsweek": 1,
@@ -89541,7 +89419,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "65169794": {
@@ -89631,6 +89509,24 @@
       ],
       "metaContext": {
         "genesys": false,
+        "advanced": false
+      }
+    },
+    "65236257": {
+      "name": "Tellarknight Genesis",
+      "viewsweek": 0,
+      "views": 23584,
+      "upvotes": 1,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
         "advanced": false
       }
     },
@@ -92346,7 +92242,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "67120578": {
@@ -95460,25 +95356,6 @@
         "advanced": false
       }
     },
-    "69550259": {
-      "name": "Speedroid Block-n-Roll",
-      "viewsweek": 0,
-      "views": 29651,
-      "upvotes": 8,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Speedroid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "69572024": {
       "name": "Tongyo",
       "viewsweek": 1,
@@ -96669,6 +96546,25 @@
         "advanced": false
       }
     },
+    "70422863": {
+      "name": "Hexatellarknight",
+      "viewsweek": 0,
+      "views": 24098,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "70427670": {
       "name": "Predaplant Bufolicula",
       "viewsweek": 2,
@@ -96917,25 +96813,23 @@
       ],
       "metaContext": {}
     },
-    "70628672": {
-      "name": "Emergeroid Call",
+    "70624184": {
+      "name": "Constellar Rasalhague",
       "viewsweek": 0,
-      "views": 38903,
-      "upvotes": 7,
-      "downvotes": 0,
+      "views": 28468,
+      "upvotes": 1,
+      "downvotes": 1,
       "staple": false,
-      "archetype": "Roid",
+      "archetype": "Constellar",
       "formats": [
         "Duel Links",
-        "Common Charity",
-        "Speed Duel",
         "TCG",
         "OCG",
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
-        "advanced": true
+        "genesys": true,
+        "advanced": false
       }
     },
     "70634245": {
@@ -97367,7 +97261,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -97420,25 +97314,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "70939418": {
-      "name": "Speedroid Gum Prize",
-      "viewsweek": 0,
-      "views": 36897,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "70980824": {
@@ -97808,7 +97683,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "71222649": {
@@ -97946,27 +97821,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "71340250": {
-      "name": "Mixeroid",
-      "viewsweek": 0,
-      "views": 59813,
-      "upvotes": 6,
-      "downvotes": 2,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "71344451": {
       "name": "Slash Draw",
@@ -98655,27 +98509,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "71930383": {
-      "name": "Patroid",
-      "viewsweek": 0,
-      "views": 68920,
-      "upvotes": 1,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "71939275": {
@@ -100543,7 +100376,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "73347079": {
@@ -101447,7 +101280,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -103974,7 +103807,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -107200,7 +107033,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -107238,7 +107071,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -107445,7 +107278,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -108425,7 +108258,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -109388,7 +109221,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -110244,7 +110077,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "80551022": {
@@ -110262,25 +110095,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "80559548": {
-      "name": "Speedroid Razorang",
-      "viewsweek": 0,
-      "views": 27448,
-      "upvotes": 2,
-      "downvotes": 3,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "80570228": {
@@ -111262,7 +111076,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "81275309": {
@@ -112127,7 +111941,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -112353,7 +112167,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -113413,7 +113227,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -113523,7 +113337,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -114540,7 +114354,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -116045,25 +115859,6 @@
         "advanced": false
       }
     },
-    "85034450": {
-      "name": "Speedroid Pachingo-Kart",
-      "viewsweek": 0,
-      "views": 32972,
-      "upvotes": 4,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "85059922": {
       "name": "Master of Chaos",
       "viewsweek": 8,
@@ -116455,7 +116250,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "85326399": {
@@ -116953,27 +116748,6 @@
         "advanced": false
       }
     },
-    "85704698": {
-      "name": "Re-dyce-cle",
-      "viewsweek": 0,
-      "views": 25607,
-      "upvotes": 2,
-      "downvotes": 1,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Common Charity",
-        "Speed Duel",
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "85705804": {
       "name": "Kurama",
       "viewsweek": 4,
@@ -117425,7 +117199,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "86164529": {
@@ -118226,6 +118000,27 @@
         "advanced": false
       }
     },
+    "86825483": {
+      "name": "Constellar Belt",
+      "viewsweek": 0,
+      "views": 64967,
+      "upvotes": 3,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "Speed Duel",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "86852702": {
       "name": "Machina Redeployment",
       "viewsweek": 1,
@@ -118329,7 +118124,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "86988864": {
@@ -119619,24 +119414,6 @@
       ],
       "metaContext": {}
     },
-    "88039509": {
-      "name": "Einroid",
-      "viewsweek": 0,
-      "views": 5129,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "88069597": {
       "name": "Predaponics",
       "viewsweek": 0,
@@ -119842,7 +119619,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "88205593": {
@@ -121231,25 +121008,6 @@
         "advanced": false
       }
     },
-    "89326990": {
-      "name": "Speedroid Ohajikid",
-      "viewsweek": 0,
-      "views": 40835,
-      "upvotes": 2,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "89357740": {
       "name": "Union Pilot",
       "viewsweek": 1,
@@ -122113,6 +121871,25 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "90156158": {
+      "name": "Constellar Star Cradle",
+      "viewsweek": 0,
+      "views": 33827,
+      "upvotes": 2,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Constellar",
+      "formats": [
+        "Duel Links",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "90162951": {
       "name": "Number 35: Ravenous Tarantula",
@@ -123144,7 +122921,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -123357,7 +123134,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "91002901": {
@@ -124716,7 +124493,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -127180,7 +126957,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -127465,7 +127242,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": true
+        "advanced": false
       }
     },
     "94119480": {
@@ -130440,6 +130217,25 @@
         "advanced": false
       }
     },
+    "96223501": {
+      "name": "Satellarknight Zefrathuban",
+      "viewsweek": 0,
+      "views": 59612,
+      "upvotes": 1,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "tellarknight",
+      "formats": [
+        "Speed Duel",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "96227613": {
       "name": "Supreme King Gate Zero",
       "viewsweek": 2,
@@ -131079,7 +130875,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "96729612": {
@@ -131349,7 +131145,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "96947648": {
@@ -132562,7 +132358,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "97750534": {
@@ -132875,7 +132671,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "98049915": {
@@ -132911,7 +132707,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": true,
+        "genesys": false,
         "advanced": false
       }
     },
@@ -134146,28 +133942,6 @@
       ],
       "metaContext": {}
     },
-    "98927491": {
-      "name": "Ambulance Rescueroid",
-      "viewsweek": 0,
-      "views": 80265,
-      "upvotes": 5,
-      "downvotes": 6,
-      "staple": false,
-      "archetype": "Roid",
-      "formats": [
-        "Duel Links",
-        "Common Charity",
-        "Edison",
-        "Speed Duel",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "98937206": {
       "name": "Rokket Detonator",
       "viewsweek": 2,
@@ -135081,6 +134855,26 @@
         "advanced": false
       }
     },
+    "99668578": {
+      "name": "Satellarknight Procyon",
+      "viewsweek": 0,
+      "views": 34693,
+      "upvotes": 1,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Tellarknight",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
+    },
     "99674361": {
       "name": "World Legacy Succession",
       "viewsweek": 2,
@@ -135260,25 +135054,6 @@
       ],
       "metaContext": {}
     },
-    "99748883": {
-      "name": "Meteor Rush - Monochroid",
-      "viewsweek": 0,
-      "views": 13595,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
     "99785935": {
       "name": "Alpha The Magnet Warrior",
       "viewsweek": 2,
@@ -135364,7 +135139,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "99877698": {
@@ -135965,40 +135740,6 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
-      }
-    },
-    "300302052": {
-      "name": "Small Roid Big City",
-      "viewsweek": 0,
-      "views": 3004,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "Speed Duel",
-        "Common Charity"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
-    },
-    "300302054": {
-      "name": "The Roids are Alright",
-      "viewsweek": 0,
-      "views": 2851,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "roid",
-      "formats": [
-        "Speed Duel",
-        "Common Charity"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "300302057": {
