@@ -1,51 +1,51 @@
 {
-  "lastUpdated": "2026-06-13T09:23:59.031Z",
+  "lastUpdated": "2026-06-14T09:44:50.854Z",
   "genesys": {
     "recentDecks": [
       {
         "name": "Despia Branded",
         "url": "https://ygoprodeck.com/deck/despia-branded-716346",
-        "meta": "Top 32 (~223 players) 6 days ago piloted by Omar Eduardo Meraz Saucedo"
+        "meta": "Top 32 (~223 players) 1 week ago piloted by Omar Eduardo Meraz Saucedo"
       },
       {
         "name": "Vanquish Soul",
         "url": "https://ygoprodeck.com/deck/vanquish-soul-716344",
-        "meta": "Top 32 (~223 players) 6 days ago piloted by Eduardo Tut"
+        "meta": "Top 32 (~223 players) 1 week ago piloted by Eduardo Tut"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-716342",
-        "meta": "Top 8 (~223 players) 6 days ago piloted by Eduardo Medina"
+        "meta": "Top 8 (~223 players) 1 week ago piloted by Eduardo Medina"
       },
       {
         "name": "Red Dragon Archfiend",
         "url": "https://ygoprodeck.com/deck/red-dragon-archfiend-716341",
-        "meta": "Top 4 (~223 players) 6 days ago piloted by David Munoz"
+        "meta": "Top 4 (~223 players) 1 week ago piloted by David Munoz"
       },
       {
         "name": "Constellar Tellarknights",
         "url": "https://ygoprodeck.com/deck/constellar-tellarknights-716053",
-        "meta": "Winner (~223 players) 6 days ago piloted by Uziel Tapia Perez"
+        "meta": "Winner (~223 players) 1 week ago piloted by Uziel Tapia Perez"
       },
       {
         "name": "Labrynth",
         "url": "https://ygoprodeck.com/deck/labrynth-715919",
-        "meta": "Top 4 (~223 players) 6 days ago piloted by Alfredo Jose Zapata"
+        "meta": "Top 4 (~223 players) 1 week ago piloted by Alfredo Jose Zapata"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-715883",
-        "meta": "Runner-Up (~223 players) 6 days ago piloted by Miguel Angel Hernandez Morales"
+        "meta": "Runner-Up (~223 players) 1 week ago piloted by Miguel Angel Hernandez Morales"
       },
       {
         "name": "Clown Crew",
         "url": "https://ygoprodeck.com/deck/clown-crew-714484",
-        "meta": "Top 4 (41 players) 1 week ago piloted by Richard Schaber"
+        "meta": "Top 4 (41 players) 2 weeks ago piloted by Richard Schaber"
       },
       {
         "name": "Monarch",
         "url": "https://ygoprodeck.com/deck/monarch-714361",
-        "meta": "Top 8 (41 players) 1 week ago piloted by Kevin Scheller"
+        "meta": "Top 8 (41 players) 2 weeks ago piloted by Kevin Scheller"
       },
       {
         "name": "Monarch",
@@ -80,7 +80,7 @@
       {
         "name": "Dogmatika Lair Infernoid",
         "url": "https://ygoprodeck.com/deck/dogmatika-lair-infernoid-713972",
-        "meta": "Winner (33 players) 2 weeks ago piloted by Kirim Kossoumov"
+        "meta": "Winner (33 players) 3 weeks ago piloted by Kirim Kossoumov"
       },
       {
         "name": "Clown Crew",
@@ -123,6 +123,11 @@
   },
   "advanced": {
     "recentDecks": [
+      {
+        "name": "Mitsurugi Clown Crew",
+        "url": "https://ygoprodeck.com/deck/mitsurugi-clown-crew-716540",
+        "meta": "Winner (~300 players) 1 week ago piloted by Joshua Dugas"
+      },
       {
         "name": "K9 Vanquish Soul",
         "url": "https://ygoprodeck.com/deck/k9-vanquish-soul-716414",
@@ -211,20 +216,16 @@
       {
         "name": "Predaplant Branded Dracotail",
         "url": "https://ygoprodeck.com/deck/predaplant-branded-dracotail-715899",
-        "meta": "Top 8 (200 players) 6 days ago piloted by Justin Bean"
+        "meta": "Top 8 (200 players) 1 week ago piloted by Justin Bean"
       },
       {
         "name": "Monarch",
         "url": "https://ygoprodeck.com/deck/monarch-715895",
         "meta": "Top 8 (203 players) 2 weeks ago piloted by Marcel Phillips"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-715879",
-        "meta": "Top 4 (203 players) 2 weeks ago piloted by Jonathan Bahal"
       }
     ],
     "metaArchetypes": [
+      "Mitsurugi Clown Crew",
       "K9 Vanquish Soul",
       "Kewl Tune",
       "DoomZ",
@@ -14162,7 +14163,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "6552971": {
@@ -41400,7 +41401,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "20450925": {
@@ -60309,7 +60310,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "30113682": {
@@ -63489,7 +63490,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "31533704": {
@@ -85793,7 +85794,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "42776960": {
@@ -115057,7 +115058,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "57869175": {
@@ -138169,7 +138170,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "70070211": {
@@ -161457,7 +161458,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "82162616": {
@@ -163356,7 +163357,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "83235263": {
@@ -164897,7 +164898,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "84040113": {
@@ -177845,7 +177846,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "91258852": {
@@ -181543,7 +181544,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "93187568": {
@@ -194805,7 +194806,7 @@
       "formats": [],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "100296302": {
