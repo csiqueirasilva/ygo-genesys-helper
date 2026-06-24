@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-06-23T09:52:26.155Z",
+  "lastUpdated": "2026-06-24T09:39:49.930Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -11,6 +11,10 @@
       "points": 100
     },
     {
+      "name": "Abyss of the Sacred Beasts",
+      "points": 1
+    },
+    {
       "name": "Adamancipator Risen - Dragite",
       "points": 20
     },
@@ -19,12 +23,20 @@
       "points": 50
     },
     {
+      "name": "Aiwass, Divine Spirit of the Law",
+      "points": 2
+    },
+    {
       "name": "Albion the Branded Dragon",
       "points": 5
     },
     {
       "name": "Albion the Sanctifire Dragon",
       "points": 33
+    },
+    {
+      "name": "Aleister the Reminiscent",
+      "points": 4
     },
     {
       "name": "Allure of Darkness",
@@ -53,6 +65,10 @@
     {
       "name": "Angel O7",
       "points": 100
+    },
+    {
+      "name": "Angelechy Destrier",
+      "points": 1
     },
     {
       "name": "Anti-Spell Fragrance",
@@ -179,6 +195,10 @@
       "points": 15
     },
     {
+      "name": "Black Chaos",
+      "points": 20
+    },
+    {
       "name": "Black Garden",
       "points": 51
     },
@@ -299,6 +319,10 @@
       "points": 5
     },
     {
+      "name": "Celtic Mystic",
+      "points": 20
+    },
+    {
       "name": "Centur-Ion Auxila",
       "points": 33
     },
@@ -367,6 +391,10 @@
       "points": 100
     },
     {
+      "name": "Constellar Castor",
+      "points": 6
+    },
+    {
       "name": "Contact \"C\"",
       "points": 100
     },
@@ -381,6 +409,10 @@
     {
       "name": "Cosmic Cyclone",
       "points": 1
+    },
+    {
+      "name": "Crackle Blitzclique",
+      "points": 4
     },
     {
       "name": "Creature Swap",
@@ -747,6 +779,10 @@
       "points": 21
     },
     {
+      "name": "Elfnote June Pride",
+      "points": 25
+    },
+    {
       "name": "Elfnote Power Patron",
       "points": 15
     },
@@ -999,6 +1035,10 @@
       "points": 80
     },
     {
+      "name": "Glitch Clutch Nullgainer",
+      "points": 10
+    },
+    {
       "name": "Glow-Up Bulb",
       "points": 15
     },
@@ -1037,6 +1077,10 @@
     {
       "name": "Grapha, Dragon Overlord of Dark World",
       "points": 5
+    },
+    {
+      "name": "Griffoh",
+      "points": 10
     },
     {
       "name": "Grisaille Prison",
@@ -1091,6 +1135,10 @@
       "points": 50
     },
     {
+      "name": "Hideout in the Sky, Coulomb",
+      "points": 5
+    },
+    {
       "name": "Hot Red Dragon Archfiend Abyss",
       "points": 20
     },
@@ -1101,6 +1149,10 @@
     {
       "name": "Hyper Rank-Up-Magic Utopiforce",
       "points": 1
+    },
+    {
+      "name": "Hyperinvoked Aeon",
+      "points": 15
     },
     {
       "name": "Ice Ryzeal",
@@ -1175,8 +1227,16 @@
       "points": 100
     },
     {
+      "name": "Junk Meister",
+      "points": 6
+    },
+    {
       "name": "Junk Speeder",
       "points": 100
+    },
+    {
+      "name": "K9- Lupis",
+      "points": 5
     },
     {
       "name": "K9-04 Noroi",
@@ -1193,10 +1253,6 @@
     {
       "name": "K9-66a Jokul",
       "points": 33
-    },
-    {
-      "name": "K9-ØØ Lupis",
-      "points": 5
     },
     {
       "name": "K9-X \"Ripper/M\"",
@@ -1343,6 +1399,10 @@
       "points": 10
     },
     {
+      "name": "Lev Shaddoll Fusion",
+      "points": 10
+    },
+    {
       "name": "Level Eater",
       "points": 100
     },
@@ -1353,6 +1413,10 @@
     {
       "name": "Light and Darkness Dragonlord",
       "points": 20
+    },
+    {
+      "name": "Light and Darkness Ritual",
+      "points": 5
     },
     {
       "name": "Light Barrier",
@@ -1451,8 +1515,16 @@
       "points": 100
     },
     {
+      "name": "Martyr of the Sacred Beasts",
+      "points": 2
+    },
+    {
       "name": "Masked HERO Dark Law",
       "points": 70
+    },
+    {
+      "name": "Masked HERO Fountain",
+      "points": 6
     },
     {
       "name": "Masked HERO Koga",
@@ -1543,6 +1615,10 @@
       "points": 1
     },
     {
+      "name": "Mind Shuffle",
+      "points": 40
+    },
+    {
       "name": "Miracle Ejector",
       "points": 5
     },
@@ -1585,6 +1661,10 @@
     {
       "name": "Morphtronic Telefon",
       "points": 55
+    },
+    {
+      "name": "Mortilux Heruvur",
+      "points": 20
     },
     {
       "name": "Moulinglacia the Elemental Lord",
@@ -1835,6 +1915,10 @@
       "points": 100
     },
     {
+      "name": "Over Tuning",
+      "points": 10
+    },
+    {
       "name": "P.U.N.K. JAM Dragon Drive",
       "points": 15
     },
@@ -1853,6 +1937,10 @@
     {
       "name": "Phantom of Yubel",
       "points": 88
+    },
+    {
+      "name": "Phara the Primordial Goddess",
+      "points": 20
     },
     {
       "name": "Pilgrim Reaper",
@@ -1877,6 +1965,10 @@
     {
       "name": "Pot of Prosperity",
       "points": 40
+    },
+    {
+      "name": "Pot of Sloth",
+      "points": 10
     },
     {
       "name": "Power Vice Dragon",
@@ -1988,6 +2080,10 @@
     },
     {
       "name": "Radiant Typhoon Vision",
+      "points": 10
+    },
+    {
+      "name": "Ragged Records of Rites",
       "points": 10
     },
     {
@@ -2187,6 +2283,10 @@
       "points": 20
     },
     {
+      "name": "Sacred Beasts Thunderclap",
+      "points": 2
+    },
+    {
       "name": "Sales Ban",
       "points": 100
     },
@@ -2383,6 +2483,10 @@
       "points": 100
     },
     {
+      "name": "Summoner of the Sacred Beasts",
+      "points": 5
+    },
+    {
       "name": "Super Polymerization",
       "points": 13
     },
@@ -2395,8 +2499,16 @@
       "points": 10
     },
     {
+      "name": "Superconductive Plasma Blast",
+      "points": 5
+    },
+    {
       "name": "Supreme King Dragon Starving Venom",
       "points": 1
+    },
+    {
+      "name": "Surge Blitzclique",
+      "points": 4
     },
     {
       "name": "Swap Frog",
@@ -2449,6 +2561,14 @@
     {
       "name": "Telekinetic Charging Cell",
       "points": 100
+    },
+    {
+      "name": "Tellarknight Constellar Delteros",
+      "points": 10
+    },
+    {
+      "name": "Tellarknight Cygnian",
+      "points": 6
     },
     {
       "name": "Tellarknight Ptolemaeus",
@@ -2519,8 +2639,28 @@
       "points": 50
     },
     {
+      "name": "The Phantom Knights of Decayed Cloak",
+      "points": 4
+    },
+    {
+      "name": "The Phantom Knights of Doomed Soleret",
+      "points": 5
+    },
+    {
+      "name": "The Phantom Knights of Malevolent Scythe",
+      "points": 12
+    },
+    {
       "name": "The Phantom Knights' Rank-Up-Magic Launch",
       "points": 1
+    },
+    {
+      "name": "The Phantom Knights' Rank-Up-Magic Requiem",
+      "points": 1
+    },
+    {
+      "name": "The Three Champions of Swordsoul",
+      "points": 10
     },
     {
       "name": "The Tyrant Neptune",
@@ -2539,6 +2679,10 @@
       "points": 5
     },
     {
+      "name": "Theorealize Past Lull",
+      "points": 5
+    },
+    {
       "name": "There Can Be Only One",
       "points": 100
     },
@@ -2553,6 +2697,10 @@
     {
       "name": "Thunder King Rai-Oh",
       "points": 20
+    },
+    {
+      "name": "Thundercrash Snarecrow",
+      "points": 10
     },
     {
       "name": "Tidal, Dragon Ruler of Waterfalls",
@@ -2675,8 +2823,16 @@
       "points": 20
     },
     {
+      "name": "Virakam, the Divine Spirit of Artifice",
+      "points": 2
+    },
+    {
       "name": "Virtual World Kyubi - Shenshen",
       "points": 20
+    },
+    {
+      "name": "Void Unleashing",
+      "points": 10
     },
     {
       "name": "Wandering Gryphon Rider",
@@ -2704,6 +2860,10 @@
     },
     {
       "name": "Witch of the White Forest",
+      "points": 33
+    },
+    {
+      "name": "Witness of the Ancient",
       "points": 33
     },
     {
