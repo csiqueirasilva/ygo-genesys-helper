@@ -1,7 +1,12 @@
 {
-  "lastUpdated": "2026-07-02T09:21:52.988Z",
+  "lastUpdated": "2026-07-03T09:26:33.589Z",
   "genesys": {
     "recentDecks": [
+      {
+        "name": "Hecahands Chimera",
+        "url": "https://ygoprodeck.com/deck/hecahands-chimera-719736",
+        "meta": "Runner-Up (130 players) 1 week ago piloted by Renato Menacho"
+      },
       {
         "name": "HERO",
         "url": "https://ygoprodeck.com/deck/hero-719287",
@@ -11,11 +16,6 @@
         "name": "Exosister",
         "url": "https://ygoprodeck.com/deck/exosister-718526",
         "meta": "Top 8 (130 players) 1 week ago piloted by Vinícius Jato Braga"
-      },
-      {
-        "name": "HERO",
-        "url": "https://ygoprodeck.com/deck/hero-718524",
-        "meta": ""
       },
       {
         "name": "Red Dragon Archfiend",
@@ -109,6 +109,7 @@
       }
     ],
     "metaArchetypes": [
+      "Hecahands Chimera",
       "HERO",
       "Exosister",
       "Red Dragon Archfiend",
@@ -128,49 +129,84 @@
   "advanced": {
     "recentDecks": [
       {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-719762",
+        "meta": "Top 8 (134 players) 6 days ago piloted by Alice Kokado"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-719758",
+        "meta": "Top 8 (134 players) 6 days ago piloted by Ross Hitchens"
+      },
+      {
+        "name": "Branded Elfnote",
+        "url": "https://ygoprodeck.com/deck/branded-elfnote-719751",
+        "meta": "Top 8 (134 players) 6 days ago piloted by Ray Zhang"
+      },
+      {
+        "name": "Power Patron",
+        "url": "https://ygoprodeck.com/deck/power-patron-719744",
+        "meta": "Top 8 (134 players) 6 days ago piloted by Jameson Tarawa"
+      },
+      {
+        "name": "Magistus Fairy Tail",
+        "url": "https://ygoprodeck.com/deck/magistus-fairy-tail-719741",
+        "meta": "Top 32 (472 players) 1 week ago piloted by Dante Bruno Giordano"
+      },
+      {
+        "name": "Kewl Tune",
+        "url": "https://ygoprodeck.com/deck/kewl-tune-719682",
+        "meta": "Top 4 (44 players) 2 weeks ago piloted by Abdulrahman Al-Saleh"
+      },
+      {
+        "name": "Despia Branded",
+        "url": "https://ygoprodeck.com/deck/despia-branded-719679",
+        "meta": "Winner (53 players) 6 days ago piloted by Ali Dashti"
+      },
+      {
         "name": "Fiendsmith Mitsurugi Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-mitsurugi-yummy-719597",
-        "meta": "Winner (~120 players) 5 days ago piloted by Ben Salach"
+        "meta": "Winner (~120 players) 6 days ago piloted by Ben Salach"
       },
       {
         "name": "Fiendsmith Yummy",
         "url": "https://ygoprodeck.com/deck/fiendsmith-yummy-719596",
-        "meta": "Runner-Up (~120 players) 5 days ago piloted by Koren Guzman"
+        "meta": "Runner-Up (~120 players) 6 days ago piloted by Koren Guzman"
       },
       {
         "name": "Sky Striker",
         "url": "https://ygoprodeck.com/deck/sky-striker-719593",
-        "meta": "Top 4 (~120 players) 5 days ago piloted by Simon Hatav"
+        "meta": "Top 4 (~120 players) 6 days ago piloted by Simon Hatav"
       },
       {
         "name": "D/D/D",
         "url": "https://ygoprodeck.com/deck/d-d-d-719591",
-        "meta": "Top 4 (~120 players) 5 days ago piloted by David Avrahami"
+        "meta": "Top 4 (~120 players) 6 days ago piloted by David Avrahami"
       },
       {
         "name": "Despia Branded",
         "url": "https://ygoprodeck.com/deck/despia-branded-719589",
-        "meta": "Top 8 (~120 players) 5 days ago piloted by Gal Sonnenfeld"
+        "meta": "Top 8 (~120 players) 6 days ago piloted by Gal Sonnenfeld"
       },
       {
         "name": "Mitsurugi",
         "url": "https://ygoprodeck.com/deck/mitsurugi-719587",
-        "meta": "Top 8 (~120 players) 5 days ago piloted by Or Barby"
+        "meta": "Top 8 (~120 players) 6 days ago piloted by Or Barby"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-719580",
-        "meta": "Top 8 (~120 players) 5 days ago piloted by Oded Moshe"
+        "meta": "Top 8 (~120 players) 6 days ago piloted by Oded Moshe"
       },
       {
         "name": "Sky Striker",
         "url": "https://ygoprodeck.com/deck/sky-striker-719579",
-        "meta": "Top 8 (~120 players) 5 days ago piloted by Roy Zelig"
+        "meta": "Top 8 (~120 players) 6 days ago piloted by Roy Zelig"
       },
       {
         "name": "Kewl Tune",
         "url": "https://ygoprodeck.com/deck/kewl-tune-719296",
-        "meta": "Runner-Up (53 players) 5 days ago piloted by Abdulaziz Alfadhli"
+        "meta": "Runner-Up (53 players) 6 days ago piloted by Abdulaziz Alfadhli"
       },
       {
         "name": "DoomZ",
@@ -195,58 +231,23 @@
       {
         "name": "Sky Striker",
         "url": "https://ygoprodeck.com/deck/sky-striker-719266",
-        "meta": "Winner (108 players) 5 days ago piloted by Christian Foldager"
-      },
-      {
-        "name": "Branded Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/branded-mitsurugi-719259",
-        "meta": "Top 8 (84 players) 3 weeks ago piloted by Samuel Blair"
-      },
-      {
-        "name": "Kewl Tune",
-        "url": "https://ygoprodeck.com/deck/kewl-tune-719257",
-        "meta": "Winner (~250 players) 1 week ago piloted by Mitchell Garcia"
-      },
-      {
-        "name": "Power Patron Artmage",
-        "url": "https://ygoprodeck.com/deck/power-patron-artmage-719255",
-        "meta": "Top 8 (108 players) 5 days ago piloted by Leif Bauer"
-      },
-      {
-        "name": "@Ignister Maliss",
-        "url": "https://ygoprodeck.com/deck/ignister-maliss-719253",
-        "meta": "Top 8 (108 players) 5 days ago piloted by Tristan Schiller"
-      },
-      {
-        "name": "Fiendsmith Yummy",
-        "url": "https://ygoprodeck.com/deck/fiendsmith-yummy-719252",
-        "meta": "Top 8 (108 players) 5 days ago piloted by Mads Harritsø"
-      },
-      {
-        "name": "Mitsurugi",
-        "url": "https://ygoprodeck.com/deck/mitsurugi-719250",
-        "meta": "Top 8 (108 players) 5 days ago piloted by Rasmus Egerod Leth"
-      },
-      {
-        "name": "Branded Dracotail",
-        "url": "https://ygoprodeck.com/deck/branded-dracotail-719244",
-        "meta": "Top 4 (108 players) 5 days ago piloted by Kristoffer Nielsen"
+        "meta": "Winner (108 players) 6 days ago piloted by Christian Foldager"
       }
     ],
     "metaArchetypes": [
+      "Despia Branded",
+      "Branded Elfnote",
+      "Power Patron",
+      "Magistus Fairy Tail",
+      "Kewl Tune",
       "Fiendsmith Mitsurugi Yummy",
       "Fiendsmith Yummy",
       "Sky Striker",
       "D/D/D",
-      "Despia Branded",
       "Mitsurugi",
-      "Kewl Tune",
       "DoomZ",
       "@Ignister Maliss",
-      "Radiant Typhoon",
-      "Branded Mitsurugi",
-      "Power Patron Artmage",
-      "Branded Dracotail"
+      "Radiant Typhoon"
     ],
     "banlist": {
       "440556": "Forbidden",
@@ -615,6 +616,24 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "59080": {
+      "name": "Magia Magic - Thunder of Judgment",
+      "viewsweek": 0,
+      "views": 13827,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Magistus",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "62121": {
       "name": "Castle of Dark Illusions",
@@ -1049,6 +1068,24 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
+      }
+    },
+    "327051": {
+      "name": "Magistus Vritra",
+      "viewsweek": 0,
+      "views": 68994,
+      "upvotes": 2,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Magistus",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "336601": {
@@ -1764,7 +1801,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "876330": {
@@ -2174,7 +2211,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "1142880": {
@@ -2801,7 +2838,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "1508649": {
@@ -3144,7 +3181,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -6641,7 +6678,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "4031928": {
@@ -8731,7 +8768,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "5434080": {
@@ -8924,7 +8961,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "5560911": {
@@ -9919,7 +9956,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "6165656": {
@@ -11728,7 +11765,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "7391448": {
@@ -11931,6 +11968,24 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "7548747": {
+      "name": "Magistus Theurgy",
+      "viewsweek": 0,
+      "views": 59540,
+      "upvotes": 0,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Magistus",
+      "formats": [
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "7562372": {
       "name": "Megasonic Eye",
@@ -13563,7 +13618,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "8687195": {
@@ -14762,7 +14817,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "9551692": {
@@ -16020,7 +16075,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "10307853": {
@@ -18775,7 +18830,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "12381100": {
@@ -20388,7 +20443,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "13599884": {
@@ -25308,7 +25363,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "16984449": {
@@ -26045,7 +26100,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "17484499": {
@@ -26324,25 +26379,6 @@
         "Master Duel"
       ],
       "metaContext": {}
-    },
-    "17719582": {
-      "name": "Artmage Peripeteia -Turmoil-",
-      "viewsweek": 0,
-      "views": 15500,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Artmage",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
-      }
     },
     "17720747": {
       "name": "Witch of the Black Rose",
@@ -27207,7 +27243,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -28262,7 +28298,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "19153590": {
@@ -28626,7 +28662,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "19327348": {
@@ -30040,7 +30076,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -32033,7 +32069,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -32114,25 +32150,6 @@
       "metaContext": {
         "genesys": false,
         "advanced": false
-      }
-    },
-    "21720439": {
-      "name": "Artmage Movement -Pedigree-",
-      "viewsweek": 0,
-      "views": 15724,
-      "upvotes": 0,
-      "downvotes": 0,
-      "staple": false,
-      "archetype": "Artmage",
-      "formats": [
-        "Common Charity",
-        "TCG",
-        "OCG",
-        "Master Duel"
-      ],
-      "metaContext": {
-        "genesys": false,
-        "advanced": true
       }
     },
     "21744288": {
@@ -34842,7 +34859,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "23603403": {
@@ -35248,7 +35265,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "23842445": {
@@ -35694,7 +35711,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "24094258": {
@@ -39875,7 +39892,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "27198001": {
@@ -40495,7 +40512,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "27655513": {
@@ -43395,7 +43412,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -45891,7 +45908,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -47903,7 +47920,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "32566831": {
@@ -48163,7 +48180,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -49520,7 +49537,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "33767325": {
@@ -50898,7 +50915,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "34545235": {
@@ -51160,7 +51177,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34761841": {
@@ -51477,7 +51494,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "34950192": {
@@ -52826,7 +52843,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "35886170": {
@@ -53069,7 +53086,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "36099620": {
@@ -54618,7 +54635,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "37260946": {
@@ -55064,7 +55081,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "37520316": {
@@ -61694,7 +61711,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "42129512": {
@@ -61936,7 +61953,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "42237854": {
@@ -61986,7 +62003,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "42303365": {
@@ -62435,7 +62452,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "42566602": {
@@ -64298,7 +64315,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -65016,7 +65033,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "44505297": {
@@ -65243,7 +65260,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "44656450": {
@@ -72101,6 +72118,26 @@
       ],
       "metaContext": {}
     },
+    "49674183": {
+      "name": "Fallen Angel of Roses",
+      "viewsweek": 0,
+      "views": 89304,
+      "upvotes": 5,
+      "downvotes": 3,
+      "staple": false,
+      "archetype": "Fairy",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
+    },
     "49678559": {
       "name": "Number 102: Star Seraph Sentry",
       "viewsweek": 2,
@@ -73295,7 +73332,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "50593156": {
@@ -81683,7 +81720,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "56673112": {
@@ -81771,7 +81808,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "56733747": {
@@ -81868,6 +81905,28 @@
         "Master Duel"
       ],
       "metaContext": {}
+    },
+    "56784842": {
+      "name": "Angel O7",
+      "viewsweek": 0,
+      "views": 43902,
+      "upvotes": 6,
+      "downvotes": 1,
+      "staple": false,
+      "archetype": "Fairy",
+      "formats": [
+        "Duel Links",
+        "Speed Duel",
+        "Common Charity",
+        "Edison",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
+      }
     },
     "56789759": {
       "name": "Tyhone #2",
@@ -83344,7 +83403,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -84628,7 +84687,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "58818411": {
@@ -85803,7 +85862,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "59616123": {
@@ -87749,7 +87808,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "60946968": {
@@ -88073,7 +88132,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61166988": {
@@ -88292,7 +88351,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "61283655": {
@@ -90958,7 +91017,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -92745,7 +92804,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "64500000": {
@@ -94640,7 +94699,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "65956182": {
@@ -95460,7 +95519,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "66540884": {
@@ -96140,7 +96199,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -97664,7 +97723,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "68038375": {
@@ -97793,7 +97852,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -100063,7 +100122,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -100506,7 +100565,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "69937550": {
@@ -101800,7 +101859,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "70899775": {
@@ -103978,7 +104037,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "72529749": {
@@ -105739,7 +105798,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "73665146": {
@@ -106120,7 +106179,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "74018812": {
@@ -106982,7 +107041,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "74637266": {
@@ -107150,7 +107209,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "74694807": {
@@ -107284,7 +107343,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "74752631": {
@@ -107669,7 +107728,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "75014062": {
@@ -111754,7 +111813,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "78053598": {
@@ -113864,7 +113923,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "79757784": {
@@ -114738,7 +114797,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "80230510": {
@@ -117677,7 +117736,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "82135803": {
@@ -120813,7 +120872,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "84478195": {
@@ -122024,7 +122083,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "85401123": {
@@ -122747,7 +122806,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "86028783": {
@@ -125175,7 +125234,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "87985506": {
@@ -126491,7 +126550,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "89058026": {
@@ -128868,7 +128927,7 @@
       ],
       "metaContext": {
         "genesys": true,
-        "advanced": false
+        "advanced": true
       }
     },
     "90884403": {
@@ -130273,7 +130332,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "91969909": {
@@ -132236,7 +132295,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -133880,7 +133939,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -134926,7 +134985,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -135261,7 +135320,7 @@
         "Master Duel"
       ],
       "metaContext": {
-        "genesys": false,
+        "genesys": true,
         "advanced": false
       }
     },
@@ -135953,7 +136012,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": false
+        "advanced": true
       }
     },
     "95929069": {
@@ -136777,6 +136836,26 @@
       "metaContext": {
         "genesys": true,
         "advanced": false
+      }
+    },
+    "96470883": {
+      "name": "Queen Angel of Roses",
+      "viewsweek": 0,
+      "views": 76418,
+      "upvotes": 6,
+      "downvotes": 0,
+      "staple": false,
+      "archetype": "Fairy",
+      "formats": [
+        "Duel Links",
+        "Common Charity",
+        "TCG",
+        "OCG",
+        "Master Duel"
+      ],
+      "metaContext": {
+        "genesys": false,
+        "advanced": true
       }
     },
     "96471335": {
@@ -137963,7 +138042,7 @@
       ],
       "metaContext": {
         "genesys": false,
-        "advanced": true
+        "advanced": false
       }
     },
     "97439308": {
@@ -142556,6 +142635,24 @@
         "Common Charity"
       ],
       "metaContext": {}
+    },
+    "300302006": {
+      "name": "Beasts of Phantom",
+      "viewsweek": 0,
+      "views": 7579,
+      "upvotes": 0,
+      "downvotes": 2,
+      "staple": false,
+      "archetype": "Chimera",
+      "formats": [
+        "Speed Duel",
+        "Common Charity",
+        "OCG"
+      ],
+      "metaContext": {
+        "genesys": true,
+        "advanced": false
+      }
     },
     "300302049": {
       "name": "HERO World",
