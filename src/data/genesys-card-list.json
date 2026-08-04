@@ -1,10 +1,14 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-08-03T09:55:06.585Z",
+  "lastUpdated": "2026-08-04T08:46:00.503Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
       "points": 20
+    },
+    {
+      "name": "A Hero Lives",
+      "points": 8
     },
     {
       "name": "Abyss Dweller",
@@ -81,6 +85,10 @@
     {
       "name": "Arcana Force XXI - The World",
       "points": 100
+    },
+    {
+      "name": "Archfiend's Usurpation",
+      "points": 3
     },
     {
       "name": "Archlord Kristya",
@@ -208,7 +216,7 @@
     },
     {
       "name": "Blackwing - Boreastorm the Wicked Wind",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Blackwing - Zephyros the Elite",
@@ -227,12 +235,16 @@
       "points": 3
     },
     {
+      "name": "Blitzclique - Breakaway",
+      "points": 2
+    },
+    {
       "name": "Block Dragon",
       "points": 33
     },
     {
       "name": "Bonfire",
-      "points": 33
+      "points": 15
     },
     {
       "name": "Book of Eclipse",
@@ -293,6 +305,10 @@
     {
       "name": "Bystial Saronir",
       "points": 20
+    },
+    {
+      "name": "Calamity of the Sacred Beasts - Hamon, Lord of Striking Thunder",
+      "points": 2
     },
     {
       "name": "Called by the Grave",
@@ -356,7 +372,7 @@
     },
     {
       "name": "Chaos Space",
-      "points": 40
+      "points": 13
     },
     {
       "name": "Charge of the Light Brigade",
@@ -367,8 +383,16 @@
       "points": 10
     },
     {
+      "name": "Chronomaly Vimana",
+      "points": 10
+    },
+    {
       "name": "Clown Crew Biancaviso",
       "points": 1
+    },
+    {
+      "name": "Clown Crew Flair",
+      "points": 5
     },
     {
       "name": "Clown Crew Malabarisme",
@@ -393,6 +417,10 @@
     {
       "name": "Constellar Castor",
       "points": 6
+    },
+    {
+      "name": "Constellar Tellarknights",
+      "points": 1
     },
     {
       "name": "Contact \"C\"",
@@ -439,6 +467,14 @@
       "points": 3
     },
     {
+      "name": "Crystron Sulfefnir",
+      "points": 2
+    },
+    {
+      "name": "Crystron Tristaros",
+      "points": 2
+    },
+    {
       "name": "CXyz Gimmick Puppet Fanatix Machinix",
       "points": 100
     },
@@ -460,7 +496,7 @@
     },
     {
       "name": "D.D. Crow",
-      "points": 1
+      "points": 2
     },
     {
       "name": "D.D. Dynamite",
@@ -547,6 +583,10 @@
       "points": 7
     },
     {
+      "name": "Darktellarknight Batlamyus",
+      "points": 1
+    },
+    {
       "name": "Deception of the Sinful Spoils",
       "points": 40
     },
@@ -556,7 +596,7 @@
     },
     {
       "name": "Deep Sea Aria",
-      "points": 33
+      "points": 12
     },
     {
       "name": "Delinquent Duo",
@@ -708,7 +748,7 @@
     },
     {
       "name": "Dragonic Diagram",
-      "points": 10
+      "points": 5
     },
     {
       "name": "Dragonmaid Sheou",
@@ -760,11 +800,11 @@
     },
     {
       "name": "El Shaddoll Apkallone",
-      "points": 10
+      "points": 1
     },
     {
       "name": "El Shaddoll Winda",
-      "points": 60
+      "points": 100
     },
     {
       "name": "Elder Entity N'tss",
@@ -783,6 +823,10 @@
       "points": 25
     },
     {
+      "name": "Elfnote Lucina",
+      "points": 1
+    },
+    {
       "name": "Elfnote Power Patron",
       "points": 15
     },
@@ -791,12 +835,16 @@
       "points": 40
     },
     {
+      "name": "Elfnote Tinia",
+      "points": 3
+    },
+    {
       "name": "Elzette, Azamina of the White Forest",
       "points": 22
     },
     {
       "name": "Emergency Teleport",
-      "points": 35
+      "points": 25
     },
     {
       "name": "EMERGENCY!",
@@ -847,6 +895,10 @@
       "points": 33
     },
     {
+      "name": "Exstellarknight Constellar Ptolemy O7",
+      "points": 5
+    },
+    {
       "name": "Ext Ryzeal",
       "points": 25
     },
@@ -855,8 +907,20 @@
       "points": 20
     },
     {
+      "name": "Fairy Tail - Matchgiru",
+      "points": 5
+    },
+    {
       "name": "Fairy Tail - Snow",
-      "points": 85
+      "points": 10
+    },
+    {
+      "name": "Fairy Tail - Wiccat",
+      "points": 10
+    },
+    {
+      "name": "Fairy Tail Ball",
+      "points": 10
     },
     {
       "name": "Fallen of the White Dragon",
@@ -876,7 +940,7 @@
     },
     {
       "name": "Fire Formation - Tenki",
-      "points": 35
+      "points": 11
     },
     {
       "name": "Fire King Courtier Ulcanix",
@@ -884,7 +948,7 @@
     },
     {
       "name": "Fire King High Avatar Kirin",
-      "points": 7
+      "points": 5
     },
     {
       "name": "Fishborg Blaster",
@@ -932,7 +996,7 @@
     },
     {
       "name": "Fossil Dig",
-      "points": 33
+      "points": 18
     },
     {
       "name": "Fossil Dyna Pachycephalo",
@@ -968,6 +1032,10 @@
     },
     {
       "name": "Gameciel, the Sea Turtle Kaiju",
+      "points": 3
+    },
+    {
+      "name": "Garunix Eternity, Hyang of the Fire Kings",
       "points": 3
     },
     {
@@ -1044,7 +1112,7 @@
     },
     {
       "name": "Goblin Biker Big Gabonga",
-      "points": 12
+      "points": 10
     },
     {
       "name": "Goblin Biker Grand Breakout",
@@ -1052,7 +1120,7 @@
     },
     {
       "name": "Goblin Biker Grand Entrance",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Gold Sarcophagus",
@@ -1199,6 +1267,10 @@
       "points": 11
     },
     {
+      "name": "Infinity of the Sacred Beasts - Raviel, Lord of Phantasms",
+      "points": 2
+    },
+    {
       "name": "Inspector Boarder",
       "points": 20
     },
@@ -1235,10 +1307,6 @@
       "points": 100
     },
     {
-      "name": "K9- Lupis",
-      "points": 5
-    },
-    {
       "name": "K9-04 Noroi",
       "points": 15
     },
@@ -1261,6 +1329,10 @@
     {
       "name": "K9-X \"Werewolf\"",
       "points": 10
+    },
+    {
+      "name": "K9-�� Lupis",
+      "points": 5
     },
     {
       "name": "Kaiser Colosseum",
@@ -1388,7 +1460,7 @@
     },
     {
       "name": "Legendary Fire King Ponix",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Legendary Lord Six Samurai - Shi En",
@@ -1400,7 +1472,7 @@
     },
     {
       "name": "Lev Shaddoll Fusion",
-      "points": 10
+      "points": 3
     },
     {
       "name": "Level Eater",
@@ -1427,6 +1499,10 @@
       "points": 1
     },
     {
+      "name": "Lightning Rod Lord",
+      "points": 1
+    },
+    {
       "name": "Lightning Storm",
       "points": 12
     },
@@ -1436,7 +1512,7 @@
     },
     {
       "name": "Lonefire Blossom",
-      "points": 33
+      "points": 10
     },
     {
       "name": "Lose 1 Turn",
@@ -1516,7 +1592,7 @@
     },
     {
       "name": "Martyr of the Sacred Beasts",
-      "points": 2
+      "points": 3
     },
     {
       "name": "Masked HERO Dark Law",
@@ -1557,6 +1633,18 @@
     {
       "name": "Megalith Anastasis",
       "points": 33
+    },
+    {
+      "name": "Melffy Footsteps",
+      "points": 2
+    },
+    {
+      "name": "Melffy Godmommy",
+      "points": 2
+    },
+    {
+      "name": "Melffy Staring Contest",
+      "points": 2
     },
     {
       "name": "Mementomictlan Tecuhtlica - Creation King",
@@ -1720,7 +1808,7 @@
     },
     {
       "name": "Nerva the Power Patron of Creation",
-      "points": 5
+      "points": 6
     },
     {
       "name": "Nibiru, the Primal Being",
@@ -1816,7 +1904,7 @@
     },
     {
       "name": "Number 86: Heroic Champion - Rhongomyniad",
-      "points": 68
+      "points": 100
     },
     {
       "name": "Number 89: Diablosis the Mind Hacker",
@@ -1875,10 +1963,6 @@
       "points": 40
     },
     {
-      "name": "Officiator of Doom Samuel",
-      "points": 10
-    },
-    {
       "name": "Ohime the Manifested Mikanko",
       "points": 33
     },
@@ -1896,7 +1980,7 @@
     },
     {
       "name": "One for One",
-      "points": 91
+      "points": 19
     },
     {
       "name": "Onomatopaira",
@@ -1904,7 +1988,7 @@
     },
     {
       "name": "Original Sinful Spoils - Snake-Eye",
-      "points": 100
+      "points": 17
     },
     {
       "name": "Outer Entity Azathot",
@@ -1948,7 +2032,7 @@
     },
     {
       "name": "Pot of Desires",
-      "points": 15
+      "points": 10
     },
     {
       "name": "Pot of Extravagance",
@@ -2039,12 +2123,16 @@
       "points": 10
     },
     {
+      "name": "Purrely Happy Memory",
+      "points": 2
+    },
+    {
       "name": "Purrely Sleepy Memory",
       "points": 10
     },
     {
       "name": "Purrelyly",
-      "points": 7
+      "points": 5
     },
     {
       "name": "QQ Enneagon",
@@ -2056,7 +2144,7 @@
     },
     {
       "name": "Quick Launch",
-      "points": 33
+      "points": 25
     },
     {
       "name": "Ra's Disciple",
@@ -2092,7 +2180,7 @@
     },
     {
       "name": "Raigeki",
-      "points": 4
+      "points": 2
     },
     {
       "name": "Rank-Up-Magic - The Seventh One",
@@ -2208,7 +2296,7 @@
     },
     {
       "name": "Reinforcement of the Army",
-      "points": 33
+      "points": 18
     },
     {
       "name": "Rescue-ACE Air Lifter",
@@ -2255,6 +2343,10 @@
       "points": 60
     },
     {
+      "name": "Royal Archfiend",
+      "points": 7
+    },
+    {
       "name": "Royal Decree",
       "points": 10
     },
@@ -2280,7 +2372,7 @@
     },
     {
       "name": "Sacred Beasts Thunderclap",
-      "points": 2
+      "points": 3
     },
     {
       "name": "Sales Ban",
@@ -2327,8 +2419,16 @@
       "points": 33
     },
     {
+      "name": "Seventh Tachyon",
+      "points": 11
+    },
+    {
+      "name": "Shaddoll Fusion",
+      "points": 3
+    },
+    {
       "name": "Shaddoll Schism",
-      "points": 10
+      "points": 1
     },
     {
       "name": "Shared Ride",
@@ -2459,6 +2559,10 @@
       "points": 3
     },
     {
+      "name": "Stellarnova Binding",
+      "points": 3
+    },
+    {
       "name": "Stray Purrely Street",
       "points": 5
     },
@@ -2499,6 +2603,10 @@
       "points": 5
     },
     {
+      "name": "Superdreadnought Rail Cannon Gustav Max",
+      "points": 10
+    },
+    {
       "name": "Supreme King Dragon Starving Venom",
       "points": 1
     },
@@ -2516,7 +2624,7 @@
     },
     {
       "name": "Swordsoul Emergence",
-      "points": 7
+      "points": 2
     },
     {
       "name": "Swordsoul Grandmaster - Chixiao",
@@ -2567,6 +2675,10 @@
       "points": 6
     },
     {
+      "name": "Tellarknight Lyran",
+      "points": 5
+    },
+    {
       "name": "Tellarknight Ptolemaeus",
       "points": 100
     },
@@ -2584,7 +2696,7 @@
     },
     {
       "name": "Terraforming",
-      "points": 33
+      "points": 20
     },
     {
       "name": "That Grass Looks Greener",
@@ -2635,16 +2747,20 @@
       "points": 50
     },
     {
+      "name": "The Phantom Knights of Break Sword",
+      "points": 1
+    },
+    {
       "name": "The Phantom Knights of Decayed Cloak",
-      "points": 4
+      "points": 2
     },
     {
       "name": "The Phantom Knights of Doomed Soleret",
-      "points": 5
+      "points": 3
     },
     {
       "name": "The Phantom Knights of Malevolent Scythe",
-      "points": 12
+      "points": 10
     },
     {
       "name": "The Phantom Knights' Rank-Up-Magic Launch",
@@ -2684,7 +2800,7 @@
     },
     {
       "name": "Therion \"King\" Regulus",
-      "points": 20
+      "points": 33
     },
     {
       "name": "Thunder Dragon Colossus",
@@ -2695,8 +2811,8 @@
       "points": 20
     },
     {
-      "name": "Thundercrash Snarecrow",
-      "points": 10
+      "name": "Thunderclap Monk",
+      "points": 9
     },
     {
       "name": "Tidal, Dragon Ruler of Waterfalls",
@@ -2713,10 +2829,6 @@
     {
       "name": "Totem Bird",
       "points": 10
-    },
-    {
-      "name": "Tour Guide From the Underworld",
-      "points": 3
     },
     {
       "name": "Trade-In",
@@ -2841,6 +2953,10 @@
     {
       "name": "Welcome Labrynth",
       "points": 15
+    },
+    {
+      "name": "Whisker Blitzclique",
+      "points": 6
     },
     {
       "name": "Wind-Up Carrier Zenmaity",
