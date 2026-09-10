@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-09-09T11:02:22.683Z",
+  "lastUpdated": "2026-09-10T10:59:13.516Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -559,6 +559,10 @@
       "points": 1
     },
     {
+      "name": "Dark Magical Curtain",
+      "points": 30
+    },
+    {
       "name": "Dark Magician of Destruction",
       "points": 15
     },
@@ -1015,6 +1019,10 @@
       "points": 50
     },
     {
+      "name": "Gagaga Magician - Gagaga Magic",
+      "points": 6
+    },
+    {
       "name": "Gagagaga Girl",
       "points": 15
     },
@@ -1431,6 +1439,10 @@
       "points": 3
     },
     {
+      "name": "Kuriboh - Multiply!",
+      "points": 10
+    },
+    {
       "name": "Lady Labrynth of the Silver Castle",
       "points": 40
     },
@@ -1581,6 +1593,10 @@
     {
       "name": "Majesty's Fiend",
       "points": 100
+    },
+    {
+      "name": "Malefic Paradigm Shift",
+      "points": 8
     },
     {
       "name": "Manju of the Ten Thousand Hands",
@@ -1865,6 +1881,10 @@
     {
       "name": "Number 39: Utopia Double",
       "points": 80
+    },
+    {
+      "name": "Number 39: Utopia, Emissary of Light",
+      "points": 5
     },
     {
       "name": "Number 4: Numeron Gate Catvari",
@@ -2181,6 +2201,10 @@
     {
       "name": "Raigeki",
       "points": 2
+    },
+    {
+      "name": "Rainbow Bridge Bifrost",
+      "points": 10
     },
     {
       "name": "Rank-Up-Magic - The Seventh One",
@@ -2547,8 +2571,16 @@
       "points": 5
     },
     {
+      "name": "Stardust Dragon - Victim Sanctuary",
+      "points": 15
+    },
+    {
       "name": "Stardust Sifr Divine Dragon",
       "points": 21
+    },
+    {
+      "name": "Starjunk Synchron",
+      "points": 1
     },
     {
       "name": "Starliege Seyfert",
@@ -2637,6 +2669,10 @@
     {
       "name": "Swordsoul Supreme Sovereign - Chengying",
       "points": 10
+    },
+    {
+      "name": "Synchro Emergency",
+      "points": 5
     },
     {
       "name": "T.G. Hyper Librarian",
@@ -2965,6 +3001,10 @@
     {
       "name": "Wind-Up Hunter",
       "points": 86
+    },
+    {
+      "name": "Winged Kuriboh Sabatiel LV10",
+      "points": 7
     },
     {
       "name": "Wishes for Eyes of Blue",
