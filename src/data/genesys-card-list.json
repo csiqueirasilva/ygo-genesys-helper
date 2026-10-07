@@ -1,30 +1,26 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-10-06T13:06:17.704Z",
+  "lastUpdated": "2026-10-07T13:01:18.513Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
-      "points": 20
+      "points": 15
     },
     {
       "name": "A Hero Lives",
-      "points": 8
+      "points": 30
     },
     {
       "name": "Abyss Dweller",
       "points": 100
     },
     {
-      "name": "Abyss of the Sacred Beasts",
-      "points": 1
-    },
-    {
       "name": "Adamancipator Risen - Dragite",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Agido the Ancient Sentinel",
-      "points": 50
+      "points": 33
     },
     {
       "name": "Aiwass, Divine Spirit of the Law",
@@ -44,11 +40,15 @@
     },
     {
       "name": "Allure of Darkness",
-      "points": 5
+      "points": 3
     },
     {
       "name": "Ame no Habakiri no Mitsurugi",
       "points": 100
+    },
+    {
+      "name": "Ame no Murakumo no Mitsurugi",
+      "points": 51
     },
     {
       "name": "Amorphactor Pain, the Imagination Dracoverlord",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Archfiend's Usurpation",
-      "points": 3
+      "points": 5
     },
     {
       "name": "Archlord Kristya",
@@ -112,23 +112,19 @@
     },
     {
       "name": "Artmage Impasto -Recapture-",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Artmage Non-Finito",
-      "points": 15
+      "points": 33
     },
     {
       "name": "Artmage Vandalism -Assault-",
-      "points": 3
-    },
-    {
-      "name": "Artmage Varnish -Alteration-",
-      "points": 3
+      "points": 5
     },
     {
       "name": "Ash Blossom & Joyous Spring",
-      "points": 20
+      "points": 18
     },
     {
       "name": "Assault Synchron",
@@ -140,15 +136,15 @@
     },
     {
       "name": "Atlantean Dragoons",
-      "points": 40
+      "points": 13
     },
     {
       "name": "Azamina Ilia Silvia",
-      "points": 20
+      "points": 33
     },
     {
       "name": "Azamina Mu Rcielago",
-      "points": 33
+      "points": 15
     },
     {
       "name": "Bahamut Shark",
@@ -160,11 +156,11 @@
     },
     {
       "name": "Baronne de Fleur",
-      "points": 80
+      "points": 50
     },
     {
       "name": "Barrier of the Voiceless Voice",
-      "points": 15
+      "points": 11
     },
     {
       "name": "Barrier Statue of the Abyss",
@@ -191,6 +187,10 @@
       "points": 70
     },
     {
+      "name": "Battlin' Boxer King Dempsey",
+      "points": 23
+    },
+    {
       "name": "Beatrice, Lady of the Eternal",
       "points": 100
     },
@@ -215,16 +215,8 @@
       "points": 1
     },
     {
-      "name": "Blackwing - Boreastorm the Wicked Wind",
-      "points": 15
-    },
-    {
       "name": "Blackwing - Zephyros the Elite",
-      "points": 13
-    },
-    {
-      "name": "Blaster, Dragon Ruler of Infernos",
-      "points": 5
+      "points": 1
     },
     {
       "name": "Blaze Fenix, the Burning Bombardment Bird",
@@ -232,11 +224,11 @@
     },
     {
       "name": "Blazing Cartesia, the Virtuous",
-      "points": 3
+      "points": 5
     },
     {
       "name": "Blitzclique - Breakaway",
-      "points": 2
+      "points": 3
     },
     {
       "name": "Block Dragon",
@@ -252,11 +244,7 @@
     },
     {
       "name": "Book of Moon",
-      "points": 3
-    },
-    {
-      "name": "Brain Research Lab",
-      "points": 100
+      "points": 1
     },
     {
       "name": "Bramble Rose Dragon",
@@ -288,7 +276,7 @@
     },
     {
       "name": "Bystial Baldrake",
-      "points": 30
+      "points": 13
     },
     {
       "name": "Bystial Dis Pater",
@@ -296,19 +284,19 @@
     },
     {
       "name": "Bystial Druiswurm",
-      "points": 30
+      "points": 12
     },
     {
       "name": "Bystial Magnamhut",
-      "points": 33
-    },
-    {
-      "name": "Bystial Saronir",
       "points": 20
     },
     {
+      "name": "Bystial Saronir",
+      "points": 10
+    },
+    {
       "name": "Calamity of the Sacred Beasts - Hamon, Lord of Striking Thunder",
-      "points": 2
+      "points": 11
     },
     {
       "name": "Called by the Grave",
@@ -316,15 +304,11 @@
     },
     {
       "name": "Card Destruction",
-      "points": 40
-    },
-    {
-      "name": "Card of Demise",
-      "points": 40
+      "points": 33
     },
     {
       "name": "Card of Safe Return",
-      "points": 33
+      "points": 10
     },
     {
       "name": "Catapult Turtle",
@@ -332,31 +316,23 @@
     },
     {
       "name": "Celestial Observatory",
-      "points": 5
+      "points": 3
     },
     {
       "name": "Celtic Mystic",
-      "points": 20
+      "points": 5
     },
     {
       "name": "Centur-Ion Auxila",
-      "points": 33
-    },
-    {
-      "name": "Centur-Ion Primera",
-      "points": 2
-    },
-    {
-      "name": "Centur-Ion Trudea",
-      "points": 1
+      "points": 15
     },
     {
       "name": "Chain Strike",
-      "points": 50
+      "points": 10
     },
     {
       "name": "Change of Heart",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Chaofeng, Phantom of the Yang Zing",
@@ -364,11 +340,11 @@
     },
     {
       "name": "Chaos Angel",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Chaos Ruler, the Chaotic Magical Dragon",
-      "points": 50
+      "points": 40
     },
     {
       "name": "Chaos Space",
@@ -376,7 +352,7 @@
     },
     {
       "name": "Charge of the Light Brigade",
-      "points": 25
+      "points": 15
     },
     {
       "name": "Chicken Game",
@@ -384,7 +360,7 @@
     },
     {
       "name": "Chronomaly Vimana",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Clown Crew Biancaviso",
@@ -408,11 +384,11 @@
     },
     {
       "name": "Conduction Warrior Linear Magnum Plus Minus",
-      "points": 6
+      "points": 15
     },
     {
       "name": "Confiscation",
-      "points": 100
+      "points": 40
     },
     {
       "name": "Constellar Castor",
@@ -425,6 +401,10 @@
     {
       "name": "Contact \"C\"",
       "points": 100
+    },
+    {
+      "name": "Contrast HERO Chaos",
+      "points": 22
     },
     {
       "name": "Cornfield Coatl",
@@ -440,7 +420,7 @@
     },
     {
       "name": "Crackle Blitzclique",
-      "points": 4
+      "points": 6
     },
     {
       "name": "Creature Swap",
@@ -475,24 +455,24 @@
       "points": 2
     },
     {
+      "name": "Cupid Pitch",
+      "points": 15
+    },
+    {
       "name": "CXyz Gimmick Puppet Fanatix Machinix",
       "points": 100
     },
     {
       "name": "Cyber Angel Benten",
-      "points": 40
+      "points": 13
     },
     {
       "name": "Cyber Dragon Infinity",
-      "points": 20
-    },
-    {
-      "name": "Cyber Jar",
       "points": 33
     },
     {
       "name": "Cyber-Stein",
-      "points": 27
+      "points": 50
     },
     {
       "name": "D.D. Crow",
@@ -508,7 +488,7 @@
     },
     {
       "name": "D/D/D Wave High King Caesar",
-      "points": 20
+      "points": 33
     },
     {
       "name": "Daigusto Emeral",
@@ -524,7 +504,7 @@
     },
     {
       "name": "Danger! Dogman!",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Danger! Mothman!",
@@ -532,11 +512,11 @@
     },
     {
       "name": "Danger! Nessie!",
-      "points": 7
+      "points": 5
     },
     {
       "name": "Danger! Ogopogo!",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Danger! Thunderbird!",
@@ -544,7 +524,7 @@
     },
     {
       "name": "Danger!? Jackalope?",
-      "points": 7
+      "points": 5
     },
     {
       "name": "Danger!? Tsuchinoko?",
@@ -563,8 +543,12 @@
       "points": 30
     },
     {
-      "name": "Dark Magician of Destruction",
+      "name": "Dark Magician Girl the Magician's Apprentice",
       "points": 15
+    },
+    {
+      "name": "Dark Magician of Destruction",
+      "points": 40
     },
     {
       "name": "Dark Ruler No More",
@@ -592,7 +576,7 @@
     },
     {
       "name": "Deception of the Sinful Spoils",
-      "points": 40
+      "points": 20
     },
     {
       "name": "Deck Lockdown",
@@ -604,7 +588,7 @@
     },
     {
       "name": "Delinquent Duo",
-      "points": 100
+      "points": 50
     },
     {
       "name": "Demise of the Land",
@@ -619,8 +603,12 @@
       "points": 20
     },
     {
+      "name": "Destiny HERO - Dark Angel",
+      "points": 100
+    },
+    {
       "name": "Destiny HERO - Destroyer Phoenix Enforcer",
-      "points": 20
+      "points": 7
     },
     {
       "name": "Destiny HERO - Plasma",
@@ -632,11 +620,11 @@
     },
     {
       "name": "Diabell, Queen of the White Forest",
-      "points": 25
+      "points": 33
     },
     {
       "name": "Diabellstar the Black Witch",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Different Dimension Ground",
@@ -644,7 +632,7 @@
     },
     {
       "name": "Dimension Fusion",
-      "points": 40
+      "points": 20
     },
     {
       "name": "Dimension Shifter",
@@ -676,11 +664,11 @@
     },
     {
       "name": "Dinowrestler Pankratops",
-      "points": 5
+      "points": 3
     },
     {
       "name": "Divine Arsenal AA-ZEUS - Sky Thunder",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Diviner of the Herald",
@@ -715,6 +703,10 @@
       "points": 10
     },
     {
+      "name": "Dominus Spiral",
+      "points": 5
+    },
+    {
       "name": "DoomZ XIII Over - Graflareio",
       "points": 20
     },
@@ -728,7 +720,7 @@
     },
     {
       "name": "Dracotail Flame",
-      "points": 3
+      "points": 11
     },
     {
       "name": "Dracotail Mululu",
@@ -743,24 +735,8 @@
       "points": 100
     },
     {
-      "name": "Dragon's Light and Darkness",
-      "points": 1
-    },
-    {
       "name": "Dragon's Mind",
-      "points": 7
-    },
-    {
-      "name": "Dragonic Diagram",
-      "points": 5
-    },
-    {
-      "name": "Dragonmaid Sheou",
-      "points": 10
-    },
-    {
-      "name": "Dragonmaid Tidying",
-      "points": 1
+      "points": 11
     },
     {
       "name": "Droll & Lock Bird",
@@ -768,15 +744,15 @@
     },
     {
       "name": "Drytron Alpha Thuban",
-      "points": 33
+      "points": 7
+    },
+    {
+      "name": "Drytron Meteonis DA Draconids",
+      "points": 40
     },
     {
       "name": "Drytron Mu Beta Fafnir",
-      "points": 33
-    },
-    {
-      "name": "Duality",
-      "points": 1
+      "points": 23
     },
     {
       "name": "Earthbound Immortal Aslla piscu",
@@ -792,11 +768,11 @@
     },
     {
       "name": "Eclipse Wyvern",
-      "points": 33
+      "points": 11
     },
     {
       "name": "Effect Veiler",
-      "points": 8
+      "points": 7
     },
     {
       "name": "Eidos the Underworld Monarch",
@@ -815,10 +791,6 @@
       "points": 7
     },
     {
-      "name": "Elder Entity Norden",
-      "points": 91
-    },
-    {
       "name": "Elemental HERO Cosmo Neos",
       "points": 21
     },
@@ -832,7 +804,7 @@
     },
     {
       "name": "Elfnote Power Patron",
-      "points": 15
+      "points": 22
     },
     {
       "name": "Elfnote Regina",
@@ -840,7 +812,7 @@
     },
     {
       "name": "Elfnote Tinia",
-      "points": 3
+      "points": 11
     },
     {
       "name": "Elzette, Azamina of the White Forest",
@@ -852,11 +824,11 @@
     },
     {
       "name": "EMERGENCY!",
-      "points": 33
+      "points": 7
     },
     {
       "name": "Eva",
-      "points": 1
+      "points": 5
     },
     {
       "name": "Evenly Matched",
@@ -884,19 +856,19 @@
     },
     {
       "name": "Exosister Betrayal",
-      "points": 7
+      "points": 18
     },
     {
       "name": "Exosister Mikailis",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Exosister Pax",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Expurrely Noir",
-      "points": 33
+      "points": 51
     },
     {
       "name": "Exstellarknight Constellar Ptolemy O7",
@@ -908,7 +880,11 @@
     },
     {
       "name": "F.A. Dawn Dragster",
-      "points": 20
+      "points": 22
+    },
+    {
+      "name": "Fabled Levilazebul",
+      "points": 5
     },
     {
       "name": "Fairy Tail - Matchgiru",
@@ -920,23 +896,15 @@
     },
     {
       "name": "Fairy Tail - Wiccat",
-      "points": 10
+      "points": 15
     },
     {
       "name": "Fairy Tail Ball",
-      "points": 10
+      "points": 15
     },
     {
       "name": "Fallen of the White Dragon",
       "points": 30
-    },
-    {
-      "name": "Fiber Jar",
-      "points": 30
-    },
-    {
-      "name": "Filia Regis",
-      "points": 7
     },
     {
       "name": "Final Countdown",
@@ -948,27 +916,31 @@
     },
     {
       "name": "Fire King Courtier Ulcanix",
-      "points": 15
+      "points": 11
     },
     {
       "name": "Fire King High Avatar Kirin",
-      "points": 5
+      "points": 4
     },
     {
       "name": "Fishborg Blaster",
       "points": 33
     },
     {
+      "name": "Floowandereeze & Empen",
+      "points": 13
+    },
+    {
       "name": "Floowandereeze & Robina",
-      "points": 33
+      "points": 7
     },
     {
       "name": "Floowandereeze and the Advent of Adventure",
-      "points": 33
+      "points": 11
     },
     {
       "name": "Floowandereeze and the Magnificent Map",
-      "points": 33
+      "points": 20
     },
     {
       "name": "Flying \"C\"",
@@ -976,11 +948,11 @@
     },
     {
       "name": "Foolish Burial",
-      "points": 25
+      "points": 15
     },
     {
       "name": "Foolish Burial Goods",
-      "points": 7
+      "points": 11
     },
     {
       "name": "Forbidden Chalice",
@@ -1008,11 +980,11 @@
     },
     {
       "name": "Frightfur Patchwork",
-      "points": 33
+      "points": 15
     },
     {
       "name": "Fusion Destiny",
-      "points": 33
+      "points": 3
     },
     {
       "name": "Fydraulis Harmonia",
@@ -1032,11 +1004,11 @@
     },
     {
       "name": "Galaxy-Eyes Tachyon Primal",
-      "points": 5
+      "points": 33
     },
     {
       "name": "Gallant Granite",
-      "points": 33
+      "points": 25
     },
     {
       "name": "Gameciel, the Sea Turtle Kaiju",
@@ -1063,6 +1035,10 @@
       "points": 66
     },
     {
+      "name": "Gem-Knight Master Diamond Dispersion",
+      "points": 80
+    },
+    {
       "name": "Ghost Belle & Haunted Mansion",
       "points": 6
     },
@@ -1083,12 +1059,16 @@
       "points": 3
     },
     {
+      "name": "Ghostrick Angel of Mischief",
+      "points": 100
+    },
+    {
       "name": "Giant Trunade",
-      "points": 40
+      "points": 15
     },
     {
       "name": "Gigantic Spright",
-      "points": 7
+      "points": 15
     },
     {
       "name": "Gimmick Puppet Nightmare",
@@ -1112,15 +1092,11 @@
     },
     {
       "name": "Glitch Clutch Nullgainer",
-      "points": 10
-    },
-    {
-      "name": "Glow-Up Bulb",
       "points": 15
     },
     {
       "name": "Goblin Biker Big Gabonga",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Goblin Biker Grand Breakout",
@@ -1144,19 +1120,15 @@
     },
     {
       "name": "Graceful Charity",
-      "points": 40
-    },
-    {
-      "name": "Grapha, Dragon Lord of Dark World",
-      "points": 5
+      "points": 25
     },
     {
       "name": "Grapha, Dragon Overlord of Dark World",
-      "points": 5
+      "points": 33
     },
     {
       "name": "Griffoh",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Grisaille Prison",
@@ -1172,7 +1144,7 @@
     },
     {
       "name": "Harpie's Feather Duster",
-      "points": 9
+      "points": 7
     },
     {
       "name": "Harpie's Feather Storm",
@@ -1192,7 +1164,7 @@
     },
     {
       "name": "Heavy Storm",
-      "points": 6
+      "points": 4
     },
     {
       "name": "Herald of Green Light",
@@ -1203,6 +1175,10 @@
       "points": 3
     },
     {
+      "name": "Herald of Perfection",
+      "points": 51
+    },
+    {
       "name": "Herald of Purple Light",
       "points": 1
     },
@@ -1211,12 +1187,16 @@
       "points": 50
     },
     {
+      "name": "Herald of Ultimateness",
+      "points": 51
+    },
+    {
       "name": "Hideout in the Sky, Coulomb",
-      "points": 5
+      "points": 8
     },
     {
       "name": "Hot Red Dragon Archfiend Abyss",
-      "points": 20
+      "points": 33
     },
     {
       "name": "Hot Red Dragon Archfiend King Calamity",
@@ -1228,7 +1208,7 @@
     },
     {
       "name": "Hyperinvoked Aeon",
-      "points": 15
+      "points": 20
     },
     {
       "name": "Ice Ryzeal",
@@ -1251,32 +1231,28 @@
       "points": 100
     },
     {
-      "name": "Imsety, Glory of Horus",
-      "points": 33
-    },
-    {
       "name": "Incredible Ecclesia, the Virtuous",
-      "points": 3
-    },
-    {
-      "name": "Infernal Flame Banshee",
-      "points": 33
-    },
-    {
-      "name": "Infernity Launcher",
-      "points": 88
-    },
-    {
-      "name": "Infernoid Evil",
       "points": 7
     },
     {
+      "name": "Infernal Flame Banshee",
+      "points": 25
+    },
+    {
+      "name": "Infernity Launcher",
+      "points": 40
+    },
+    {
+      "name": "Infernoid Evil",
+      "points": 10
+    },
+    {
       "name": "Infinite Impermanence",
-      "points": 11
+      "points": 8
     },
     {
       "name": "Infinity of the Sacred Beasts - Raviel, Lord of Phantasms",
-      "points": 2
+      "points": 11
     },
     {
       "name": "Inspector Boarder",
@@ -1296,7 +1272,7 @@
     },
     {
       "name": "Iron Thunder",
-      "points": 3
+      "points": 11
     },
     {
       "name": "Jet Synchron",
@@ -1316,15 +1292,15 @@
     },
     {
       "name": "K9-04 Noroi",
-      "points": 15
+      "points": 20
     },
     {
       "name": "K9-17 \"Ripper\"",
-      "points": 30
+      "points": 33
     },
     {
       "name": "K9-17 Izuna",
-      "points": 20
+      "points": 15
     },
     {
       "name": "K9-66a Jokul",
@@ -1332,15 +1308,11 @@
     },
     {
       "name": "K9-X \"Ripper/M\"",
-      "points": 10
+      "points": 11
     },
     {
       "name": "K9-X \"Werewolf\"",
-      "points": 10
-    },
-    {
-      "name": "K9-�� Lupis",
-      "points": 5
+      "points": 100
     },
     {
       "name": "Kaiser Colosseum",
@@ -1348,11 +1320,11 @@
     },
     {
       "name": "Kashtira Arise-Heart",
-      "points": 97
+      "points": 100
     },
     {
       "name": "Kashtira Fenrir",
-      "points": 30
+      "points": 20
     },
     {
       "name": "Kashtira Unicorn",
@@ -1360,11 +1332,11 @@
     },
     {
       "name": "Kelbek the Ancient Vanguard",
-      "points": 50
+      "points": 33
     },
     {
       "name": "Keldo the Sacred Protector",
-      "points": 2
+      "points": 3
     },
     {
       "name": "Ketu Dracotail",
@@ -1404,15 +1376,11 @@
     },
     {
       "name": "King of the Feral Imps",
-      "points": 33
+      "points": 25
     },
     {
       "name": "King's Sarcophagus",
-      "points": 33
-    },
-    {
-      "name": "Knight Armed Dragon, the Armored Knight Dragon",
-      "points": 3
+      "points": 40
     },
     {
       "name": "Knightmare Corruptor Iblee",
@@ -1424,19 +1392,19 @@
     },
     {
       "name": "Koa'ki Meiru Guardian",
-      "points": 3
+      "points": 4
     },
     {
       "name": "Koa'ki Meiru Overload",
-      "points": 3
+      "points": 4
     },
     {
       "name": "Koa'ki Meiru Sandman",
-      "points": 3
+      "points": 4
     },
     {
       "name": "Koa'ki Meiru Wall",
-      "points": 3
+      "points": 4
     },
     {
       "name": "Kuriboh - Multiply!",
@@ -1445,10 +1413,6 @@
     {
       "name": "Lady Labrynth of the Silver Castle",
       "points": 40
-    },
-    {
-      "name": "Lady's Dragonmaid",
-      "points": 10
     },
     {
       "name": "Laevatein, Generaider Boss of Shadows",
@@ -1465,10 +1429,6 @@
     {
       "name": "Lavalval Chain",
       "points": 80
-    },
-    {
-      "name": "Left Arm Offering",
-      "points": 7
     },
     {
       "name": "Legendary Fire King Ponix",
@@ -1507,24 +1467,16 @@
       "points": 1
     },
     {
-      "name": "Light End Sublimation Dragon",
-      "points": 1
-    },
-    {
       "name": "Lightning Rod Lord",
       "points": 1
     },
     {
       "name": "Lightning Storm",
-      "points": 12
+      "points": 10
     },
     {
       "name": "Lightsworn Dragonling",
-      "points": 10
-    },
-    {
-      "name": "Lonefire Blossom",
-      "points": 10
+      "points": 5
     },
     {
       "name": "Lose 1 Turn",
@@ -1539,24 +1491,8 @@
       "points": 51
     },
     {
-      "name": "Lyrilusc - Beryl Canary",
-      "points": 5
-    },
-    {
-      "name": "Lyrilusc - Bird Call",
-      "points": 5
-    },
-    {
       "name": "Lyrilusc - Independent Nightingale",
       "points": 1
-    },
-    {
-      "name": "Lyrilusc - Sapphire Swallow",
-      "points": 3
-    },
-    {
-      "name": "Lyrilusc - Turquoise Warbler",
-      "points": 3
     },
     {
       "name": "M-X-Saber Invoker",
@@ -1564,7 +1500,7 @@
     },
     {
       "name": "Magical Explosion",
-      "points": 75
+      "points": 100
     },
     {
       "name": "Magical Mallet",
@@ -1572,11 +1508,11 @@
     },
     {
       "name": "Magical Mid-Breaker Field",
-      "points": 60
+      "points": 20
     },
     {
       "name": "Magical Scientist",
-      "points": 95
+      "points": 50
     },
     {
       "name": "Magician of Black Chaos MAX",
@@ -1584,11 +1520,15 @@
     },
     {
       "name": "Magicians' Souls",
+      "points": 15
+    },
+    {
+      "name": "Magistus Chorozo",
       "points": 10
     },
     {
       "name": "Magnet Bonding",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Majesty's Fiend",
@@ -1616,7 +1556,7 @@
     },
     {
       "name": "Masked HERO Fountain",
-      "points": 6
+      "points": 3
     },
     {
       "name": "Masquerade the Blazing Dragon",
@@ -1625,10 +1565,6 @@
     {
       "name": "Mass Driver",
       "points": 100
-    },
-    {
-      "name": "Master Peace, the True Dracoslaying King",
-      "points": 33
     },
     {
       "name": "Mathmech Circular",
@@ -1644,23 +1580,11 @@
     },
     {
       "name": "Medius the Pure",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Megalith Anastasis",
-      "points": 33
-    },
-    {
-      "name": "Melffy Footsteps",
-      "points": 2
-    },
-    {
-      "name": "Melffy Godmommy",
-      "points": 2
-    },
-    {
-      "name": "Melffy Staring Contest",
-      "points": 2
+      "points": 22
     },
     {
       "name": "Mementomictlan Tecuhtlica - Creation King",
@@ -1711,10 +1635,6 @@
       "points": 100
     },
     {
-      "name": "Mind Master",
-      "points": 1
-    },
-    {
       "name": "Mind Shuffle",
       "points": 40
     },
@@ -1729,6 +1649,10 @@
     {
       "name": "Miscellaneousaurus",
       "points": 67
+    },
+    {
+      "name": "Mist Valley Apex Avian",
+      "points": 20
     },
     {
       "name": "Mistake",
@@ -1748,15 +1672,11 @@
     },
     {
       "name": "Monster Gate",
-      "points": 50
+      "points": 10
     },
     {
       "name": "Monster Reborn",
-      "points": 3
-    },
-    {
-      "name": "Morphing Jar",
-      "points": 33
+      "points": 2
     },
     {
       "name": "Morphtronic Telefon",
@@ -1764,7 +1684,7 @@
     },
     {
       "name": "Mortilux Heruvur",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Moulinglacia the Elemental Lord",
@@ -1772,7 +1692,7 @@
     },
     {
       "name": "Mudora the Sword Oracle",
-      "points": 2
+      "points": 3
     },
     {
       "name": "Mulcharmy Fuwalos",
@@ -1796,19 +1716,15 @@
     },
     {
       "name": "N.As.H. Knight",
-      "points": 13
-    },
-    {
-      "name": "Nadir Servant",
-      "points": 20
-    },
-    {
-      "name": "Naturia Barkion",
       "points": 10
     },
     {
+      "name": "Nadir Servant",
+      "points": 16
+    },
+    {
       "name": "Naturia Beast",
-      "points": 50
+      "points": 100
     },
     {
       "name": "Naturia Exterio",
@@ -1816,15 +1732,19 @@
     },
     {
       "name": "Necrovalley",
-      "points": 25
+      "points": 10
+    },
+    {
+      "name": "Nekroz of Brionac",
+      "points": 7
     },
     {
       "name": "Neptabyss, the Atlantean Prince",
-      "points": 33
+      "points": 20
     },
     {
       "name": "Nerva the Power Patron of Creation",
-      "points": 6
+      "points": 15
     },
     {
       "name": "Nibiru, the Primal Being",
@@ -1832,11 +1752,15 @@
     },
     {
       "name": "Nightmare Apprentice",
-      "points": 20
+      "points": 15
+    },
+    {
+      "name": "Nightmare Hands",
+      "points": 10
     },
     {
       "name": "Nightmare Throne",
-      "points": 13
+      "points": 1
     },
     {
       "name": "Noh-P.U.N.K. Foxy Tune",
@@ -1848,11 +1772,7 @@
     },
     {
       "name": "Number 1: Infection Buzzking",
-      "points": 85
-    },
-    {
-      "name": "Number 1: Numeron Gate Ekam",
-      "points": 10
+      "points": 40
     },
     {
       "name": "Number 100: Numeron Dragon",
@@ -1863,16 +1783,8 @@
       "points": 100
     },
     {
-      "name": "Number 2: Numeron Gate Dve",
-      "points": 10
-    },
-    {
       "name": "Number 3: Cicada King",
-      "points": 10
-    },
-    {
-      "name": "Number 3: Numeron Gate Trini",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Number 38: Hope Harbinger Dragon Titanic Galaxy",
@@ -1885,10 +1797,6 @@
     {
       "name": "Number 39: Utopia, Emissary of Light",
       "points": 5
-    },
-    {
-      "name": "Number 4: Numeron Gate Catvari",
-      "points": 10
     },
     {
       "name": "Number 40: Gimmick Puppet of Strings",
@@ -1908,11 +1816,11 @@
     },
     {
       "name": "Number 60: Dugares the Timeless",
-      "points": 10
+      "points": 22
     },
     {
       "name": "Number 67: Pair-a-Dice Smasher",
-      "points": 67
+      "points": 100
     },
     {
       "name": "Number 69: Heraldry Crest",
@@ -1920,7 +1828,7 @@
     },
     {
       "name": "Number 75: Bamboozling Gossip Shadow",
-      "points": 70
+      "points": 22
     },
     {
       "name": "Number 86: Heroic Champion - Rhongomyniad",
@@ -1928,11 +1836,11 @@
     },
     {
       "name": "Number 89: Diablosis the Mind Hacker",
-      "points": 85
+      "points": 40
     },
     {
       "name": "Number 90: Galaxy-Eyes Photon Lord",
-      "points": 10
+      "points": 11
     },
     {
       "name": "Number 95: Galaxy-Eyes Dark Matter Dragon",
@@ -1947,44 +1855,36 @@
       "points": 80
     },
     {
-      "name": "Number C1: Numeron Chaos Gate Sunya",
-      "points": 10
-    },
-    {
       "name": "Number C40: Gimmick Puppet of Dark Strings",
       "points": 50
     },
     {
-      "name": "Number F0: Utopic Draco Future",
-      "points": 25
-    },
-    {
-      "name": "Number F0: Utopic Future Zexal",
-      "points": 5
-    },
-    {
-      "name": "Number S0: Utopic ZEXAL",
+      "name": "Number C9: Chaos Dyson Sphere",
       "points": 100
     },
     {
+      "name": "Number F0: Utopic Draco Future",
+      "points": 33
+    },
+    {
+      "name": "Number F0: Utopic Future Zexal",
+      "points": 15
+    },
+    {
       "name": "Numbers Eveil",
-      "points": 70
+      "points": 80
     },
     {
       "name": "Numeron Calling",
-      "points": 30
-    },
-    {
-      "name": "Numeron Network",
-      "points": 33
+      "points": 80
     },
     {
       "name": "Obedience Schooled",
-      "points": 40
+      "points": 33
     },
     {
       "name": "Ohime the Manifested Mikanko",
-      "points": 33
+      "points": 11
     },
     {
       "name": "Ojama Duo",
@@ -2004,7 +1904,11 @@
     },
     {
       "name": "Onomatopaira",
-      "points": 33
+      "points": 22
+    },
+    {
+      "name": "Onomatopickup",
+      "points": 11
     },
     {
       "name": "Original Sinful Spoils - Snake-Eye",
@@ -2020,11 +1924,11 @@
     },
     {
       "name": "P.U.N.K. JAM Dragon Drive",
-      "points": 15
+      "points": 13
     },
     {
       "name": "Painful Choice",
-      "points": 95
+      "points": 100
     },
     {
       "name": "Phantom Fortress Enterblathnir",
@@ -2036,7 +1940,7 @@
     },
     {
       "name": "Phantom of Yubel",
-      "points": 88
+      "points": 100
     },
     {
       "name": "Phara the Primordial Goddess",
@@ -2044,7 +1948,11 @@
     },
     {
       "name": "Pilgrim Reaper",
-      "points": 50
+      "points": 30
+    },
+    {
+      "name": "Piri Reis Map",
+      "points": 11
     },
     {
       "name": "Planet Pathfinder",
@@ -2052,7 +1960,7 @@
     },
     {
       "name": "Pot of Desires",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Pot of Extravagance",
@@ -2060,11 +1968,11 @@
     },
     {
       "name": "Pot of Greed",
-      "points": 30
+      "points": 20
     },
     {
       "name": "Pot of Prosperity",
-      "points": 40
+      "points": 25
     },
     {
       "name": "Pot of Sloth",
@@ -2072,7 +1980,7 @@
     },
     {
       "name": "Power Vice Dragon",
-      "points": 6
+      "points": 5
     },
     {
       "name": "Powersink Stone",
@@ -2084,7 +1992,7 @@
     },
     {
       "name": "Premature Burial",
-      "points": 2
+      "points": 1
     },
     {
       "name": "Preparation of Rites",
@@ -2092,7 +2000,7 @@
     },
     {
       "name": "Pressured Planet Wraitsoth",
-      "points": 33
+      "points": 13
     },
     {
       "name": "Primathmech Alembertian",
@@ -2100,11 +2008,11 @@
     },
     {
       "name": "Primeval Planet Perlereino",
-      "points": 50
+      "points": 13
     },
     {
       "name": "Primite Lordly Lode",
-      "points": 33
+      "points": 13
     },
     {
       "name": "Prohibition",
@@ -2116,7 +2024,7 @@
     },
     {
       "name": "Psi-Blocker",
-      "points": 61
+      "points": 100
     },
     {
       "name": "PSY-Framegear Delta",
@@ -2136,22 +2044,18 @@
     },
     {
       "name": "Psychic End Punisher",
-      "points": 20
+      "points": 15
     },
     {
       "name": "Purrely",
-      "points": 10
+      "points": 3
     },
     {
       "name": "Purrely Happy Memory",
-      "points": 2
+      "points": 1
     },
     {
       "name": "Purrely Sleepy Memory",
-      "points": 10
-    },
-    {
-      "name": "Purrelyly",
       "points": 5
     },
     {
@@ -2172,7 +2076,7 @@
     },
     {
       "name": "Radiant Typhoon Chant",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Radiant Typhoon Eldam",
@@ -2180,7 +2084,7 @@
     },
     {
       "name": "Radiant Typhoon Krosea",
-      "points": 7
+      "points": 20
     },
     {
       "name": "Radiant Typhoon Vision",
@@ -2205,6 +2109,10 @@
     {
       "name": "Rainbow Bridge Bifrost",
       "points": 10
+    },
+    {
+      "name": "Raiza the Mega Monarch",
+      "points": 13
     },
     {
       "name": "Rank-Up-Magic - The Seventh One",
@@ -2276,7 +2184,7 @@
     },
     {
       "name": "Reasoning",
-      "points": 50
+      "points": 15
     },
     {
       "name": "Red Reboot",
@@ -2293,10 +2201,6 @@
     {
       "name": "Red-Eyes Flare Metal Dragon",
       "points": 1
-    },
-    {
-      "name": "Redox, Dragon Ruler of Boulders",
-      "points": 5
     },
     {
       "name": "Regenesis",
@@ -2323,16 +2227,12 @@
       "points": 18
     },
     {
-      "name": "Rescue-ACE Air Lifter",
-      "points": 3
-    },
-    {
       "name": "Rescue-ACE Impulse",
-      "points": 5
+      "points": 1
     },
     {
       "name": "Rescue-ACE Preventer",
-      "points": 7
+      "points": 3
     },
     {
       "name": "Retaliating \"C\"",
@@ -2340,11 +2240,7 @@
     },
     {
       "name": "Return from the Different Dimension",
-      "points": 20
-    },
-    {
-      "name": "Return of the Dragon Lords",
-      "points": 3
+      "points": 10
     },
     {
       "name": "Reversal Quiz",
@@ -2355,16 +2251,12 @@
       "points": 1
     },
     {
-      "name": "Ritual Beast Tamer Elder",
-      "points": 3
-    },
-    {
       "name": "Rivalry of Warlords",
       "points": 100
     },
     {
       "name": "Ronintoadin",
-      "points": 60
+      "points": 51
     },
     {
       "name": "Royal Archfiend",
@@ -2384,7 +2276,7 @@
     },
     {
       "name": "Runick Tip",
-      "points": 10
+      "points": 7
     },
     {
       "name": "Ryzeal Detonator",
@@ -2395,8 +2287,8 @@
       "points": 20
     },
     {
-      "name": "Sacred Beasts Thunderclap",
-      "points": 3
+      "name": "Sacred Beasts Released",
+      "points": 33
     },
     {
       "name": "Sales Ban",
@@ -2408,7 +2300,7 @@
     },
     {
       "name": "Sangen Kaimen",
-      "points": 50
+      "points": 51
     },
     {
       "name": "Sangen Summoning",
@@ -2416,7 +2308,7 @@
     },
     {
       "name": "Sauravis, the Ancient and Ascended",
-      "points": 3
+      "points": 1
     },
     {
       "name": "Schwarzschild Infinity Dragon",
@@ -2432,7 +2324,7 @@
     },
     {
       "name": "Sengenjin Wakes from a Millennium",
-      "points": 33
+      "points": 21
     },
     {
       "name": "Senju of the Thousand Hands",
@@ -2440,7 +2332,7 @@
     },
     {
       "name": "Set Rotation",
-      "points": 33
+      "points": 25
     },
     {
       "name": "Seventh Tachyon",
@@ -2459,10 +2351,6 @@
       "points": 1
     },
     {
-      "name": "Shien's Smoke Signal",
-      "points": 20
-    },
-    {
       "name": "Shiina, Twin Tempests of Celestial Thunder",
       "points": 10
     },
@@ -2476,15 +2364,23 @@
     },
     {
       "name": "Silvy of the White Forest",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Sixth Sense",
-      "points": 65
+      "points": 21
     },
     {
       "name": "Skill Drain",
       "points": 100
+    },
+    {
+      "name": "Skull Archfiend of Chaos",
+      "points": 20
+    },
+    {
+      "name": "Skull Meister",
+      "points": 1
     },
     {
       "name": "Sky Striker Mobilize - Engage!",
@@ -2492,7 +2388,7 @@
     },
     {
       "name": "Smoke Grenade of the Thief",
-      "points": 87
+      "points": 100
     },
     {
       "name": "Snatch Steal",
@@ -2500,7 +2396,7 @@
     },
     {
       "name": "Snoww, Unlight of Dark World",
-      "points": 33
+      "points": 11
     },
     {
       "name": "Solemn Accusation",
@@ -2508,7 +2404,7 @@
     },
     {
       "name": "Solemn Judgment",
-      "points": 7
+      "points": 11
     },
     {
       "name": "Solemn Scolding",
@@ -2516,11 +2412,11 @@
     },
     {
       "name": "Solemn Strike",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Solemn Warning",
-      "points": 5
+      "points": 9
     },
     {
       "name": "Songs of the Dominators",
@@ -2528,7 +2424,7 @@
     },
     {
       "name": "Soul Charge",
-      "points": 50
+      "points": 25
     },
     {
       "name": "Soul Drain",
@@ -2551,24 +2447,8 @@
       "points": 15
     },
     {
-      "name": "Spiritual Beast Tamer Lara",
-      "points": 10
-    },
-    {
       "name": "Spright Starter",
-      "points": 10
-    },
-    {
-      "name": "Stand Up Centur-Ion!",
-      "points": 5
-    },
-    {
-      "name": "Star Seraph Scepter",
-      "points": 5
-    },
-    {
-      "name": "Star Seraph Sovereignty",
-      "points": 5
+      "points": 11
     },
     {
       "name": "Stardust Dragon - Victim Sanctuary",
@@ -2581,14 +2461,6 @@
     {
       "name": "Starjunk Synchron",
       "points": 1
-    },
-    {
-      "name": "Starliege Seyfert",
-      "points": 33
-    },
-    {
-      "name": "Steel-Stringed Sacrifice",
-      "points": 3
     },
     {
       "name": "Stellarnova Binding",
@@ -2604,11 +2476,7 @@
     },
     {
       "name": "Substitoad",
-      "points": 60
-    },
-    {
-      "name": "Subterror Guru",
-      "points": 5
+      "points": 51
     },
     {
       "name": "Summon Limit",
@@ -2624,7 +2492,7 @@
     },
     {
       "name": "Super Quantal Mech King Great Magnus",
-      "points": 33
+      "points": 51
     },
     {
       "name": "Super Starslayer TY-PHON - Sky Crisis",
@@ -2636,7 +2504,7 @@
     },
     {
       "name": "Superdreadnought Rail Cannon Gustav Max",
-      "points": 10
+      "points": 51
     },
     {
       "name": "Supreme King Dragon Starving Venom",
@@ -2647,24 +2515,12 @@
       "points": 4
     },
     {
-      "name": "Swap Frog",
-      "points": 33
-    },
-    {
       "name": "Sword Ryzeal",
       "points": 20
     },
     {
-      "name": "Swordsoul Emergence",
-      "points": 2
-    },
-    {
       "name": "Swordsoul Grandmaster - Chixiao",
       "points": 10
-    },
-    {
-      "name": "Swordsoul Strategist Longyuan",
-      "points": 1
     },
     {
       "name": "Swordsoul Supreme Sovereign - Chengying",
@@ -2676,7 +2532,7 @@
     },
     {
       "name": "T.G. Hyper Librarian",
-      "points": 20
+      "points": 51
     },
     {
       "name": "Tearlaments Havnis",
@@ -2699,10 +2555,6 @@
       "points": 50
     },
     {
-      "name": "Telekinetic Charging Cell",
-      "points": 100
-    },
-    {
       "name": "Tellarknight Constellar Delteros",
       "points": 10
     },
@@ -2719,12 +2571,12 @@
       "points": 100
     },
     {
-      "name": "Tempest, Dragon Ruler of Storms",
-      "points": 5
+      "name": "Teller of Fairy Tails",
+      "points": 11
     },
     {
       "name": "Tenpai Dragon Chundra",
-      "points": 50
+      "points": 51
     },
     {
       "name": "Tenpai Dragon Genroku",
@@ -2736,15 +2588,19 @@
     },
     {
       "name": "That Grass Looks Greener",
-      "points": 50
+      "points": 33
     },
     {
       "name": "The Black Goat Laughs",
-      "points": 10
+      "points": 7
     },
     {
       "name": "The Bystial Lubellion",
       "points": 30
+    },
+    {
+      "name": "The Chaotic Phantasmal Sacred Beasts",
+      "points": 21
     },
     {
       "name": "The Crimson King",
@@ -2752,7 +2608,7 @@
     },
     {
       "name": "The Dragon that Devours the Dogma",
-      "points": 5
+      "points": 51
     },
     {
       "name": "The Fallen & The Virtuous",
@@ -2768,7 +2624,7 @@
     },
     {
       "name": "The Gaze of Timaeus",
-      "points": 1
+      "points": 11
     },
     {
       "name": "The Last Warrior from Another Planet",
@@ -2776,7 +2632,7 @@
     },
     {
       "name": "The Melody of Awakening Dragon",
-      "points": 25
+      "points": 18
     },
     {
       "name": "The Monarchs Erupt",
@@ -2785,14 +2641,6 @@
     {
       "name": "The Phantom Knights of Break Sword",
       "points": 1
-    },
-    {
-      "name": "The Phantom Knights of Decayed Cloak",
-      "points": 2
-    },
-    {
-      "name": "The Phantom Knights of Doomed Soleret",
-      "points": 3
     },
     {
       "name": "The Phantom Knights of Malevolent Scythe",
@@ -2820,15 +2668,15 @@
     },
     {
       "name": "The Zombie Vampire",
-      "points": 50
+      "points": 40
     },
     {
       "name": "Theorealize",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Theorealize Past Lull",
-      "points": 5
+      "points": 7
     },
     {
       "name": "There Can Be Only One",
@@ -2840,7 +2688,7 @@
     },
     {
       "name": "Thunder Dragon Colossus",
-      "points": 67
+      "points": 100
     },
     {
       "name": "Thunder King Rai-Oh",
@@ -2848,11 +2696,7 @@
     },
     {
       "name": "Thunderclap Monk",
-      "points": 9
-    },
-    {
-      "name": "Tidal, Dragon Ruler of Waterfalls",
-      "points": 5
+      "points": 7
     },
     {
       "name": "Toadally Awesome",
@@ -2872,11 +2716,11 @@
     },
     {
       "name": "Transaction Rollback",
-      "points": 7
+      "points": 11
     },
     {
       "name": "Trap Dustshoot",
-      "points": 94
+      "points": 50
     },
     {
       "name": "Trap Holic",
@@ -2891,20 +2735,16 @@
       "points": 20
     },
     {
-      "name": "Treasures of the Kings",
-      "points": 5
-    },
-    {
       "name": "Tri-Brigade Mercourier",
       "points": 5
     },
     {
       "name": "Triple Tactics Talent",
-      "points": 93
+      "points": 40
     },
     {
       "name": "Triple Tactics Thrust",
-      "points": 13
+      "points": 11
     },
     {
       "name": "Trishula, Dragon of the Ice Barrier",
@@ -2925,10 +2765,6 @@
     {
       "name": "Ultimaya Tzolkin",
       "points": 100
-    },
-    {
-      "name": "Union Hangar",
-      "points": 5
     },
     {
       "name": "Upstart Goblin",
@@ -2964,15 +2800,11 @@
     },
     {
       "name": "Varudras, the Final Bringer of the End Times",
-      "points": 20
-    },
-    {
-      "name": "Virakam, the Divine Spirit of Artifice",
-      "points": 2
+      "points": 50
     },
     {
       "name": "Virtual World Kyubi - Shenshen",
-      "points": 20
+      "points": 10
     },
     {
       "name": "Void Unleashing",
@@ -2984,15 +2816,11 @@
     },
     {
       "name": "WANTED: Seeker of Sinful Spoils",
-      "points": 33
-    },
-    {
-      "name": "Welcome Labrynth",
-      "points": 15
+      "points": 20
     },
     {
       "name": "Whisker Blitzclique",
-      "points": 6
+      "points": 11
     },
     {
       "name": "Wind-Up Carrier Zenmaity",
@@ -3008,7 +2836,7 @@
     },
     {
       "name": "Wishes for Eyes of Blue",
-      "points": 33
+      "points": 18
     },
     {
       "name": "Witch of the White Forest",
@@ -3023,24 +2851,24 @@
       "points": 1
     },
     {
+      "name": "XX-Saber Gottoms",
+      "points": 100
+    },
+    {
       "name": "Zaborg the Mega Monarch",
       "points": 100
     },
     {
       "name": "Zalen the Shackled Dragon",
-      "points": 12
+      "points": 13
     },
     {
       "name": "Zoodiac Barrage",
-      "points": 33
+      "points": 25
     },
     {
       "name": "Zoodiac Broadbull",
-      "points": 66
-    },
-    {
-      "name": "Zoodiac Drident",
-      "points": 20
+      "points": 40
     },
     {
       "name": "Zoodiac Ratpier",
