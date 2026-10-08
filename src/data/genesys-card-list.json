@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-10-07T13:01:18.513Z",
+  "lastUpdated": "2026-10-08T13:08:10.744Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -1869,6 +1869,10 @@
     {
       "name": "Number F0: Utopic Future Zexal",
       "points": 15
+    },
+    {
+      "name": "Number S0: Utopic ZEXAL",
+      "points": 100
     },
     {
       "name": "Numbers Eveil",
