@@ -1,6 +1,6 @@
 {
   "source": "https://www.yugioh-card.com/en/genesys/",
-  "lastUpdated": "2026-10-14T11:31:54.554Z",
+  "lastUpdated": "2026-10-15T11:09:51.184Z",
   "cards": [
     {
       "name": "\"A Case for K9\"",
@@ -15,8 +15,16 @@
       "points": 100
     },
     {
+      "name": "Adamancipator Mates",
+      "points": 10
+    },
+    {
       "name": "Adamancipator Risen - Dragite",
       "points": 15
+    },
+    {
+      "name": "Adamancipator Risen - Tiamite",
+      "points": 10
     },
     {
       "name": "Agido the Ancient Sentinel",
@@ -36,6 +44,10 @@
     },
     {
       "name": "Aleister the Reminiscent",
+      "points": 4
+    },
+    {
+      "name": "Alligator's Dragon Knight",
       "points": 4
     },
     {
@@ -71,6 +83,10 @@
       "points": 100
     },
     {
+      "name": "Angelechy Castellan",
+      "points": 20
+    },
+    {
       "name": "Angelechy Destrier",
       "points": 1
     },
@@ -103,6 +119,10 @@
       "points": 100
     },
     {
+      "name": "Ars Magna \"Citrinitas\"",
+      "points": 10
+    },
+    {
       "name": "Artifact Lancea",
       "points": 1
     },
@@ -125,6 +145,10 @@
     {
       "name": "Ash Blossom & Joyous Spring",
       "points": 18
+    },
+    {
+      "name": "Ashtrashen - Gate to the Worlds Beyond",
+      "points": 7
     },
     {
       "name": "Assault Synchron",
@@ -153,6 +177,10 @@
     {
       "name": "Banquet of Millions",
       "points": 51
+    },
+    {
+      "name": "Barian's Seventh Untopia",
+      "points": 33
     },
     {
       "name": "Baronne de Fleur",
@@ -229,6 +257,10 @@
     {
       "name": "Blitzclique - Breakaway",
       "points": 3
+    },
+    {
+      "name": "Blitzclique Overvolt",
+      "points": 5
     },
     {
       "name": "Block Dragon",
@@ -351,6 +383,10 @@
       "points": 13
     },
     {
+      "name": "Chaospawn Bishop",
+      "points": 7
+    },
+    {
       "name": "Charge of the Light Brigade",
       "points": 15
     },
@@ -463,6 +499,10 @@
       "points": 100
     },
     {
+      "name": "CXyz Hope Chaos Barian Dragon",
+      "points": 100
+    },
+    {
       "name": "Cyber Angel Benten",
       "points": 13
     },
@@ -531,6 +571,10 @@
       "points": 7
     },
     {
+      "name": "Dark City at Midnight",
+      "points": 5
+    },
+    {
       "name": "Dark Eradicator Warlock",
       "points": 100
     },
@@ -553,6 +597,10 @@
     {
       "name": "Dark Ruler No More",
       "points": 2
+    },
+    {
+      "name": "Dark Time Wizard",
+      "points": 5
     },
     {
       "name": "Dark World Archives",
@@ -607,8 +655,20 @@
       "points": 100
     },
     {
+      "name": "Destiny HERO - Destro-Dogma",
+      "points": 10
+    },
+    {
       "name": "Destiny HERO - Destroyer Phoenix Enforcer",
       "points": 7
+    },
+    {
+      "name": "Destiny HERO - Doom Overlord",
+      "points": 5
+    },
+    {
+      "name": "Destiny HERO - Dreadnought Master",
+      "points": 15
     },
     {
       "name": "Destiny HERO - Plasma",
@@ -793,6 +853,10 @@
     {
       "name": "Elemental HERO Cosmo Neos",
       "points": 21
+    },
+    {
+      "name": "Elemental Saga Doriado",
+      "points": 15
     },
     {
       "name": "Elfnote June Pride",
@@ -1115,6 +1179,10 @@
       "points": 4
     },
     {
+      "name": "Gorgonic Umbral Horror",
+      "points": 10
+    },
+    {
       "name": "Gozen Match",
       "points": 100
     },
@@ -1189,6 +1257,10 @@
     {
       "name": "Herald of Ultimateness",
       "points": 51
+    },
+    {
+      "name": "Hey, Space Trunade!",
+      "points": 11
     },
     {
       "name": "Hideout in the Sky, Coulomb",
@@ -1623,6 +1695,10 @@
       "points": 10
     },
     {
+      "name": "Mikumari the Banisher Ashtra",
+      "points": 5
+    },
+    {
       "name": "Millennium Ankh",
       "points": 3
     },
@@ -1669,6 +1745,10 @@
     {
       "name": "Mitsurugi Ritual",
       "points": 51
+    },
+    {
+      "name": "Monster Arms of Atlantis",
+      "points": 10
     },
     {
       "name": "Monster Gate",
@@ -1777,6 +1857,10 @@
     {
       "name": "Number 100: Numeron Dragon",
       "points": 21
+    },
+    {
+      "name": "Number 104: Masquerade V",
+      "points": 20
     },
     {
       "name": "Number 16: Shock Master",
@@ -2295,6 +2379,10 @@
       "points": 33
     },
     {
+      "name": "Sacred Beasts Skyfall",
+      "points": 10
+    },
+    {
       "name": "Sales Ban",
       "points": 100
     },
@@ -2357,6 +2445,10 @@
     {
       "name": "Shiina, Twin Tempests of Celestial Thunder",
       "points": 10
+    },
+    {
+      "name": "Shining Umbral Horror",
+      "points": 7
     },
     {
       "name": "Shooting Riser Dragon",
@@ -2447,6 +2539,14 @@
       "points": 13
     },
     {
+      "name": "Spell Power Attainment",
+      "points": 11
+    },
+    {
+      "name": "Spell Shattering Sword",
+      "points": 5
+    },
+    {
       "name": "Spenta, the Magistus Sealer",
       "points": 15
     },
@@ -2517,6 +2617,10 @@
     {
       "name": "Surge Blitzclique",
       "points": 4
+    },
+    {
+      "name": "Swiftwind Panther Warrior",
+      "points": 3
     },
     {
       "name": "Sword Ryzeal",
@@ -2631,6 +2735,10 @@
       "points": 11
     },
     {
+      "name": "The Great Gallant Bandit",
+      "points": 20
+    },
+    {
       "name": "The Last Warrior from Another Planet",
       "points": 100
     },
@@ -2681,6 +2789,10 @@
     {
       "name": "Theorealize Past Lull",
       "points": 7
+    },
+    {
+      "name": "Theorealized Medius",
+      "points": 80
     },
     {
       "name": "There Can Be Only One",
@@ -2779,6 +2891,10 @@
       "points": 18
     },
     {
+      "name": "V Umbral Horror",
+      "points": 7
+    },
+    {
       "name": "Vanity's Emptiness",
       "points": 100
     },
@@ -2805,6 +2921,10 @@
     {
       "name": "Varudras, the Final Bringer of the End Times",
       "points": 50
+    },
+    {
+      "name": "Verre, the Maid of Endymion",
+      "points": 5
     },
     {
       "name": "Virtual World Kyubi - Shenshen",
@@ -2857,6 +2977,10 @@
     {
       "name": "XX-Saber Gottoms",
       "points": 100
+    },
+    {
+      "name": "Yoa the Plague Ashtra",
+      "points": 3
     },
     {
       "name": "Zaborg the Mega Monarch",
